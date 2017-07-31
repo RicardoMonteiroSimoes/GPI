@@ -5,53 +5,71 @@
  */
 package BuildingBlocksMaster;
 
+import java.util.Observable;
+import javafx.scene.control.Tooltip;
+import javafx.scene.shape.Ellipse;
+
 /**
  *
  * @author Ricardo
  */
-public class Output {
+public class Output extends Observable{
     
     private String sName;
     private boolean bValue = false;
     private boolean bIsBoolean = true;
     private String sOutput;
+    private Ellipse elpsOutput;
+    private final double CONNECTION_POINT_RADIUS = 4.0;
     
     public Output(String sName){
         this.sName = sName;
+        createEllipse();
     }
     
     public Output(){
         this.sName = "Output";
+        createEllipse();
     }
     
     public Output(Output out){
         this.sName = new String(out.getName());
+        createEllipse();
     }
     
-    public boolean getBOutput(){
+    public boolean getStatus(){
         return this.bValue;
     }
     
-    public String getSOutput(){
-        return this.sOutput;
-    }
-    
-    public boolean isBOutput(){
-        return bIsBoolean;
-    }
-    
-    public void setOutput(String sVariable){
-        this.sOutput = sVariable;
-        this.bIsBoolean = false;
-    }
-    
     public void setOutput(boolean bValue){
-        this.sOutput = null;
-        this.bIsBoolean = true;
         this.bValue = bValue;
+        notifyObservers();
+    }
+    
+    public Observable getObservable(){
+        return this.getObservable();
     }
     
     public String getName(){
         return this.sName;
+    }
+    
+    public Ellipse getEllipse(){
+        return this.elpsOutput;
+    }
+    
+    private void setEllipseTooltip(){
+        Tooltip t = new Tooltip(String.valueOf(getStatus()));
+        Tooltip.install(elpsOutput, t);
+    }
+
+    private void createEllipse () {
+        elpsOutput = new Ellipse(0.0, 0.0, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS);
+        setEllipseTooltip();
+    }
+    
+    public void setPointXY(double x, double y){
+        elpsOutput.setCenterX(x);
+        elpsOutput.setCenterY(y);
     }
 }

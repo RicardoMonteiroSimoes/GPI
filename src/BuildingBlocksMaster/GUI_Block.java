@@ -113,19 +113,15 @@ public abstract class GUI_Block {
         //Construct Input Points
         int count = 1;
         for (Input in : alInputs) {
-            Ellipse elpsTemp = new Ellipse(0, count * DISTANCE_BETWEEN_POINTS, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS);
-            Tooltip t = new Tooltip(in.getName());
-            Tooltip.install(elpsTemp, t);
-            alEllipse.add(elpsTemp);
+            in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
+            alEllipse.add(in.getEllipse());
             count++;
         }
 
         count = 1;
         for (Output out : alOutputs) {
-            Ellipse elpsTemp = new Ellipse(BLOCK_WIDTH, count * DISTANCE_BETWEEN_POINTS, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS);
-            Tooltip t = new Tooltip(out.getName());
-            Tooltip.install(elpsTemp, t);
-            alEllipse.add(elpsTemp);
+            out.setPointXY(BLOCK_WIDTH, count * DISTANCE_BETWEEN_POINTS);
+            alEllipse.add(out.getEllipse());
             count++;
         }
 

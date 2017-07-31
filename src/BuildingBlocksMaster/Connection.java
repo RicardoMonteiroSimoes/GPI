@@ -5,6 +5,8 @@
  */
 package BuildingBlocksMaster;
 
+import java.util.Observable;
+import java.util.Observer;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
@@ -13,7 +15,7 @@ import javafx.scene.shape.Polyline;
  *
  * @author Ricardo
  */
-public class Connection {
+public class Connection{
     
     private Point startPoint;
     private Point endPoint;
@@ -21,11 +23,15 @@ public class Connection {
     private boolean bValue;
     private Polyline plyConnection;
     
-    public Connection(Point startPoint, Point endPoint){
+    public Connection(Point startPoint, Observable obsOutput, Point endPoint, Input obsInput){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+        obsOutput.addObserver(obsInput);
         generateLine();
     }
+    
+    
+    
     
     private void generateLine(){
         plyConnection = new Polyline();
@@ -43,5 +49,6 @@ public class Connection {
     public Polyline getLine(){
         return this.plyConnection;
     }
+
     
 }
