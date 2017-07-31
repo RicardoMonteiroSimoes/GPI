@@ -26,7 +26,7 @@ public class SC_PGI extends Application{
     static OnDelay onD = new OnDelay();
     static GUI GUI = new GUI();
     static AND and;
-    static Variable var = new Variable("Boolean", true);
+    static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
      */

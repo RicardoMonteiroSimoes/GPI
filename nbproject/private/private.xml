@@ -3,20 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocksMaster/GUI_Block.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocksMaster/Output.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocksMaster/LogicBlock.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/AND.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/XOR.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/OR.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/sc_pgi/GUI.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/Variable.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocksMaster/TimerBlock.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/sc_pgi/SC_PGI.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocksMaster/Connection.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/OnDelay.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/OffDelay.java</file>
-            <file>file:/C:/Users/Ricardo/Dropbox/SC_PGI/src/BuildingBlocks/Blocks/NOT.java</file>
+            <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Blocks/Variable.java</file>
+            <file>file:/T:/user/ricardo/SC_PGI/src/sc_pgi/SC_PGI.java</file>
         </group>
     </open-files>
 </project-private>
