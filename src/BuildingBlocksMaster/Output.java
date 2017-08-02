@@ -41,7 +41,7 @@ public class Output extends Observable{
         return this.bValue;
     }
     
-    public void setOutput(boolean bValue){
+    public void setStatus(boolean bValue){
         this.bValue = bValue;
         notifyObservers();
     }

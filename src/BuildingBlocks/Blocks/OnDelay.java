@@ -25,7 +25,7 @@ public class OnDelay extends TimerBlock{
     @Override
     protected void Logic () {
         if(super.getInputs().get(0).getStatus()){
-            super.setTime(Double.parseDouble(super.getInputs().get(1).getInput()));
+            super.setTime(super.getTimeInput());
             startTimer();
         } else {
             super.setOutputStatus(false);

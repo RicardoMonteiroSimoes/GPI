@@ -63,7 +63,7 @@ public class Variable {
     }
 
     private void setOutput () {
-        alOutputs.get(0).setOutput(this.bValue);
+        alOutputs.get(0).setStatus(this.bValue);
     }
 
     private void createBlock () {

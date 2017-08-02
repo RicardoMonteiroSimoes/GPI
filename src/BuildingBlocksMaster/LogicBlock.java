@@ -58,7 +58,7 @@ public abstract class LogicBlock extends GUI_Block{
     }
 
     public void setOutputStatus (boolean bStatus) {
-       alOutputs.get(0).setOutput(bStatus);
+       alOutputs.get(0).setStatus(bStatus);
     }
     
 }

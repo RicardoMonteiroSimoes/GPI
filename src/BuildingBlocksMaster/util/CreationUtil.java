@@ -6,6 +6,7 @@
 package BuildingBlocksMaster.util;
 
 import BuildingBlocksMaster.Input;
+import BuildingBlocksMaster.VarInput;
 import java.util.ArrayList;
 
 /**
@@ -33,7 +34,7 @@ public class CreationUtil {
     public static ArrayList<Input> getTimerInputs(){
         ArrayList<Input> alTemp = new ArrayList();
         alTemp.add(new Input("Input"));
-        alTemp.add(new Input("Timevalue"));
+        alTemp.add(new VarInput("Timevalue"));
         return alTemp;
     }
 }

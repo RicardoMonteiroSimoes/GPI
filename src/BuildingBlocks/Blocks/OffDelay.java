@@ -28,7 +28,7 @@ public class OffDelay extends TimerBlock{
             super.setOutputStatus(true);
             super.cancelTimer();
         } else {
-            super.setTime(Double.parseDouble(super.getInputs().get(1).getInput()));
+            super.setTime(super.getTimeInput());
             startTimer();
         }
     }

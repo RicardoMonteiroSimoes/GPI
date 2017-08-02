@@ -40,6 +40,11 @@ public abstract class TimerBlock extends LogicBlock{
     protected double getTime(){
         return dTime;
     }
+    
+    protected double getTimeInput(){
+        VarInput varITemp = (VarInput) super.getInputs().get(1);
+        return Double.parseDouble(varITemp.getInput());
+    }
 
     protected void scheduleTimer (TimerTask timTask) {
         timTemp.schedule(timTask, (long) dTime);
