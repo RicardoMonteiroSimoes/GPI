@@ -29,12 +29,13 @@ public class VarInput extends Input {
 
     @Override
     public void setStatus (boolean bStatus) {
-        throw new AbstractMethodError("This Variable can only handle Strings");
+//        throw new AbstractMethodError("This Variable can only handle Strings");
     }
 
     @Override
     public boolean getStatus () {
-        throw new AbstractMethodError("This Variable can only return Strings");
+        return false;
+//          throw new AbstractMethodError("This Variable can only return Strings");
     }
 
 }

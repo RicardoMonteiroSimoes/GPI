@@ -127,6 +127,19 @@ public abstract class GUI_Block {
 
         grpBlock.getChildren().addAll(alEllipse);
     }
+    
+    public void setLayoutXY(double x, double y){
+        grpBlock.setLayoutX(x);
+        grpBlock.setLayoutY(y);
+    }
+    
+    public ArrayList<Output> getGUIOutputs(){
+        return this.alOutputs;
+    }
+    
+    public ArrayList<Input> getGUIInputs(){
+        return this.alInputs;
+    }
 
     public Group getBlock () {
         return this.grpBlock;
