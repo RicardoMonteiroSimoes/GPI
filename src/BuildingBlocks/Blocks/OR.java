@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class OR extends LogicBlock{
     
     public OR(ArrayList<Input> alInputs){
-        super("OR", alInputs, new Output("Output"));
+        super("OR", alInputs, new Output("Output"), Type.LOGIC);
     }
     
     protected void Logic(){

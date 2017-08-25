@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 
 /**
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 public class AND extends LogicBlock{
     
     public AND(ArrayList<Input> alInputs){
-        super("AND", alInputs, new Output("Output"));
+        super("AND", alInputs, new Output("Output"), Type.LOGIC);
     }
     
     public AND(ArrayList<Input> alInputs, ArrayList<Output> alOutputs){
-        super("AND", alInputs, alOutputs);
+        super("AND", alInputs, alOutputs, Type.LOGIC);
     }
     
     @Override

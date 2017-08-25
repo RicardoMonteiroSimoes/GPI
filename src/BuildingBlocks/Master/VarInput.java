@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocksMaster;
+package BuildingBlocks.Master;
 
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.Input;
 
 /**
  *
  * @author Ricardo
  */
-public class VarOutput extends Output {
+public class VarInput extends Input {
 
     private String sValue;
 
-    public VarOutput (String sName) {
+    public VarInput (String sName) {
         super(sName);
     }
 
@@ -29,12 +29,13 @@ public class VarOutput extends Output {
 
     @Override
     public void setStatus (boolean bStatus) {
-        throw new AbstractMethodError("This Variable can only handle Strings");
+//        throw new AbstractMethodError("This Variable can only handle Strings");
     }
 
     @Override
     public boolean getStatus () {
-        throw new AbstractMethodError("This Variable can only return Strings");
+        return false;
+//          throw new AbstractMethodError("This Variable can only return Strings");
     }
 
 }

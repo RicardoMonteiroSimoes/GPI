@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +22,7 @@ public class SR extends LogicBlock{
      * RS bedeutet SET-RESET, d.h. SET ist höher gestellt als SET
      */
     public SR(){
-        super("SR", new ArrayList<Input>(getSRInputs()), new Output("Output"));
+        super("SR", new ArrayList<Input>(getSRInputs()), new Output("Output"), Type.LOGIC);
     }
     
     @Override

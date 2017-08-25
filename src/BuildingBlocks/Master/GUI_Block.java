@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocksMaster;
+package BuildingBlocks.Master;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -41,38 +41,61 @@ public abstract class GUI_Block {
     private ArrayList<Output> alOutputs = new ArrayList();
     private ArrayList<Ellipse> alEllipse = new ArrayList();
     private boolean bDeactivateEvents = false;
+    private Type type;
 
     private long currentTime;
     private long lastTime;
     private boolean bDoubleClick = false;
+    
+    public enum Type {
+        VARIABLE, TIMER, LOGIC, FILTER
+    }
 
-    public GUI_Block (String sName, Input in, Output out) {
+    public GUI_Block (String sName, Input in, Output out, Type type) {
         this.sName = sName;
+        this.type = type;
         alInputs.add(new Input(in));
         alOutputs.add(new Output(out));
         constructBlock();
     }
 
-    public GUI_Block (String sName, ArrayList<Input> alInputs, Output out) {
+    public GUI_Block (String sName, ArrayList<Input> alInputs, Output out, Type type) {
         this.sName = sName;
+        this.type = type;
         this.alInputs = new ArrayList(alInputs);
         alOutputs.add(new Output(out));
         constructBlock();
     }
 
-    public GUI_Block (String sName, ArrayList<Input> alInputs, ArrayList<Output> alOutputs) {
+    public GUI_Block (String sName, ArrayList<Input> alInputs, ArrayList<Output> alOutputs, Type type) {
         this.sName = sName;
+        this.type = type;
         this.alInputs = new ArrayList(alInputs);
         this.alOutputs = new ArrayList(alOutputs);
         constructBlock();
     }
 
+    private Color getFillColor(){
+        switch(type){
+            case VARIABLE:
+                return Color.TURQUOISE;
+            case TIMER:
+                return Color.GREEN;
+            case LOGIC:
+                return Color.BURLYWOOD;
+            case FILTER:
+                return Color.YELLOW;
+            default:
+                return Color.PURPLE;
+        }
+    }
+    
     private void constructBlock () {
         //Construct Block
         rectBlock.setHeight(alInputs.size() * DISTANCE_BETWEEN_POINTS + DISTANCE_BETWEEN_POINTS);
         rectBlock.setWidth(BLOCK_WIDTH);
         rectBlock.setStroke(STROKE_COLOR);
-        rectBlock.setFill(FILL_COLOR);
+        rectBlock.setFill(getFillColor());
         rectBlock.setOpacity(OPACITY_VALUE);
         grpBlock.getChildren().add(rectBlock);
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocksMaster;
+package BuildingBlocks.Master;
 
 import java.util.Observable;
 import java.util.Observer;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocksMaster;
+package BuildingBlocks.Master;
 
 import java.util.ArrayList;
 
@@ -16,20 +16,20 @@ public abstract class LogicBlock extends GUI_Block{
     private ArrayList<Input> alInputs = new ArrayList();
     private ArrayList<Output> alOutputs = new ArrayList();
     
-    public LogicBlock(String sName, Input in, Output out){
-        super(sName, in, out);
+    public LogicBlock(String sName, Input in, Output out, Type type){
+        super(sName, in, out, type);
         alInputs.add(new Input(in));
         alOutputs.add(new Output(out));
     }
     
-    public LogicBlock(String sName, ArrayList<Input> alInputs, Output out){
-        super(sName, alInputs, out);
+    public LogicBlock(String sName, ArrayList<Input> alInputs, Output out, Type type){
+        super(sName, alInputs, out, type);
         this.alInputs = new ArrayList(alInputs);
         alOutputs.add(new Output(out));
     }
     
-    public LogicBlock(String sName, ArrayList<Input> alInputs, ArrayList<Output> alOutputs){
-        super(sName, alInputs, alOutputs);
+    public LogicBlock(String sName, ArrayList<Input> alInputs, ArrayList<Output> alOutputs, Type type){
+        super(sName, alInputs, alOutputs, type);
         this.alInputs = new ArrayList(alInputs);
         this.alOutputs = new ArrayList(alOutputs);
     }

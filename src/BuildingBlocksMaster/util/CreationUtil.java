@@ -5,8 +5,8 @@
  */
 package BuildingBlocksMaster.util;
 
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.VarInput;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.VarInput;
 import java.util.ArrayList;
 
 /**

@@ -5,8 +5,8 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.GUI_Block;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.GUI_Block;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.control.Label;

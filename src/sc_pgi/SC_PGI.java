@@ -6,8 +6,8 @@
 package sc_pgi;
 
 import BuildingBlocks.Blocks.*;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.LogicBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocksMaster.util.CreationUtil;
 import java.util.ArrayList;
 import javafx.application.Application;
@@ -26,6 +26,7 @@ public class SC_PGI extends Application{
     static OnDelay onD = new OnDelay();
     static GUI GUI = new GUI();
     static AND and;
+    static STEPRELAY step = new STEPRELAY();
     static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
@@ -41,6 +42,7 @@ public class SC_PGI extends Application{
         alBlocks.add(offD);
         alBlocks.add(onD);
         alBlocks.add(and);
+        alBlocks.add(step);
         GUI.start(primaryStage);
     }
     

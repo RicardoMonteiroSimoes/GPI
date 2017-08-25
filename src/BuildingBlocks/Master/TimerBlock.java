@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocksMaster;
+package BuildingBlocks.Master;
 
 import BuildingBlocksMaster.util.CreationUtil;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public abstract class TimerBlock extends LogicBlock{
     private Timer timTemp = new Timer();
     
     public TimerBlock(String sName){
-        super(sName, CreationUtil.getTimerInputs(), new Output("Output"));
+        super(sName, CreationUtil.getTimerInputs(), new Output("Output"), Type.TIMER);
     }    
    
     
