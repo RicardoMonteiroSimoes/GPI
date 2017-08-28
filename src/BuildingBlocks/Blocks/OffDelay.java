@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.TimerBlock;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.TimerBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;

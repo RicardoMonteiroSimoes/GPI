@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +21,7 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", new ArrayList<Input>(getRSInputs()), new Output("Output"));
+        super("RS", new ArrayList<Input>(getRSInputs()), new Output("Output"), Type.LOGIC);
     }
 
     @Override

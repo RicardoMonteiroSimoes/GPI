@@ -5,12 +5,12 @@
  */
 package sc_pgi;
 
+import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
-import BuildingBlocksMaster.util.*;
-import BuildingBlocksMaster.Dialogs;
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.Dialogs;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Output;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -19,6 +19,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +27,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
@@ -41,20 +43,23 @@ public class GUI extends Application {
     private Scene scene;
     private long currentTime;
     private long lastTime;
+    private Group grpLayout = new Group();
     private boolean bDoubleClick = false;
+    private StackPane stpLayout = new StackPane();
     private ScrollPane spItems = new ScrollPane();
     private ScrollPane spLayout = new ScrollPane();
-    private Group grpLayout = new Group();
 
     @Override
     public void start (Stage primaryStage) {
 
         HBox root = new HBox();
         VBox vBox = new VBox();
+//        stpLayout.setHeight(1000);
+//        stpLayout.setWidth(1000);
+        spLayout.setMaxSize(1000, 1000);
+        spLayout.setMinSize(1000, 1000);
         spItems.setMaxHeight(800);
         spItems.setPrefWidth(100);
-        spLayout.setPrefWidth(1500);
-        spLayout.setPrefHeight(800);
         spItems.setBackground(Background.EMPTY);
         spItems.setBorder(Border.EMPTY);
 
@@ -100,10 +105,10 @@ public class GUI extends Application {
             });
             vBox.getChildren().add(lb.getBlock());
         }
-        vBox.getChildren().add(SC_PGI.var.getBlock());
+        //vBox.getChildren().add(SC_PGI.var.getBlock());
 
         spItems.setContent(vBox);
-        spLayout.setContent(grpLayout);
+        spLayout.setContent(stpLayout);
         root.getChildren().add(spItems);
         root.getChildren().add(spLayout);
 
@@ -130,7 +135,7 @@ public class GUI extends Application {
 
     private void readyNewBlock (String sName) {
         scene.setCursor(new ImageCursor(new Image("BuildingBlocksMaster/util/icons8-Hinzufügen-64.png")));
-        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        stpLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (bNewBlockReady) {
@@ -192,7 +197,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -200,7 +205,7 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newANDBlock (double x, double y) {
@@ -228,7 +233,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -236,7 +241,7 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newORBlock (double x, double y) {
@@ -264,7 +269,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -272,7 +277,7 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newXORBlock (double x, double y) {
@@ -300,7 +305,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -308,7 +313,7 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newOnDelayBlock (double x, double y) {
@@ -336,7 +341,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -344,7 +349,7 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newOffDelayBlock (double x, double y) {
@@ -372,7 +377,7 @@ public class GUI extends Application {
                         lineTemp.setStartY(startY);
                         lineTemp.setEndX(t.getX());
                         lineTemp.setEndY(t.getY());
-                        grpLayout.getChildren().add(lineTemp);
+                        stpLayout.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -380,6 +385,6 @@ public class GUI extends Application {
                 }
             });
         }
-        grpLayout.getChildren().add(notTemp.getBlock());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 }

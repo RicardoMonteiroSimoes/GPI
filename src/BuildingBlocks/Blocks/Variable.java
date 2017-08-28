@@ -5,8 +5,8 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.GUI_Block;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.BlockGraphic;
+import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -19,7 +19,7 @@ import javafx.scene.shape.Polyline;
  *
  * @author Ricardo
  */
-public class Variable {
+public class Variable extends BlockGraphic{
 
     private String sName = "Variable";
     private String sTooltip = "Not set";

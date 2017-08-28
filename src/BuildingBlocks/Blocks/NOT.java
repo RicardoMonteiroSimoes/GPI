@@ -5,9 +5,9 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocksMaster.Input;
-import BuildingBlocksMaster.LogicBlock;
-import BuildingBlocksMaster.Output;
+import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.Output;
 
 /**
  *
@@ -16,7 +16,7 @@ import BuildingBlocksMaster.Output;
 public class NOT extends LogicBlock{
     
     public NOT(){
-        super("NOT", new Input("Input"), new Output("Output"));
+        super("NOT", new Input("Input"), new Output("Output"), Type.LOGIC);
     }
     
     @Override
