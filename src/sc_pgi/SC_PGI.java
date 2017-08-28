@@ -8,7 +8,11 @@ package sc_pgi;
 import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
+<<<<<<< HEAD
 import BuildingBlocks.Master.util.CreationUtil;
+=======
+import BuildingBlocksMaster.util.CreationUtil;
+>>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -27,7 +31,11 @@ public class SC_PGI extends Application{
     static GUI GUI = new GUI();
     static AND and;
     static STEPRELAY step = new STEPRELAY();
+<<<<<<< HEAD
     //static Variable var = new Variable("Zeitkonstante", true);
+=======
+    static Variable var = new Variable("Zeitkonstante", true);
+>>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
     /**
      * @param args the command line arguments
      */

@@ -5,7 +5,11 @@
  */
 package BuildingBlocks.Blocks;
 
+<<<<<<< HEAD
 import BuildingBlocks.Master.BlockGraphic;
+=======
+import BuildingBlocks.Master.GUI_Block;
+>>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
 import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 import javafx.scene.Group;

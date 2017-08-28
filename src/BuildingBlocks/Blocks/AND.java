@@ -16,12 +16,21 @@ import java.util.ArrayList;
  */
 public class AND extends LogicBlock{
     
+<<<<<<< HEAD
     public AND(ArrayList<Input> Inputs){
         super("AND", Inputs, new Output("Output"), Type.LOGIC);
     }
     
     public AND(ArrayList<Input> Inputs, ArrayList<Output> Outputs){
         super("AND", Inputs, Outputs, Type.LOGIC);
+=======
+    public AND(ArrayList<Input> alInputs){
+        super("AND", alInputs, new Output("Output"), Type.LOGIC);
+    }
+    
+    public AND(ArrayList<Input> alInputs, ArrayList<Output> alOutputs){
+        super("AND", alInputs, alOutputs, Type.LOGIC);
+>>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
     }
     
     @Override
