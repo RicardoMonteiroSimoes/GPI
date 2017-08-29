@@ -70,6 +70,27 @@ public class GUI extends Application {
         
         for (BlockGraphic bg : SC_PGI.alBlocks) {
             bg.deactivateEvents(true);
+            bg.getBlockGraphic().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle (MouseEvent t) {
+                    long diff = 0;
+                    currentTime = System.currentTimeMillis();
+                    if (lastTime != 0 && currentTime != 0) {
+                        diff = currentTime - lastTime;
+                        if (diff <= 215) {
+                            bDoubleClick = true;
+                        } else {
+                            bDoubleClick = false;
+                        }
+                    }
+                    lastTime = currentTime;
+                    if (bDoubleClick) {
+                        bNewBlockReady = true;
+                        readyNewBlock(bg.getName());
+                    }
+                
+            }
+        });
             vBox.getChildren().add(bg.getBlockGraphic());
         }
 
@@ -103,17 +124,17 @@ public class GUI extends Application {
     }
 
     private void readyNewBlock (String sName) {
-        scene.setCursor(new ImageCursor(new Image("BuildingBlocksMaster/util/icons8-Hinzufügen-64.png")));
-        stpLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        scene.setCursor(new ImageCursor(new Image("BuildingBlocks/Master/util/icons8-Hinzufügen-64.png")));
+        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (bNewBlockReady) {
-                    addNewBlock(sName, t.getSceneX(), t.getSceneY());
+                    scene.setCursor(Cursor.DEFAULT);
+                    bNewBlockReady = false;
+                    addNewBlock(sName, t.getX(), t.getY());
                 }
             }
         });
-        bNewBlockReady = false;
-        scene.setCursor(Cursor.DEFAULT);
     }
 
     private void addNewBlock (String sName, double x, double y) {
