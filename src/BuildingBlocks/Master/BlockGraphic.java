@@ -11,6 +11,7 @@ import java.util.Optional;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Tooltip;
@@ -30,12 +31,12 @@ public abstract class BlockGraphic {
 
     private final double DISTANCE_BETWEEN_POINTS = 20.0;
     private final double BLOCK_WIDTH = 65.0;
-    private final double OPACITY_VALUE = 0.6;
+    private final double OPACITY_VALUE = 0.5;
     private final Color STROKE_COLOR = Color.BLACK;
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private String blockName;
     private Rectangle rectBlock = new Rectangle();
-    private Label lblName = new Label();
+    private Label blockNameLabel = new Label();
     private Group grpBlock = new Group();
     private ArrayList<Input> inputs = new ArrayList();
     private ArrayList<Output> outputs = new ArrayList();
@@ -45,8 +46,7 @@ public abstract class BlockGraphic {
 
     private long currentTime;
     private long lastTime;
-    
-    
+
     private boolean bDoubleClick = false;
 
     public enum Type {
@@ -76,17 +76,18 @@ public abstract class BlockGraphic {
         this.outputs = new ArrayList(alOutputs);
         constructBlock();
     }
-    
+
     /**
-     * This Constructer is used for the Creation of a Variable.
+     * This Constructer is used ONLY for the Creation of a Variable.
+     *
      * @param blockName
      * @param out
      * @param blockType
-     * @throws IllegalArgumentException 
+     * @throws IllegalArgumentException
      */
     public BlockGraphic (String blockName, Output out, Type blockType) throws IllegalArgumentException {
-        if(!(blockType == Type.VARIABLE)){
-           throw new IllegalArgumentException ("Cannot initialize Variable with the type " + blockType.toString());
+        if (!(blockType == Type.VARIABLE)) {
+            throw new IllegalArgumentException("Cannot initialize Variable with the type " + blockType.toString());
         }
         this.blockName = blockName;
         this.outputs.add(out);
@@ -112,45 +113,100 @@ public abstract class BlockGraphic {
     private void constructBlock () {
         try {
             switch (type) {
-                case LOGIC:
-                    
-                    break;
-
-                case FILTER:
-
-                    break;
-
                 case VARIABLE:
-
+                    constructVariableBlock();
                     break;
-
-                case TIMER:
-
-                    break;
-
                 default:
-                    throw new Exception("Block Type " + type.toString() + " not found!");
+                    constructGeneralBlock();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        //Construct Block
-        rectBlock.setHeight(inputs.size() * DISTANCE_BETWEEN_POINTS + DISTANCE_BETWEEN_POINTS);
-        rectBlock.setWidth(BLOCK_WIDTH);
+        
+    }
+
+    /**
+     * Variable blocks have an Arc of 0 instead of 10 like normal blocks.
+     *
+     */
+    private void constructVariableBlock () {
+        //Make the corners corners
+        setBlockArcs(0);
+        //set block fill etc
+        createBlockGraphic();
+    }
+
+    private void constructGeneralBlock () {
+        //Make the corners corners
+        setBlockArcs(10);
+        //set block fill etc
+        createBlockGraphic();
+    }
+
+    private void createBlockGraphic () {
+        setBlockNameLabel();
+        setBlockHeight();
+        setBlockWidth();
+        setBlockColors();
+        grpBlock.getChildren().add(rectBlock);
+        createInputPoints();
+        createOutputPoints();
+        grpBlock.getChildren().addAll(ellipses);
+        grpBlock.getChildren().add(blockNameLabel);
+    }
+
+    private void createInputPoints () {
+        int count = 1;
+        for (Input in : inputs) {
+            in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
+            ellipses.add(in.getEllipse());
+            count++;
+        }
+    }
+
+    private void createOutputPoints () {
+        int count = 1;
+        for (Output out : outputs) {
+            out.setPointXY(rectBlock.getWidth(), count * DISTANCE_BETWEEN_POINTS);
+            ellipses.add(out.getEllipse());
+            count++;
+        }
+    }
+
+    private void setBlockArcs (double radius) {
+        rectBlock.setArcHeight(radius);
+        rectBlock.setArcWidth(radius);
+    }
+
+    private void setBlockHeight () {
+        //Sets the height according to the amount of in/outputs. 
+        if (!inputs.isEmpty() && inputs.size() > outputs.size()) {
+            rectBlock.setHeight(inputs.size() * DISTANCE_BETWEEN_POINTS + DISTANCE_BETWEEN_POINTS);
+        } else if (!outputs.isEmpty()) {
+            rectBlock.setHeight(outputs.size() * DISTANCE_BETWEEN_POINTS + DISTANCE_BETWEEN_POINTS);
+        } else {
+            rectBlock.setHeight(2 * DISTANCE_BETWEEN_POINTS);
+        }
+    }
+
+    private void setBlockWidth () {
+        rectBlock.setWidth(blockNameLabel.getText().length() * 3 + 2 * DISTANCE_BETWEEN_POINTS);
+    }
+
+    private void setBlockColors () {
         rectBlock.setStroke(STROKE_COLOR);
         rectBlock.setFill(getFillColor());
         rectBlock.setOpacity(OPACITY_VALUE);
-        rectBlock.setArcHeight(15);
-        rectBlock.setArcWidth(15);
-        grpBlock.getChildren().add(rectBlock);
+    }
 
-        //Set Name
-        lblName.setMaxWidth(BLOCK_WIDTH - 10);
-        lblName.setWrapText(true);
-        lblName.setText(blockName);
-        lblName.setAlignment(Pos.CENTER);
-
-        lblName.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    private void setBlockNameLabel () {
+        blockNameLabel.setWrapText(false);
+        blockNameLabel.setText(blockName);
+        blockNameLabel.setAlignment(Pos.CENTER);
+        blockNameLabel.setContentDisplay(ContentDisplay.TOP);
+        
+        //Function to change a Blocks Name
+        blockNameLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (!bDeactivateEvents) {
@@ -170,30 +226,12 @@ public abstract class BlockGraphic {
                     lastTime = currentTime;
                     if (bDoubleClick) {
                         String sTemp = Dialogs.nameInputDialog();
-                        lblName.setText(sTemp);
+                        blockNameLabel.setText(sTemp);
                         blockName = sTemp;
                     }
                 }
             }
         });
-        grpBlock.getChildren().add(lblName);
-
-        //Construct Input Points
-        int count = 1;
-        for (Input in : inputs) {
-            in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
-            ellipses.add(in.getEllipse());
-            count++;
-        }
-
-        count = 1;
-        for (Output out : outputs) {
-            out.setPointXY(BLOCK_WIDTH, count * DISTANCE_BETWEEN_POINTS);
-            ellipses.add(out.getEllipse());
-            count++;
-        }
-
-        grpBlock.getChildren().addAll(ellipses);
     }
 
     public void setLayoutXY (double x, double y) {

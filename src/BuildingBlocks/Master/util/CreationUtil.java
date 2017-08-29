@@ -6,6 +6,7 @@
 package BuildingBlocks.Master.util;
 
 import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.VarInput;
 import java.util.ArrayList;
 
@@ -36,5 +37,10 @@ public class CreationUtil {
         alTemp.add(new Input("Input"));
         alTemp.add(new VarInput("Timevalue"));
         return alTemp;
+    }
+    
+    public static Output getOutput(){
+        Output out = new Output();
+        return out;
     }
 }

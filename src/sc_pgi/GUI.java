@@ -7,10 +7,7 @@ package sc_pgi;
 
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
-<<<<<<< HEAD
-=======
-import BuildingBlocksMaster.util.*;
->>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
+import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.Dialogs;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
@@ -72,44 +69,44 @@ public class GUI extends Application {
         vBox.getChildren().add(new HBox());
         for (LogicBlock lb : SC_PGI.alBlocks) {
             lb.deactivateEvents(true);
-            lb.getBlock().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-
-                    long diff = 0;
-
-                    currentTime = System.currentTimeMillis();
-
-                    if (lastTime != 0 && currentTime != 0) {
-                        diff = currentTime - lastTime;
-
-                        if (diff <= 215) {
-                            bDoubleClick = true;
-                        } else {
-                            bDoubleClick = false;
-                        }
-                    }
-                    lastTime = currentTime;
-                    if (bDoubleClick) {
-                        bNewBlockReady = true;
-                        scene.setCursor(new ImageCursor(new Image("BuildingBlocksMaster/util/icons8-Hinzufügen-64.png")));
-                        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle (MouseEvent t) {
-                                if (bNewBlockReady) {
-                                    addNewBlock(lb.getName(), t.getX(), t.getY());
-                                    bNewBlockReady = false;
-                                    scene.setCursor(Cursor.DEFAULT);
-                                }
-                            }
-                        });
-
-                    }
-                }
-            });
+//            lb.getBlock().setOnMouseClicked(new EventHandler<MouseEvent>() {
+//                @Override
+//                public void handle (MouseEvent t) {
+//
+//                    long diff = 0;
+//
+//                    currentTime = System.currentTimeMillis();
+//
+//                    if (lastTime != 0 && currentTime != 0) {
+//                        diff = currentTime - lastTime;
+//
+//                        if (diff <= 215) {
+//                            bDoubleClick = true;
+//                        } else {
+//                            bDoubleClick = false;
+//                        }
+//                    }
+//                    lastTime = currentTime;
+//                    if (bDoubleClick) {
+//                        bNewBlockReady = true;
+//                        scene.setCursor(new ImageCursor(new Image("BuildingBlocksMaster/util/icons8-Hinzufügen-64.png")));
+//                        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//                            @Override
+//                            public void handle (MouseEvent t) {
+//                                if (bNewBlockReady) {
+//                                    addNewBlock(lb.getName(), t.getX(), t.getY());
+//                                    bNewBlockReady = false;
+//                                    scene.setCursor(Cursor.DEFAULT);
+//                                }
+//                            }
+//                        });
+//
+//                    }
+//                }
+//            });
             vBox.getChildren().add(lb.getBlock());
         }
-        //vBox.getChildren().add(SC_PGI.var.getBlock());
+        vBox.getChildren().add(SC_PGI.var.getBlock());
 
         spItems.setContent(vBox);
         spLayout.setContent(stpLayout);

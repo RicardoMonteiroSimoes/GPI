@@ -5,12 +5,11 @@
  */
 package BuildingBlocks.Blocks;
 
-<<<<<<< HEAD
+
 import BuildingBlocks.Master.BlockGraphic;
-=======
-import BuildingBlocks.Master.GUI_Block;
->>>>>>> c54cb6906ca0f727d4e34e02ae6a983b8b69cb21
 import BuildingBlocks.Master.Output;
+import BuildingBlocks.Master.util.CreationUtil;
+import com.sun.corba.se.spi.logging.CORBALogDomains;
 import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -36,22 +35,9 @@ public class Variable extends BlockGraphic{
     private boolean bValue;
     private Group grpBlock = new Group();
 
-    public Variable (boolean bValue) {
+    public Variable (String blockName, boolean bValue) {
+        super(blockName, CreationUtil.getOutput() , Type.VARIABLE);
         this.bValue = bValue;
-        createOutput();
-        setOutput();
-    }
-
-    public Variable (String sTooltip, boolean bValue) {
-        this.sTooltip = sTooltip;
-        this.bValue = bValue;
-        createOutput();
-        setOutput();
-        createBlock();
-    }
-    
-    private void createOutput(){
-        alOutputs.add(new Output("Output"));
     }
     
     public void setTooltip(String sTooltip){
@@ -68,39 +54,6 @@ public class Variable extends BlockGraphic{
 
     private void setOutput () {
         alOutputs.get(0).setStatus(this.bValue);
-    }
-
-    private void createBlock () {
-        Polyline plyArrow = new Polyline();
-        Label lblName = new Label(sName);
-        plyArrow.getPoints().addAll(new Double[]{
-            0.0, 0.0,
-            ARROW_WIDTH, 0.0,
-            ARROW_WIDTH + ARROW_POINT_WIDTH, ARROW_HEIGHT / 2,
-            ARROW_WIDTH, ARROW_HEIGHT,
-            0.0, ARROW_HEIGHT,
-            0.0, 0.0});
-        plyArrow.setStroke(Color.BLACK);
-        plyArrow.setFill(Color.RED);
-        plyArrow.setOpacity(OPACITY_VALUE);
-        Ellipse elpsTemp = new Ellipse(ARROW_WIDTH + ARROW_POINT_WIDTH, ARROW_HEIGHT/2, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS); 
-        Tooltip t = new Tooltip("Output");
-        Tooltip.install(elpsTemp, t);
-        t = new Tooltip(sTooltip + " is " + bValue);
-        Tooltip.install(plyArrow, t);
-        Tooltip.install(lblName, t);
-        
-        grpBlock.getChildren().add(plyArrow);
-        grpBlock.getChildren().add(lblName);
-        
-        
-        
-
-        grpBlock.getChildren().add(elpsTemp);
-    }
-
-    public Group getBlock () {
-        return this.grpBlock;
     }
 
 }
