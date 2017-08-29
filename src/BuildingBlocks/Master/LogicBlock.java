@@ -56,10 +56,6 @@ public abstract class LogicBlock extends BlockGraphic{
     public int getOutputCount(){
         return this.alOutputs.size();
     }
-
-    public void setOutputStatus (boolean bStatus) {
-       alOutputs.get(0).setStatus(bStatus);
-    }
     
 }
 

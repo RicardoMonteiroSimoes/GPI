@@ -57,9 +57,6 @@ public abstract class FilterBlock extends BlockGraphic{
         return this.alOutputs.size();
     }
 
-    public void setOutputStatus (boolean bStatus) {
-       alOutputs.get(0).setStatus(bStatus);
-    }
     
 }
 
