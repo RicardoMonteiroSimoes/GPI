@@ -18,8 +18,14 @@ import javafx.scene.shape.Ellipse;
 public class Output extends Observable {
 
     private String sName;
-    private boolean bValue = false;
-    private boolean bIsBoolean = true;
+
+    //Output variables
+    Integer integerValue = null;
+    Double doubleValue = null;
+    Boolean booleanValue = null;
+    Float floatValue = null;
+    String stringValue = null;
+
     private String sOutput;
     private Ellipse elpsOutput;
     private final double CONNECTION_POINT_RADIUS = 4.0;
@@ -35,22 +41,73 @@ public class Output extends Observable {
     }
 
     public Output (Output out) {
-        this.sName = new String(out.getName());
+        this.sName = out.getName();
         createEllipse();
     }
 
-    public boolean getStatus () {
-        return this.bValue;
+    public Boolean getBooleanOutput () {
+        return booleanValue;
     }
 
-    public void setStatus (boolean bValue) {
-        this.bValue = bValue;
-        notifyObservers();
+    public void setBooleanOutput (boolean booleanValue) {
+        integerValue = null;
+        doubleValue = null;
+        this.booleanValue = booleanValue;
+        floatValue = null;
+        stringValue = null;
+    }
+
+    public String getStringOutput () {
+        return stringValue;
+    }
+
+    public void setStringOutput (String stringValue) {
+        integerValue = null;
+        doubleValue = null;
+        booleanValue = null;
+        floatValue = null;
+        this.stringValue = stringValue;
+    }
+
+    public Double getDoubleOutput () {
+        return doubleValue;
+    }
+
+    public void setDoubleOutput (double doubleValue) {
+        integerValue = null;
+        this.doubleValue = doubleValue;
+        booleanValue = null;
+        floatValue = null;
+        stringValue = null;
+    }
+
+    public Float getFloatOutput () {
+        return floatValue;
+    }
+
+    public void setFloatOutput (Float floatValue) {
+        integerValue = null;
+        doubleValue = null;
+        booleanValue = null;
+        this.floatValue = floatValue;
+        stringValue = null;
+    }
+
+    public Integer getIntegerOutput () {
+        return integerValue;
+    }
+
+    public void setIntegerOutput (int integerValue) {
+        this.integerValue = integerValue;
+        doubleValue = null;
+        booleanValue = null;
+        floatValue = null;
+        stringValue = null;
     }
 
     public Observable getObservable () {
         return this.getObservable();
-   
+
     }
 
     public String getName () {
@@ -62,7 +119,7 @@ public class Output extends Observable {
     }
 
     private void setEllipseTooltip () {
-        Tooltip t = new Tooltip(String.valueOf(getStatus()));
+        Tooltip t = new Tooltip("todo");
         Tooltip.install(elpsOutput, t);
     }
 
