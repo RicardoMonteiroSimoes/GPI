@@ -187,10 +187,11 @@ public abstract class BlockGraphic {
         } else {
             rectBlock.setHeight(2 * DISTANCE_BETWEEN_POINTS);
         }
+        blockNameLabel.setLayoutY(rectBlock.getHeight()/2 - 10);
     }
 
     private void setBlockWidth () {
-        rectBlock.setWidth(blockNameLabel.getText().length() * 3 + 2 * DISTANCE_BETWEEN_POINTS);
+        rectBlock.setWidth(blockNameLabel.getText().length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
     }
 
     private void setBlockColors () {
@@ -202,8 +203,8 @@ public abstract class BlockGraphic {
     private void setBlockNameLabel () {
         blockNameLabel.setWrapText(false);
         blockNameLabel.setText(blockName);
+        blockNameLabel.setMinWidth(blockName.length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
         blockNameLabel.setAlignment(Pos.CENTER);
-        blockNameLabel.setContentDisplay(ContentDisplay.TOP);
         
         //Function to change a Blocks Name
         blockNameLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
