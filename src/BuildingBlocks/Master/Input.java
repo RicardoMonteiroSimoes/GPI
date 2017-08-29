@@ -56,7 +56,6 @@ public class Input implements Observer {
     @Override
     public void update (Observable o, Object arg) {
         Output outTemp = (Output) o;
-        setStatus(outTemp.getStatus());
     }
 
     public Ellipse getEllipse () {
@@ -64,7 +63,7 @@ public class Input implements Observer {
     }
 
     private void setEllipseTooltip () {
-        Tooltip t = new Tooltip(String.valueOf(getStatus()));
+        Tooltip t = new Tooltip("what to put here?");
         Tooltip.install(elpsInput, t);
     }
 

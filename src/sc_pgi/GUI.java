@@ -7,6 +7,7 @@ package sc_pgi;
 
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
+import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.util.Dialogs;
 import BuildingBlocks.Master.Input;
@@ -55,58 +56,22 @@ public class GUI extends Application {
 
         HBox root = new HBox();
         VBox vBox = new VBox();
-//        stpLayout.setHeight(1000);
-//        stpLayout.setWidth(1000);
         spLayout.setMaxSize(1000, 1000);
         spLayout.setMinSize(1000, 1000);
         spItems.setMaxHeight(800);
-        spItems.setPrefWidth(100);
+        spItems.setPrefWidth(150);
+        spItems.setMinWidth(120);
         spItems.setBackground(Background.EMPTY);
         spItems.setBorder(Border.EMPTY);
 
         vBox.setSpacing(25);
         vBox.setAlignment(Pos.TOP_CENTER);
         vBox.getChildren().add(new HBox());
-        for (LogicBlock lb : SC_PGI.alBlocks) {
-            lb.deactivateEvents(true);
-//            lb.getBlock().setOnMouseClicked(new EventHandler<MouseEvent>() {
-//                @Override
-//                public void handle (MouseEvent t) {
-//
-//                    long diff = 0;
-//
-//                    currentTime = System.currentTimeMillis();
-//
-//                    if (lastTime != 0 && currentTime != 0) {
-//                        diff = currentTime - lastTime;
-//
-//                        if (diff <= 215) {
-//                            bDoubleClick = true;
-//                        } else {
-//                            bDoubleClick = false;
-//                        }
-//                    }
-//                    lastTime = currentTime;
-//                    if (bDoubleClick) {
-//                        bNewBlockReady = true;
-//                        scene.setCursor(new ImageCursor(new Image("BuildingBlocksMaster/util/icons8-Hinzufügen-64.png")));
-//                        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//                            @Override
-//                            public void handle (MouseEvent t) {
-//                                if (bNewBlockReady) {
-//                                    addNewBlock(lb.getName(), t.getX(), t.getY());
-//                                    bNewBlockReady = false;
-//                                    scene.setCursor(Cursor.DEFAULT);
-//                                }
-//                            }
-//                        });
-//
-//                    }
-//                }
-//            });
-            vBox.getChildren().add(lb.getBlockGraphic());
+        
+        for (BlockGraphic bg : SC_PGI.alBlocks) {
+            bg.deactivateEvents(true);
+            vBox.getChildren().add(bg.getBlockGraphic());
         }
-        vBox.getChildren().add(SC_PGI.var.getBlockGraphic());
 
         spItems.setContent(vBox);
         spLayout.setContent(stpLayout);
@@ -130,6 +95,9 @@ public class GUI extends Application {
                 });
             }
         });
+        
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(800);
 
         primaryStage.show();
     }

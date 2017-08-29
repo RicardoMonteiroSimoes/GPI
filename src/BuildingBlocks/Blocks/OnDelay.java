@@ -28,7 +28,7 @@ public class OnDelay extends TimerBlock{
             super.setTime(super.getTimeInput());
             startTimer();
         } else {
-            super.setOutputStatus(false);
+            //super.setOutputStatus(false);
             super.cancelTimer();
         }
     }
@@ -47,6 +47,6 @@ public class OnDelay extends TimerBlock{
     
     @Override
     protected void setOutputAfterTimer(boolean bOutput){
-        super.setOutputStatus(bOutput);
+        //super.setOutputStatus(bOutput);
     }
 }

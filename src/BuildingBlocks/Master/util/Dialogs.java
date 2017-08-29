@@ -59,12 +59,14 @@ public class Dialogs {
         TextField blockType = new TextField();
         blockType.setText(block.getType().toString());
 
+        /**
         ComboBox comboBox = new ComboBox<Type>();
         comboBox.setMinWidth(20);
         for (Type t : Type.values()) {
             comboBox.getItems().add(t);
         }
         comboBox.getSelectionModel().select(block.getType());
+        */
 
         TextArea blockNotes = new TextArea(block.getNotes().getText());
         blockNotes.setEditable(true);
@@ -73,7 +75,7 @@ public class Dialogs {
         grid.add(new Label("Name:"), 0, 0);
         grid.add(blockName, 1, 0);
         grid.add(new Label("Type:"), 0, 1);
-        grid.add(comboBox, 1, 1);
+        grid.add(new Label(block.getType().toString()), 1, 1);
         grid.add(new Label("Notes:"), 0, 2);
         grid.add(blockNotes, 1, 2);
 

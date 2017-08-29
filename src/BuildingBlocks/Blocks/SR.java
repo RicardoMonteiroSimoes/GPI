@@ -28,9 +28,9 @@ public class SR extends LogicBlock{
     @Override
     protected void Logic(){
         if(super.getInputs().get(0).getStatus()){
-            super.setOutputStatus(true);
+            //super.setOutputStatus(true);
         } else if (super.getInputs().get(1).getStatus()){
-            super.setOutputStatus(false);
+            //super.setOutputStatus(false);
         }
     }
     

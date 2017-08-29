@@ -27,13 +27,13 @@ public class XOR extends LogicBlock{
             if(!inp.getStatus()){
                 iTrueCount++;
                 if(iTrueCount >= 2){
-                    super.setOutputStatus(false);
+                    //super.setOutputStatus(false);
                     break;
                 }
             }
         }
         if(iTrueCount == 1){
-            super.setOutputStatus(true);
+            //super.setOutputStatus(true);
         }
     }
     

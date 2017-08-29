@@ -6,6 +6,7 @@
 package sc_pgi;
 
 import BuildingBlocks.Blocks.*;
+import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.util.CreationUtil;
@@ -20,7 +21,7 @@ import javafx.stage.Stage;
 public class SC_PGI extends Application{
     
     
-    static ArrayList<LogicBlock> alBlocks = new ArrayList();
+    static ArrayList<BlockGraphic> alBlocks = new ArrayList();
     static NOT not = new NOT();
     static OffDelay offD = new OffDelay();
     static OnDelay onD = new OnDelay();
@@ -39,11 +40,12 @@ public class SC_PGI extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        alBlocks.add(not);
-        alBlocks.add(offD);
-        alBlocks.add(onD);
-        alBlocks.add(and);
-        alBlocks.add(step);
+        alBlocks.add(not.getBlockObject());
+        alBlocks.add(offD.getBlockObject());
+        alBlocks.add(onD.getBlockObject());
+        alBlocks.add(and.getBlockObject());
+        alBlocks.add(step.getBlockObject());
+        alBlocks.add(var.getBlockObject());
         GUI.start(primaryStage);
     }
     

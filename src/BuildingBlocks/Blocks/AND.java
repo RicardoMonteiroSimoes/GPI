@@ -34,7 +34,7 @@ public class AND extends LogicBlock{
                 break;
             }
         }
-        super.setOutputStatus(bTemp);
+        //super.setOutputStatus(bTemp);
     }
     
 }

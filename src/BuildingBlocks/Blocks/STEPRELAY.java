@@ -25,7 +25,7 @@ public class STEPRELAY extends LogicBlock{
     protected void Logic () {
         for(Input in : super.getInputs()){
             if(in.getStatus() && !bOldInputStatus){
-                super.setOutputStatus(!super.getOutputs().get(0).getStatus());
+                //super.setOutputStatus(!super.getOutputs().get(0).getStatus());
             } else {
                 bOldInputStatus = super.getInputs().get(0).getStatus();
             }

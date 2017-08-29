@@ -21,6 +21,6 @@ public class NOT extends LogicBlock{
     
     @Override
     protected void Logic(){
-        super.setOutputStatus(!super.getInputs().get(0).getStatus());
+        //super.setOutputStatus(!super.getInputs().get(0).getStatus());
     }
 }

@@ -28,7 +28,7 @@ public class OR extends LogicBlock{
                 break;
             }
         }
-        super.setOutputStatus(bTemp); 
+        //super.setOutputStatus(bTemp); 
     }
     
 }
