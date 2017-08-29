@@ -5,7 +5,6 @@
  */
 package BuildingBlocks.Master;
 
-import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import sun.applet.Main;
 
@@ -32,6 +30,7 @@ import sun.applet.Main;
 public abstract class BlockGraphic {
 
     private final double DISTANCE_BETWEEN_POINTS = 20.0;
+    private final double BLOCK_WIDTH = 65.0;
     private final double OPACITY_VALUE = 0.5;
     private final Color STROKE_COLOR = Color.BLACK;
     private final double CONNECTION_POINT_RADIUS = 4.0;
@@ -44,8 +43,6 @@ public abstract class BlockGraphic {
     private ArrayList<Ellipse> ellipses = new ArrayList();
     private boolean bDeactivateEvents = false;
     private Type type;
-    
-    private Text notes = new Text();
 
     private long currentTime;
     private long lastTime;
@@ -115,12 +112,13 @@ public abstract class BlockGraphic {
 
     private void constructBlock () {
         try {
-            if(type == Type.VARIABLE){
-                constructVariableBlock();
-            } else {
-                constructGeneralBlock();
+            switch (type) {
+                case VARIABLE:
+                    constructVariableBlock();
+                    break;
+                default:
+                    constructGeneralBlock();
             }
-            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -139,7 +137,7 @@ public abstract class BlockGraphic {
     }
 
     private void constructGeneralBlock () {
-        //Make the corners round
+        //Make the corners corners
         setBlockArcs(10);
         //set block fill etc
         createBlockGraphic();
@@ -155,7 +153,6 @@ public abstract class BlockGraphic {
         createOutputPoints();
         grpBlock.getChildren().addAll(ellipses);
         grpBlock.getChildren().add(blockNameLabel);
-        setBlockFunctions();
     }
 
     private void createInputPoints () {
@@ -208,18 +205,19 @@ public abstract class BlockGraphic {
         blockNameLabel.setText(blockName);
         blockNameLabel.setMinWidth(blockName.length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
         blockNameLabel.setAlignment(Pos.CENTER);
-    }
-    
-    private void setBlockFunctions(){
-        //Function to open up overview Window, fires when doubleclick happens
-        grpBlock.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+        //Function to change a Blocks Name
+        blockNameLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (!bDeactivateEvents) {
                     long diff = 0;
+
                     currentTime = System.currentTimeMillis();
+
                     if (lastTime != 0 && currentTime != 0) {
                         diff = currentTime - lastTime;
+
                         if (diff <= 215) {
                             bDoubleClick = true;
                         } else {
@@ -228,7 +226,9 @@ public abstract class BlockGraphic {
                     }
                     lastTime = currentTime;
                     if (bDoubleClick) {
-                        Dialogs.informationWindow(getBlockObject());
+                        String sTemp = Dialogs.nameInputDialog();
+                        blockNameLabel.setText(sTemp);
+                        blockName = sTemp;
                     }
                 }
             }
@@ -247,21 +247,9 @@ public abstract class BlockGraphic {
     public ArrayList<Input> getGUIInputs () {
         return this.inputs;
     }
-    
-    public int getAmountOfInputs(){
-        return inputs.size();
-    }
-    
-    public int getAmountOfOutputs(){
-        return outputs.size();
-    }
 
-    public Group getBlockGraphic () {
+    public Group getBlock () {
         return this.grpBlock;
-    }
-    
-    public BlockGraphic getBlockObject(){
-        return this;
     }
 
     public String getName () {
@@ -274,18 +262,6 @@ public abstract class BlockGraphic {
 
     public void deactivateEvents (boolean bDeactivateEvents) {
         this.bDeactivateEvents = bDeactivateEvents;
-    }
-    
-    public void setNote(Text text){
-        this.notes = text;
-    }
-    
-    public Text getNotes(){
-        return notes;
-    }
-    
-    public Type getType(){
-        return type;
     }
 
 }

@@ -119,7 +119,7 @@ public class Output extends Observable {
     }
 
     private void setEllipseTooltip () {
-        Tooltip t = new Tooltip("what to put in here?");
+        Tooltip t = new Tooltip("todo");
         Tooltip.install(elpsOutput, t);
     }
 

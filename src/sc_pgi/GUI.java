@@ -8,7 +8,7 @@ package sc_pgi;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.util.*;
-import BuildingBlocks.Master.util.Dialogs;
+import BuildingBlocks.Master.Dialogs;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Output;
@@ -104,9 +104,9 @@ public class GUI extends Application {
 //                    }
 //                }
 //            });
-            vBox.getChildren().add(lb.getBlockGraphic());
+            vBox.getChildren().add(lb.getBlock());
         }
-        vBox.getChildren().add(SC_PGI.var.getBlockGraphic());
+        vBox.getChildren().add(SC_PGI.var.getBlock());
 
         spItems.setContent(vBox);
         spLayout.setContent(stpLayout);
@@ -206,7 +206,7 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newANDBlock (double x, double y) {
@@ -242,7 +242,7 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newORBlock (double x, double y) {
@@ -278,7 +278,7 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newXORBlock (double x, double y) {
@@ -314,7 +314,7 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newOnDelayBlock (double x, double y) {
@@ -350,7 +350,7 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 
     private void newOffDelayBlock (double x, double y) {
@@ -386,6 +386,6 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        stpLayout.getChildren().add(notTemp.getBlock());
     }
 }

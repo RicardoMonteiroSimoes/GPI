@@ -17,7 +17,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polyline;
-import javafx.scene.text.Text;
 
 /**
  *
@@ -25,7 +24,7 @@ import javafx.scene.text.Text;
  */
 public class Variable extends BlockGraphic{
 
-    private String sName = "";
+    private String sName = "Variable";
     private String sTooltip = "Not set";
     ArrayList<Output> alOutputs = new ArrayList();
     private final double OPACITY_VALUE = 0.6;
@@ -38,7 +37,7 @@ public class Variable extends BlockGraphic{
 
     public Variable (String blockName, boolean bValue) {
         super(blockName, CreationUtil.getOutput() , Type.VARIABLE);
-        setNote(new Text("KASKAKSAKASKAKS"));
+        this.bValue = bValue;
     }
     
     public void setTooltip(String sTooltip){
@@ -47,6 +46,14 @@ public class Variable extends BlockGraphic{
     
     public String getTooltip(){
         return this.sTooltip;
+    }
+
+    public String getName () {
+        return this.sName;
+    }
+
+    private void setOutput () {
+        alOutputs.get(0).setStatus(this.bValue);
     }
 
 }
