@@ -32,7 +32,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -47,17 +49,23 @@ public class GUI extends Application {
     private long lastTime;
     private Group grpLayout = new Group();
     private boolean bDoubleClick = false;
-    private StackPane stpLayout = new StackPane();
+    private Group scrollPaneGroup = new Group();
     private ScrollPane spItems = new ScrollPane();
     private ScrollPane spLayout = new ScrollPane();
+    private Rectangle scrollPaneRectangle = new Rectangle();
 
     @Override
     public void start (Stage primaryStage) {
 
         HBox root = new HBox();
         VBox vBox = new VBox();
-        spLayout.setMaxSize(1000, 1000);
+        scrollPaneRectangle.setWidth(4000);
+        scrollPaneRectangle.setHeight(4000);
+        scrollPaneRectangle.setFill(Color.BEIGE);
+        scrollPaneRectangle.setOpacity(0.3);
+        spLayout.setMaxSize(2000, 2000);
         spLayout.setMinSize(1000, 1000);
+        spLayout.setPrefSize(800, 800);
         spItems.setMaxHeight(800);
         spItems.setPrefWidth(150);
         spItems.setMinWidth(120);
@@ -95,7 +103,8 @@ public class GUI extends Application {
         }
 
         spItems.setContent(vBox);
-        spLayout.setContent(stpLayout);
+        scrollPaneGroup.getChildren().add(scrollPaneRectangle);
+        spLayout.setContent(scrollPaneGroup);
         root.getChildren().add(spItems);
         root.getChildren().add(spLayout);
 
@@ -125,7 +134,7 @@ public class GUI extends Application {
 
     private void readyNewBlock (String sName) {
         scene.setCursor(new ImageCursor(new Image("BuildingBlocks/Master/util/icons8-Hinzufügen-64.png")));
-        spLayout.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        scrollPaneRectangle.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (bNewBlockReady) {
@@ -166,18 +175,18 @@ public class GUI extends Application {
         NOT notTemp = new NOT();
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -185,9 +194,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -195,25 +204,25 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 
     private void newANDBlock (double x, double y) {
         AND notTemp = new AND(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -221,9 +230,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -231,25 +240,25 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 
     private void newORBlock (double x, double y) {
         OR notTemp = new OR(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -257,9 +266,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -267,25 +276,25 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 
     private void newXORBlock (double x, double y) {
         XOR notTemp = new XOR(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -293,9 +302,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -303,25 +312,25 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 
     private void newOnDelayBlock (double x, double y) {
         OnDelay notTemp = new OnDelay();
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -329,9 +338,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -339,25 +348,25 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 
     private void newOffDelayBlock (double x, double y) {
         OffDelay notTemp = new OffDelay();
         notTemp.setLayoutXY(x, y);
         for (Output out : notTemp.getGUIOutputs()) {
-            out.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked output");
                     bNewConnectionReady = true;
-                    startX = t.getX();
-                    startY = t.getY();
+                    startX = t.getSceneX() - spItems.getWidth();
+                    startY = t.getSceneY();
                 }
             });
         }
         for (Input in : notTemp.getGUIInputs()) {
-            in.getEllipse().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
                     System.out.println("clicked input");
@@ -365,9 +374,9 @@ public class GUI extends Application {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
                         lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getX());
-                        lineTemp.setEndY(t.getY());
-                        stpLayout.getChildren().add(lineTemp);
+                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+                        lineTemp.setEndY(t.getSceneY());
+                        scrollPaneGroup.getChildren().add(lineTemp);
                         startX = 0.0;
                         startY = 0.0;
                         bNewConnectionReady = false;
@@ -375,6 +384,6 @@ public class GUI extends Application {
                 }
             });
         }
-        stpLayout.getChildren().add(notTemp.getBlockGraphic());
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
 }

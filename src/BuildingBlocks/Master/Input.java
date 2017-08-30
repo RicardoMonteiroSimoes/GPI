@@ -8,6 +8,8 @@ package BuildingBlocks.Master;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.scene.control.Tooltip;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 
 /**
@@ -18,7 +20,7 @@ public class Input implements Observer {
 
     private String sName;
     private boolean bStatus = false;
-    private Ellipse elpsInput;
+    private Circle elpsInput = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
 
     public Input (String sName) {
@@ -58,7 +60,7 @@ public class Input implements Observer {
         Output outTemp = (Output) o;
     }
 
-    public Ellipse getEllipse () {
+    public Circle getCircle () {
         return this.elpsInput;
     }
 
@@ -68,7 +70,9 @@ public class Input implements Observer {
     }
 
     private void createEllipse () {
-        elpsInput = new Ellipse(0.0, 0.0, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS);
+        elpsInput.setRadius(CONNECTION_POINT_RADIUS);
+        elpsInput.setFill(Color.BLACK);
+        elpsInput.setStroke(Color.BLACK);
         setEllipseTooltip();
     }
 

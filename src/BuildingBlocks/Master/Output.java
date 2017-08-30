@@ -9,7 +9,8 @@ import java.util.Observable;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Ellipse;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Output extends Observable {
     String stringValue = null;
 
     private String sOutput;
-    private Ellipse elpsOutput;
+    private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
 
     public Output (String sName) {
@@ -114,22 +115,24 @@ public class Output extends Observable {
         return this.sName;
     }
 
-    public Ellipse getEllipse () {
-        return this.elpsOutput;
+    public Circle getCircle () {
+        return this.outputCircle;
     }
 
-    private void setEllipseTooltip () {
+    private void setCircleTooltip () {
         Tooltip t = new Tooltip("what to put in here?");
-        Tooltip.install(elpsOutput, t);
+        Tooltip.install(outputCircle, t);
     }
 
     private void createEllipse () {
-        elpsOutput = new Ellipse(0.0, 0.0, CONNECTION_POINT_RADIUS, CONNECTION_POINT_RADIUS);
-        setEllipseTooltip();
+        outputCircle.setRadius(CONNECTION_POINT_RADIUS);
+        outputCircle.setFill(Color.BLACK);
+        outputCircle.setStroke(Color.BLACK);
+        setCircleTooltip();
     }
 
     public void setPointXY (double x, double y) {
-        elpsOutput.setCenterX(x);
-        elpsOutput.setCenterY(y);
+        outputCircle.setCenterX(x);
+        outputCircle.setCenterY(y);
     }
 }

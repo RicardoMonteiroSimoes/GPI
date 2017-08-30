@@ -19,6 +19,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -41,7 +42,7 @@ public abstract class BlockGraphic {
     private Group grpBlock = new Group();
     private ArrayList<Input> inputs = new ArrayList();
     private ArrayList<Output> outputs = new ArrayList();
-    private ArrayList<Ellipse> ellipses = new ArrayList();
+    private ArrayList<Circle> ellipses = new ArrayList();
     private boolean bDeactivateEvents = false;
     private Type type;
     
@@ -162,7 +163,7 @@ public abstract class BlockGraphic {
         int count = 1;
         for (Input in : inputs) {
             in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
-            ellipses.add(in.getEllipse());
+            ellipses.add(in.getCircle());
             count++;
         }
     }
@@ -171,7 +172,7 @@ public abstract class BlockGraphic {
         int count = 1;
         for (Output out : outputs) {
             out.setPointXY(rectBlock.getWidth(), count * DISTANCE_BETWEEN_POINTS);
-            ellipses.add(out.getEllipse());
+            ellipses.add(out.getCircle());
             count++;
         }
     }
