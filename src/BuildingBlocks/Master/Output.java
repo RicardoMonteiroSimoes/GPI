@@ -33,17 +33,17 @@ public class Output extends Observable {
 
     public Output (String sName) {
         this.sName = sName;
-        createEllipse();
+        createCircle();
     }
 
     public Output () {
         this.sName = "Output";
-        createEllipse();
+        createCircle();
     }
 
     public Output (Output out) {
         this.sName = out.getName();
-        createEllipse();
+        createCircle();
     }
 
     public Boolean getBooleanOutput () {
@@ -124,8 +124,9 @@ public class Output extends Observable {
         Tooltip.install(outputCircle, t);
     }
 
-    private void createEllipse () {
+    private void createCircle () {
         outputCircle.setRadius(CONNECTION_POINT_RADIUS);
+        outputCircle.setStrokeWidth(STROKE_WIDTH);
         outputCircle.setFill(Color.BLACK);
         outputCircle.setStroke(Color.BLACK);
         setCircleTooltip();
