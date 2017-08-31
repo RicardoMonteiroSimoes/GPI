@@ -103,10 +103,13 @@ public class Dialogs {
     
     private static void inputEditor(BlockGraphic block){
         BlockGraphic blockGraphic = block;
-        Dialog inputEditorWindow = new Dialog<>();
+        Dialog <ButtonType> inputEditorWindow = new Dialog<>();
         inputEditorWindow.setTitle("Input Editor");
         inputEditorWindow.setHeaderText("Input Editor for the Block " + block.getName());
         ButtonType okButton = new ButtonType("Ok", ButtonData.OK_DONE);
+        TextField amountInputs = new TextField();
+        amountInputs.setEditable(true);
+        amountInputs.setText(String.valueOf(block.getAmountOfInputs()));
 
         ComboBox comboBox = new ComboBox<Type>();
         comboBox.setMinWidth(20);
@@ -115,8 +118,6 @@ public class Dialogs {
         }
         comboBox.getSelectionModel().select(blockGraphic.getGUIInputs().get(0).getName());
 
-
-        
         blockGraphic.deactivateEvents(true);
         Group blockGroup = blockGraphic.getBlockGraphic();
         
@@ -127,7 +128,8 @@ public class Dialogs {
         grid.setVgap(10);
         grid.setPadding(new Insets(20, 150, 10, 10));
 
-        grid.add(comboBox, 0, 0);
+        grid.add(new Label("Amount of Inputs: "), 0, 0);
+        grid.add(amountInputs, 1, 0);
         grid.add(blockGroup, block.getAmountOfOutputs()/2, 3);       
 
 
@@ -135,7 +137,13 @@ public class Dialogs {
 
         inputEditorWindow.initModality(Modality.APPLICATION_MODAL);
 
-        inputEditorWindow.showAndWait();
+        Optional<ButtonType> result = inputEditorWindow.showAndWait();
+
+        if (result.isPresent()) {
+            if (result.get().equals(okButton)) {
+                block.setAmountOfInputs(Integer.parseInt(amountInputs.getText()));
+            }
+        }
 
 
         

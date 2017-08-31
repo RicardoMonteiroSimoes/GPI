@@ -300,4 +300,11 @@ public abstract class BlockGraphic {
         return canChangeInputs;
     }
 
+    public void setAmountOfInputs(int amountInputs) throws IllegalAccessError{
+        if(!canChangeInputs()){
+            throw new IllegalAccessError("Cannot change amount of Inputs as it is Locked!");
+        }
+        inputs.clear();
+    }
+    
 }
