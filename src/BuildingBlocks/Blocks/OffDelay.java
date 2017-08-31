@@ -24,13 +24,13 @@ public class OffDelay extends TimerBlock{
     
     @Override
     protected void Logic () {
-        if(super.getInputs().get(0).getStatus()){
-            //super.setOutputStatus(true);
-            super.cancelTimer();
-        } else {
-            super.setTime(super.getTimeInput());
-            startTimer();
-        }
+//        if(super.getInputs().get(0).getStatus()){
+//            //super.setOutputStatus(true);
+//            super.cancelTimer();
+//        } else {
+//            super.setTime(super.getTimeInput());
+//            startTimer();
+//        }
     }
     
     @Override

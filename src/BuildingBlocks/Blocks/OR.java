@@ -17,16 +17,16 @@ import java.util.ArrayList;
 public class OR extends LogicBlock{
     
     public OR(ArrayList<Input> alInputs){
-        super("OR", alInputs, new Output("Output"), Type.LOGIC);
+        super("OR", alInputs, true, new Output("Output"), Type.LOGIC);
     }
     
     protected void Logic(){
         boolean bTemp = false;
         for(Input inp : super.getInputs()){
-            if(inp.getStatus()){
-                bTemp = true;
-                break;
-            }
+//            if(inp.getStatus()){
+//                bTemp = true;
+//                break;
+//            }
         }
         //super.setOutputStatus(bTemp); 
     }

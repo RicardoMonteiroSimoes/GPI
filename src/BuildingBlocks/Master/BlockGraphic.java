@@ -39,11 +39,13 @@ public abstract class BlockGraphic {
     private String blockName;
     private Rectangle rectBlock = new Rectangle();
     private Label blockNameLabel = new Label();
-    private Group grpBlock = new Group();
+    private Group wholeBlockGroup = new Group();
+    private Group labelBlockGroup = new Group();
     private ArrayList<Input> inputs = new ArrayList();
     private ArrayList<Output> outputs = new ArrayList();
     private ArrayList<Circle> ellipses = new ArrayList();
     private boolean bDeactivateEvents = false;
+    private boolean canChangeInputs = false;
     private Type type;
     
     private Text notes = new Text();
@@ -54,28 +56,31 @@ public abstract class BlockGraphic {
     private boolean bDoubleClick = false;
 
     public enum Type {
-        VARIABLE, TIMER, LOGIC, FILTER
+        VARIABLE, TIMER, LOGIC, FILTER, NETWORK
     }
 
-    public BlockGraphic (String blockName, Input in, Output out, Type type) {
+    public BlockGraphic (String blockName, Input in,  boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.type = type;
+        this.canChangeInputs = canChangeInputs;
         inputs.add(new Input(in));
         outputs.add(new Output(out));
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, ArrayList<Input> alInputs, Output out, Type type) {
+    public BlockGraphic (String blockName, ArrayList<Input> alInputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.type = type;
+        this.canChangeInputs = canChangeInputs;
         this.inputs = new ArrayList(alInputs);
         outputs.add(new Output(out));
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, ArrayList<Input> alInputs, ArrayList<Output> alOutputs, Type type) {
+    public BlockGraphic (String blockName, ArrayList<Input> alInputs, boolean canChangeInputs, ArrayList<Output> alOutputs, Type type) {
         this.blockName = blockName;
         this.type = type;
+        this.canChangeInputs = canChangeInputs;
         this.inputs = new ArrayList(alInputs);
         this.outputs = new ArrayList(alOutputs);
         constructBlock();
@@ -151,11 +156,13 @@ public abstract class BlockGraphic {
         setBlockHeight();
         setBlockWidth();
         setBlockColors();
-        grpBlock.getChildren().add(rectBlock);
+        labelBlockGroup.getChildren().add(rectBlock);
+        labelBlockGroup.getChildren().add(blockNameLabel);
+        labelBlockGroup.toBack();
         createInputPoints();
         createOutputPoints();
-        grpBlock.getChildren().addAll(ellipses);
-        grpBlock.getChildren().add(blockNameLabel);
+        wholeBlockGroup.getChildren().addAll(labelBlockGroup);
+        wholeBlockGroup.getChildren().addAll(ellipses);
         setBlockFunctions();
     }
 
@@ -213,7 +220,7 @@ public abstract class BlockGraphic {
     
     private void setBlockFunctions(){
         //Function to open up overview Window, fires when doubleclick happens
-        grpBlock.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent t) {
                 if (!bDeactivateEvents) {
@@ -237,8 +244,8 @@ public abstract class BlockGraphic {
     }
 
     public void setLayoutXY (double x, double y) {
-        grpBlock.setLayoutX(x);
-        grpBlock.setLayoutY(y);
+        wholeBlockGroup.setLayoutX(x);
+        wholeBlockGroup.setLayoutY(y);
     }
 
     public ArrayList<Output> getGUIOutputs () {
@@ -258,7 +265,7 @@ public abstract class BlockGraphic {
     }
 
     public Group getBlockGraphic () {
-        return this.grpBlock;
+        return this.wholeBlockGroup;
     }
     
     public BlockGraphic getBlockObject(){
@@ -287,6 +294,10 @@ public abstract class BlockGraphic {
     
     public Type getType(){
         return type;
+    }
+    
+    public boolean canChangeInputs(){
+        return canChangeInputs;
     }
 
 }

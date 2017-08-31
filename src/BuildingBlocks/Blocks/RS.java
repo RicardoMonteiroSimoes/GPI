@@ -21,16 +21,16 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", new ArrayList<Input>(getRSInputs()), new Output("Output"), Type.LOGIC);
+        super("RS", new ArrayList<Input>(getRSInputs()), false, new Output("Output"), Type.LOGIC);
     }
 
     @Override
     protected void Logic () {
-        if (super.getInputs().get(0).getStatus() && !super.getInputs().get(1).getStatus()) {
-            //super.setOutputStatus(true);
-        } else if (super.getInputs().get(1).getStatus()) {
-            //super.setOutputStatus(false);
-        }
+//        if (super.getInputs().get(0).getStatus() && !super.getInputs().get(1).getStatus()) {
+//            //super.setOutputStatus(true);
+//        } else if (super.getInputs().get(1).getStatus()) {
+//            //super.setOutputStatus(false);
+//        }
     }
 
     private static ArrayList<Input> getRSInputs () {

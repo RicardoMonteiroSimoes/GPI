@@ -22,16 +22,16 @@ public class SR extends LogicBlock{
      * RS bedeutet SET-RESET, d.h. SET ist höher gestellt als SET
      */
     public SR(){
-        super("SR", new ArrayList<Input>(getSRInputs()), new Output("Output"), Type.LOGIC);
+        super("SR", new ArrayList<Input>(getSRInputs()), false, new Output("Output"), Type.LOGIC);
     }
     
     @Override
     protected void Logic(){
-        if(super.getInputs().get(0).getStatus()){
-            //super.setOutputStatus(true);
-        } else if (super.getInputs().get(1).getStatus()){
-            //super.setOutputStatus(false);
-        }
+//        if(super.getInputs().get(0).getStatus()){
+//            //super.setOutputStatus(true);
+//        } else if (super.getInputs().get(1).getStatus()){
+//            //super.setOutputStatus(false);
+//        }
     }
     
     private static ArrayList<Input> getSRInputs () {

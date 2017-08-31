@@ -16,7 +16,7 @@ import BuildingBlocks.Master.Output;
 public class NOT extends LogicBlock{
     
     public NOT(){
-        super("NOT", new Input("Input"), new Output("Output"), Type.LOGIC);
+        super("NOT", new Input("Input"), false, new Output("Output"), Type.LOGIC);
     }
     
     @Override

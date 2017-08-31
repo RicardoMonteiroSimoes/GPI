@@ -5,12 +5,14 @@
  */
 package BuildingBlocks.Master;
 
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import java.util.Observable;
 import java.util.Observer;
+import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 
 /**
  *
@@ -19,65 +21,132 @@ import javafx.scene.shape.Ellipse;
 public class Input implements Observer {
 
     private String sName;
-    private boolean bStatus = false;
-    private Circle elpsInput = new Circle();
+
+    //Output variables
+    Integer integerValue = null;
+    Double doubleValue = null;
+    Boolean booleanValue = null;
+    Float floatValue = null;
+    String stringValue = null;
+
+    private String sInput;
+    private Circle inputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
+    private final double STROKE_WIDTH = 0.0;
+    private Datatype datatype;
 
     public Input (String sName) {
         this.sName = sName;
-        createEllipse();
+        createCircle();
     }
 
     public Input () {
         this.sName = "Input";
-        createEllipse();
+        createCircle();
     }
 
     public Input (Input in) {
-        this.sName = new String(in.getName());
-        createEllipse();
+        this.sName = in.getName();
+        createCircle();
     }
 
-    public void setStatus (boolean bStatus) {
-        this.bStatus = bStatus;
-        setEllipseTooltip();
+    public Boolean getBooleanOutput () {
+        return booleanValue;
     }
 
-    public boolean getStatus () {
-        return this.bStatus;
+    public void setBooleanInput (boolean booleanValue) {
+        integerValue = null;
+        doubleValue = null;
+        this.booleanValue = booleanValue;
+        floatValue = null;
+        stringValue = null;
+    }
+
+    public String getStringInput () {
+        return stringValue;
+    }
+
+    public void setStringInput (String stringValue) {
+        integerValue = null;
+        doubleValue = null;
+        booleanValue = null;
+        floatValue = null;
+        this.stringValue = stringValue;
+    }
+
+    public Double getDoubleInput () {
+        return doubleValue;
+    }
+
+    public void setDoubleInput (double doubleValue) {
+        integerValue = null;
+        this.doubleValue = doubleValue;
+        booleanValue = null;
+        floatValue = null;
+        stringValue = null;
+    }
+
+    public Float getFloatInput () {
+        return floatValue;
+    }
+
+    public void setFloatInput (Float floatValue) {
+        integerValue = null;
+        doubleValue = null;
+        booleanValue = null;
+        this.floatValue = floatValue;
+        stringValue = null;
+    }
+
+    public Integer getIntegerInput () {
+        return integerValue;
+    }
+
+    public void setIntegerInput (int integerValue) {
+        this.integerValue = integerValue;
+        doubleValue = null;
+        booleanValue = null;
+        floatValue = null;
+        stringValue = null;
+    }
+
+    public Observable getObservable () {
+        return this.getObservable();
+
     }
 
     public String getName () {
         return this.sName;
     }
 
-    public void setObserver (Observable obsOutput) {
-        this.setObserver(obsOutput);
+    public Circle getCircle () {
+        return this.inputCircle;
+    }
+
+    private void setCircleTooltip () {
+        Tooltip t = new Tooltip("what to put in here?");
+        Tooltip.install(inputCircle, t);
+    }
+
+    private void createCircle () {
+        inputCircle.setRadius(CONNECTION_POINT_RADIUS);
+        inputCircle.setStrokeWidth(STROKE_WIDTH);
+        inputCircle.setFill(Color.BLACK);
+        inputCircle.setStroke(Color.BLACK);
+        setCircleTooltip();
+    }
+
+    public void setPointXY (double x, double y) {
+        inputCircle.setCenterX(x);
+        inputCircle.setCenterY(y);
     }
 
     @Override
     public void update (Observable o, Object arg) {
-        Output outTemp = (Output) o;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Circle getCircle () {
-        return this.elpsInput;
-    }
-
-    private void setEllipseTooltip () {
-        Tooltip t = new Tooltip("what to put here?");
-        Tooltip.install(elpsInput, t);
-    }
-
-    private void createEllipse () {
-        elpsInput.setRadius(CONNECTION_POINT_RADIUS);
-        elpsInput.setFill(Color.BLACK);
-        elpsInput.setStroke(Color.BLACK);
-        setEllipseTooltip();
-    }
-
-    public void setPointXY (double x, double y) {
-        elpsInput.setCenterX(x);
-        elpsInput.setCenterY(y);
+    public void setDataType (ContactPoint.Datatype datatype) {
+        this.datatype = datatype;
     }
 }

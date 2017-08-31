@@ -18,17 +18,17 @@ public class STEPRELAY extends LogicBlock{
     private boolean bOldInputStatus = false;
     
     public STEPRELAY(){
-        super("Schrittschalter", new Input("Input"), new Output("Output"), Type.LOGIC);
+        super("Schrittschalter", new Input("Input"), false, new Output("Output"), Type.LOGIC);
     }
 
     @Override
     protected void Logic () {
         for(Input in : super.getInputs()){
-            if(in.getStatus() && !bOldInputStatus){
-                //super.setOutputStatus(!super.getOutputs().get(0).getStatus());
-            } else {
-                bOldInputStatus = super.getInputs().get(0).getStatus();
-            }
+//            if(in.getStatus() && !bOldInputStatus){
+//                //super.setOutputStatus(!super.getOutputs().get(0).getStatus());
+//            } else {
+//                bOldInputStatus = super.getInputs().get(0).getStatus();
+//            }
         }
     }
 }

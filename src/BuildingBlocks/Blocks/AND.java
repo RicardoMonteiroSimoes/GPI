@@ -18,21 +18,17 @@ public class AND extends LogicBlock{
     
 
     public AND(ArrayList<Input> Inputs){
-        super("AND", Inputs, new Output("Output"), Type.LOGIC);
-    }
-    
-    public AND(ArrayList<Input> Inputs, ArrayList<Output> Outputs){
-        super("AND", Inputs, Outputs, Type.LOGIC);
+        super("AND", Inputs, true, new Output("Output"), Type.LOGIC);
     }
     
     @Override
     protected void Logic(){
         boolean bTemp = true;
         for(Input inp : super.getInputs()){
-            if(!inp.getStatus()){
-                bTemp = false;
-                break;
-            }
+//            if(!inp.getStatus()){
+//                bTemp = false;
+//                break;
+//            }
         }
         //super.setOutputStatus(bTemp);
     }

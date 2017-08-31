@@ -5,9 +5,10 @@
  */
 package BuildingBlocks.Master.util;
 
+import BuildingBlocks.Master.BlockGraphic.Type;
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
-import BuildingBlocks.Master.VarInput;
 import java.util.ArrayList;
 
 /**
@@ -35,7 +36,9 @@ public class CreationUtil {
     public static ArrayList<Input> getTimerInputs(){
         ArrayList<Input> alTemp = new ArrayList();
         alTemp.add(new Input("Input"));
-        alTemp.add(new VarInput("Timevalue"));
+        alTemp.get(0).setDataType(Datatype.BOOLEAN);
+        alTemp.add(new Input("Timevalue"));
+        alTemp.get(0).setDataType(Datatype.STRING);
         return alTemp;
     }
     

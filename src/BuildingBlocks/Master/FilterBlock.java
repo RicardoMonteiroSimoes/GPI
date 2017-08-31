@@ -18,7 +18,7 @@ public abstract class FilterBlock extends BlockGraphic{
     
     public FilterBlock(String sName, Input in, Output out, Type type){
         super(sName, in, out, type);
-        alInputs.add(new Input(in));
+        alInputs.add(in);
         alOutputs.add(new Output(out));
     }
     
@@ -37,7 +37,7 @@ public abstract class FilterBlock extends BlockGraphic{
     protected abstract void Logic();
     
     public void setInput(int iInput, boolean bInputStatus){
-        alInputs.get(iInput).setStatus(bInputStatus);
+        
         Logic();
     }
     

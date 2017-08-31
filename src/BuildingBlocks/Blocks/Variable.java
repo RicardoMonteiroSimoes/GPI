@@ -37,7 +37,7 @@ public class Variable extends BlockGraphic{
     private Group grpBlock = new Group();
 
     public Variable (String blockName, boolean bValue) {
-        super(blockName, CreationUtil.getOutput() , Type.VARIABLE);
+        super(blockName, new Output ("Output"), Type.VARIABLE);
         setNote(new Text("KASKAKSAKASKAKS"));
     }
     

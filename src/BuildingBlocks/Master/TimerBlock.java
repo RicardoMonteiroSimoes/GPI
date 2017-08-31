@@ -20,7 +20,7 @@ public abstract class TimerBlock extends LogicBlock{
     private Timer timTemp = new Timer();
     
     public TimerBlock(String sName){
-        super(sName, CreationUtil.getTimerInputs(), new Output("Output"), Type.TIMER);
+        super(sName, CreationUtil.getTimerInputs(), false, new Output("Output"), Type.TIMER);
     }    
    
     
@@ -42,8 +42,8 @@ public abstract class TimerBlock extends LogicBlock{
     }
     
     protected double getTimeInput(){
-        VarInput varITemp = (VarInput) super.getInputs().get(1);
-        return Double.parseDouble(varITemp.getInput());
+        
+       return -1.1; 
     }
 
     protected void scheduleTimer (TimerTask timTask) {

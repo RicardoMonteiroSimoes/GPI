@@ -5,6 +5,7 @@
  */
 package BuildingBlocks.Master;
 
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import java.util.Observable;
 import javafx.event.EventHandler;
 import javafx.scene.control.Tooltip;
@@ -30,6 +31,8 @@ public class Output extends Observable {
     private String sOutput;
     private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
+    private final double STROKE_WIDTH = 0.0;
+    private Datatype datatype;
 
     public Output (String sName) {
         this.sName = sName;
@@ -108,7 +111,6 @@ public class Output extends Observable {
 
     public Observable getObservable () {
         return this.getObservable();
-
     }
 
     public String getName () {
@@ -135,5 +137,9 @@ public class Output extends Observable {
     public void setPointXY (double x, double y) {
         outputCircle.setCenterX(x);
         outputCircle.setCenterY(y);
+    }
+    
+    public void setDataType(Datatype datatype){
+        this.datatype = datatype;
     }
 }
