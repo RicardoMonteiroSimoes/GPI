@@ -9,5 +9,5 @@ In the end, its supposed to look something like Node.RED. Ofcourse it wont be th
 
 
 <p align="center">
-  <img src="GPI/Prototype.jpg" width="350"/>
+  <img src="http://imgur.com/2XW0fyK" width="350"/>
 </p>
