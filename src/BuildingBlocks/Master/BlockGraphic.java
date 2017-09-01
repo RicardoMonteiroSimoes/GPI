@@ -13,6 +13,7 @@ import java.util.Optional;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
@@ -38,6 +39,7 @@ public abstract class BlockGraphic {
     private final Color STROKE_COLOR = Color.BLACK;
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private String blockName;
+    private String blockSubName;
     private Rectangle rectBlock = new Rectangle();
     private Label blockNameLabel = new Label();
     private Group wholeBlockGroup = new Group();
@@ -56,12 +58,18 @@ public abstract class BlockGraphic {
 
     private boolean bDoubleClick = false;
 
+    public void setSubName (String text) {
+        blockSubName = text;
+        addTooltipTo(labelBlockGroup, blockSubName);
+    }
+
     public enum Type {
         VARIABLE, TIMER, LOGIC, FILTER, NETWORK
     }
 
-    public BlockGraphic (String blockName, Input in, boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic (String blockName, String blockSubName, Input in, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
+        this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
         inputs.add(new Input(in));
@@ -69,8 +77,9 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, ArrayList<Input> alInputs, boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
+        this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
         this.inputs = new ArrayList(alInputs);
@@ -78,8 +87,9 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, ArrayList<Input> alInputs, boolean canChangeInputs, ArrayList<Output> alOutputs, Type type) {
+    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInputs, ArrayList<Output> alOutputs, Type type) {
         this.blockName = blockName;
+        this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
         this.inputs = new ArrayList(alInputs);
@@ -165,15 +175,25 @@ public abstract class BlockGraphic {
         setBlockHeight();
         setBlockWidth();
         setBlockColors();
-        labelBlockGroup.getChildren().add(rectBlock);
-        labelBlockGroup.getChildren().add(blockNameLabel);
-        labelBlockGroup.toBack();
+        setLowerBlockGroup(); 
         createInputPoints();
         createOutputPoints();
         wholeBlockGroup.getChildren().addAll(labelBlockGroup);
         wholeBlockGroup.getChildren().addAll(ellipses);
         setBlockFunctions();
         System.out.println("finished block! " + getName());
+    }
+    
+    private void setLowerBlockGroup(){
+        labelBlockGroup.getChildren().add(rectBlock);
+        labelBlockGroup.getChildren().add(blockNameLabel);
+        labelBlockGroup.toBack();
+        addTooltipTo(labelBlockGroup, blockSubName);
+    }
+    
+    private void addTooltipTo(Node n, String tooltip){
+        Tooltip t = new Tooltip(tooltip);
+        Tooltip.install(n, t);
     }
 
     private void createInputPoints () {
@@ -332,6 +352,10 @@ public abstract class BlockGraphic {
         for(Output out : outputs){
             out.addObserver(observer);
         }
+    }
+    
+    public String getSubName(){
+        return blockSubName;
     }
 
 }

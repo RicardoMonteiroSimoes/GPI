@@ -25,7 +25,7 @@ public class SC_PGI extends Application{
     static NOT not = new NOT();
     static OffDelay offD = new OffDelay();
     static OnDelay onD = new OnDelay();
-    static GUI GUI = new GUI();
+    public static GUI GUI = new GUI();
     static AND and;
     static STEPRELAY step = new STEPRELAY();
     

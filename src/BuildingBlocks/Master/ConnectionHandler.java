@@ -10,6 +10,8 @@ import java.util.Observer;
 import BuildingBlocks.Master.Output;
 import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Polyline;
+import sc_pgi.SC_PGI;
 
 /**
  *
@@ -40,6 +42,12 @@ public class ConnectionHandler implements Observer{
         if(mouseEventOutput != null && mouseEventInput != null){
             System.out.println("starting connection procedure");
             temporaryInput.addObserver(temporaryOutput);
+            Polyline temporaryLine = new Polyline();
+            temporaryLine.getPoints().add(mouseEventInput.getSceneX());
+            temporaryLine.getPoints().add(mouseEventInput.getSceneY());
+            temporaryLine.getPoints().add(mouseEventOutput.getSceneX());
+            temporaryLine.getPoints().add(mouseEventOutput.getSceneY());
+            SC_PGI.GUI.addLine(temporaryLine);
         }
     }
     

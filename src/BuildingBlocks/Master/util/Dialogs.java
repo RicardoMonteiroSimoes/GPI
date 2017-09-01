@@ -61,7 +61,7 @@ public class Dialogs {
         grid.setPadding(new Insets(20, 150, 10, 10));
 
         TextField blockName = new TextField();
-        blockName.setText(block.getName());
+        blockName.setText(block.getSubName());
         TextField blockType = new TextField();
         blockType.setText(block.getType().toString());
 
@@ -94,7 +94,7 @@ public class Dialogs {
 
         if (result.isPresent()) {
             if (result.get().equals(okButton)) {
-                block.setName(blockName.getText());
+                block.setSubName(blockName.getText());
                 block.setNote(new Text(blockNotes.getText()));
             }
         }

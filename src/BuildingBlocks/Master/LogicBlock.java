@@ -16,20 +16,20 @@ public abstract class LogicBlock extends BlockGraphic{
     private ArrayList<Input> alInputs = new ArrayList();
     private ArrayList<Output> alOutputs = new ArrayList();
     
-    public LogicBlock(String sName, Input in, boolean canChangeInput, Output out, Type type){
-        super(sName, in, canChangeInput, out, type);
+    public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out, Type type){
+        super(sName, blockSubName, in, canChangeInput, out, type);
         alInputs.add(new Input(in));
         alOutputs.add(new Output(out));
     }
     
-    public LogicBlock(String sName, ArrayList<Input> alInputs, boolean canChangeInput, Output out, Type type){
-        super(sName, alInputs, canChangeInput, out,  type);
+    public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, Output out, Type type){
+        super(sName, blockSubName, alInputs, canChangeInput, out,  type);
         this.alInputs = new ArrayList(alInputs);
         alOutputs.add(new Output(out));
     }
     
-    public LogicBlock(String sName, ArrayList<Input> alInputs, boolean canChangeInput, ArrayList<Output> alOutputs, Type type){
-        super(sName, alInputs, canChangeInput, alOutputs,  type);
+    public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, ArrayList<Output> alOutputs, Type type){
+        super(sName, blockSubName, alInputs, canChangeInput, alOutputs,  type);
         this.alInputs = new ArrayList(alInputs);
         this.alOutputs = new ArrayList(alOutputs);
     }

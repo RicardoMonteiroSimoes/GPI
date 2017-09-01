@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class XOR extends LogicBlock{
     
     public XOR(ArrayList<Input> alInput){
-        super("XOR", alInput, true, new Output("Output"), Type.LOGIC);
+        super("XOR", "exklusiv oder", alInput, true, new Output("Output"), Type.LOGIC);
     }
     
     @Override

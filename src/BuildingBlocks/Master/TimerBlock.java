@@ -20,7 +20,7 @@ public abstract class TimerBlock extends LogicBlock{
     private Timer timTemp = new Timer();
     
     public TimerBlock(String sName){
-        super(sName, CreationUtil.getTimerInputs(), false, new Output("Output"), Type.TIMER);
+        super(sName, "Zeitblock", CreationUtil.getTimerInputs(), false, new Output("Output"), Type.TIMER);
     }    
    
     

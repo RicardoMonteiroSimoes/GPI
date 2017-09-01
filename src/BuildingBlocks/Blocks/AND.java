@@ -18,7 +18,7 @@ public class AND extends LogicBlock{
     
 
     public AND(ArrayList<Input> Inputs){
-        super("AND", Inputs, true, new Output("Output"), Type.LOGIC);
+        super("AND", "und", Inputs, true, new Output("Output"), Type.LOGIC);
     }
     
     @Override

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class OR extends LogicBlock{
     
     public OR(ArrayList<Input> alInputs){
-        super("OR", alInputs, true, new Output("Output"), Type.LOGIC);
+        super("OR", "oder", alInputs, true, new Output("Output"), Type.LOGIC);
     }
     
     protected void Logic(){

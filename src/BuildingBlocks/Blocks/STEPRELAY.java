@@ -18,7 +18,7 @@ public class STEPRELAY extends LogicBlock{
     private boolean bOldInputStatus = false;
     
     public STEPRELAY(){
-        super("Schrittschalter", new Input("Input"), false, new Output("Output"), Type.LOGIC);
+        super("Schrittschalter", "step-relay", new Input("Input"), false, new Output("Output"), Type.LOGIC);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class SR extends LogicBlock{
      * RS bedeutet SET-RESET, d.h. SET ist höher gestellt als SET
      */
     public SR(){
-        super("SR", new ArrayList<Input>(getSRInputs()), false, new Output("Output"), Type.LOGIC);
+        super("SR", "set-reset", new ArrayList<Input>(getSRInputs()), false, new Output("Output"), Type.LOGIC);
     }
     
     @Override

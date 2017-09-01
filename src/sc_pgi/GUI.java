@@ -35,6 +35,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -392,5 +393,9 @@ public class GUI extends Application {
             });
         }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+    }
+
+    public void addLine (Polyline temporaryLine) {
+        scrollPaneGroup.getChildren().add(temporaryLine);
     }
 }

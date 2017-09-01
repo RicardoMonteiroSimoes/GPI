@@ -21,7 +21,7 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", new ArrayList<Input>(getRSInputs()), false, new Output("Output"), Type.LOGIC);
+        super("RS", "reset-set", new ArrayList<Input>(getRSInputs()), false, new Output("Output"), Type.LOGIC);
     }
 
     @Override
