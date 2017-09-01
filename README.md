@@ -6,3 +6,7 @@ Everything is ready to go for you to write your own Blocks. Timer, Logic, Filter
 Currently this Project is a rough Concept.
 
 In the end, its supposed to look something like Node.RED. Ofcourse it wont be the same thing...I think. 
+
+
+
+![Alt text](http://imgur.com/2XW0fyK "Picture of the current Prototype:")
