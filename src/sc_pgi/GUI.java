@@ -8,6 +8,7 @@ package sc_pgi;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.BlockGraphic;
+import BuildingBlocks.Master.ConnectionHandler;
 import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.util.Dialogs;
 import BuildingBlocks.Master.Input;
@@ -40,6 +41,7 @@ import javafx.stage.WindowEvent;
 
 public class GUI extends Application {
 
+    private ConnectionHandler connectionHandler = new ConnectionHandler();
     private boolean bNewBlockReady = false;
     private boolean bNewConnectionReady = false;
     private double startX = 0.0;
@@ -210,37 +212,42 @@ public class GUI extends Application {
     private void newANDBlock (double x, double y) {
         AND notTemp = new AND(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getGUIOutputs()) {
-            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked output");
-                    bNewConnectionReady = true;
-                    startX = t.getSceneX() - spItems.getWidth();
-                    startY = t.getSceneY();
-                }
-            });
-        }
-        for (Input in : notTemp.getGUIInputs()) {
-            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked input");
-                    if (bNewConnectionReady) {
-                        Line lineTemp = new Line();
-                        lineTemp.setStartX(startX);
-                        lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
-                        lineTemp.setEndY(t.getSceneY());
-                        scrollPaneGroup.getChildren().add(lineTemp);
-                        startX = 0.0;
-                        startY = 0.0;
-                        bNewConnectionReady = false;
-                    }
-                }
-            });
-        }
+//        for (Output out : notTemp.getGUIOutputs()) {
+//            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
+//                @Override
+//                public void handle (MouseEvent t) {
+//                    System.out.println("clicked output");
+//                    bNewConnectionReady = true;
+//                    startX = t.getSceneX() - spItems.getWidth();
+//                    startY = t.getSceneY();
+//                }
+//            });
+//        }
+//        for (Input in : notTemp.getGUIInputs()) {
+//            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
+//                @Override
+//                public void handle (MouseEvent t) {
+//                    System.out.println("clicked input");
+//                    if (bNewConnectionReady) {
+//                        Line lineTemp = new Line();
+//                        lineTemp.setStartX(startX);
+//                        lineTemp.setStartY(startY);
+//                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
+//                        lineTemp.setEndY(t.getSceneY());
+//                        scrollPaneGroup.getChildren().add(lineTemp);
+//                        startX = 0.0;
+//                        startY = 0.0;
+//                        bNewConnectionReady = false;
+//                    }
+//                }
+//            });
+//        }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    public void notifyInput(String sMessage){
+        System.out.println(sMessage);
     }
 
     private void newORBlock (double x, double y) {

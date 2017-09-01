@@ -8,6 +8,7 @@ package BuildingBlocks.Master;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Observer;
 import java.util.Optional;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -193,6 +194,7 @@ public abstract class BlockGraphic {
         }
     }
 
+
     private void setBlockArcs (double radius) {
         rectBlock.setArcHeight(radius);
         rectBlock.setArcWidth(radius);
@@ -324,7 +326,12 @@ public abstract class BlockGraphic {
                 reconstructBlock();
             }
         }
-        
+    }
+    
+    public void addConnectionWatcher(Observer observer){
+        for(Output out : outputs){
+            out.addObserver(observer);
+        }
     }
 
 }

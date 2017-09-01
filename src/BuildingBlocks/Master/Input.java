@@ -18,7 +18,7 @@ import javafx.scene.shape.Circle;
  *
  * @author Ricardo
  */
-public class Input implements Observer {
+public class Input extends Observable implements Observer {
 
     private String sName;
 
