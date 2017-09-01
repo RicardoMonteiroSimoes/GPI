@@ -8,5 +8,6 @@ Currently this Project is a rough Concept.
 In the end, its supposed to look something like Node.RED. Ofcourse it wont be the same thing...I think. 
 
 
-
-![Alt text](http://imgur.com/2XW0fyK "Picture of the current Prototype:")
+<p align="center">
+  <img src="GPI/Prototype.jpg" width="350"/>
+</p>
