@@ -29,8 +29,8 @@ public class Input extends Observable implements Observer {
     Float floatValue = null;
     String stringValue = null;
 
-    private String sInput;
-    private Circle inputCircle = new Circle();
+    private String sOutput;
+    private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
     private Datatype datatype;
@@ -41,7 +41,7 @@ public class Input extends Observable implements Observer {
     }
 
     public Input () {
-        this.sName = "Input";
+        this.sName = "Output";
         createCircle();
     }
 
@@ -112,7 +112,6 @@ public class Input extends Observable implements Observer {
 
     public Observable getObservable () {
         return this.getObservable();
-
     }
 
     public String getName () {
@@ -120,33 +119,45 @@ public class Input extends Observable implements Observer {
     }
 
     public Circle getCircle () {
-        return this.inputCircle;
+        return this.outputCircle;
     }
 
     private void setCircleTooltip () {
         Tooltip t = new Tooltip("what to put in here?");
-        Tooltip.install(inputCircle, t);
+        Tooltip.install(outputCircle, t);
     }
 
     private void createCircle () {
-        inputCircle.setRadius(CONNECTION_POINT_RADIUS);
-        inputCircle.setStrokeWidth(STROKE_WIDTH);
-        inputCircle.setFill(Color.BLACK);
-        inputCircle.setStroke(Color.BLACK);
+        outputCircle.setRadius(CONNECTION_POINT_RADIUS);
+        outputCircle.setStrokeWidth(STROKE_WIDTH);
+        outputCircle.setFill(Color.BLACK);
+        outputCircle.setStroke(Color.BLACK);
+        createCircleFunctionality();
         setCircleTooltip();
     }
 
+    private void createCircleFunctionality () {
+        outputCircle.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle (MouseEvent t) {
+                setChanged();
+                notifyObservers(t);
+            }
+        });
+    }
+
     public void setPointXY (double x, double y) {
-        inputCircle.setCenterX(x);
-        inputCircle.setCenterY(y);
+        outputCircle.setCenterX(x);
+        outputCircle.setCenterY(y);
+    }
+
+    public void setDataType (Datatype datatype) {
+        this.datatype = datatype;
     }
 
     @Override
     public void update (Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setDataType (ContactPoint.Datatype datatype) {
-        this.datatype = datatype;
+        setChanged();
+        notifyObservers();
     }
 }

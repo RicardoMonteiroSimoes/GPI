@@ -17,38 +17,48 @@ import sc_pgi.SC_PGI;
  *
  * @author Ricardo
  */
-public class ConnectionHandler implements Observer{
-    
+public class ConnectionHandler implements Observer {
+
     Output temporaryOutput;
     MouseEvent mouseEventOutput;
     MouseEvent mouseEventInput;
     Input temporaryInput;
 
-    
     @Override
     public void update (Observable o, Object arg) {
-        try{
-            temporaryOutput = (Output) o;
-            mouseEventOutput = (MouseEvent) arg;
-        } catch (Exception e){
-            System.out.println("This is not an Output...");
-        }
-        try{
-            temporaryInput = (Input) o;
-            mouseEventInput = (MouseEvent) arg;
-        } catch (Exception e){
-            System.out.println("This is not an Input...");
-        }
-        if(mouseEventOutput != null && mouseEventInput != null){
-            System.out.println("starting connection procedure");
-            temporaryInput.addObserver(temporaryOutput);
-            Polyline temporaryLine = new Polyline();
-            temporaryLine.getPoints().add(mouseEventInput.getSceneX());
-            temporaryLine.getPoints().add(mouseEventInput.getSceneY());
-            temporaryLine.getPoints().add(mouseEventOutput.getSceneX());
-            temporaryLine.getPoints().add(mouseEventOutput.getSceneY());
-            SC_PGI.GUI.addLine(temporaryLine);
+        if (!(arg == null)) {
+            try {
+                temporaryOutput = (Output) o;
+                mouseEventOutput = (MouseEvent) arg;
+            } catch (Exception e) {
+                System.out.println("This is not an Output...");
+            }
+            try {
+                temporaryInput = (Input) o;
+                mouseEventInput = (MouseEvent) arg;
+            } catch (Exception e) {
+                System.out.println("This is not an Input...");
+            }
+            if (mouseEventOutput != null && mouseEventInput != null) {
+                if (temporaryOutput.getCircle().getParent().equals(temporaryInput.getCircle().getParent())) {
+                    setPointsNull();
+                    System.out.println("cant do this");
+                } else {
+                    System.out.println("starting connection procedure");
+                    temporaryInput.addObserver(temporaryOutput);
+                    SC_PGI.GUI.addLine(mouseEventInput.getSceneX(), mouseEventInput.getSceneY(),
+                            mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY());
+                    setPointsNull();
+                }
+            }
         }
     }
-    
+
+    private void setPointsNull () {
+        temporaryOutput = null;
+        temporaryInput = null;
+        mouseEventInput = null;
+        mouseEventOutput = null;
+    }
+
 }

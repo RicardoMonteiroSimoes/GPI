@@ -352,6 +352,9 @@ public abstract class BlockGraphic {
         for(Output out : outputs){
             out.addObserver(observer);
         }
+        for(Input in : inputs){
+            in.addObserver(observer);
+        }
     }
     
     public String getSubName(){

@@ -394,8 +394,14 @@ public class GUI extends Application {
         }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
-
-    public void addLine (Polyline temporaryLine) {
+    
+    public void addLine (double sceneXstart, double sceneYstart, double sceneXend, double sceneYend) {
+        Polyline temporaryLine = new Polyline();
+        temporaryLine.getPoints().add(sceneXstart - spItems.getWidth());
+        temporaryLine.getPoints().add(sceneYstart);
+        temporaryLine.getPoints().add(sceneXend - spItems.getWidth());
+        temporaryLine.getPoints().add(sceneYend);
         scrollPaneGroup.getChildren().add(temporaryLine);
+        
     }
 }
