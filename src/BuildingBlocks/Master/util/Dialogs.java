@@ -102,7 +102,6 @@ public class Dialogs {
     }
     
     private static void inputEditor(BlockGraphic block){
-        BlockGraphic blockGraphic = block;
         Dialog <ButtonType> inputEditorWindow = new Dialog<>();
         inputEditorWindow.setTitle("Input Editor");
         inputEditorWindow.setHeaderText("Input Editor for the Block " + block.getName());
@@ -113,13 +112,10 @@ public class Dialogs {
 
         ComboBox comboBox = new ComboBox<Type>();
         comboBox.setMinWidth(20);
-        for (Input in : blockGraphic.getGUIInputs()){
+        for (Input in : block.getGUIInputs()){
             comboBox.getItems().add(in.getName());
         }
-        comboBox.getSelectionModel().select(blockGraphic.getGUIInputs().get(0).getName());
-
-        blockGraphic.deactivateEvents(true);
-        Group blockGroup = blockGraphic.getBlockGraphic();
+        comboBox.getSelectionModel().select(block.getGUIInputs().get(0).getName());
         
         inputEditorWindow.getDialogPane().getButtonTypes().addAll(okButton);
 
@@ -130,8 +126,6 @@ public class Dialogs {
 
         grid.add(new Label("Amount of Inputs: "), 0, 0);
         grid.add(amountInputs, 1, 0);
-        grid.add(blockGroup, block.getAmountOfOutputs()/2, 3);       
-
 
         inputEditorWindow.getDialogPane().setContent(grid);
 

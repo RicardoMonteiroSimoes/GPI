@@ -47,7 +47,7 @@ public abstract class BlockGraphic {
     private boolean bDeactivateEvents = false;
     private boolean canChangeInputs = false;
     private Type type;
-    
+
     private Text notes = new Text();
 
     private long currentTime;
@@ -59,7 +59,7 @@ public abstract class BlockGraphic {
         VARIABLE, TIMER, LOGIC, FILTER, NETWORK
     }
 
-    public BlockGraphic (String blockName, Input in,  boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic (String blockName, Input in, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
@@ -119,18 +119,26 @@ public abstract class BlockGraphic {
         }
     }
 
+    private void reconstructBlock () {
+        labelBlockGroup.getChildren().clear();
+        wholeBlockGroup.getChildren().clear();
+        ellipses.clear();
+        constructBlock();
+        
+    }
+
     private void constructBlock () {
         try {
-            if(type == Type.VARIABLE){
+            if (type == Type.VARIABLE) {
                 constructVariableBlock();
             } else {
                 constructGeneralBlock();
             }
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
     }
 
     /**
@@ -164,6 +172,7 @@ public abstract class BlockGraphic {
         wholeBlockGroup.getChildren().addAll(labelBlockGroup);
         wholeBlockGroup.getChildren().addAll(ellipses);
         setBlockFunctions();
+        System.out.println("finished block! " + getName());
     }
 
     private void createInputPoints () {
@@ -198,7 +207,7 @@ public abstract class BlockGraphic {
         } else {
             rectBlock.setHeight(2 * DISTANCE_BETWEEN_POINTS);
         }
-        blockNameLabel.setLayoutY(rectBlock.getHeight()/2 - 10);
+        blockNameLabel.setLayoutY(rectBlock.getHeight() / 2 - 10);
     }
 
     private void setBlockWidth () {
@@ -217,8 +226,8 @@ public abstract class BlockGraphic {
         blockNameLabel.setMinWidth(blockName.length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
         blockNameLabel.setAlignment(Pos.CENTER);
     }
-    
-    private void setBlockFunctions(){
+
+    private void setBlockFunctions () {
         //Function to open up overview Window, fires when doubleclick happens
         labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -255,20 +264,20 @@ public abstract class BlockGraphic {
     public ArrayList<Input> getGUIInputs () {
         return this.inputs;
     }
-    
-    public int getAmountOfInputs(){
+
+    public int getAmountOfInputs () {
         return inputs.size();
     }
-    
-    public int getAmountOfOutputs(){
+
+    public int getAmountOfOutputs () {
         return outputs.size();
     }
 
     public Group getBlockGraphic () {
         return this.wholeBlockGroup;
     }
-    
-    public BlockGraphic getBlockObject(){
+
+    public BlockGraphic getBlockObject () {
         return this;
     }
 
@@ -283,28 +292,39 @@ public abstract class BlockGraphic {
     public void deactivateEvents (boolean bDeactivateEvents) {
         this.bDeactivateEvents = bDeactivateEvents;
     }
-    
-    public void setNote(Text text){
+
+    public void setNote (Text text) {
         this.notes = text;
     }
-    
-    public Text getNotes(){
+
+    public Text getNotes () {
         return notes;
     }
-    
-    public Type getType(){
+
+    public Type getType () {
         return type;
     }
-    
-    public boolean canChangeInputs(){
+
+    public boolean canChangeInputs () {
         return canChangeInputs;
     }
 
-    public void setAmountOfInputs(int amountInputs) throws IllegalAccessError{
-        if(!canChangeInputs()){
+    public void setAmountOfInputs (int amountInputs) throws IllegalAccessError {
+        if (!canChangeInputs()) {
             throw new IllegalAccessError("Cannot change amount of Inputs as it is Locked!");
         }
-        inputs.clear();
+        if (inputs.size() > amountInputs) {
+            for (int takeAway = 1; takeAway <= inputs.size() - amountInputs; takeAway++) {
+                inputs.remove(inputs.size() - takeAway);
+                reconstructBlock();
+            }
+        } else if (inputs.size() < amountInputs) {
+            for (int addToInputs = 1; addToInputs <= amountInputs - inputs.size(); addToInputs++) {
+                inputs.add(new Input("Input " + inputs.size()+1));
+                reconstructBlock();
+            }
+        }
+        
     }
-    
+
 }
