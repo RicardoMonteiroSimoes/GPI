@@ -99,18 +99,8 @@ public abstract class BlockGraphic {
         this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
-        this.inputs = new ArrayList(alInputs);
-        outputs.add(new Output(out));
-        constructBlock();
-    }
-
-    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInputs, ArrayList<Output> alOutputs, Type type) {
-        this.blockName = blockName;
-        this.blockSubName = blockSubName;
-        this.type = type;
-        this.canChangeInputs = canChangeInputs;
-        this.inputs = new ArrayList(alInputs);
-        this.outputs = new ArrayList(alOutputs);
+        this.inputs = alInputs;
+        outputs.add(out);
         constructBlock();
     }
 
@@ -123,7 +113,7 @@ public abstract class BlockGraphic {
      * @throws IllegalArgumentException
      */
     public BlockGraphic (String blockName, Output out, Type blockType) throws IllegalArgumentException {
-        if (!(blockType == Type.VARIABLE)) {
+        if ((blockType != Type.VARIABLE || blockType != Type.NETWORK)) {
             throw new IllegalArgumentException("Cannot initialize Variable with the type " + blockType.toString());
         }
         this.blockName = blockName;
@@ -159,8 +149,8 @@ public abstract class BlockGraphic {
 
     private void constructBlock () {
         try {
-            if (type == Type.VARIABLE) {
-                constructVariableBlock();
+            if (type == Type.VARIABLE || type == Type.NETWORK) {
+                constructCorneredBlock();
             } else {
                 constructGeneralBlock();
             }
@@ -175,7 +165,7 @@ public abstract class BlockGraphic {
      * Variable blocks have an Arc of 0 instead of 10 like normal blocks.
      *
      */
-    private void constructVariableBlock () {
+    private void constructCorneredBlock () {
         //Make the corners corners
         setBlockArcs(0);
         //set block fill etc
@@ -197,8 +187,7 @@ public abstract class BlockGraphic {
         setLowerBlockGroup(); 
         createInputPoints();
         createOutputPoints();
-        wholeBlockGroup.getChildren().addAll(labelBlockGroup);
-        wholeBlockGroup.getChildren().addAll(ellipses);
+        setUpperBlockGroup();
         setBlockFunctions();
         System.out.println("finished block! " + getName());
     }
@@ -208,6 +197,11 @@ public abstract class BlockGraphic {
         labelBlockGroup.getChildren().add(blockNameLabel);
         labelBlockGroup.toBack();
         addTooltipTo(labelBlockGroup, blockSubName);
+    }
+    
+    private void setUpperBlockGroup(){
+        wholeBlockGroup.getChildren().addAll(labelBlockGroup);
+        wholeBlockGroup.getChildren().addAll(ellipses);
     }
     
     private void addTooltipTo(Node n, String tooltip){
