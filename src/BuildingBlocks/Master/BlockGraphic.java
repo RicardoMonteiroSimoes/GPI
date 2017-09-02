@@ -8,6 +8,7 @@ package BuildingBlocks.Master;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Observable;
 import java.util.Observer;
 import java.util.Optional;
 import javafx.event.EventHandler;
@@ -50,6 +51,8 @@ public abstract class BlockGraphic {
     private boolean bDeactivateEvents = false;
     private boolean canChangeInputs = false;
     private Type type;
+    private Observer observer;
+
 
     private Text notes = new Text();
 
@@ -72,8 +75,8 @@ public abstract class BlockGraphic {
         this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
-        inputs.add(new Input(in));
-        outputs.add(new Output(out));
+        inputs.add(in);
+        outputs.add(out);
         constructBlock();
     }
     
@@ -82,7 +85,7 @@ public abstract class BlockGraphic {
         this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
-        inputs.add(new Input(in));
+        inputs.add(in);
         constructBlock();
     }
     
@@ -90,22 +93,22 @@ public abstract class BlockGraphic {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
-        outputs.add(new Output(out));
+        outputs.add(out);
         constructBlock();
     }
             
-    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> inputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
         this.canChangeInputs = canChangeInputs;
-        this.inputs = alInputs;
+        this.inputs = inputs;
         outputs.add(out);
         constructBlock();
     }
 
     /**
-     * This Constructer is used ONLY for the Creation of a Variable.
+     * 
      *
      * @param blockName
      * @param out
@@ -113,7 +116,7 @@ public abstract class BlockGraphic {
      * @throws IllegalArgumentException
      */
     public BlockGraphic (String blockName, Output out, Type blockType) throws IllegalArgumentException {
-        if ((blockType != Type.VARIABLE || blockType != Type.NETWORK)) {
+        if ((blockType != Type.VARIABLE && blockType != Type.NETWORK)) {
             throw new IllegalArgumentException("Cannot initialize Variable with the type " + blockType.toString());
         }
         this.blockName = blockName;
@@ -121,7 +124,8 @@ public abstract class BlockGraphic {
         this.type = blockType;
         constructBlock();
     }
-
+    
+    
     private Color getFillColor () {
         switch (type) {
             case VARIABLE:
@@ -144,7 +148,12 @@ public abstract class BlockGraphic {
         wholeBlockGroup.getChildren().clear();
         ellipses.clear();
         constructBlock();
-        
+        addConnectionWatcher(this.observer);
+    }
+    
+    private void removeObserversFromInput(Input in){
+       System.out.println("INPUT " + in.getName() + " has " + in.countObservers()+ "Observers");
+       in.removeObservers();
     }
 
     private void constructBlock () {
@@ -225,6 +234,13 @@ public abstract class BlockGraphic {
             ellipses.add(out.getCircle());
             count++;
         }
+    }
+    
+    private void redoInputPoints(){
+        ellipses.clear();
+        createOutputPoints();
+        createInputPoints();
+        addConnectionWatcher(this.observer);
     }
 
 
@@ -350,6 +366,7 @@ public abstract class BlockGraphic {
         }
         if (inputs.size() > amountInputs) {
             for (int takeAway = 1; takeAway <= inputs.size() - amountInputs; takeAway++) {
+                removeObserversFromInput(inputs.get(inputs.size() - takeAway));
                 inputs.remove(inputs.size() - takeAway);
                 reconstructBlock();
             }
@@ -362,6 +379,7 @@ public abstract class BlockGraphic {
     }
     
     public void addConnectionWatcher(Observer observer){
+        this.observer = observer;
         for(Output out : outputs){
             out.addObserver(observer);
         }

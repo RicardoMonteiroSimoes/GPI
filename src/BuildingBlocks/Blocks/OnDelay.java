@@ -19,18 +19,11 @@ import java.util.TimerTask;
 public class OnDelay extends TimerBlock{
     
     public OnDelay(){
-        super("OnDelay");
+        super("OnDelay", "Output On Delay");
     }
     
     @Override
     protected void Logic () {
-//        if(super.getInputs().get(0).getStatus()){
-//            super.setTime(super.getTimeInput());
-//            startTimer();
-//        } else {
-//            //super.setOutputStatus(false);
-//            super.cancelTimer();
-//        }
     }
     
     @Override
@@ -47,6 +40,6 @@ public class OnDelay extends TimerBlock{
     
     @Override
     protected void setOutputAfterTimer(boolean bOutput){
-        //super.setOutputStatus(bOutput);
+
     }
 }

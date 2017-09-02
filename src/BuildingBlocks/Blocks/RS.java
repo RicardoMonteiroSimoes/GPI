@@ -8,6 +8,7 @@ package BuildingBlocks.Blocks;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
+import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 
 /**
@@ -21,23 +22,11 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", "reset-set", new ArrayList<Input>(getRSInputs()), false, new Output("Output"), Type.LOGIC);
+        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}), false, new Output("Output"));
     }
 
     @Override
     protected void Logic () {
-//        if (super.getInputs().get(0).getStatus() && !super.getInputs().get(1).getStatus()) {
-//            //super.setOutputStatus(true);
-//        } else if (super.getInputs().get(1).getStatus()) {
-//            //super.setOutputStatus(false);
-//        }
-    }
-
-    private static ArrayList<Input> getRSInputs () {
-        ArrayList<Input> alTemp = new ArrayList();
-        alTemp.add(new Input("Set"));
-        alTemp.add(new Input("Reset"));
-        return alTemp;
     }
 
 }

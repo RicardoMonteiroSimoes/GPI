@@ -14,15 +14,16 @@ import java.util.TimerTask;
  *
  * @author Ricardo
  */
-public abstract class TimerBlock extends LogicBlock{
+public abstract class TimerBlock extends BlockGraphic{
     
     private double dTime;
     private Timer timTemp = new Timer();
     
-    public TimerBlock(String sName){
-        super(sName, "Zeitblock", CreationUtil.getTimerInputs(), false, new Output("Output"), Type.TIMER);
+    public TimerBlock(String sName, String blockSubName){
+        super(sName, blockSubName, CreationUtil.getTimerInputs(), false, new Output("Output"), Type.TIMER);
     }    
    
+    protected abstract void Logic();
     
     protected abstract void startTimer();
     

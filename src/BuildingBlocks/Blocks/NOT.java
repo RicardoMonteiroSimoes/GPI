@@ -16,11 +16,10 @@ import BuildingBlocks.Master.Output;
 public class NOT extends LogicBlock{
     
     public NOT(){
-        super("NOT", "not", new Input("Input"), false, new Output("Output"), Type.LOGIC);
+        super("NOT", "not", new Input("Input"), false, new Output("Output"));
     }
     
     @Override
     protected void Logic(){
-        //super.setOutputStatus(!super.getInputs().get(0).getStatus());
     }
 }

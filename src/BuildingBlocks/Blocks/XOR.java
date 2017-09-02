@@ -17,24 +17,12 @@ import java.util.ArrayList;
 public class XOR extends LogicBlock{
     
     public XOR(ArrayList<Input> alInput){
-        super("XOR", "exklusiv oder", alInput, true, new Output("Output"), Type.LOGIC);
+        super("XOR", "exklusiv oder", alInput, true, new Output("Output"));
     }
     
     @Override
     protected void Logic(){
-        int iTrueCount = 0;
-        for(Input inp : super.getInputs()){
-//            if(!inp.getStatus()){
-//                iTrueCount++;
-//                if(iTrueCount >= 2){
-//                    //super.setOutputStatus(false);
-//                    break;
-//                }
-//            }
-        }
-        if(iTrueCount == 1){
-            //super.setOutputStatus(true);
-        }
+
     }
     
 }

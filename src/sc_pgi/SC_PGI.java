@@ -26,7 +26,7 @@ public class SC_PGI extends Application{
     static OffDelay offD = new OffDelay();
     static OnDelay onD = new OnDelay();
     public static GUI GUI = new GUI();
-    static AND and;
+    static AND and = new AND();
     static STEPRELAY step = new STEPRELAY();
     static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     
@@ -35,7 +35,6 @@ public class SC_PGI extends Application{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        and = new AND(CreationUtil.createStandardInputList());
         launch(args);
     }
 

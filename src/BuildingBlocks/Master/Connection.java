@@ -31,8 +31,6 @@ public class Connection{
     }
     
     
-    
-    
     private void generateLine(){
         plyConnection = new Polyline();
         if(sValue != null || bValue == true){

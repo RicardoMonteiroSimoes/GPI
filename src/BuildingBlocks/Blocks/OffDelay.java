@@ -19,7 +19,7 @@ import java.util.TimerTask;
 public class OffDelay extends TimerBlock{
     
     public OffDelay(){
-        super("OffDelay");
+        super("OffDelay", "Turn Off Delay");
     }
     
     @Override

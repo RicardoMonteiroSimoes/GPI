@@ -31,23 +31,33 @@ public class ConnectionHandler implements Observer {
                 temporaryOutput = (Output) o;
                 mouseEventOutput = (MouseEvent) arg;
             } catch (Exception e) {
-                System.out.println("This is not an Output...");
             }
             try {
                 temporaryInput = (Input) o;
-                mouseEventInput = (MouseEvent) arg;
+                if(temporaryInput.countObservers() >= 2){
+                    System.out.println("This Input already has something connected to it!");
+                    setPointsNull();
+                } else {
+                    mouseEventInput = (MouseEvent) arg;
+                }
             } catch (Exception e) {
-                System.out.println("This is not an Input...");
             }
             if (mouseEventOutput != null && mouseEventInput != null) {
+                System.out.println("InputParent: " + temporaryInput.getCircle().getParent().toString());
+                System.out.println("OutputParent: " + temporaryOutput.getCircle().getParent().toString());
                 if (temporaryOutput.getCircle().getParent().equals(temporaryInput.getCircle().getParent())) {
                     setPointsNull();
                     System.out.println("cant do this");
                 } else {
                     System.out.println("starting connection procedure");
-                    temporaryInput.addObserver(temporaryOutput);
-                    SC_PGI.GUI.addLine(mouseEventInput.getSceneX(), mouseEventInput.getSceneY(),
+                    try{
+                        temporaryInput.addOutputToListenTo(temporaryOutput);
+                        SC_PGI.GUI.addLine(mouseEventInput.getSceneX(), mouseEventInput.getSceneY(),
                             mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY());
+                    } catch (IllegalAccessError ae) {
+                        System.out.println(ae.getMessage());
+                    }
+                    
                     setPointsNull();
                 }
             }

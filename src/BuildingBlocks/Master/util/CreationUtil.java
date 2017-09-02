@@ -26,10 +26,31 @@ public class CreationUtil {
         return alInputs;
     }
     
+    
+    /**
+     * This Function generates an ArrayList<Input> that contains 2 Inputs.
+     * @return ArrayList<Inputs> with your inputs
+     */
     public static ArrayList<Input> createStandardInputList(){
         ArrayList<Input> alInputs = new ArrayList();
         alInputs.add(new Input("Input 1"));
         alInputs.add(new Input("Input 2"));
+        return alInputs;
+    }
+    
+    /**
+     * This Function generates an ArrayList<Input> that contains as many inputs
+     * the number you give
+     * @param amountInputs amount of Inputs you want
+     * @return ArrayList<Inputs> with your inputs
+     */
+    public static ArrayList<Input> createStandardInputList(int amountInputs){
+        ArrayList<Input> alInputs = new ArrayList();
+        int count = 1;
+        while(count <= amountInputs){
+            alInputs.add(new Input("Input " + count));
+            count++;
+        }
         return alInputs;
     }
     

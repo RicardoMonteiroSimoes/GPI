@@ -8,6 +8,7 @@ package BuildingBlocks.Blocks;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
+import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 
 /**
@@ -17,20 +18,12 @@ import java.util.ArrayList;
 public class AND extends LogicBlock{
     
 
-    public AND(ArrayList<Input> Inputs){
-        super("AND", "und", Inputs, true, new Output("Output"), Type.LOGIC);
+    public AND(){
+        super("AND", "AND-Block", CreationUtil.createStandardInputList(), true, new Output("Output"));
     }
     
     @Override
     protected void Logic(){
-        boolean bTemp = true;
-        for(Input inp : super.getInputs()){
-//            if(!inp.getStatus()){
-//                bTemp = false;
-//                break;
-//            }
-        }
-        //super.setOutputStatus(bTemp);
     }
     
 }
