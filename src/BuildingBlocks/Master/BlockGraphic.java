@@ -76,7 +76,24 @@ public abstract class BlockGraphic {
         outputs.add(new Output(out));
         constructBlock();
     }
-
+    
+    public BlockGraphic (String blockName, String blockSubName, Input in, boolean canChangeInputs, Type type) {
+        this.blockName = blockName;
+        this.blockSubName = blockSubName;
+        this.type = type;
+        this.canChangeInputs = canChangeInputs;
+        inputs.add(new Input(in));
+        constructBlock();
+    }
+    
+       public BlockGraphic (String blockName, String blockSubName, Output out, Type type) {
+        this.blockName = blockName;
+        this.blockSubName = blockSubName;
+        this.type = type;
+        outputs.add(new Output(out));
+        constructBlock();
+    }
+            
     public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
@@ -125,6 +142,8 @@ public abstract class BlockGraphic {
                 return Color.BURLYWOOD;
             case FILTER:
                 return Color.YELLOW;
+            case NETWORK:
+                return Color.KHAKI;
             default:
                 return Color.PURPLE;
         }

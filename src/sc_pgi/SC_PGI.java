@@ -28,6 +28,7 @@ public class SC_PGI extends Application{
     public static GUI GUI = new GUI();
     static AND and;
     static STEPRELAY step = new STEPRELAY();
+    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     
     static Variable var = new Variable("Zeitkonstante", true);
     /**
@@ -46,6 +47,7 @@ public class SC_PGI extends Application{
         alBlocks.add(and.getBlockObject());
         alBlocks.add(step.getBlockObject());
         alBlocks.add(var.getBlockObject());
+        alBlocks.add(knxServerIn.getBlockObject());
         GUI.start(primaryStage);
     }
     
