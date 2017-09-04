@@ -5,6 +5,8 @@
  */
 package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.ContactPoint;
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
@@ -19,7 +21,7 @@ public class AND extends LogicBlock{
     
 
     public AND(){
-        super("AND", "AND-Block", CreationUtil.createStandardInputList(), true, new Output("Output"));
+        super("AND", "AND-Block", CreationUtil.createStandardInputList(Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
     
     @Override

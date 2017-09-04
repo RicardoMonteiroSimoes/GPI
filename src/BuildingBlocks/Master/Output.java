@@ -154,11 +154,39 @@ public class Output extends Observable implements Observer{
 
     public void setDataType (Datatype datatype) {
         this.datatype = datatype;
+        setOutput();
+    }
+    
+    private void setOutput(){
+        System.out.println("datatype is " + datatype);
+        switch (datatype) {
+            case BOOLEAN:
+                setBooleanOutput(false);
+                break;
+            case STRING:
+                setStringOutput("empty");
+                break;
+            case FLOAT:
+                setFloatOutput(0.000f);
+                break;
+            case INTEGER:
+                setIntegerOutput(0);
+                break;
+            case DOUBLE:
+                setDoubleOutput(0.0);
+                break;
+            default:
+                throw new Error("Theres a Datatype there is no case for");
+        }
     }
 
     @Override
     public void update (Observable o, Object arg) {
         setChanged();
         notifyObservers();
+    }
+
+    public Datatype getDatatype () {
+        return datatype;
     }
 }

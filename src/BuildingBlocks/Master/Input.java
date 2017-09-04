@@ -205,8 +205,8 @@ public class Input extends Observable implements Observer {
 
     public void addOutputToListenTo(Output out) {
         if (!checkOutput(out)) {
-            throw new IllegalAccessError("You're trying to Connect an Output of One Datatype to an Input "
-                    + "that requires another Datatype!");
+            throw new IllegalAccessError("You're trying to Connect a " 
+                    + datatype + " input to an " + out.getDatatype() + "output");
         }
         addObserver(out);
     }

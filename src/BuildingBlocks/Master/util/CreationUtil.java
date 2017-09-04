@@ -38,6 +38,15 @@ public class CreationUtil {
         return alInputs;
     }
     
+    public static ArrayList<Input> createStandardInputList(Datatype datatype){
+        ArrayList<Input> alInputs = new ArrayList();
+        alInputs.add(new Input("Input 1"));
+        alInputs.get(0).setDataType(datatype);
+        alInputs.add(new Input("Input 2"));
+        alInputs.get(1).setDataType(datatype);
+        return alInputs;
+    }
+    
     /**
      * This Function generates an ArrayList<Input> that contains as many inputs
      * the number you give
@@ -63,8 +72,9 @@ public class CreationUtil {
         return alTemp;
     }
     
-    public static Output getOutput(){
+    public static Output createOutput(Datatype datatype){
         Output out = new Output();
+        out.setDataType(datatype);
         return out;
     }
 }

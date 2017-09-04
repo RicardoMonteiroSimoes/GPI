@@ -49,7 +49,6 @@ public class ConnectionHandler implements Observer {
                     setPointsNull();
                     System.out.println("cant do this");
                 } else {
-                    System.out.println("starting connection procedure");
                     try{
                         temporaryInput.addOutputToListenTo(temporaryOutput);
                         SC_PGI.GUI.addLine(mouseEventInput.getSceneX(), mouseEventInput.getSceneY(),
