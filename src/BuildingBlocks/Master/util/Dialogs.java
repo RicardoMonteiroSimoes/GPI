@@ -78,6 +78,9 @@ public class Dialogs {
         if(block.canChangeInputs()){
             grid.add(changeInputsButton, 1, 3);
         }
+        if(block.hasAdditionalDialogFunction()){
+            grid.add(block.getAdditionalDialogFunction(), 1, 4);
+        }
         
         changeInputsButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

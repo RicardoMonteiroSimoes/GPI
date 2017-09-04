@@ -9,10 +9,12 @@
             <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/Output.java</file>
             <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/util/Dialogs.java</file>
             <file>file:/T:/user/ricardo/SC_PGI/src/sc_pgi/GUI.java</file>
-            <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/util/ConnectionPoint.java</file>
             <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/FilterBlock.java</file>
             <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/util/CreationUtil.java</file>
+            <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/LogicBlock.java</file>
             <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/BlockGraphic.java</file>
+            <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/ContactPoint.java</file>
+            <file>file:/T:/user/ricardo/SC_PGI/src/BuildingBlocks/Master/Connection.java</file>
         </group>
     </open-files>
 </project-private>

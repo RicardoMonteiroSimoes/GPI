@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
@@ -52,7 +53,8 @@ public abstract class BlockGraphic {
     private boolean canChangeInputs = false;
     private Type type;
     private Observer observer;
-
+    private Group grp = new Group();
+    private boolean hasAdditionalDialogFunction = false;
 
     private Text notes = new Text();
 
@@ -64,6 +66,10 @@ public abstract class BlockGraphic {
     public void setSubName (String text) {
         blockSubName = text;
         addTooltipTo(labelBlockGroup, blockSubName);
+    }
+
+    public boolean hasAdditionalDialogFunction () {
+        return hasAdditionalDialogFunction;
     }
 
     public enum Type {
@@ -79,7 +85,7 @@ public abstract class BlockGraphic {
         outputs.add(out);
         constructBlock();
     }
-    
+
     public BlockGraphic (String blockName, String blockSubName, Input in, boolean canChangeInputs, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
@@ -88,15 +94,15 @@ public abstract class BlockGraphic {
         inputs.add(in);
         constructBlock();
     }
-    
-       public BlockGraphic (String blockName, String blockSubName, Output out, Type type) {
+
+    public BlockGraphic (String blockName, String blockSubName, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
         outputs.add(out);
         constructBlock();
     }
-            
+
     public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> inputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
@@ -108,7 +114,7 @@ public abstract class BlockGraphic {
     }
 
     /**
-     * 
+     *
      *
      * @param blockName
      * @param out
@@ -124,8 +130,7 @@ public abstract class BlockGraphic {
         this.type = blockType;
         constructBlock();
     }
-    
-    
+
     private Color getFillColor () {
         switch (type) {
             case VARIABLE:
@@ -150,10 +155,10 @@ public abstract class BlockGraphic {
         constructBlock();
         addConnectionWatcher(this.observer);
     }
-    
-    private void removeObserversFromInput(Input in){
-       System.out.println("INPUT " + in.getName() + " has " + in.countObservers()+ "Observers");
-       in.removeObservers();
+
+    private void removeObserversFromInput (Input in) {
+        System.out.println("INPUT " + in.getName() + " has " + in.countObservers() + "Observers");
+        in.removeObservers();
     }
 
     private void constructBlock () {
@@ -193,27 +198,27 @@ public abstract class BlockGraphic {
         setBlockHeight();
         setBlockWidth();
         setBlockColors();
-        setLowerBlockGroup(); 
+        setLowerBlockGroup();
         createInputPoints();
         createOutputPoints();
         setUpperBlockGroup();
         setBlockFunctions();
         System.out.println("finished block! " + getName());
     }
-    
-    private void setLowerBlockGroup(){
+
+    private void setLowerBlockGroup () {
         labelBlockGroup.getChildren().add(rectBlock);
         labelBlockGroup.getChildren().add(blockNameLabel);
         labelBlockGroup.toBack();
         addTooltipTo(labelBlockGroup, blockSubName);
     }
-    
-    private void setUpperBlockGroup(){
+
+    private void setUpperBlockGroup () {
         wholeBlockGroup.getChildren().addAll(labelBlockGroup);
         wholeBlockGroup.getChildren().addAll(ellipses);
     }
-    
-    private void addTooltipTo(Node n, String tooltip){
+
+    private void addTooltipTo (Node n, String tooltip) {
         Tooltip t = new Tooltip(tooltip);
         Tooltip.install(n, t);
     }
@@ -235,14 +240,13 @@ public abstract class BlockGraphic {
             count++;
         }
     }
-    
-    private void redoInputPoints(){
+
+    private void redoInputPoints () {
         ellipses.clear();
         createOutputPoints();
         createInputPoints();
         addConnectionWatcher(this.observer);
     }
-
 
     private void setBlockArcs (double radius) {
         rectBlock.setArcHeight(radius);
@@ -372,25 +376,36 @@ public abstract class BlockGraphic {
             }
         } else if (inputs.size() < amountInputs) {
             for (int addToInputs = 1; addToInputs <= amountInputs - inputs.size(); addToInputs++) {
-                inputs.add(new Input("Input " + inputs.size()+1));
+                inputs.add(new Input("Input " + inputs.size() + 1));
                 reconstructBlock();
             }
         }
     }
-    
-    public void addConnectionWatcher(Observer observer){
+
+    public void addConnectionWatcher (Observer observer) {
         this.observer = observer;
-        for(Output out : outputs){
+        for (Output out : outputs) {
             out.addObserver(observer);
         }
-        for(Input in : inputs){
+        for (Input in : inputs) {
             in.addObserver(observer);
         }
     }
-    
-    public String getSubName(){
+
+    public String getSubName () {
         return blockSubName;
     }
 
+    protected void addDialogFunction (Group grp) {
+//        this.grp = grp;
+        Button testButton = new Button("Test");
+        grp.getChildren().add(testButton);
+        hasAdditionalDialogFunction = true;
+       
+    }
+
+    public Group getAdditionalDialogFunction () {
+        return grp;
+    }
 
 }

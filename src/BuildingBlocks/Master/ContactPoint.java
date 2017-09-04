@@ -10,9 +10,9 @@ package BuildingBlocks.Master;
  * @author Ricardo
  */
 public abstract class ContactPoint {
-    
+
     public enum Datatype {
         BOOLEAN, STRING, DOUBLE, FLOAT, INTEGER
-    }   
-    
+    }
+
 }
