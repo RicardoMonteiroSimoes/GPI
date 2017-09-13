@@ -15,7 +15,7 @@ import javafx.scene.shape.Polyline;
  *
  * @author Ricardo
  */
-public class Connection{
+public class Connection implements Observer{
     
     private Point startPoint;
     private Point endPoint;
@@ -27,17 +27,13 @@ public class Connection{
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         obsOutput.addObserver(obsInput);
+        obsOutput.addObserver(this);
         generateLine();
     }
     
     
     private void generateLine(){
         plyConnection = new Polyline();
-        if(sValue != null || bValue == true){
-            plyConnection.setStroke(Color.RED);
-        } else {
-            plyConnection.setStroke(Color.BLUE);
-        }
         plyConnection.setStrokeWidth(4);
         plyConnection.getPoints().addAll(new Double[]{
                                             startPoint.getX(), startPoint.getY(),
@@ -46,6 +42,18 @@ public class Connection{
     
     public Polyline getLine(){
         return this.plyConnection;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        boolean bool = (boolean) arg;
+        if(bool){
+            System.out.println("Set Line true");
+            plyConnection.setStroke(Color.RED);
+        } else {
+            System.out.println("set Lin false");
+            plyConnection.setStroke(Color.BLACK);
+        }
     }
 
     

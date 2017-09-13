@@ -61,6 +61,7 @@ public class Output extends Observable implements Observer{
         this.booleanValue = booleanValue;
         floatValue = null;
         stringValue = null;
+        notifyOfUpdate();
     }
 
     public String getStringOutput () {
@@ -73,6 +74,7 @@ public class Output extends Observable implements Observer{
         booleanValue = null;
         floatValue = null;
         this.stringValue = stringValue;
+        notifyOfUpdate();
     }
 
     public Double getDoubleOutput () {
@@ -85,6 +87,7 @@ public class Output extends Observable implements Observer{
         booleanValue = null;
         floatValue = null;
         stringValue = null;
+        notifyOfUpdate();
     }
 
     public Float getFloatOutput () {
@@ -97,6 +100,7 @@ public class Output extends Observable implements Observer{
         booleanValue = null;
         this.floatValue = floatValue;
         stringValue = null;
+        notifyOfUpdate();
     }
 
     public Integer getIntegerOutput () {
@@ -109,6 +113,7 @@ public class Output extends Observable implements Observer{
         booleanValue = null;
         floatValue = null;
         stringValue = null;
+        notifyOfUpdate();
     }
 
     public Observable getObservable () {
@@ -182,6 +187,10 @@ public class Output extends Observable implements Observer{
 
     @Override
     public void update (Observable o, Object arg) {
+        notifyOfUpdate();
+    }
+    
+    private void notifyOfUpdate(){
         setChanged();
         notifyObservers();
     }

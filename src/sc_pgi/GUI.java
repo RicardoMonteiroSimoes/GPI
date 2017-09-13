@@ -169,9 +169,19 @@ public class GUI extends Application {
             case "OffDelay":
                 newOffDelayBlock(x, y);
                 break;
+            case "Button":
+                newMouseButtonBlock(x, y);              
+                break;
             default:
                 System.out.println("No case for " + sName);
         }
+    }    
+    
+    private void newMouseButtonBlock (double x, double y) {
+        MouseButton notTemp = new MouseButton();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
     }
 
     private void newNOTBlock (double x, double y) {
