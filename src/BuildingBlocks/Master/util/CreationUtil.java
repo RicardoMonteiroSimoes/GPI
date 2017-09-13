@@ -77,4 +77,10 @@ public class CreationUtil {
         out.setDataType(datatype);
         return out;
     }
+    
+    public static Input createInput(Datatype datatype){
+        Input in = new Input();
+        in.setDataType(datatype);
+        return in;
+    }
 }

@@ -12,6 +12,7 @@ import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  *
@@ -26,6 +27,16 @@ public class AND extends LogicBlock{
     
     @Override
     protected void Logic(){
+        System.out.println("Logic got called");
+        for(Input in: getInputs()){
+            if(in.getBooleanOutput() == null || !in.getBooleanOutput()){
+                getOutputs().get(0).setBooleanOutput(false);
+                break;
+            } 
+            getOutputs().get(0).setBooleanOutput(true);
+        }
     }
+
+
     
 }

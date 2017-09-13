@@ -12,6 +12,7 @@ import java.util.Optional;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
@@ -75,16 +76,16 @@ public class Dialogs {
         grid.add(new Label(block.getType().toString()), 1, 1);
         grid.add(new Label("Notes:"), 0, 2);
         grid.add(blockNotes, 1, 2);
-        if(block.canChangeInputs()){
+        if (block.canChangeInputs()) {
             grid.add(changeInputsButton, 1, 3);
         }
-        if(block.hasAdditionalDialogFunction()){
+        if (block.hasAdditionalDialogFunction()) {
             grid.add(block.getAdditionalDialogFunction(), 1, 4);
         }
-        
+
         changeInputsButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle (MouseEvent t) {
+            public void handle(MouseEvent t) {
                 inputEditor(block);
             }
         });
@@ -103,9 +104,9 @@ public class Dialogs {
         }
 
     }
-    
-    private static void inputEditor(BlockGraphic block){
-        Dialog <ButtonType> inputEditorWindow = new Dialog<>();
+
+    private static void inputEditor(BlockGraphic block) {
+        Dialog<ButtonType> inputEditorWindow = new Dialog<>();
         inputEditorWindow.setTitle("Input Editor");
         inputEditorWindow.setHeaderText("Input Editor for the Block " + block.getName());
         ButtonType okButton = new ButtonType("Ok", ButtonData.OK_DONE);
@@ -115,11 +116,11 @@ public class Dialogs {
 
         ComboBox comboBox = new ComboBox<Type>();
         comboBox.setMinWidth(20);
-        for (Input in : block.getInputs()){
+        for (Input in : block.getInputs()) {
             comboBox.getItems().add(in.getName());
         }
         comboBox.getSelectionModel().select(block.getInputs().get(0).getName());
-        
+
         inputEditorWindow.getDialogPane().getButtonTypes().addAll(okButton);
 
         GridPane grid = new GridPane();
@@ -142,7 +143,14 @@ public class Dialogs {
             }
         }
 
+    }
 
-        
+    public static void alertDialog(String sTitle, String sHeaderText, String sMessage) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(sTitle);
+        alert.setHeaderText(sHeaderText);
+        alert.setContentText(sMessage);
+
+        alert.showAndWait();
     }
 }

@@ -9,6 +9,7 @@ import BuildingBlocks.Master.TimerBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -48,5 +49,9 @@ public class OffDelay extends TimerBlock{
     @Override
     protected void setOutputAfterTimer(boolean bOutput){
         //super.setOutputStatus(bOutput);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
     }
 }

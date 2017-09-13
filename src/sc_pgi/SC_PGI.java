@@ -23,15 +23,15 @@ public class SC_PGI extends Application{
     
     static ArrayList<BlockGraphic> alBlocks = new ArrayList();
     static NOT not = new NOT();
-    static OffDelay offD = new OffDelay();
-    static OnDelay onD = new OnDelay();
+//    static OffDelay offD = new OffDelay();
+//    static OnDelay onD = new OnDelay();
     public static GUI GUI = new GUI();
     static AND and = new AND();
-    static STEPRELAY step = new STEPRELAY();
-    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
+//    static STEPRELAY step = new STEPRELAY();
+//    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     static MouseButton msbttn = new MouseButton();
     
-    static Variable var = new Variable("Zeitkonstante", true);
+//    static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
      */
@@ -42,12 +42,12 @@ public class SC_PGI extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         alBlocks.add(not.getBlockObject());
-        alBlocks.add(offD.getBlockObject());
-        alBlocks.add(onD.getBlockObject());
+//        alBlocks.add(offD.getBlockObject());
+//        alBlocks.add(onD.getBlockObject());
         alBlocks.add(and.getBlockObject());
-        alBlocks.add(step.getBlockObject());
-        alBlocks.add(var.getBlockObject());
-        alBlocks.add(knxServerIn.getBlockObject());
+//        alBlocks.add(step.getBlockObject());
+//        alBlocks.add(var.getBlockObject());
+//        alBlocks.add(knxServerIn.getBlockObject());
         alBlocks.add(msbttn.getBlockObject());
         GUI.start(primaryStage);
     }

@@ -6,27 +6,27 @@
 package BuildingBlocks.Master;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  *
  * @author Ricardo
  */
-public abstract class LogicBlock extends BlockGraphic{
-    
-    
-    public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out){
+public abstract class LogicBlock extends BlockGraphic {
+
+    public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out) {
         super(sName, blockSubName, in, canChangeInput, out, Type.LOGIC);
     }
-    
-    public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, Output out){
-        super(sName, blockSubName, alInputs, canChangeInput, out,  Type.LOGIC);
+
+    public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, Output out) {
+        super(sName, blockSubName, alInputs, canChangeInput, out, Type.LOGIC);
     }
-    
+
+    @Override
+    public void update(Observable o, Object arg) {
+        Logic();
+    }
+
     protected abstract void Logic();
-    
+
 }
-
-    
-        
-    
-

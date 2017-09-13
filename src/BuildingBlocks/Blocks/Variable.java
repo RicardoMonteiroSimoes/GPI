@@ -8,15 +8,9 @@ package BuildingBlocks.Blocks;
 
 import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.Output;
-import BuildingBlocks.Master.util.CreationUtil;
-import com.sun.corba.se.spi.logging.CORBALogDomains;
 import java.util.ArrayList;
+import java.util.Observable;
 import javafx.scene.Group;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 
 /**
@@ -47,6 +41,10 @@ public class Variable extends BlockGraphic{
     
     public String getTooltip(){
         return this.sTooltip;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
     }
 
 }

@@ -8,6 +8,7 @@ package sc_pgi;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.BlockGraphic;
+import BuildingBlocks.Master.Connection;
 import BuildingBlocks.Master.ConnectionHandler;
 import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.util.Dialogs;
@@ -317,7 +318,6 @@ public class GUI extends Application {
             out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
-                    System.out.println("clicked output");
                     bNewConnectionReady = true;
                     startX = t.getSceneX() - spItems.getWidth();
                     startY = t.getSceneY();
@@ -328,7 +328,6 @@ public class GUI extends Application {
             in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
-                    System.out.println("clicked input");
                     if (bNewConnectionReady) {
                         Line lineTemp = new Line();
                         lineTemp.setStartX(startX);
@@ -346,13 +345,11 @@ public class GUI extends Application {
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
     }
     
-    public void addLine (double sceneXstart, double sceneYstart, double sceneXend, double sceneYend) {
-        Polyline temporaryLine = new Polyline();
-        temporaryLine.getPoints().add(sceneXstart - spItems.getWidth());
-        temporaryLine.getPoints().add(sceneYstart);
-        temporaryLine.getPoints().add(sceneXend - spItems.getWidth());
-        temporaryLine.getPoints().add(sceneYend);
-        scrollPaneGroup.getChildren().add(temporaryLine);
-        
+    public void addLine (Connection connection){
+        scrollPaneGroup.getChildren().add(connection.getLine());
+    }
+    
+    public double getSideBarWidth(){
+        return spItems.getWidth();
     }
 }

@@ -7,9 +7,11 @@ package BuildingBlocks.Master;
 
 import java.util.Observable;
 import java.util.Observer;
+import javafx.geometry.Point2D;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
+import sc_pgi.SC_PGI;
 
 /**
  *
@@ -17,13 +19,13 @@ import javafx.scene.shape.Polyline;
  */
 public class Connection implements Observer{
     
-    private Point startPoint;
-    private Point endPoint;
+    private Point2D startPoint;
+    private Point2D endPoint;
     private String sValue;
     private boolean bValue;
     private Polyline plyConnection;
     
-    public Connection(Point startPoint, Output obsOutput, Point endPoint, Input obsInput){
+    public Connection(Point2D startPoint, Output obsOutput, Point2D endPoint, Input obsInput){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         obsOutput.addObserver(obsInput);
@@ -33,11 +35,12 @@ public class Connection implements Observer{
     
     
     private void generateLine(){
+        double sideBarWidth = SC_PGI.GUI.getSideBarWidth();
         plyConnection = new Polyline();
-        plyConnection.setStrokeWidth(4);
+        plyConnection.setStrokeWidth(2);
         plyConnection.getPoints().addAll(new Double[]{
-                                            startPoint.getX(), startPoint.getY(),
-                                            endPoint.getX(), endPoint.getY()});
+                                            startPoint.getX() - sideBarWidth, startPoint.getY(),
+                                            endPoint.getX() - sideBarWidth, endPoint.getY()});
     }
     
     public Polyline getLine(){
@@ -46,13 +49,10 @@ public class Connection implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("i was called");
         Output out = (Output) o;
         if(out.getBooleanOutput()){
-            System.out.println("Set Line true");
             plyConnection.setStroke(Color.RED);
         } else {
-            System.out.println("set Line false");
             plyConnection.setStroke(Color.BLACK);
         }
     }

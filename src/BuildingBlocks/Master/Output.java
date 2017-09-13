@@ -18,7 +18,7 @@ import javafx.scene.shape.Circle;
  *
  * @author Ricardo
  */
-public class Output extends Observable implements Observer{
+public class Output extends Observable{
 
     private String sName;
 
@@ -163,7 +163,6 @@ public class Output extends Observable implements Observer{
     }
     
     private void setOutput(){
-        System.out.println("datatype is " + datatype);
         switch (datatype) {
             case BOOLEAN:
                 setBooleanOutput(false);
@@ -183,11 +182,6 @@ public class Output extends Observable implements Observer{
             default:
                 throw new Error("Theres a Datatype there is no case for");
         }
-    }
-
-    @Override
-    public void update (Observable o, Object arg) {
-        notifyOfUpdate();
     }
     
     private void notifyOfUpdate(){

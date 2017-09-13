@@ -6,10 +6,7 @@
 package BuildingBlocks.Blocks;
 
 import BuildingBlocks.Master.TimerBlock;
-import BuildingBlocks.Master.Input;
-import BuildingBlocks.Master.Output;
-import java.util.ArrayList;
-import java.util.Timer;
+import java.util.Observable;
 import java.util.TimerTask;
 
 /**
@@ -41,5 +38,9 @@ public class OnDelay extends TimerBlock{
     @Override
     protected void setOutputAfterTimer(boolean bOutput){
 
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
     }
 }

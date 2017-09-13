@@ -7,34 +7,24 @@ package BuildingBlocks.Master;
 
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Observable;
 import java.util.Observer;
-import java.util.Optional;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Tooltip;
-import javafx.scene.effect.Light.Point;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import sun.applet.Main;
 
 /**
  *
  * @author Ricardo
  */
-public abstract class BlockGraphic {
+public abstract class BlockGraphic implements Observer{
 
     private final double DISTANCE_BETWEEN_POINTS = 20.0;
     private final double OPACITY_VALUE = 0.5;
@@ -227,6 +217,7 @@ public abstract class BlockGraphic {
         int count = 1;
         for (Input in : inputs) {
             in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
+            in.addObserver(this);
             ellipses.add(in.getCircle());
             count++;
         }
@@ -425,9 +416,7 @@ public abstract class BlockGraphic {
     }
 
     protected void addDialogFunction(Group grp) {
-//        this.grp = grp;
-        Button testButton = new Button("Test");
-        grp.getChildren().add(testButton);
+        this.grp = grp;
         hasAdditionalDialogFunction = true;
 
     }

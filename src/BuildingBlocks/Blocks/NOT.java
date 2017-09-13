@@ -5,9 +5,11 @@
  */
 package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.ContactPoint;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Output;
+import BuildingBlocks.Master.util.CreationUtil;
 
 /**
  *
@@ -16,10 +18,16 @@ import BuildingBlocks.Master.Output;
 public class NOT extends LogicBlock{
     
     public NOT(){
-        super("NOT", "not", new Input("Input"), false, new Output("Output"));
+        super("NOT", "not", CreationUtil.createInput(ContactPoint.Datatype.BOOLEAN),
+                false, CreationUtil.createOutput(ContactPoint.Datatype.BOOLEAN));
     }
     
     @Override
     protected void Logic(){
+        try{
+            getOutputs().get(0).setBooleanOutput(!getInputs().get(0).getBooleanOutput());
+        } catch ( NullPointerException ne ){
+            getOutputs().get(0).setBooleanOutput(true);
+        }
     }
 }

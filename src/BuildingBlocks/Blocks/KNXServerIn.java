@@ -8,6 +8,7 @@ package BuildingBlocks.Blocks;
 import BuildingBlocks.Master.NetworkBlock;
 import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.util.CreationUtil;
+import java.util.Observable;
 
 /**
  *
@@ -23,5 +24,9 @@ public class KNXServerIn extends NetworkBlock{
     @Override
     protected void Logic() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
     }
 }

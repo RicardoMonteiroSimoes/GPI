@@ -9,6 +9,8 @@ import java.util.Observable;
 import java.util.Observer;
 import BuildingBlocks.Master.Output;
 import javafx.event.Event;
+import javafx.geometry.Point2D;
+import javafx.scene.effect.Light.Point;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polyline;
 import sc_pgi.SC_PGI;
@@ -34,8 +36,7 @@ public class ConnectionHandler implements Observer {
             }
             try {
                 temporaryInput = (Input) o;
-                if(temporaryInput.countObservers() >= 2){
-                    System.out.println("This Input already has something connected to it!");
+                if(temporaryInput.countObservers() >= 3){
                     setPointsNull();
                 } else {
                     mouseEventInput = (MouseEvent) arg;
@@ -43,16 +44,13 @@ public class ConnectionHandler implements Observer {
             } catch (Exception e) {
             }
             if (mouseEventOutput != null && mouseEventInput != null) {
-                System.out.println("InputParent: " + temporaryInput.getCircle().getParent().toString());
-                System.out.println("OutputParent: " + temporaryOutput.getCircle().getParent().toString());
                 if (temporaryOutput.getCircle().getParent().equals(temporaryInput.getCircle().getParent())) {
                     setPointsNull();
-                    System.out.println("cant do this");
                 } else {
                     try{
                         temporaryInput.addOutputToListenTo(temporaryOutput);
-                        SC_PGI.GUI.addLine(mouseEventInput.getSceneX(), mouseEventInput.getSceneY(),
-                            mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY());
+                        SC_PGI.GUI.addLine(new Connection(new Point2D(mouseEventInput.getSceneX(), mouseEventInput.getSceneY()),
+                        temporaryOutput, new Point2D(mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY()), temporaryInput));
                     } catch (IllegalAccessError ae) {
                         System.out.println(ae.getMessage());
                     }

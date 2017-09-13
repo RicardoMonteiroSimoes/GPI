@@ -60,7 +60,7 @@ public class Input extends Observable implements Observer {
         this.booleanValue = booleanValue;
         floatValue = null;
         stringValue = null;
-        System.out.println("set bool input");
+        System.out.println("set bool input to " + booleanValue);
     }
 
     public String getStringInput () {
@@ -185,6 +185,8 @@ public class Input extends Observable implements Observer {
 
     @Override
     public void update (Observable o, Object arg) {
+        Output out = (Output) o;
+        checkOutput(out);
         setChanged();
         notifyObservers();
     }
@@ -194,7 +196,7 @@ public class Input extends Observable implements Observer {
             throw new IllegalAccessError("You're trying to Connect a "
                     + datatype + " input to an " + out.getDatatype() + "output");
         }
-        addObserver(out);
+        out.addObserver(this);
         setChanged();
         notifyObservers();
     }
