@@ -115,10 +115,10 @@ public class Dialogs {
 
         ComboBox comboBox = new ComboBox<Type>();
         comboBox.setMinWidth(20);
-        for (Input in : block.getGUIInputs()){
+        for (Input in : block.getInputs()){
             comboBox.getItems().add(in.getName());
         }
-        comboBox.getSelectionModel().select(block.getGUIInputs().get(0).getName());
+        comboBox.getSelectionModel().select(block.getInputs().get(0).getName());
         
         inputEditorWindow.getDialogPane().getButtonTypes().addAll(okButton);
 

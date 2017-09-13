@@ -17,32 +17,22 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Ricardo
  */
-public class MouseButton extends BlockGraphic{
-    
-    public MouseButton(){
+public class MouseButton extends BlockGraphic {
+
+    public MouseButton() {
         super("Button", "Click for impulse", CreationUtil.createOutput(ContactPoint.Datatype.BOOLEAN), Type.VARIABLE);
-        setButtonEvent();
     }
 
-    private void setButtonEvent(){
-        super.getBlockGraphic().getChildren().get(0).setOnMousePressed(new EventHandler <MouseEvent> () {
-
-            @Override
-            public void handle(MouseEvent event) {
-                getGUIOutputs().get(0).setBooleanOutput(true);
-                System.out.println("set output true");
-            }
-        });
-        
-        super.getBlockGraphic().getChildren().get(0).setOnMouseReleased(new EventHandler <MouseEvent> () {
-
-            @Override
-            public void handle(MouseEvent event) {
-                getGUIOutputs().get(0).setBooleanOutput(false);
-                System.out.println("set output false");
-            }
-        });
+    @Override
+    protected void setOnMousePressedEvent() {
+        getOutputs().get(0).setBooleanOutput(true);
+        System.out.println("Output set to True");
     }
-    
-    
+
+    @Override
+    protected void setOnMouseReleasedEvent() {
+        getOutputs().get(0).setBooleanOutput(false);
+        System.out.println("Output set to False");
+    }
+
 }

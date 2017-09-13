@@ -205,7 +205,7 @@ public class GUI extends Application {
     private void newORBlock (double x, double y) {
         OR notTemp = new OR(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getGUIOutputs()) {
+        for (Output out : notTemp.getOutputs()) {
             out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -216,7 +216,7 @@ public class GUI extends Application {
                 }
             });
         }
-        for (Input in : notTemp.getGUIInputs()) {
+        for (Input in : notTemp.getInputs()) {
             in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -241,7 +241,7 @@ public class GUI extends Application {
     private void newXORBlock (double x, double y) {
         XOR notTemp = new XOR(CreationUtil.createStandardInputList());
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getGUIOutputs()) {
+        for (Output out : notTemp.getOutputs()) {
             out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -252,7 +252,7 @@ public class GUI extends Application {
                 }
             });
         }
-        for (Input in : notTemp.getGUIInputs()) {
+        for (Input in : notTemp.getInputs()) {
             in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -277,7 +277,7 @@ public class GUI extends Application {
     private void newOnDelayBlock (double x, double y) {
         OnDelay notTemp = new OnDelay();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getGUIOutputs()) {
+        for (Output out : notTemp.getOutputs()) {
             out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -288,7 +288,7 @@ public class GUI extends Application {
                 }
             });
         }
-        for (Input in : notTemp.getGUIInputs()) {
+        for (Input in : notTemp.getInputs()) {
             in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -313,7 +313,7 @@ public class GUI extends Application {
     private void newOffDelayBlock (double x, double y) {
         OffDelay notTemp = new OffDelay();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getGUIOutputs()) {
+        for (Output out : notTemp.getOutputs()) {
             out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {
@@ -324,7 +324,7 @@ public class GUI extends Application {
                 }
             });
         }
-        for (Input in : notTemp.getGUIInputs()) {
+        for (Input in : notTemp.getInputs()) {
             in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle (MouseEvent t) {

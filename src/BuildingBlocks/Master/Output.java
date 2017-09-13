@@ -34,7 +34,7 @@ public class Output extends Observable implements Observer{
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
     private Datatype datatype;
-    private boolean hasChanged = false;
+    private boolean hasOutput = false;
 
     public Output (String sName) {
         this.sName = sName;
@@ -193,6 +193,7 @@ public class Output extends Observable implements Observer{
     private void notifyOfUpdate(){
         setChanged();
         notifyObservers();
+        clearChanged();
     }
 
     public Datatype getDatatype () {

@@ -23,7 +23,7 @@ public class Connection implements Observer{
     private boolean bValue;
     private Polyline plyConnection;
     
-    public Connection(Point startPoint, Observable obsOutput, Point endPoint, Input obsInput){
+    public Connection(Point startPoint, Output obsOutput, Point endPoint, Input obsInput){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         obsOutput.addObserver(obsInput);
@@ -46,12 +46,13 @@ public class Connection implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        boolean bool = (boolean) arg;
-        if(bool){
+        System.out.println("i was called");
+        Output out = (Output) o;
+        if(out.getBooleanOutput()){
             System.out.println("Set Line true");
             plyConnection.setStroke(Color.RED);
         } else {
-            System.out.println("set Lin false");
+            System.out.println("set Line false");
             plyConnection.setStroke(Color.BLACK);
         }
     }

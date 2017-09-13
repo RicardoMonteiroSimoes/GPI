@@ -60,6 +60,7 @@ public class Input extends Observable implements Observer {
         this.booleanValue = booleanValue;
         floatValue = null;
         stringValue = null;
+        System.out.println("set bool input");
     }
 
     public String getStringInput () {

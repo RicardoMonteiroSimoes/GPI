@@ -63,12 +63,12 @@ public abstract class BlockGraphic {
 
     private boolean bDoubleClick = false;
 
-    public void setSubName (String text) {
+    public void setSubName(String text) {
         blockSubName = text;
         addTooltipTo(labelBlockGroup, blockSubName);
     }
 
-    public boolean hasAdditionalDialogFunction () {
+    public boolean hasAdditionalDialogFunction() {
         return hasAdditionalDialogFunction;
     }
 
@@ -76,7 +76,7 @@ public abstract class BlockGraphic {
         VARIABLE, TIMER, LOGIC, FILTER, NETWORK
     }
 
-    public BlockGraphic (String blockName, String blockSubName, Input in, boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic(String blockName, String blockSubName, Input in, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
@@ -86,7 +86,7 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, String blockSubName, Input in, boolean canChangeInputs, Type type) {
+    public BlockGraphic(String blockName, String blockSubName, Input in, boolean canChangeInputs, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
@@ -95,7 +95,7 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, String blockSubName, Output out, Type type) {
+    public BlockGraphic(String blockName, String blockSubName, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
@@ -103,7 +103,7 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    public BlockGraphic (String blockName, String blockSubName, ArrayList<Input> inputs, boolean canChangeInputs, Output out, Type type) {
+    public BlockGraphic(String blockName, String blockSubName, ArrayList<Input> inputs, boolean canChangeInputs, Output out, Type type) {
         this.blockName = blockName;
         this.blockSubName = blockSubName;
         this.type = type;
@@ -121,7 +121,7 @@ public abstract class BlockGraphic {
      * @param blockType
      * @throws IllegalArgumentException
      */
-    public BlockGraphic (String blockName, Output out, Type blockType) throws IllegalArgumentException {
+    public BlockGraphic(String blockName, Output out, Type blockType) throws IllegalArgumentException {
         if ((blockType != Type.VARIABLE && blockType != Type.NETWORK)) {
             throw new IllegalArgumentException("Cannot initialize Variable with the type " + blockType.toString());
         }
@@ -131,7 +131,7 @@ public abstract class BlockGraphic {
         constructBlock();
     }
 
-    private Color getFillColor () {
+    private Color getFillColor() {
         switch (type) {
             case VARIABLE:
                 return Color.TURQUOISE;
@@ -148,7 +148,7 @@ public abstract class BlockGraphic {
         }
     }
 
-    private void reconstructBlock () {
+    private void reconstructBlock() {
         labelBlockGroup.getChildren().clear();
         wholeBlockGroup.getChildren().clear();
         ellipses.clear();
@@ -156,12 +156,12 @@ public abstract class BlockGraphic {
         addConnectionWatcher(this.observer);
     }
 
-    private void removeObserversFromInput (Input in) {
+    private void removeObserversFromInput(Input in) {
         System.out.println("INPUT " + in.getName() + " has " + in.countObservers() + "Observers");
         in.removeObservers();
     }
 
-    private void constructBlock () {
+    private void constructBlock() {
         try {
             if (type == Type.VARIABLE || type == Type.NETWORK) {
                 constructCorneredBlock();
@@ -179,21 +179,21 @@ public abstract class BlockGraphic {
      * Variable blocks have an Arc of 0 instead of 10 like normal blocks.
      *
      */
-    private void constructCorneredBlock () {
+    private void constructCorneredBlock() {
         //Make the corners corners
         setBlockArcs(0);
         //set block fill etc
         createBlockGraphic();
     }
 
-    private void constructGeneralBlock () {
+    private void constructGeneralBlock() {
         //Make the corners round
         setBlockArcs(10);
         //set block fill etc
         createBlockGraphic();
     }
 
-    private void createBlockGraphic () {
+    private void createBlockGraphic() {
         setBlockNameLabel();
         setBlockHeight();
         setBlockWidth();
@@ -206,24 +206,24 @@ public abstract class BlockGraphic {
         System.out.println("finished block! " + getName());
     }
 
-    private void setLowerBlockGroup () {
+    private void setLowerBlockGroup() {
         labelBlockGroup.getChildren().add(rectBlock);
         labelBlockGroup.getChildren().add(blockNameLabel);
         labelBlockGroup.toBack();
         addTooltipTo(labelBlockGroup, blockSubName);
     }
 
-    private void setUpperBlockGroup () {
+    private void setUpperBlockGroup() {
         wholeBlockGroup.getChildren().addAll(labelBlockGroup);
         wholeBlockGroup.getChildren().addAll(ellipses);
     }
 
-    private void addTooltipTo (Node n, String tooltip) {
+    private void addTooltipTo(Node n, String tooltip) {
         Tooltip t = new Tooltip(tooltip);
         Tooltip.install(n, t);
     }
 
-    private void createInputPoints () {
+    private void createInputPoints() {
         int count = 1;
         for (Input in : inputs) {
             in.setPointXY(0, count * DISTANCE_BETWEEN_POINTS);
@@ -232,7 +232,7 @@ public abstract class BlockGraphic {
         }
     }
 
-    private void createOutputPoints () {
+    private void createOutputPoints() {
         int count = 1;
         for (Output out : outputs) {
             out.setPointXY(rectBlock.getWidth(), count * DISTANCE_BETWEEN_POINTS);
@@ -241,19 +241,19 @@ public abstract class BlockGraphic {
         }
     }
 
-    private void redoInputPoints () {
+    private void redoInputPoints() {
         ellipses.clear();
         createOutputPoints();
         createInputPoints();
         addConnectionWatcher(this.observer);
     }
 
-    private void setBlockArcs (double radius) {
+    private void setBlockArcs(double radius) {
         rectBlock.setArcHeight(radius);
         rectBlock.setArcWidth(radius);
     }
 
-    private void setBlockHeight () {
+    private void setBlockHeight() {
         //Sets the height according to the amount of in/outputs. 
         if (!inputs.isEmpty() && inputs.size() > outputs.size()) {
             rectBlock.setHeight(inputs.size() * DISTANCE_BETWEEN_POINTS + DISTANCE_BETWEEN_POINTS);
@@ -265,28 +265,28 @@ public abstract class BlockGraphic {
         blockNameLabel.setLayoutY(rectBlock.getHeight() / 2 - 10);
     }
 
-    private void setBlockWidth () {
+    private void setBlockWidth() {
         rectBlock.setWidth(blockNameLabel.getText().length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
     }
 
-    private void setBlockColors () {
+    private void setBlockColors() {
         rectBlock.setStroke(STROKE_COLOR);
         rectBlock.setFill(getFillColor());
         rectBlock.setOpacity(OPACITY_VALUE);
     }
 
-    private void setBlockNameLabel () {
+    private void setBlockNameLabel() {
         blockNameLabel.setWrapText(false);
         blockNameLabel.setText(blockName);
         blockNameLabel.setMinWidth(blockName.length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
         blockNameLabel.setAlignment(Pos.CENTER);
     }
 
-    private void setBlockFunctions () {
+    private void setBlockFunctions() {
         //Function to open up overview Window, fires when doubleclick happens
         labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle (MouseEvent t) {
+            public void handle(MouseEvent t) {
                 if (!bDeactivateEvents) {
                     long diff = 0;
                     currentTime = System.currentTimeMillis();
@@ -305,66 +305,94 @@ public abstract class BlockGraphic {
                 }
             }
         });
+
+        labelBlockGroup.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (!bDeactivateEvents) {
+                    setOnMousePressedEvent();
+                }
+            }
+
+        });
+
+        labelBlockGroup.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (!bDeactivateEvents) {
+                    setOnMouseReleasedEvent();
+                }
+            }
+
+        });
     }
 
-    public void setLayoutXY (double x, double y) {
+    public void setLayoutXY(double x, double y) {
         wholeBlockGroup.setLayoutX(x);
         wholeBlockGroup.setLayoutY(y);
     }
 
-    public ArrayList<Output> getGUIOutputs () {
+    public ArrayList<Output> getOutputs() {
         return this.outputs;
     }
 
-    public ArrayList<Input> getGUIInputs () {
+    public ArrayList<Input> getInputs() {
         return this.inputs;
     }
 
-    public int getAmountOfInputs () {
+    public int getAmountOfInputs() {
         return inputs.size();
     }
 
-    public int getAmountOfOutputs () {
+    public int getAmountOfOutputs() {
         return outputs.size();
     }
 
-    public Group getBlockGraphic () {
+    public Group getBlockGraphic() {
         return this.wholeBlockGroup;
     }
 
-    public BlockGraphic getBlockObject () {
+    public BlockGraphic getBlockObject() {
         return this;
     }
 
-    public String getName () {
+    public String getName() {
         return this.blockName;
     }
 
-    public void setName (String sName) {
+    public void setName(String sName) {
         this.blockName = sName;
     }
 
-    public void deactivateEvents (boolean bDeactivateEvents) {
+    public void deactivateEvents(boolean bDeactivateEvents) {
         this.bDeactivateEvents = bDeactivateEvents;
     }
 
-    public void setNote (Text text) {
+    public void setNote(Text text) {
         this.notes = text;
     }
 
-    public Text getNotes () {
+    public Text getNotes() {
         return notes;
     }
 
-    public Type getType () {
+    public Type getType() {
         return type;
     }
 
-    public boolean canChangeInputs () {
+    public boolean canChangeInputs() {
         return canChangeInputs;
     }
 
-    public void setAmountOfInputs (int amountInputs) throws IllegalAccessError {
+    protected void setOnMousePressedEvent() {
+
+    }
+
+    protected void setOnMouseReleasedEvent() {
+
+    }
+
+    public void setAmountOfInputs(int amountInputs) throws IllegalAccessError {
         if (!canChangeInputs()) {
             throw new IllegalAccessError("Cannot change amount of Inputs as it is Locked!");
         }
@@ -382,7 +410,7 @@ public abstract class BlockGraphic {
         }
     }
 
-    public void addConnectionWatcher (Observer observer) {
+    public void addConnectionWatcher(Observer observer) {
         this.observer = observer;
         for (Output out : outputs) {
             out.addObserver(observer);
@@ -392,19 +420,19 @@ public abstract class BlockGraphic {
         }
     }
 
-    public String getSubName () {
+    public String getSubName() {
         return blockSubName;
     }
 
-    protected void addDialogFunction (Group grp) {
+    protected void addDialogFunction(Group grp) {
 //        this.grp = grp;
         Button testButton = new Button("Test");
         grp.getChildren().add(testButton);
         hasAdditionalDialogFunction = true;
-       
+
     }
 
-    public Group getAdditionalDialogFunction () {
+    public Group getAdditionalDialogFunction() {
         return grp;
     }
 
