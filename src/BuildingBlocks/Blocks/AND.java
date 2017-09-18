@@ -27,16 +27,12 @@ public class AND extends LogicBlock{
     
     @Override
     protected void Logic(){
-        System.out.println("Logic got called");
         for(Input in: getInputs()){
-            if(in.getBooleanOutput() == null || !in.getBooleanOutput()){
+            if(in.getBooleanInput() == null || !in.getBooleanInput()){
                 getOutputs().get(0).setBooleanOutput(false);
                 break;
             } 
             getOutputs().get(0).setBooleanOutput(true);
         }
     }
-
-
-    
 }

@@ -23,8 +23,8 @@ public class SC_PGI extends Application{
     
     static ArrayList<BlockGraphic> alBlocks = new ArrayList();
     static NOT not = new NOT();
-//    static OffDelay offD = new OffDelay();
-//    static OnDelay onD = new OnDelay();
+    static OffDelay offD = new OffDelay();
+    static OnDelay onD = new OnDelay();
     public static GUI GUI = new GUI();
     static AND and = new AND();
 //    static STEPRELAY step = new STEPRELAY();
@@ -42,8 +42,8 @@ public class SC_PGI extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         alBlocks.add(not.getBlockObject());
-//        alBlocks.add(offD.getBlockObject());
-//        alBlocks.add(onD.getBlockObject());
+        alBlocks.add(offD.getBlockObject());
+        alBlocks.add(onD.getBlockObject());
         alBlocks.add(and.getBlockObject());
 //        alBlocks.add(step.getBlockObject());
 //        alBlocks.add(var.getBlockObject());

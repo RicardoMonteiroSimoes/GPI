@@ -50,7 +50,7 @@ public class Input extends Observable implements Observer {
         createCircle();
     }
 
-    public Boolean getBooleanOutput () {
+    public Boolean getBooleanInput () {
         return booleanValue;
     }
 
@@ -60,7 +60,6 @@ public class Input extends Observable implements Observer {
         this.booleanValue = booleanValue;
         floatValue = null;
         stringValue = null;
-        System.out.println("set bool input to " + booleanValue);
     }
 
     public String getStringInput () {

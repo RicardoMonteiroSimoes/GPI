@@ -7,6 +7,7 @@ package BuildingBlocks.Blocks;
 
 import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.ContactPoint;
+import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.util.CreationUtil;
@@ -17,6 +18,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -58,20 +60,35 @@ public class MouseButton extends BlockGraphic {
 
     private void createPressModeChangeDialog() {
         Group modeChangeGroup = new Group();
-        Label pressMode = new Label("isImpuls(true or false)");
-        TextArea pressModeText = new TextArea(String.valueOf(isImpuls));
-        pressModeText.setEditable(true);
-        pressModeText.setWrapText(true);
+        Label pressMode = new Label("Drückmodus");
+        ComboBox comboBox = new ComboBox<Type>();
+        comboBox.getItems().add("Impuls");
+        comboBox.getItems().add("Umschaltung");
+        if(isImpuls){
+            comboBox.getSelectionModel().select(0);
+        } else {
+            comboBox.getSelectionModel().select(1);
+        }
         
-        Button changeMode = new Button("Apply Change");
+
+        Button changeMode = new Button("Übernehmen");
         changeMode.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    isImpuls = Boolean.valueOf(pressModeText.getText());
+                    switch ((String) comboBox.getSelectionModel().getSelectedItem()) {
+                        case "Impuls":
+                            isImpuls = true;
+                            break;
+                        case "Umschaltung":
+                            isImpuls = false;
+                            break;
+                        default:
+                            Dialogs.alertDialog("Fehler", "Eingabefehler", "Keine Funktion für folgenden Wert gefunden: " + (String) comboBox.getSelectionModel().getSelectedItem());
+                    }
+
                 } catch (Exception e) {
-                    Dialogs.alertDialog("Fehler","Eingabefehler","isImpuls kann nur true oder false sein und nicht " + pressModeText.getText());
-                    isImpuls = false;
+                    isImpuls = true;
                 }
             }
         });
@@ -80,7 +97,7 @@ public class MouseButton extends BlockGraphic {
         grid.setVgap(10);
         grid.setPadding(new Insets(20, 150, 10, 10));
         grid.add(pressMode, 0, 0);
-        grid.add(pressModeText, 0, 1);
+        grid.add(comboBox, 0, 1);
         grid.add(changeMode, 1, 1);
         modeChangeGroup.getChildren().add(grid);
         addDialogFunction(modeChangeGroup);

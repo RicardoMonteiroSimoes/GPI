@@ -21,26 +21,17 @@ public class OnDelay extends TimerBlock{
     
     @Override
     protected void Logic () {
-    }
-    
-    @Override
-    protected void startTimer(){
-        TimerTask timTask = new TimerTask() {
-            @Override
-            public void run () {
-                setOutputAfterTimer(true);
-            }
-        };
-        super.scheduleTimer(timTask);
-    }
-    
-    
-    @Override
-    protected void setOutputAfterTimer(boolean bOutput){
-
+        if(getInput()){
+            startTimer();
+        } else {
+            
+            setOutput(false);
+        }
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    protected void setOutputAfterTimer() {
+        setOutput(getInput());
     }
+
 }

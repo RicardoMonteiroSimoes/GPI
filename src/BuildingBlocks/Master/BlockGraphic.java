@@ -147,7 +147,6 @@ public abstract class BlockGraphic implements Observer{
     }
 
     private void removeObserversFromInput(Input in) {
-        System.out.println("INPUT " + in.getName() + " has " + in.countObservers() + "Observers");
         in.removeObservers();
     }
 
@@ -193,7 +192,6 @@ public abstract class BlockGraphic implements Observer{
         createOutputPoints();
         setUpperBlockGroup();
         setBlockFunctions();
-        System.out.println("finished block! " + getName());
     }
 
     private void setLowerBlockGroup() {

@@ -17,41 +17,24 @@ import java.util.TimerTask;
  *
  * @author Ricardo
  */
-public class OffDelay extends TimerBlock{
-    
-    public OffDelay(){
+public class OffDelay extends TimerBlock {
+
+    public OffDelay() {
         super("OffDelay", "Turn Off Delay");
-    }
-    
-    @Override
-    protected void Logic () {
-//        if(super.getInputs().get(0).getStatus()){
-//            //super.setOutputStatus(true);
-//            super.cancelTimer();
-//        } else {
-//            super.setTime(super.getTimeInput());
-//            startTimer();
-//        }
-    }
-    
-    @Override
-    protected void startTimer(){
-        TimerTask timTask = new TimerTask() {
-            @Override
-            public void run () {
-                setOutputAfterTimer(false);
-            }
-        };
-        super.scheduleTimer(timTask);
-    }
-    
-    
-    @Override
-    protected void setOutputAfterTimer(boolean bOutput){
-        //super.setOutputStatus(bOutput);
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    protected void Logic() {
+        if (getInput()) {
+            setOutput(true);
+        } else {
+            startTimer();
+        }
     }
+
+    @Override
+    protected void setOutputAfterTimer() {
+        setOutput(getInput());
+    }
+
 }

@@ -278,71 +278,15 @@ public class GUI extends Application {
     private void newOnDelayBlock (double x, double y) {
         OnDelay notTemp = new OnDelay();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getOutputs()) {
-            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked output");
-                    bNewConnectionReady = true;
-                    startX = t.getSceneX() - spItems.getWidth();
-                    startY = t.getSceneY();
-                }
-            });
-        }
-        for (Input in : notTemp.getInputs()) {
-            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked input");
-                    if (bNewConnectionReady) {
-                        Line lineTemp = new Line();
-                        lineTemp.setStartX(startX);
-                        lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
-                        lineTemp.setEndY(t.getSceneY());
-                        scrollPaneGroup.getChildren().add(lineTemp);
-                        startX = 0.0;
-                        startY = 0.0;
-                        bNewConnectionReady = false;
-                    }
-                }
-            });
-        }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
     }
 
     private void newOffDelayBlock (double x, double y) {
         OffDelay notTemp = new OffDelay();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getOutputs()) {
-            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    bNewConnectionReady = true;
-                    startX = t.getSceneX() - spItems.getWidth();
-                    startY = t.getSceneY();
-                }
-            });
-        }
-        for (Input in : notTemp.getInputs()) {
-            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    if (bNewConnectionReady) {
-                        Line lineTemp = new Line();
-                        lineTemp.setStartX(startX);
-                        lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
-                        lineTemp.setEndY(t.getSceneY());
-                        scrollPaneGroup.getChildren().add(lineTemp);
-                        startX = 0.0;
-                        startY = 0.0;
-                        bNewConnectionReady = false;
-                    }
-                }
-            });
-        }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
     }
     
     public void addLine (Connection connection){
