@@ -173,10 +173,43 @@ public class GUI extends Application {
             case "Button":
                 newMouseButtonBlock(x, y);              
                 break;
+            case "Doppelklick":
+                newDoubleClickBlock(x, y);
+                break;
+            case "SR":
+                newSRBlock(x,y);
+                break;
+            case "RS":
+                newRSBlock(x,y);
+                break;
+            case "Schrittschalter":
+                newSchrittschalterBlock(x,y);
+                break;
             default:
                 System.out.println("No case for " + sName);
         }
     }    
+    
+    private void newSRBlock (double x, double y) {
+        SR notTemp = new SR();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    private void newRSBlock (double x, double y) {
+        RS notTemp = new RS();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    private void newSchrittschalterBlock (double x, double y) {
+        STEPRELAY notTemp = new STEPRELAY();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
     
     private void newMouseButtonBlock (double x, double y) {
         MouseButton notTemp = new MouseButton();
@@ -199,80 +232,29 @@ public class GUI extends Application {
         notTemp.addConnectionWatcher(connectionHandler);
     }
     
+    private void newDoubleClickBlock (double x, double y) {
+        DoubleClick notTemp = new DoubleClick();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
     public void notifyInput(String sMessage){
         System.out.println(sMessage);
     }
 
     private void newORBlock (double x, double y) {
-        OR notTemp = new OR(CreationUtil.createStandardInputList());
+        OR notTemp = new OR();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getOutputs()) {
-            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked output");
-                    bNewConnectionReady = true;
-                    startX = t.getSceneX() - spItems.getWidth();
-                    startY = t.getSceneY();
-                }
-            });
-        }
-        for (Input in : notTemp.getInputs()) {
-            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked input");
-                    if (bNewConnectionReady) {
-                        Line lineTemp = new Line();
-                        lineTemp.setStartX(startX);
-                        lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
-                        lineTemp.setEndY(t.getSceneY());
-                        scrollPaneGroup.getChildren().add(lineTemp);
-                        startX = 0.0;
-                        startY = 0.0;
-                        bNewConnectionReady = false;
-                    }
-                }
-            });
-        }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
     }
 
     private void newXORBlock (double x, double y) {
-        XOR notTemp = new XOR(CreationUtil.createStandardInputList());
+        XOR notTemp = new XOR();
         notTemp.setLayoutXY(x, y);
-        for (Output out : notTemp.getOutputs()) {
-            out.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked output");
-                    bNewConnectionReady = true;
-                    startX = t.getSceneX() - spItems.getWidth();
-                    startY = t.getSceneY();
-                }
-            });
-        }
-        for (Input in : notTemp.getInputs()) {
-            in.getCircle().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle (MouseEvent t) {
-                    System.out.println("clicked input");
-                    if (bNewConnectionReady) {
-                        Line lineTemp = new Line();
-                        lineTemp.setStartX(startX);
-                        lineTemp.setStartY(startY);
-                        lineTemp.setEndX(t.getSceneX() - spItems.getWidth());
-                        lineTemp.setEndY(t.getSceneY());
-                        scrollPaneGroup.getChildren().add(lineTemp);
-                        startX = 0.0;
-                        startY = 0.0;
-                        bNewConnectionReady = false;
-                    }
-                }
-            });
-        }
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
     }
 
     private void newOnDelayBlock (double x, double y) {

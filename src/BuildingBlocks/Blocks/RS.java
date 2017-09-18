@@ -5,6 +5,7 @@
  */
 package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
@@ -22,11 +23,16 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}), false, new Output("Output"));
+        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}), false, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
 
     @Override
     protected void Logic () {
+        if(getInputs().get(1).getBooleanInput()){
+            setOutput(false);
+        } else if (getInputs().get(0).getBooleanInput()){
+            setOutput(true);
+        }
     }
 
 }

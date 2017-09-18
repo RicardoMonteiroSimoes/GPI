@@ -24,9 +24,22 @@ public abstract class LogicBlock extends BlockGraphic {
 
     @Override
     public void update(Observable o, Object arg) {
-        Logic();
+        try{
+            Logic();
+        } catch ( NullPointerException npe){
+            System.out.println("Something went wrong @ Logic " + npe.getMessage());
+        }
     }
 
     protected abstract void Logic();
 
+    protected void pulseOutput(boolean value){
+        setOutput(value);
+        setOutput(!value);
+    }
+    
+    protected void setOutput(boolean value){
+        getOutputs().get(0).setBooleanOutput(value);
+    }
+    
 }

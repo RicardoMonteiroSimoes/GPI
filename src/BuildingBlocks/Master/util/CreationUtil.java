@@ -21,7 +21,9 @@ public class CreationUtil {
     public static ArrayList<Input> createInputList(String[] saInputs){
         ArrayList<Input> alInputs = new ArrayList();
         for(String s : saInputs){
-            alInputs.add(new Input(s));
+            Input temporaryInput = new Input(s);
+            temporaryInput.setDataType(Datatype.BOOLEAN);
+            alInputs.add(temporaryInput);
         }
         return alInputs;
     }

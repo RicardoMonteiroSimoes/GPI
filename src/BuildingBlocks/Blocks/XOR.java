@@ -5,24 +5,35 @@
  */
 package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
+import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 
 /**
  *
  * @author Ricardo
  */
-public class XOR extends LogicBlock{
-    
-    public XOR(ArrayList<Input> alInput){
-        super("XOR", "exklusiv oder", alInput, true, new Output("Output"));
-    }
-    
-    @Override
-    protected void Logic(){
+public class XOR extends LogicBlock {
 
+    public XOR() {
+        super("XOR", "exklusiv oder", CreationUtil.createStandardInputList(Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
-    
+
+    @Override
+    protected void Logic() {
+        int count = 0;
+        for (Input in : getInputs()) {
+            if (in.getBooleanInput()) {
+                count++;
+                if(count > 1){
+                    break;
+                }
+            }
+        }
+        setOutput(count == 1);
+    }
+
 }

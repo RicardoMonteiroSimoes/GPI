@@ -23,11 +23,16 @@ public class SC_PGI extends Application{
     
     static ArrayList<BlockGraphic> alBlocks = new ArrayList();
     static NOT not = new NOT();
+    static OR or = new OR();
+    static XOR xor = new XOR();
     static OffDelay offD = new OffDelay();
     static OnDelay onD = new OnDelay();
     public static GUI GUI = new GUI();
+    static SR sr = new SR();
+    static RS rs = new RS();
     static AND and = new AND();
-//    static STEPRELAY step = new STEPRELAY();
+    static DoubleClick doubleClick = new DoubleClick();
+    static STEPRELAY step = new STEPRELAY();
 //    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     static MouseButton msbttn = new MouseButton();
     
@@ -45,7 +50,12 @@ public class SC_PGI extends Application{
         alBlocks.add(offD.getBlockObject());
         alBlocks.add(onD.getBlockObject());
         alBlocks.add(and.getBlockObject());
-//        alBlocks.add(step.getBlockObject());
+        alBlocks.add(doubleClick.getBlockObject());
+        alBlocks.add(step.getBlockObject());
+        alBlocks.add(rs.getBlockObject());
+        alBlocks.add(sr.getBlockObject());
+        alBlocks.add(or.getBlockObject());
+        alBlocks.add(xor.getBlockObject());
 //        alBlocks.add(var.getBlockObject());
 //        alBlocks.add(knxServerIn.getBlockObject());
         alBlocks.add(msbttn.getBlockObject());
