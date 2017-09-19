@@ -2,27 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/Connection.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/util/Dialogs.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/TimerBlock.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/sc_pgi/SC_PGI.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/BlockGraphic.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/KNXServerIn.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/Input.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/FilterBlock.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/Output.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/ConnectionHandler.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/Variable.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/NOT.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/OffDelay.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/OnDelay.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/ContactPoint.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/LogicBlock.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Master/util/CreationUtil.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/AND.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/sc_pgi/GUI.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/GitHub/SC_PGI/src/BuildingBlocks/Blocks/XOR.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

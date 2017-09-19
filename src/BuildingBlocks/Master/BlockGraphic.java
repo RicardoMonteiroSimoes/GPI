@@ -8,12 +8,16 @@ package BuildingBlocks.Master;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Observer;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -272,34 +276,55 @@ public abstract class BlockGraphic implements Observer{
     }
 
     private void setBlockFunctions() {
-        //Function to open up overview Window, fires when doubleclick happens
-        labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        ContextMenu contextMenu = new ContextMenu();
+ 
+        MenuItem item1 = new MenuItem("Einstellungen");
+        item1.setOnAction(new EventHandler<ActionEvent>() {
+ 
             @Override
-            public void handle(MouseEvent t) {
-                if (!bDeactivateEvents) {
-                    long diff = 0;
-                    currentTime = System.currentTimeMillis();
-                    if (lastTime != 0 && currentTime != 0) {
-                        diff = currentTime - lastTime;
-                        if (diff <= 215) {
-                            bDoubleClick = true;
-                        } else {
-                            bDoubleClick = false;
-                        }
-                    }
-                    lastTime = currentTime;
-                    if (bDoubleClick) {
-                        Dialogs.informationWindow(getBlockObject());
-                    }
-                }
+            public void handle(ActionEvent event) {
+                Dialogs.informationWindow(getBlockObject());
             }
         });
+        
+        contextMenu.getItems().add(item1);
+        
+        labelBlockGroup.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
+ 
+            @Override
+            public void handle(ContextMenuEvent event) {
+                contextMenu.show(labelBlockGroup, event.getScreenX(), event.getScreenY());
+            }
+        });
+        
+        //Function to open up overview Window, fires when doubleclick happens
+//        labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent t) {
+//                if (!bDeactivateEvents) {
+//                    long diff = 0;
+//                    currentTime = System.currentTimeMillis();
+//                    if (lastTime != 0 && currentTime != 0) {
+//                        diff = currentTime - lastTime;
+//                        if (diff <= 215) {
+//                            bDoubleClick = true;
+//                        } else {
+//                            bDoubleClick = false;
+//                        }
+//                    }
+//                    lastTime = currentTime;
+//                    if (bDoubleClick) {
+//                        Dialogs.informationWindow(getBlockObject());
+//                    }
+//                }
+//            }
+//        });
 
         labelBlockGroup.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (!bDeactivateEvents) {
-                    setOnMousePressedEvent();
+                    setOnMousePressedEvent(event);
                 }
             }
 
@@ -309,7 +334,7 @@ public abstract class BlockGraphic implements Observer{
             @Override
             public void handle(MouseEvent event) {
                 if (!bDeactivateEvents) {
-                    setOnMouseReleasedEvent();
+                    setOnMouseReleasedEvent(event);
                 }
             }
 
@@ -373,11 +398,11 @@ public abstract class BlockGraphic implements Observer{
         return canChangeInputs;
     }
 
-    protected void setOnMousePressedEvent() {
+    protected void setOnMousePressedEvent(MouseEvent event) {
 
     }
 
-    protected void setOnMouseReleasedEvent() {
+    protected void setOnMouseReleasedEvent(MouseEvent event) {
 
     }
 

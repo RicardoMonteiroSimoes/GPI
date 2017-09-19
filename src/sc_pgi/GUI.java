@@ -212,7 +212,7 @@ public class GUI extends Application {
     }
     
     private void newMouseButtonBlock (double x, double y) {
-        MouseButton notTemp = new MouseButton();
+        MouseInputButton notTemp = new MouseInputButton();
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);

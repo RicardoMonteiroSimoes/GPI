@@ -34,7 +34,7 @@ public class SC_PGI extends Application{
     static DoubleClick doubleClick = new DoubleClick();
     static STEPRELAY step = new STEPRELAY();
 //    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
-    static MouseButton msbttn = new MouseButton();
+    static MouseInputButton msbttn = new MouseInputButton();
     
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**

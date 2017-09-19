@@ -17,6 +17,7 @@ import BuildingBlocks.Master.util.Dialogs;
 public class DoubleClick extends LogicBlock {
 
     private long currentTime;
+    private final long MAX_TIME_LIMIT = 220;
     private long lastTime;
     private boolean isDoubleClick = false;
 
@@ -31,7 +32,7 @@ public class DoubleClick extends LogicBlock {
             currentTime = System.currentTimeMillis();
             if (lastTime != 0 && currentTime != 0) {
                 diff = currentTime - lastTime;
-                if (diff <= 215) {
+                if (diff <= MAX_TIME_LIMIT) {
                     isDoubleClick = true;
                 } else {
                     isDoubleClick = false;
