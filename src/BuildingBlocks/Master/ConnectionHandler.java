@@ -9,6 +9,7 @@ import java.util.Observable;
 import java.util.Observer;
 import BuildingBlocks.Master.Output;
 import javafx.event.Event;
+import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.input.MouseEvent;
@@ -48,8 +49,10 @@ public class ConnectionHandler implements Observer {
                 } else {
                     try{
                         temporaryInput.addOutputToListenTo(temporaryOutput);
-                        SC_PGI.GUI.addCurve(new Connection(new Point2D(mouseEventInput.getSceneX(), mouseEventInput.getSceneY()),
-                        temporaryOutput, new Point2D(mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY()), temporaryInput));
+                        Bounds bounds = temporaryOutput.getCircle().sceneToLocal(temporaryInput.getCircle().localToScene(temporaryInput.getCircle().getBoundsInLocal()));
+                        System.out.println(bounds);
+                        SC_PGI.GUI.addCurve(new Connection(new Point2D(bounds.getMaxX(), bounds.getMaxY()),
+                        temporaryOutput, new Point2D(bounds.getMinY(), bounds.getMinX()), temporaryInput));
                     } catch (IllegalAccessError ae) {
                         System.out.println(ae.getMessage());
                     }
