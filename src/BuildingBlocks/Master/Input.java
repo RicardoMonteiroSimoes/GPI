@@ -28,6 +28,9 @@ public class Input extends Observable implements Observer {
     Boolean booleanValue = null;
     Float floatValue = null;
     String stringValue = null;
+    
+    private double xCoordinate = 0.0;
+    private double yCoordinate = 0.0;
 
     private String sOutput;
     private Circle outputCircle = new Circle();
@@ -198,5 +201,9 @@ public class Input extends Observable implements Observer {
         out.addObserver(this);
         setChanged();
         notifyObservers();
+    }
+
+    public void setConnectionPointCoordinate() {
+        System.out.println(outputCircle.localToScene(outputCircle.getBoundsInLocal()));
     }
 }

@@ -271,11 +271,6 @@ public class GUI extends Application {
         notTemp.addConnectionWatcher(connectionHandler);
     }
     
-    public void addLine (Connection connection){
-//        scrollPaneGroup.getChildren().add(connection.getLine());
-        scrollPaneGroup.getChildren().add(1, connection.getLine());
-    }
-    
     public double getSideBarWidth(){
         return spItems.getWidth();
     }

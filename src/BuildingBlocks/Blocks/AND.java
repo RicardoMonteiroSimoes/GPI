@@ -27,12 +27,12 @@ public class AND extends LogicBlock{
     
     @Override
     protected void Logic(){
+        int count = 0;
         for(Input in: getInputs()){
-            if(in.getBooleanInput() == null || !in.getBooleanInput()){
-                getOutputs().get(0).setBooleanOutput(false);
-                break;
-            } 
-            getOutputs().get(0).setBooleanOutput(true);
+            if(in.getBooleanInput()){
+                count++;
+            }
         }
+        setOutput(getAmountOfInputs()==count);
     }
 }

@@ -196,6 +196,13 @@ public abstract class BlockGraphic implements Observer{
         createOutputPoints();
         setUpperBlockGroup();
         setBlockFunctions();
+        setConnectionPointCoordinates();
+    }
+    
+    private void setConnectionPointCoordinates(){
+        for(Input in : inputs){
+            in.setConnectionPointCoordinate();
+        }
     }
 
     private void setLowerBlockGroup() {

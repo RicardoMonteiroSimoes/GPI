@@ -24,10 +24,9 @@ public class Connection implements Observer{
     private Point2D endPoint;
     private String sValue;
     private boolean bValue;
-    private Polyline plyConnection;
     private CubicCurve cubicConnection;
-    private final double CONTROL_X_ADDITION = 30.0;
-    private final double CONTROL_Y_ADDITION = 30.0;
+    private final double CONTROL_ADDITION = 10.0;
+    private final double CONTROL_MULTIPLICATION = 10.0;
     
     public Connection(Point2D startPoint, Output obsOutput, Point2D endPoint, Input obsInput){
         this.startPoint = startPoint;
@@ -46,34 +45,33 @@ public class Connection implements Observer{
         double endY = endPoint.getY();
         double halfX = (startX + endX)/2;
         double halfY = (startY + endY)/2;
-        plyConnection = new Polyline();
-        plyConnection.setStrokeWidth(2);
-        plyConnection.getPoints().addAll(new Double[]{
-                                            startX, startY,
-                                            halfX, startY,
-                                            halfX, endY,
-                                            endX, endY});
+
         
         cubicConnection = new CubicCurve();
         cubicConnection.setStartX(startX);
         cubicConnection.setStartY(startY);
-        cubicConnection.setControlX1(halfX+CONTROL_X_ADDITION);
-        cubicConnection.setControlY1(startY+CONTROL_Y_ADDITION);
-        cubicConnection.setControlX2(endX-CONTROL_X_ADDITION);
-        cubicConnection.setControlY2(endY+CONTROL_Y_ADDITION);
         cubicConnection.setEndX(endX);
         cubicConnection.setEndY(endY);
+        
+        //Start algorithm stuff
+//        if(startX > endX){
+//            cubicConnection.setControlX1(halfX+10*CONTROL_ADDITION);
+//            cubicConnection.setControlX2(halfX-10*CONTROL_ADDITION);
+//        } else {
+            cubicConnection.setControlX1(halfX-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+            cubicConnection.setControlX2(halfX+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+//        }
+        
+        cubicConnection.setControlY1(startY);
+        cubicConnection.setControlY2(endY);
+
+        
         cubicConnection.setFill(Color.TRANSPARENT);
         cubicConnection.setStrokeWidth(2);
         cubicConnection.setStroke(Color.BLACK);
         
-        //TODO
-        //ALGORITHM TO DEFINE THE CONTROL POINTS DEPENDING ON START AND END X && Y
+        //END ALGORITHM
                 
-    }
-    
-    public Polyline getLine(){
-        return this.plyConnection;
     }
     
     public CubicCurve getCurve(){
@@ -84,10 +82,8 @@ public class Connection implements Observer{
     public void update(Observable o, Object arg) {
         Output out = (Output) o;
         if(out.getBooleanOutput()){
-            plyConnection.setStroke(Color.RED);
             cubicConnection.setStroke(Color.RED);
         } else {
-            plyConnection.setStroke(Color.BLACK);
             cubicConnection.setStroke(Color.BLACK);
         }
     }
