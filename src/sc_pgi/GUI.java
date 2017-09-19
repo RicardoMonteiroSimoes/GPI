@@ -279,4 +279,8 @@ public class GUI extends Application {
     public double getSideBarWidth(){
         return spItems.getWidth();
     }
+
+    public void addCurve (Connection connection) {
+        scrollPaneGroup.getChildren().add(1, connection.getCurve());
+    }
 }

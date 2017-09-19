@@ -45,11 +45,10 @@ public class ConnectionHandler implements Observer {
             }
             if (mouseEventOutput != null && mouseEventInput != null) {
                 if (temporaryOutput.getCircle().getParent().equals(temporaryInput.getCircle().getParent())) {
-                    setPointsNull();
                 } else {
                     try{
                         temporaryInput.addOutputToListenTo(temporaryOutput);
-                        SC_PGI.GUI.addLine(new Connection(new Point2D(mouseEventInput.getSceneX(), mouseEventInput.getSceneY()),
+                        SC_PGI.GUI.addCurve(new Connection(new Point2D(mouseEventInput.getSceneX(), mouseEventInput.getSceneY()),
                         temporaryOutput, new Point2D(mouseEventOutput.getSceneX(), mouseEventOutput.getSceneY()), temporaryInput));
                     } catch (IllegalAccessError ae) {
                         System.out.println(ae.getMessage());
@@ -57,6 +56,7 @@ public class ConnectionHandler implements Observer {
                     
                     setPointsNull();
                 }
+                setPointsNull();
             }
         }
     }
