@@ -36,11 +36,21 @@ public class Connection implements Observer{
     
     private void generateLine(){
         double sideBarWidth = SC_PGI.GUI.getSideBarWidth();
+        double startX = startPoint.getX()- sideBarWidth;
+        double startY = startPoint.getY();
+        double endX = endPoint.getX()- sideBarWidth;
+        double endY = endPoint.getY();
+        double halfX = (startX + endX)/2;
+        double halfY = (startY + endY)/2;
         plyConnection = new Polyline();
         plyConnection.setStrokeWidth(2);
         plyConnection.getPoints().addAll(new Double[]{
-                                            startPoint.getX() - sideBarWidth, startPoint.getY(),
-                                            endPoint.getX() - sideBarWidth, endPoint.getY()});
+                                            startX, startY,
+                                            halfX, startY,
+                                            halfX, endY,
+                                            endX, endY});
+        System.out.println(startX + " " + startY + " " + endX + " " + endY);
+                
     }
     
     public Polyline getLine(){
