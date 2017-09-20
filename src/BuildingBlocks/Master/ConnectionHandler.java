@@ -52,10 +52,10 @@ public class ConnectionHandler implements Observer {
                         //Bounds startBounds = temporaryOutput.getCircle().getParent().sceneToLocal(temporaryInput.getCircle().getParent().localToScene(temporaryInput.getCircle().getParent().getParent().getBoundsInLocal()));
                         //Bounds endBounds = temporaryInput.getCircle().sceneToLocal(temporaryOutput.getCircle().localToScene(temporaryOutput.getCircle().getParent().getParent().getBoundsInLocal()));
                         Bounds startBounds = temporaryOutput.getCircle().getParent().localToParent(temporaryOutput.getCircle().getBoundsInParent());
-                        System.out.println(startBounds);
+                        //System.out.println(startBounds);
                         
                         Bounds endBounds = temporaryInput.getCircle().getParent().localToParent(temporaryInput.getCircle().getBoundsInLocal());
-                        System.out.println(endBounds);
+                        //System.out.println(endBounds);
                         double startX = (startBounds.getMinX() + startBounds.getMaxX())/2;
                         double startY = (startBounds.getMinY() + startBounds.getMaxY())/2;
                         double endX = (endBounds.getMinX() + endBounds.getMaxX())/2;

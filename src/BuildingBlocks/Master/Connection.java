@@ -26,7 +26,7 @@ public class Connection implements Observer{
     private boolean bValue;
     private CubicCurve cubicConnection;
     private final double CONTROL_ADDITION = 10.0;
-    private final double CONTROL_MULTIPLICATION = 10.0;
+    private final double CONTROL_MULTIPLICATION = 15.0;
     
     public Connection(Point2D startPoint, Output obsOutput, Point2D endPoint, Input obsInput){
         this.startPoint = startPoint;
@@ -47,7 +47,12 @@ public class Connection implements Observer{
         double endY = endPoint.getY();
         double halfX = (startX + endX)/2;
         double halfY = (startY + endY)/2;
-
+        double diffY = endY - startY;
+        if(diffY < 0){
+            diffY *= -1;
+        }
+        diffY /= endY;
+        
         
         cubicConnection = new CubicCurve();
         cubicConnection.setStartX(startX);
@@ -57,8 +62,8 @@ public class Connection implements Observer{
         
         //Start algorithm stuff
         if(startX > endX){
-            cubicConnection.setControlX1(halfX+CONTROL_ADDITION);
-            cubicConnection.setControlX2(halfX-CONTROL_ADDITION);
+            cubicConnection.setControlX1(halfX+CONTROL_ADDITION*CONTROL_MULTIPLICATION);
+            cubicConnection.setControlX2(halfX-CONTROL_ADDITION*CONTROL_MULTIPLICATION);
         } else {
             cubicConnection.setControlX1(halfX-CONTROL_ADDITION);
             cubicConnection.setControlX2(halfX+CONTROL_ADDITION);
