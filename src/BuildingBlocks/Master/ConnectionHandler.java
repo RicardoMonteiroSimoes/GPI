@@ -28,7 +28,7 @@ public class ConnectionHandler implements Observer {
     Input temporaryInput;
 
     @Override
-    public void update (Observable o, Object arg) {
+    public void update(Observable o, Object arg) {
         if (!(arg == null)) {
             try {
                 temporaryOutput = (Output) o;
@@ -37,8 +37,7 @@ public class ConnectionHandler implements Observer {
             }
             try {
                 temporaryInput = (Input) o;
-                if(temporaryInput.countObservers() >= 3){
-                    setPointsNull();
+                if (temporaryInput.countObservers() > 2) {
                 } else {
                     mouseEventInput = (MouseEvent) arg;
                 }
@@ -47,42 +46,31 @@ public class ConnectionHandler implements Observer {
             if (mouseEventOutput != null && mouseEventInput != null) {
                 if (temporaryOutput.getCircle().getParent().equals(temporaryInput.getCircle().getParent())) {
                 } else {
-                    try{
+                    try {
                         temporaryInput.addOutputToListenTo(temporaryOutput);
-                        //Bounds startBounds = temporaryOutput.getCircle().getParent().sceneToLocal(temporaryInput.getCircle().getParent().localToScene(temporaryInput.getCircle().getParent().getParent().getBoundsInLocal()));
-                        //Bounds endBounds = temporaryInput.getCircle().sceneToLocal(temporaryOutput.getCircle().localToScene(temporaryOutput.getCircle().getParent().getParent().getBoundsInLocal()));
+
                         Bounds startBounds = temporaryOutput.getCircle().getParent().localToParent(temporaryOutput.getCircle().getBoundsInParent());
-                        //System.out.println(startBounds);
-                        
+
                         Bounds endBounds = temporaryInput.getCircle().getParent().localToParent(temporaryInput.getCircle().getBoundsInLocal());
-                        //System.out.println(endBounds);
-                        double startX = (startBounds.getMinX() + startBounds.getMaxX())/2;
-                        double startY = (startBounds.getMinY() + startBounds.getMaxY())/2;
-                        double endX = (endBounds.getMinX() + endBounds.getMaxX())/2;
-                        double endY = (endBounds.getMinY() + endBounds.getMaxY())/2;
-                        System.out.println("startXY " + startX + " " + startY);
-                        System.out.println("endXY " + endX + " " + endY);
-                        
-                        /**
-                        line.setStartX(startBounds.getMinX() + startBounds.getWidth() / 2);
-                        line.setStartY(startBounds.getMinY() + startBounds.getHeight() / 2);
-                        line.setEndX(endBounds.getMinX() + endBounds.getWidth() / 2);
-                        line.setEndY(endBounds.getMinY() + endBounds.getHeight() / 2);
-                         */
+
+                        double startX = (startBounds.getMinX() + startBounds.getMaxX()) / 2;
+                        double startY = (startBounds.getMinY() + startBounds.getMaxY()) / 2;
+                        double endX = (endBounds.getMinX() + endBounds.getMaxX()) / 2;
+                        double endY = (endBounds.getMinY() + endBounds.getMaxY()) / 2;
+
                         SC_PGI.GUI.addCurve(new Connection(new Point2D(startX, startY),
-                        temporaryOutput, new Point2D(endX, endY), temporaryInput));
-                    } catch (IllegalAccessError ae) {
-                        System.out.println(ae.getMessage());
+                                temporaryOutput, new Point2D(endX, endY), temporaryInput));
+                        setPointsNull();
+                    } catch (Exception e) {
+                        setPointsNull();
+                        System.out.println(e.getMessage());
                     }
-                    
-                    setPointsNull();
                 }
-                setPointsNull();
             }
         }
     }
 
-    private void setPointsNull () {
+    private void setPointsNull() {
         temporaryOutput = null;
         temporaryInput = null;
         mouseEventInput = null;
