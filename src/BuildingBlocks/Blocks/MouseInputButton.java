@@ -97,6 +97,15 @@ public class MouseInputButton extends BlockGraphic {
                 }
             }
         });
+        
+        comboBox.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                comboBox.requestFocus();
+            }
+        });
+        
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
