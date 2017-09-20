@@ -34,3 +34,4 @@ nbdist/
 
 # End of https://www.gitignore.io/api/java,netbeans
 nbproject/private/private.xml
+nbproject/private/private.properties

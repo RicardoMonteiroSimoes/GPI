@@ -204,6 +204,6 @@ public class Input extends Observable implements Observer {
     }
 
     public void setConnectionPointCoordinate() {
-        System.out.println(outputCircle.getBoundsInParent());
+        
     }
 }

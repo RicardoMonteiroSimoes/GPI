@@ -39,9 +39,11 @@ public class Connection implements Observer{
     
     private void generateLine(){
         double sideBarWidth = SC_PGI.GUI.getSideBarWidth();
-        double startX = startPoint.getX()- sideBarWidth;
+        //double startX = startPoint.getX()- sideBarWidth;
+        double startX = startPoint.getX();
         double startY = startPoint.getY();
-        double endX = endPoint.getX()- sideBarWidth;
+        //double endX = endPoint.getX()- sideBarWidth;
+        double endX = endPoint.getX();
         double endY = endPoint.getY();
         double halfX = (startX + endX)/2;
         double halfY = (startY + endY)/2;
@@ -62,8 +64,8 @@ public class Connection implements Observer{
             cubicConnection.setControlX2(halfX+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
 //        }
         
-        cubicConnection.setControlY1(startY);
-        cubicConnection.setControlY2(endY);
+        cubicConnection.setControlY1(startY-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+        cubicConnection.setControlY2(endY+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
 
         
         cubicConnection.setFill(Color.TRANSPARENT);

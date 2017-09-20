@@ -49,10 +49,28 @@ public class ConnectionHandler implements Observer {
                 } else {
                     try{
                         temporaryInput.addOutputToListenTo(temporaryOutput);
-                        Bounds bounds = temporaryOutput.getCircle().sceneToLocal(temporaryInput.getCircle().localToScene(temporaryInput.getCircle().getBoundsInLocal()));
-                        System.out.println(bounds);
-                        SC_PGI.GUI.addCurve(new Connection(new Point2D(bounds.getMaxX(), bounds.getMaxY()),
-                        temporaryOutput, new Point2D(bounds.getMinY(), bounds.getMinX()), temporaryInput));
+                        //Bounds startBounds = temporaryOutput.getCircle().getParent().sceneToLocal(temporaryInput.getCircle().getParent().localToScene(temporaryInput.getCircle().getParent().getParent().getBoundsInLocal()));
+                        //Bounds endBounds = temporaryInput.getCircle().sceneToLocal(temporaryOutput.getCircle().localToScene(temporaryOutput.getCircle().getParent().getParent().getBoundsInLocal()));
+                        Bounds startBounds = temporaryOutput.getCircle().getParent().localToParent(temporaryOutput.getCircle().getBoundsInParent());
+                        System.out.println(startBounds);
+                        
+                        Bounds endBounds = temporaryInput.getCircle().getParent().localToParent(temporaryInput.getCircle().getBoundsInLocal());
+                        System.out.println(endBounds);
+                        double startX = (startBounds.getMinX() + startBounds.getMaxX())/2;
+                        double startY = (startBounds.getMinY() + startBounds.getMaxY())/2;
+                        double endX = (endBounds.getMinX() + endBounds.getMaxX())/2;
+                        double endY = (endBounds.getMinY() + endBounds.getMaxY())/2;
+                        System.out.println("startXY " + startX + " " + startY);
+                        System.out.println("endXY " + endX + " " + endY);
+                        
+                        /**
+                        line.setStartX(startBounds.getMinX() + startBounds.getWidth() / 2);
+                        line.setStartY(startBounds.getMinY() + startBounds.getHeight() / 2);
+                        line.setEndX(endBounds.getMinX() + endBounds.getWidth() / 2);
+                        line.setEndY(endBounds.getMinY() + endBounds.getHeight() / 2);
+                         */
+                        SC_PGI.GUI.addCurve(new Connection(new Point2D(startX, startY),
+                        temporaryOutput, new Point2D(endX, endY), temporaryInput));
                     } catch (IllegalAccessError ae) {
                         System.out.println(ae.getMessage());
                     }
