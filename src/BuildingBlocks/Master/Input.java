@@ -160,6 +160,25 @@ public class Input extends Observable implements Observer {
 
     public void setDataType (Datatype datatype) {
         this.datatype = datatype;
+        switch (datatype) {
+            case BOOLEAN:
+                setBooleanInput(false);
+                break;
+            case STRING:
+                setStringInput("empty");
+                break;
+            case FLOAT:
+                setFloatInput(0.0f);
+                break;
+            case DOUBLE:
+                setDoubleInput(0.0);
+                break;
+            case INTEGER:
+                setIntegerInput(0);
+                break;
+            default:
+
+        }
     }
 
     private boolean checkOutput (Output out) {
