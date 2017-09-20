@@ -56,16 +56,20 @@ public class Connection implements Observer{
         cubicConnection.setEndY(endY);
         
         //Start algorithm stuff
-//        if(startX > endX){
-//            cubicConnection.setControlX1(halfX+10*CONTROL_ADDITION);
-//            cubicConnection.setControlX2(halfX-10*CONTROL_ADDITION);
-//        } else {
-            cubicConnection.setControlX1(halfX-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
-            cubicConnection.setControlX2(halfX+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
-//        }
-        
-        cubicConnection.setControlY1(startY-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
-        cubicConnection.setControlY2(endY+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+        if(startX > endX){
+            cubicConnection.setControlX1(halfX+CONTROL_ADDITION);
+            cubicConnection.setControlX2(halfX-CONTROL_ADDITION);
+        } else {
+            cubicConnection.setControlX1(halfX-CONTROL_ADDITION);
+            cubicConnection.setControlX2(halfX+CONTROL_ADDITION);
+        }
+        if(startY > endY){
+            cubicConnection.setControlY1(startY-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+            cubicConnection.setControlY2(endY+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+        } else {
+            cubicConnection.setControlY1(startY+CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+            cubicConnection.setControlY2(endY-CONTROL_MULTIPLICATION*CONTROL_ADDITION);
+        }
 
         
         cubicConnection.setFill(Color.TRANSPARENT);
