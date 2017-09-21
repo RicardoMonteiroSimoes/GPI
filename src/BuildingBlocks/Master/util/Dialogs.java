@@ -7,6 +7,7 @@ package BuildingBlocks.Master.util;
 
 import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.BlockGraphic.Type;
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Input;
 import java.util.Optional;
 import javafx.event.EventHandler;
