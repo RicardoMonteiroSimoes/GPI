@@ -18,16 +18,12 @@ import java.util.Observable;
 public class ServerIn extends NetworkBlock{
     
     
-    public ServerIn (String blockName, String blockSubName) {
-        super(blockName, blockSubName, CreationUtil.createOutput(ContactPoint.Datatype.STRING), false);
+    public ServerIn () {
     }
 
     @Override
     protected void Logic() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-    }
 }

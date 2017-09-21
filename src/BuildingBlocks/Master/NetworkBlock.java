@@ -7,30 +7,19 @@ package BuildingBlocks.Master;
 
 import java.util.ArrayList;
 import BuildingBlocks.Master.BlockGraphic.Type;
+import BuildingBlocks.Master.ContactPoint.Datatype;
+import BuildingBlocks.Master.util.CreationUtil;
 
 /**
  *
  * @author Ricardo
  */
-public abstract class NetworkBlock extends BlockGraphic{
+public abstract class NetworkBlock extends LogicBlock{
     
     
-    public NetworkBlock(String blockName, String blockSubName, Input in, boolean canChangeInputs){
-        super(blockName, blockSubName, in, canChangeInputs, Type.NETWORK);
+    public NetworkBlock(){
+        super("Server In", "Receives Commands on a Port", CreationUtil.createOutput(Datatype.STRING), Type.NETWORK);
     }
-    
-    public NetworkBlock(String blockName, String blockSubName, Output out, boolean canChangeInputs){
-        super(blockName, blockSubName, out, Type.NETWORK);
-    }
-    
-    protected abstract void Logic();
-    
-    public void setInput(int iInput, boolean bInputStatus){
-        
-        Logic();
-    }
-    
-    
 
     
 }

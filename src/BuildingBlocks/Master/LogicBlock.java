@@ -27,6 +27,10 @@ public abstract class LogicBlock extends BlockGraphic {
     public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, Output out) {
         super(sName, blockSubName, alInputs, canChangeInput, out, Type.LOGIC);
     }
+    
+    public LogicBlock(String sName, String blockSubName, Output out, Type type) {
+        super(sName, blockSubName, out, type);
+    }
 
     @Override
     public void update(Observable o, Object arg) {
