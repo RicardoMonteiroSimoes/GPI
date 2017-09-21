@@ -25,9 +25,9 @@ public class NOT extends LogicBlock{
     @Override
     protected void Logic(){
         try{
-            getOutputs().get(0).setBooleanOutput(!getInputs().get(0).getBooleanInput());
+            getOutputs().get(0).setOutput(!(boolean)getInputs().get(0).getInput());
         } catch ( NullPointerException ne ){
-            getOutputs().get(0).setBooleanOutput(true);
+            getOutputs().get(0).setOutput(true);
         }
     }
 }

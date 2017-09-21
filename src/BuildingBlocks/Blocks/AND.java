@@ -22,14 +22,14 @@ public class AND extends LogicBlock{
     
 
     public AND(){
-        super("AND", "AND-Block", CreationUtil.createStandardInputList(Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
+        super("AND", "AND-Block", CreationUtil.createStandardInputList(2, Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
     
     @Override
     protected void Logic(){
         int count = 0;
         for(Input in: getInputs()){
-            if(in.getBooleanInput()){
+            if((boolean) in.getInput()){
                 count++;
             }
         }

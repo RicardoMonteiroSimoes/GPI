@@ -43,9 +43,9 @@ public class MouseInputButton extends BlockGraphic {
     protected void setOnMousePressedEvent (MouseEvent event) {
         if (event.getButton().equals(MouseButton.PRIMARY)) {
             if (isImpuls) {
-                getOutputs().get(0).setBooleanOutput(true);
+                getOutputs().get(0).setOutput(true);
             } else {
-                getOutputs().get(0).setBooleanOutput(!getOutputs().get(0).getBooleanOutput());
+                getOutputs().get(0).setOutput(!(boolean)getOutputs().get(0).getOutput());
             }
         }
     }
@@ -54,7 +54,7 @@ public class MouseInputButton extends BlockGraphic {
     protected void setOnMouseReleasedEvent (MouseEvent event) {
         if (event.getButton().equals(MouseButton.PRIMARY)) {
             if (isImpuls) {
-                getOutputs().get(0).setBooleanOutput(false);
+                getOutputs().get(0).setOutput(false);
             }
         }
     }

@@ -9,6 +9,7 @@ import BuildingBlocks.Master.BlockGraphic.Type;
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError;
 import java.util.ArrayList;
 
 /**
@@ -17,72 +18,68 @@ import java.util.ArrayList;
  */
 public class CreationUtil {
     
-    
-    public static ArrayList<Input> createInputList(String[] saInputs){
-        ArrayList<Input> alInputs = new ArrayList();
-        for(String s : saInputs){
-            Input temporaryInput = new Input(s);
-            temporaryInput.setDataType(Datatype.BOOLEAN);
-            alInputs.add(temporaryInput);
-        }
-        return alInputs;
-    }
-    
-    
-    /**
-     * This Function generates an ArrayList<Input> that contains 2 Inputs.
-     * @return ArrayList<Inputs> with your inputs
-     */
-    public static ArrayList<Input> createStandardInputList(){
-        ArrayList<Input> alInputs = new ArrayList();
-        alInputs.add(new Input("Input 1"));
-        alInputs.add(new Input("Input 2"));
-        return alInputs;
-    }
-    
-    public static ArrayList<Input> createStandardInputList(Datatype datatype){
-        ArrayList<Input> alInputs = new ArrayList();
-        alInputs.add(new Input("Input 1"));
-        alInputs.get(0).setDataType(datatype);
-        alInputs.add(new Input("Input 2"));
-        alInputs.get(1).setDataType(datatype);
-        return alInputs;
-    }
-    
     /**
      * This Function generates an ArrayList<Input> that contains as many inputs
      * the number you give
      * @param amountInputs amount of Inputs you want
      * @return ArrayList<Inputs> with your inputs
      */
-    public static ArrayList<Input> createStandardInputList(int amountInputs){
+    public static ArrayList<Input> createStandardInputList(int amountInputs, Datatype datatype){
         ArrayList<Input> alInputs = new ArrayList();
         int count = 1;
         while(count <= amountInputs){
-            alInputs.add(new Input("Input " + count));
+            alInputs.add(createInput(datatype));
             count++;
         }
         return alInputs;
     }
     
-    public static ArrayList<Input> getTimerInputs(){
-        ArrayList<Input> alTemp = new ArrayList();
-        alTemp.add(new Input("Input"));
-        alTemp.get(0).setDataType(Datatype.BOOLEAN);
-        alTemp.add(new Input("Timevalue"));
-        alTemp.get(0).setDataType(Datatype.STRING);
-        return alTemp;
-    }
-    
     public static Output createOutput(Datatype datatype){
-        Output out = new Output();
-        out.setDataType(datatype);
+        Output out = new Output("Output", datatype);
         return out;
     }
     
+    public static ArrayList<Input> createInputList(String[] saInputs, Datatype datatype){
+        ArrayList<Input> alInputs = new ArrayList();
+        for(String s : saInputs){
+            alInputs.add(createInput(s, datatype));
+        }
+        return alInputs;
+    }
+    
     public static Input createInput(Datatype datatype){
-        Input in = new Input();
-        in.setDataType(datatype);
-        return in;
+        switch(datatype){
+            case BOOLEAN:
+                return new Input <Boolean>("Input", datatype);
+            case STRING:
+                return new Input <String>("Input", datatype);
+            case DOUBLE:
+                return new Input <Double>("Input", datatype);
+            case FLOAT:
+                return new Input <Float>("Input", datatype);
+            case INTEGER:
+                return new Input <Integer>("Input", datatype);
+            default:
+                throw new TypeNotPresentException("The Datatype " + datatype + " does not exist!",
+                        new Throwable("Wrong Datatype!"));
+        }
+    }
+    
+    public static Input createInput(String s, Datatype datatype){
+        switch(datatype){
+            case BOOLEAN:
+                return new Input <Boolean>(s, datatype);
+            case STRING:
+                return new Input <String>(s, datatype);
+            case DOUBLE:
+                return new Input <Double>(s, datatype);
+            case FLOAT:
+                return new Input <Float>(s, datatype);
+            case INTEGER:
+                return new Input <Integer>(s, datatype);
+            default:
+                throw new TypeNotPresentException("The Datatype " + datatype + " does not exist!",
+                        new Throwable("Wrong Datatype!"));
+        }
     }
 }

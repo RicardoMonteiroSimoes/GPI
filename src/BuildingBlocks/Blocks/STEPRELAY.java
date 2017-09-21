@@ -25,8 +25,8 @@ public class STEPRELAY extends LogicBlock{
 
     @Override
     protected void Logic () {
-        if(getInputs().get(0).getBooleanInput()){
-            setOutput(!getOutputs().get(0).getBooleanOutput());
+        if((boolean) getInputs().get(0).getInput()){
+            setOutput(!(boolean)getOutputs().get(0).getOutput());
         }
     }
 }

@@ -5,6 +5,7 @@
  */
 package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.ContactPoint;
 import BuildingBlocks.Master.NetworkBlock;
 import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.util.CreationUtil;
@@ -14,11 +15,11 @@ import java.util.Observable;
  *
  * @author Ricardo
  */
-public class KNXServerIn extends NetworkBlock{
+public class ServerIn extends NetworkBlock{
     
     
-    public KNXServerIn (String blockName, String blockSubName) {
-        super(blockName, blockSubName, new Output("Output"), false);
+    public ServerIn (String blockName, String blockSubName) {
+        super(blockName, blockSubName, CreationUtil.createOutput(ContactPoint.Datatype.STRING), false);
     }
 
     @Override

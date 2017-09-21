@@ -23,14 +23,14 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}), false, CreationUtil.createOutput(Datatype.BOOLEAN));
+        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}, Datatype.BOOLEAN), false, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
 
     @Override
     protected void Logic () {
-        if(getInputs().get(1).getBooleanInput()){
+        if((boolean)getInputs().get(1).getInput()){
             setOutput(false);
-        } else if (getInputs().get(0).getBooleanInput()){
+        } else if ((boolean) getInputs().get(0).getInput()){
             setOutput(true);
         }
     }

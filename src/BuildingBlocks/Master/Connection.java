@@ -62,39 +62,22 @@ public class Connection implements Observer {
             cubicConnection.setControlY1(startY);
             cubicConnection.setControlY2(endY);
         } else if ((differenceY < -20 || differenceY > 20) && endX > startX) {
-            cubicConnection.setControlX1(startX+curvatureAddition);
-            cubicConnection.setControlX2(endX-curvatureAddition);
+            cubicConnection.setControlX1(startX + curvatureAddition);
+            cubicConnection.setControlX2(endX - curvatureAddition);
             cubicConnection.setControlY1(startY);
             cubicConnection.setControlY2(endY);
         } else {
             double differenceBetweenX = startX - endX;
-            cubicConnection.setControlX1(startX+curvatureAddition+(differenceBetweenX/2));
-            cubicConnection.setControlX2(endX-curvatureAddition-(differenceBetweenX/2));
+            cubicConnection.setControlX1(startX + curvatureAddition + (differenceBetweenX / 2));
+            cubicConnection.setControlX2(endX - curvatureAddition - (differenceBetweenX / 2));
             cubicConnection.setControlY1(halfY);
             cubicConnection.setControlY2(halfY);
         }
 
-        //end new algorithm stuff
-        //Start old algorithm stuff
-//        if (startX > endX) {
-//            cubicConnection.setControlX1(halfX + CONTROL_ADDITION * CONTROL_MULTIPLICATION);
-//            cubicConnection.setControlX2(halfX - CONTROL_ADDITION * CONTROL_MULTIPLICATION);
-//        } else {
-//            cubicConnection.setControlX1(halfX - CONTROL_ADDITION * -1);
-//            cubicConnection.setControlX2(halfX + CONTROL_ADDITION * -1);
-//        }
-//        if (startY > endY) {
-//            cubicConnection.setControlY1(startY - CONTROL_MULTIPLICATION * CONTROL_ADDITION);
-//            cubicConnection.setControlY2(endY + CONTROL_MULTIPLICATION * CONTROL_ADDITION);
-//        } else {
-//            cubicConnection.setControlY1(startY + CONTROL_MULTIPLICATION * CONTROL_ADDITION);
-//            cubicConnection.setControlY2(endY - CONTROL_MULTIPLICATION * CONTROL_ADDITION);
-//        }
-
         cubicConnection.setFill(Color.TRANSPARENT);
 
         cubicConnection.setStrokeWidth(2);
-        
+
         cubicConnection.setStroke(Color.BLACK);
 
         //END old ALGORITHM
@@ -107,10 +90,33 @@ public class Connection implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         Output out = (Output) o;
-        if (out.getBooleanOutput()) {
-            cubicConnection.setStroke(Color.RED);
-        } else {
-            cubicConnection.setStroke(Color.BLACK);
+        try {
+            boolean output = (boolean) out.getOutput();
+            if (output) {
+                cubicConnection.setStroke(Color.RED);
+            } else {
+                cubicConnection.setStroke(Color.BLACK);
+            }
+        } catch (Exception e) {
+            try {
+                String output = (String) out.getOutput();
+                if (output.equals("empty")) {
+                    cubicConnection.setStroke(Color.BLACK);
+                } else {
+                    cubicConnection.setStroke(Color.RED);
+                }
+            } catch (Exception en) {
+                try{
+                    float output = (float) out.getOutput();
+                    if(output < 0.01){
+                       cubicConnection.setStroke(Color.BLACK);
+                    } else {
+                        cubicConnection.setStroke(Color.RED);
+                    }
+                } catch ( Exception enn){
+                    System.out.println("No value set yet.");
+                }
+            }
         }
     }
 

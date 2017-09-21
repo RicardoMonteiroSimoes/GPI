@@ -18,102 +18,43 @@ import javafx.scene.shape.Circle;
  *
  * @author Ricardo
  */
-public class Output extends Observable{
+public class Output <T> extends Observable{
 
     private String sName;
 
     //Output variables
-    Integer integerValue = null;
-    Double doubleValue = null;
-    Boolean booleanValue = null;
-    Float floatValue = null;
-    String stringValue = null;
+    private T outputValue;
 
-    private String sOutput;
     private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
+    private boolean hasValue = false;
+    
     private Datatype datatype;
-    private boolean hasOutput = false;
 
-    public Output (String sName) {
+    public Output (String sName, Datatype datatype) {
         this.sName = sName;
+        setDataType(datatype);
         createCircle();
     }
 
-    public Output () {
-        this.sName = "Output";
-        createCircle();
-    }
 
     public Output (Output out) {
         this.sName = out.getName();
         createCircle();
+        setDataType(out.getDatatype());
     }
 
-    public Boolean getBooleanOutput () {
-        return booleanValue;
-    }
-
-    public void setBooleanOutput (boolean booleanValue) {
-        integerValue = null;
-        doubleValue = null;
-        this.booleanValue = booleanValue;
-        floatValue = null;
-        stringValue = null;
+    public void setOutput(T value){
+        outputValue = value;
+        hasValue = true;
         notifyOfUpdate();
     }
 
-    public String getStringOutput () {
-        return stringValue;
-    }
-
-    public void setStringOutput (String stringValue) {
-        integerValue = null;
-        doubleValue = null;
-        booleanValue = null;
-        floatValue = null;
-        this.stringValue = stringValue;
-        notifyOfUpdate();
-    }
-
-    public Double getDoubleOutput () {
-        return doubleValue;
-    }
-
-    public void setDoubleOutput (double doubleValue) {
-        integerValue = null;
-        this.doubleValue = doubleValue;
-        booleanValue = null;
-        floatValue = null;
-        stringValue = null;
-        notifyOfUpdate();
-    }
-
-    public Float getFloatOutput () {
-        return floatValue;
-    }
-
-    public void setFloatOutput (Float floatValue) {
-        integerValue = null;
-        doubleValue = null;
-        booleanValue = null;
-        this.floatValue = floatValue;
-        stringValue = null;
-        notifyOfUpdate();
-    }
-
-    public Integer getIntegerOutput () {
-        return integerValue;
-    }
-
-    public void setIntegerOutput (int integerValue) {
-        this.integerValue = integerValue;
-        doubleValue = null;
-        booleanValue = null;
-        floatValue = null;
-        stringValue = null;
-        notifyOfUpdate();
+    
+    
+    public T getOutput(){
+        return outputValue;
     }
 
     public Observable getObservable () {
@@ -139,7 +80,7 @@ public class Output extends Observable{
         outputCircle.setFill(Color.BLACK);
         outputCircle.setStroke(Color.BLACK);
         createCircleFunctionality();
-        setCircleTooltip();
+        //setCircleTooltip();
     }
 
     private void createCircleFunctionality () {
@@ -157,37 +98,13 @@ public class Output extends Observable{
         outputCircle.setCenterY(y);
     }
 
-    public void setDataType (Datatype datatype) {
+    private void setDataType (Datatype datatype) {
         this.datatype = datatype;
-        setOutput();
-    }
-    
-    private void setOutput(){
-        switch (datatype) {
-            case BOOLEAN:
-                setBooleanOutput(false);
-                break;
-            case STRING:
-                setStringOutput("empty");
-                break;
-            case FLOAT:
-                setFloatOutput(0.000f);
-                break;
-            case INTEGER:
-                setIntegerOutput(0);
-                break;
-            case DOUBLE:
-                setDoubleOutput(0.0);
-                break;
-            default:
-                throw new Error("Theres a Datatype there is no case for");
-        }
     }
     
     private void notifyOfUpdate(){
         setChanged();
         notifyObservers();
-        clearChanged();
     }
 
     public Datatype getDatatype () {

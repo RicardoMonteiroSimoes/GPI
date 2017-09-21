@@ -21,7 +21,7 @@ public class OnDelay extends TimerBlock{
     
     @Override
     protected void Logic () {
-        if(getInput()){
+        if((boolean) getInput()){
             startTimer();
         } else {
             
@@ -31,7 +31,7 @@ public class OnDelay extends TimerBlock{
 
     @Override
     protected void setOutputAfterTimer() {
-        setOutput(getInput());
+        setOutput((boolean) getInput());
     }
 
 }

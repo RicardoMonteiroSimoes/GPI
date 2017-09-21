@@ -19,14 +19,14 @@ import java.util.ArrayList;
 public class XOR extends LogicBlock {
 
     public XOR() {
-        super("XOR", "exklusiv oder", CreationUtil.createStandardInputList(Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
+        super("XOR", "exklusiv oder", CreationUtil.createStandardInputList(2, Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
 
     @Override
     protected void Logic() {
         int count = 0;
         for (Input in : getInputs()) {
-            if (in.getBooleanInput()) {
+            if ((boolean) in.getInput()) {
                 count++;
                 if(count > 1){
                     break;

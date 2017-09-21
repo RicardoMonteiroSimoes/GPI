@@ -27,7 +27,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author Ricardo
  */
-public abstract class TimerBlock extends BlockGraphic {
+public abstract class TimerBlock extends LogicBlock {
 
     private double delayTime = 1.0;
     private ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
@@ -37,18 +37,8 @@ public abstract class TimerBlock extends BlockGraphic {
         createAdditionalOptionsDialog();
     }
 
-    protected abstract void Logic();
-
     protected abstract void setOutputAfterTimer();
 
-    protected boolean getInput() {
-        try {
-            return getInputs().get(0).getBooleanInput();
-        } catch (NullPointerException npe) {
-            System.out.println("Error at get Input!");
-            return false;
-        }
-    }
 
     protected void setTime(double dTime) {
         this.delayTime = dTime;
@@ -71,10 +61,6 @@ public abstract class TimerBlock extends BlockGraphic {
 
     protected void cancelTimer() {
         
-    }
-
-    protected void setOutput(boolean outputValue) {
-        getOutputs().get(0).setBooleanOutput(outputValue);
     }
 
     @Override

@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class OR extends LogicBlock{
     
     public OR(){
-        super("OR", "oder", CreationUtil.createStandardInputList(Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
+        super("OR", "oder", CreationUtil.createStandardInputList(2, Datatype.BOOLEAN), true, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
     
     protected void Logic(){
         int count = 0;
         for(Input in : getInputs()){
-            if(in.getBooleanInput()){
+            if((boolean) in.getInput()){
                 count++;
             }
         }

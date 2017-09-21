@@ -7,6 +7,7 @@ package BuildingBlocks.Master;
 
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.util.Dialogs;
+import com.sun.xml.internal.ws.handler.HandlerException;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.event.EventHandler;
@@ -19,101 +20,42 @@ import javafx.scene.shape.Circle;
  *
  * @author Ricardo
  */
-public class Input extends Observable implements Observer {
+public class Input<T> extends Observable implements Observer {
 
     private String sName;
 
-    //Output variables
-    Integer integerValue = null;
-    Double doubleValue = null;
-    Boolean booleanValue = null;
-    Float floatValue = null;
-    String stringValue = null;
+    //Input variables
+    private T inputValue;
 
     private double amountOfOutputs = 0;
+    private Datatype datatype;
 
     private Circle inputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
-    private Datatype datatype;
 
-    public Input(String sName) {
+    public Input(String sName, Datatype datatype) {
         this.sName = sName;
-        createCircle();
-    }
-
-    public Input() {
-        this.sName = "Input";
+        setDataType(datatype);
         createCircle();
     }
 
     public Input(Input in) {
         this.sName = in.getName();
+        setDataType(in.getDatatype());
         createCircle();
     }
 
-    public Boolean getBooleanInput() {
-        return booleanValue;
+    public Datatype getDatatype() {
+        return this.datatype;
     }
 
-    public void setBooleanInput(boolean booleanValue) {
-        integerValue = null;
-        doubleValue = null;
-        this.booleanValue = booleanValue;
-        floatValue = null;
-        stringValue = null;
+    public void setInput(T value) {
+        inputValue = value;
     }
 
-    public String getStringInput() {
-        return stringValue;
-    }
-
-    public void setStringInput(String stringValue) {
-        integerValue = null;
-        doubleValue = null;
-        booleanValue = null;
-        floatValue = null;
-        this.stringValue = stringValue;
-    }
-
-    public Double getDoubleInput() {
-        return doubleValue;
-    }
-
-    public void setDoubleInput(double doubleValue) {
-        integerValue = null;
-        this.doubleValue = doubleValue;
-        booleanValue = null;
-        floatValue = null;
-        stringValue = null;
-    }
-
-    public Float getFloatInput() {
-        return floatValue;
-    }
-
-    public void setFloatInput(Float floatValue) {
-        integerValue = null;
-        doubleValue = null;
-        booleanValue = null;
-        this.floatValue = floatValue;
-        stringValue = null;
-    }
-
-    public Integer getIntegerInput() {
-        return integerValue;
-    }
-
-    public void setIntegerInput(int integerValue) {
-        this.integerValue = integerValue;
-        doubleValue = null;
-        booleanValue = null;
-        floatValue = null;
-        stringValue = null;
-    }
-
-    public void setInputDataType(Datatype datatype) {
-        this.datatype = datatype;
+    public T getInput() {
+        return inputValue;
     }
 
     public void removeObservers() {
@@ -139,7 +81,7 @@ public class Input extends Observable implements Observer {
         inputCircle.setFill(Color.BLACK);
         inputCircle.setStroke(Color.BLACK);
         createCircleFunctionality();
-        setCircleTooltip();
+        //setCircleTooltip();
     }
 
     private void createCircleFunctionality() {
@@ -157,50 +99,35 @@ public class Input extends Observable implements Observer {
         inputCircle.setCenterY(y);
     }
 
-    public void setDataType(Datatype datatype) {
+    private void setDataType(Datatype datatype) {
         this.datatype = datatype;
-        switch (datatype) {
+        switch (this.datatype) {
             case BOOLEAN:
-                setBooleanInput(false);
-                break;
-            case STRING:
-                setStringInput("empty");
+                setInput((T) Boolean.FALSE);
                 break;
             case FLOAT:
-                setFloatInput(0.0f);
-                break;
-            case DOUBLE:
-                setDoubleInput(0.0);
+                setInput((T) Float.valueOf(0.0f));
                 break;
             case INTEGER:
-                setIntegerInput(0);
+                setInput((T) Integer.valueOf(0));
+                break;
+            case DOUBLE:
+                setInput((T) Double.valueOf(0.0));
+                break;
+            case STRING:
+                setInput((T) "empty");
                 break;
             default:
-
+                System.out.println("ups");
         }
     }
 
     private boolean checkOutput(Output out) {
-        switch (out.getDatatype()) {
-            case BOOLEAN:
-                setBooleanInput(out.getBooleanOutput());
-                return true;
-            case STRING:
-                setStringInput(out.getStringOutput());
-                return true;
-            case FLOAT:
-                setFloatInput(out.getFloatOutput());
-                return true;
-            case DOUBLE:
-                setDoubleInput(out.getDoubleOutput());
-                return true;
-            case INTEGER:
-                setIntegerInput(out.getIntegerOutput());
-                return true;
-            default:
-                System.out.println("Something goddamn terrible happened @ check Output");
-                return false;
+        if (out.getDatatype().equals(datatype)) {
+            setInput((T) out.getOutput());
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -225,5 +152,5 @@ public class Input extends Observable implements Observer {
             notifyObservers();
         }
     }
-
+            
 }

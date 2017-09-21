@@ -5,6 +5,8 @@
  */
 package BuildingBlocks.Master;
 
+import BuildingBlocks.Master.ContactPoint.Datatype;
+import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Observer;
@@ -418,7 +420,7 @@ public abstract class BlockGraphic implements Observer{
             }
         } else if (inputs.size() < amountInputs) {
             for (int addToInputs = 1; addToInputs <= amountInputs - inputs.size(); addToInputs++) {
-                inputs.add(new Input("Input " + inputs.size() + 1));
+                inputs.add(CreationUtil.createInput(Datatype.BOOLEAN));
                 reconstructBlock();
             }
         }

@@ -13,9 +13,15 @@ import java.util.Observable;
  * @author Ricardo
  */
 public abstract class LogicBlock extends BlockGraphic {
+    
+    private ArrayList<Input> inputs;
 
     public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out) {
         super(sName, blockSubName, in, canChangeInput, out, Type.LOGIC);
+    }
+    
+    public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out, Type type) {
+        super(sName, blockSubName, in, canChangeInput, out, type);
     }
 
     public LogicBlock(String sName, String blockSubName, ArrayList<Input> alInputs, boolean canChangeInput, Output out) {
@@ -38,8 +44,12 @@ public abstract class LogicBlock extends BlockGraphic {
         setOutput(!value);
     }
     
-    protected void setOutput(boolean value){
-        getOutputs().get(0).setBooleanOutput(value);
+    protected <T> void setOutput(T value){
+        getOutputs().get(0).setOutput(value);
+    }
+    
+    protected <T> T getInput(){
+        return (T) getInputs().get(0).getInput();
     }
     
 }
