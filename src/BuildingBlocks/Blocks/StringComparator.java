@@ -5,72 +5,56 @@
  */
 package BuildingBlocks.Blocks;
 
-import BuildingBlocks.Master.BlockGraphic;
-import javafx.scene.control.Button;
-import BuildingBlocks.Master.ContactPoint;
-import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.LogicBlock;
-import BuildingBlocks.Master.Output;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Master.util.Dialogs;
-import java.util.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.input.MouseButton;
-
 
 /**
  *
  * @author Ricardo
  */
-public class MouseInputButton extends BlockGraphic {
+public class StringComparator extends LogicBlock {
+    
+    private String stringToCompareTo = "empty";
+    private boolean hasToBeEqual = true;
 
-    private boolean isImpuls = true;
-
-    public MouseInputButton () {
-        super("Button", "Click for impulse", CreationUtil.createOutput(ContactPoint.Datatype.BOOLEAN), Type.VARIABLE);
-        createPressModeChangeDialog();
+    public StringComparator(){
+        super("StringComparaotr", "Compares Strings", CreationUtil.createInput(Datatype.STRING), false, CreationUtil.createOutput(Datatype.BOOLEAN));
+        createComparisonDialog();
     }
-
+    
     @Override
-    protected void setOnMousePressedEvent (MouseEvent event) {
-        if (event.getButton().equals(MouseButton.PRIMARY)) {
-            if (isImpuls) {
-                getOutputs().get(0).setOutput(true);
-            } else {
-                getOutputs().get(0).setOutput(!(boolean)getOutputs().get(0).getOutput());
-            }
+    protected void Logic () {
+        String stringToCompare = (String) getInput();
+        if(stringToCompareTo.equals(stringToCompare)){
+            setOutput(hasToBeEqual);
+        } else {
+            setOutput(!hasToBeEqual);
         }
+        
     }
-
-    @Override
-    protected void setOnMouseReleasedEvent (MouseEvent event) {
-        if (event.getButton().equals(MouseButton.PRIMARY)) {
-            if (isImpuls) {
-                getOutputs().get(0).setOutput(false);
-            }
-        }
-    }
-
-    @Override
-    public void update (Observable o, Object arg) {
-
-    }
-
-    private void createPressModeChangeDialog () {
-        Group modeChangeGroup = new Group();
-        Label pressMode = new Label("Drückmodus");
-        ComboBox comboBox = new ComboBox<String>();
-        comboBox.getItems().add("Impuls");
-        comboBox.getItems().add("Umschaltung");
-        if (isImpuls) {
+    
+    private void createComparisonDialog(){
+        Group comparisonGroup = new Group();
+        Label comparisonMode = new Label("Vergleichsmodus");
+        Label compareTo = new Label("String zum Vergleichen");
+        TextField comparatorString = new TextField();
+        comparatorString.setText(stringToCompareTo);    
+        ComboBox comboBox = new ComboBox<Type>();
+        comboBox.getItems().add("Gleich");
+        comboBox.getItems().add("Ungleich");
+        if (hasToBeEqual) {
             comboBox.getSelectionModel().select(0);
         } else {
             comboBox.getSelectionModel().select(1);
@@ -82,19 +66,20 @@ public class MouseInputButton extends BlockGraphic {
             public void handle (ActionEvent event) {
                 try {
                     switch ((String) comboBox.getSelectionModel().getSelectedItem()) {
-                        case "Impuls":
-                            isImpuls = true;
+                        case "Gleich":
+                            hasToBeEqual = true;
                             break;
-                        case "Umschaltung":
-                            isImpuls = false;
+                        case "Ungleich":
+                            hasToBeEqual = false;
                             break;
                         default:
                             Dialogs.alertDialog("Fehler", "Eingabefehler", "Keine Funktion für folgenden Wert gefunden: " + (String) comboBox.getSelectionModel().getSelectedItem());
                     }
 
                 } catch (Exception e) {
-                    isImpuls = true;
+                    hasToBeEqual = true;
                 }
+                stringToCompareTo = comparatorString.getText();
             }
         });
         
@@ -110,11 +95,13 @@ public class MouseInputButton extends BlockGraphic {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(20, 150, 10, 10));
-        grid.add(pressMode, 0, 0);
+        grid.add(comparisonMode, 0, 0);
         grid.add(comboBox, 0, 1);
         grid.add(changeMode, 1, 1);
-        modeChangeGroup.getChildren().add(grid);
-        addDialogFunction(modeChangeGroup);
+        grid.add(compareTo, 0, 2);
+        grid.add(comparatorString, 1, 2);
+        comparisonGroup.getChildren().add(grid);
+        addDialogFunction(comparisonGroup);
     }
-
+    
 }

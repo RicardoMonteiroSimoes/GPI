@@ -5,11 +5,9 @@
  */
 package BuildingBlocks.Master.util;
 
-import BuildingBlocks.Master.BlockGraphic.Type;
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.Output;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError;
 import java.util.ArrayList;
 
 /**

@@ -9,8 +9,11 @@ import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.NetworkIn;
 import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -33,14 +36,18 @@ public class SC_PGI extends Application{
     static AND and = new AND();
     static DoubleClick doubleClick = new DoubleClick();
     static STEPRELAY step = new STEPRELAY();
+    static NetworkIn nwin = new NetworkIn(true);
+    static StringComparator scmp = new StringComparator();
 //    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     static MouseInputButton msbttn = new MouseInputButton();
+    public static ExecutorService executor;
     
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        executor = Executors.newFixedThreadPool(15);
         launch(args);
     }
 
@@ -56,8 +63,8 @@ public class SC_PGI extends Application{
         alBlocks.add(sr.getBlockObject());
         alBlocks.add(or.getBlockObject());
         alBlocks.add(xor.getBlockObject());
-//        alBlocks.add(var.getBlockObject());
-//        alBlocks.add(knxServerIn.getBlockObject());
+        alBlocks.add(nwin.getBlockObject());
+        alBlocks.add(scmp.getBlockObject());
         alBlocks.add(msbttn.getBlockObject());
         GUI.start(primaryStage);
     }

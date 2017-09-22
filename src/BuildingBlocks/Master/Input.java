@@ -7,7 +7,6 @@ package BuildingBlocks.Master;
 
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.util.Dialogs;
-import com.sun.xml.internal.ws.handler.HandlerException;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.event.EventHandler;

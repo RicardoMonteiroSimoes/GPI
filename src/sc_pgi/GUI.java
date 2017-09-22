@@ -14,6 +14,7 @@ import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.util.Dialogs;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
+import BuildingBlocks.Master.NetworkIn;
 import BuildingBlocks.Master.Output;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -185,10 +186,30 @@ public class GUI extends Application {
             case "Schrittschalter":
                 newSchrittschalterBlock(x,y);
                 break;
+            case "Server In":
+                newServerInBlock(x,y);
+                break;
+            case "StringComparator":
+                newStringComparatorBlock(x,y);
+                break;
             default:
                 System.out.println("No case for " + sName);
         }
-    }    
+    }  
+    
+    private void newServerInBlock (double x, double y) {
+        NetworkIn notTemp = new NetworkIn();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    private void newStringComparatorBlock (double x, double y) {
+        StringComparator notTemp = new StringComparator();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
     
     private void newSRBlock (double x, double y) {
         SR notTemp = new SR();
