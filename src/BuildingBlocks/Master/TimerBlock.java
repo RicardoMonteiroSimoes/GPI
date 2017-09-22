@@ -65,7 +65,11 @@ public abstract class TimerBlock extends LogicBlock {
 
     @Override
     public void update(Observable o, Object arg) {
-        Logic();
+        try{
+            Logic();
+        } catch (NullPointerException npe){
+            System.out.println(npe.getMessage());
+        }
     }
 
     private void createAdditionalOptionsDialog() {

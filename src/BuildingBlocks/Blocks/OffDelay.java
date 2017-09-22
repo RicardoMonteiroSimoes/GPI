@@ -25,7 +25,7 @@ public class OffDelay extends TimerBlock {
 
     @Override
     protected void Logic() {
-        if (getInput()) {
+        if ((boolean) getInput()) {
             setOutput(true);
         } else {
             startTimer();
