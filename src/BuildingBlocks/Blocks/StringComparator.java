@@ -30,13 +30,14 @@ public class StringComparator extends LogicBlock {
     private boolean hasToBeEqual = true;
 
     public StringComparator(){
-        super("StringComparaotr", "Compares Strings", CreationUtil.createInput(Datatype.STRING), false, CreationUtil.createOutput(Datatype.BOOLEAN));
+        super("StringComparator", "Compares Strings", CreationUtil.createInput(Datatype.STRING), false, CreationUtil.createOutput(Datatype.BOOLEAN));
         createComparisonDialog();
     }
     
     @Override
     protected void Logic () {
         String stringToCompare = (String) getInput();
+        System.out.println("Comparing " + stringToCompare + " to " + stringToCompareTo);
         if(stringToCompareTo.equals(stringToCompare)){
             setOutput(hasToBeEqual);
         } else {

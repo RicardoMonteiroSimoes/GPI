@@ -50,7 +50,17 @@ public class Input<T> extends Observable implements Observer {
     }
 
     public void setInput(T value) {
-        inputValue = value;
+        try {
+            if (inputValue != value) {
+                inputValue = value;
+                setChanged();
+                notifyObservers();
+            } else {
+                System.out.println((String) value + " is equal to " + String.valueOf(inputValue));
+            }
+        } catch (Exception e) {
+            inputValue = value;
+        }
     }
 
     public T getInput() {
@@ -133,8 +143,6 @@ public class Input<T> extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         Output out = (Output) o;
         checkOutput(out);
-        setChanged();
-        notifyObservers();
     }
 
     public void addOutputToListenTo(Output out) {
@@ -151,5 +159,5 @@ public class Input<T> extends Observable implements Observer {
             notifyObservers();
         }
     }
-            
+
 }

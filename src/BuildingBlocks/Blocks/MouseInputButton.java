@@ -45,7 +45,11 @@ public class MouseInputButton extends BlockGraphic {
             if (isImpuls) {
                 getOutputs().get(0).setOutput(true);
             } else {
-                getOutputs().get(0).setOutput(!(boolean)getOutputs().get(0).getOutput());
+                try{
+                    getOutputs().get(0).setOutput(!(boolean)getOutputs().get(0).getOutput());
+                } catch(Exception e){
+                    getOutputs().get(0).setOutput(false);
+                }
             }
         }
     }

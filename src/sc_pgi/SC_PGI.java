@@ -9,7 +9,8 @@ import BuildingBlocks.Blocks.*;
 import BuildingBlocks.Master.BlockGraphic;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
-import BuildingBlocks.Master.NetworkIn;
+import BuildingBlocks.Blocks.NetworkIn;
+import BuildingBlocks.Blocks.NetworkOut;
 import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -40,14 +41,15 @@ public class SC_PGI extends Application{
     static StringComparator scmp = new StringComparator();
 //    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
     static MouseInputButton msbttn = new MouseInputButton();
-    public static ExecutorService executor;
+    static NetworkOut nwout = new NetworkOut();
+    static CreateServerPacket srvPktCrtr = new CreateServerPacket();
+    static HttpGet httpget = new HttpGet();
     
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        executor = Executors.newFixedThreadPool(15);
         launch(args);
     }
 
@@ -66,6 +68,9 @@ public class SC_PGI extends Application{
         alBlocks.add(nwin.getBlockObject());
         alBlocks.add(scmp.getBlockObject());
         alBlocks.add(msbttn.getBlockObject());
+        alBlocks.add(nwout.getBlockObject());
+        alBlocks.add(srvPktCrtr.getBlockObject());
+        alBlocks.add(httpget.getBlockObject());
         GUI.start(primaryStage);
     }
     

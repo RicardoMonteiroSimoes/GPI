@@ -5,6 +5,7 @@
  */
 package BuildingBlocks.Master;
 
+import BuildingBlocks.Master.Network.ServerPacket;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -14,7 +15,7 @@ import java.util.Observable;
  */
 public abstract class LogicBlock extends BlockGraphic {
     
-    private ArrayList<Input> inputs;
+    private ArrayList<Input> oldInputs;
 
     public LogicBlock(String sName, String blockSubName, Input in, boolean canChangeInput, Output out) {
         super(sName, blockSubName, in, canChangeInput, out, Type.LOGIC);
@@ -31,6 +32,10 @@ public abstract class LogicBlock extends BlockGraphic {
     public LogicBlock(String sName, String blockSubName, Output out, Type type) {
         super(sName, blockSubName, out, type);
     }
+    
+    public LogicBlock(String sName, String blockSubName, Input in, Type type) {
+        super(sName, blockSubName, in, type);
+    }
 
     @Override
     public void update(Observable o, Object arg) {
@@ -46,6 +51,16 @@ public abstract class LogicBlock extends BlockGraphic {
     protected void pulseOutput(boolean value){
         setOutput(value);
         setOutput(!value);
+    }
+    
+    protected void pulseOutput(String message){
+        setOutput(message);
+        setOutput("empty");
+    }
+    
+    protected void pulseOutput(ServerPacket packetToSend){
+        setOutput(packetToSend);
+        setOutput(ServerPacket.getEmptyPacket());
     }
     
     protected <T> void setOutput(T value){

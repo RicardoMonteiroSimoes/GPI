@@ -62,8 +62,8 @@ public class Connection implements Observer {
             cubicConnection.setControlY1(startY);
             cubicConnection.setControlY2(endY);
         } else if ((differenceY < -20 || differenceY > 20) && endX > startX) {
-            cubicConnection.setControlX1(startX + curvatureAddition);
-            cubicConnection.setControlX2(endX - curvatureAddition);
+            cubicConnection.setControlX1(startX + curvatureAddition*((endX-startX)/100));
+            cubicConnection.setControlX2(endX - curvatureAddition*((endX-startX)/100));
             cubicConnection.setControlY1(startY);
             cubicConnection.setControlY2(endY);
         } else {

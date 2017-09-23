@@ -7,6 +7,7 @@ package BuildingBlocks.Master.util;
 
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Input;
+import BuildingBlocks.Master.Network.ServerPacket;
 import BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 
@@ -57,6 +58,8 @@ public class CreationUtil {
                 return new Input <Float>("Input", datatype);
             case INTEGER:
                 return new Input <Integer>("Input", datatype);
+            case SERVERPACKET:
+                return new Input <ServerPacket>("Input", datatype);
             default:
                 throw new TypeNotPresentException("The Datatype " + datatype + " does not exist!",
                         new Throwable("Wrong Datatype!"));
@@ -75,6 +78,8 @@ public class CreationUtil {
                 return new Input <Float>(s, datatype);
             case INTEGER:
                 return new Input <Integer>(s, datatype);
+            case SERVERPACKET:
+                return new Input <ServerPacket>(s, datatype);
             default:
                 throw new TypeNotPresentException("The Datatype " + datatype + " does not exist!",
                         new Throwable("Wrong Datatype!"));

@@ -28,7 +28,6 @@ public class Output <T> extends Observable{
     private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
-    private boolean hasValue = false;
     
     private Datatype datatype;
 
@@ -47,7 +46,6 @@ public class Output <T> extends Observable{
 
     public void setOutput(T value){
         outputValue = value;
-        hasValue = true;
         notifyOfUpdate();
     }
 

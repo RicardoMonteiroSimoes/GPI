@@ -14,7 +14,8 @@ import BuildingBlocks.Master.util.*;
 import BuildingBlocks.Master.util.Dialogs;
 import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
-import BuildingBlocks.Master.NetworkIn;
+import BuildingBlocks.Blocks.NetworkIn;
+import BuildingBlocks.Blocks.NetworkOut;
 import BuildingBlocks.Master.Output;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -71,9 +72,7 @@ public class GUI extends Application {
         spLayout.setMaxSize(2000, 2000);
         spLayout.setMinSize(1000, 1000);
         spLayout.setPrefSize(800, 800);
-        spItems.setMaxHeight(800);
-        spItems.setPrefWidth(150);
-        spItems.setMinWidth(120);
+        spItems.setMinWidth(180);
         spItems.setBackground(Background.EMPTY);
         spItems.setBorder(Border.EMPTY);
 
@@ -192,10 +191,40 @@ public class GUI extends Application {
             case "StringComparator":
                 newStringComparatorBlock(x,y);
                 break;
+            case "Server Out":
+                createServerOutBlock(x,y);
+                break;
+            case "Create Packet":
+                createCreatePacketBlock(x,y);
+                break;
+            case "HTTP Get":
+                createHTTPGetBlock(x,y);
+                break;
             default:
                 System.out.println("No case for " + sName);
         }
     }  
+    
+    private void createHTTPGetBlock (double x, double y) {
+        HttpGet notTemp = new HttpGet();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    private void createServerOutBlock (double x, double y) {
+        NetworkOut notTemp = new NetworkOut();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
+    
+    private void createCreatePacketBlock (double x, double y) {
+        CreateServerPacket notTemp = new CreateServerPacket();
+        notTemp.setLayoutXY(x, y);
+        scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
+        notTemp.addConnectionWatcher(connectionHandler);
+    }
     
     private void newServerInBlock (double x, double y) {
         NetworkIn notTemp = new NetworkIn();

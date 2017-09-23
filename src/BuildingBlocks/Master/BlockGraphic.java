@@ -36,6 +36,7 @@ public abstract class BlockGraphic implements Observer{
     private final double OPACITY_VALUE = 0.5;
     private final Color STROKE_COLOR = Color.BLACK;
     private final double CONNECTION_POINT_RADIUS = 4.0;
+    private final double DISTANCE_PER_LETTER = 6.5;
     private String blockName;
     private String blockSubName;
     private Rectangle rectBlock = new Rectangle();
@@ -106,6 +107,15 @@ public abstract class BlockGraphic implements Observer{
         this.canChangeInputs = canChangeInputs;
         this.inputs = inputs;
         outputs.add(out);
+        constructBlock();
+    }
+    
+    public BlockGraphic(String blockName, String blockSubName, Input in, Type type) {
+        this.blockName = blockName;
+        this.blockSubName = blockSubName;
+        this.type = type;
+        this.canChangeInputs = false;
+        this.inputs.add(in);
         constructBlock();
     }
 
@@ -261,7 +271,7 @@ public abstract class BlockGraphic implements Observer{
     }
 
     private void setBlockWidth() {
-        rectBlock.setWidth(blockNameLabel.getText().length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
+        rectBlock.setWidth(blockNameLabel.getText().length() * DISTANCE_PER_LETTER + 2 * DISTANCE_BETWEEN_POINTS);
     }
 
     private void setBlockColors() {
@@ -273,7 +283,7 @@ public abstract class BlockGraphic implements Observer{
     private void setBlockNameLabel() {
         blockNameLabel.setWrapText(false);
         blockNameLabel.setText(blockName);
-        blockNameLabel.setMinWidth(blockName.length() * 3.5 + 2 * DISTANCE_BETWEEN_POINTS);
+        blockNameLabel.setMinWidth(blockName.length() * DISTANCE_PER_LETTER + 2 * DISTANCE_BETWEEN_POINTS);
         blockNameLabel.setAlignment(Pos.CENTER);
     }
 

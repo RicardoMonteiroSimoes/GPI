@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BuildingBlocks.Master;
+package BuildingBlocks.Blocks;
 
+import BuildingBlocks.Master.Network.ServerSocketReceive;
 import java.util.ArrayList;
 import BuildingBlocks.Master.BlockGraphic.Type;
 import BuildingBlocks.Master.ContactPoint.Datatype;
+import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Master.util.Dialogs;
 import java.io.IOException;
@@ -45,8 +47,7 @@ public class NetworkIn extends LogicBlock {
                 ServerSocketReceive ssR = new ServerSocketReceive(port);
                 ssR.addObserver(this);
                 System.out.println("Trying to run socket server");
-                sc_pgi.SC_PGI.executor.execute(ssR.run());
-                new Thread(ssR.run());
+                new Thread(ssR).start();
                 
             } catch (NumberFormatException nfe) {
                 Dialogs.alertDialog("Error", "Inputerror", result.get() + " is not a valid input!");

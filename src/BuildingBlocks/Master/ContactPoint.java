@@ -12,7 +12,7 @@ package BuildingBlocks.Master;
 public abstract class ContactPoint {
 
     public enum Datatype {
-        BOOLEAN, STRING, DOUBLE, FLOAT, INTEGER
+        BOOLEAN, STRING, DOUBLE, FLOAT, INTEGER, SERVERPACKET
     }
 
 }
