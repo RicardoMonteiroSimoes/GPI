@@ -20,7 +20,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.input.MouseButton;
@@ -36,7 +40,7 @@ public class MouseInputButton extends BlockGraphic {
 
     public MouseInputButton () {
         super("Button", "Click for impulse", CreationUtil.createOutput(ContactPoint.Datatype.BOOLEAN), Type.VARIABLE);
-        createPressModeChangeDialog();
+        addContextMenuItems();
     }
 
     @Override
@@ -67,58 +71,45 @@ public class MouseInputButton extends BlockGraphic {
     public void update (Observable o, Object arg) {
 
     }
-
-    private void createPressModeChangeDialog () {
-        Group modeChangeGroup = new Group();
-        Label pressMode = new Label("Drückmodus");
-        ComboBox comboBox = new ComboBox<String>();
-        comboBox.getItems().add("Impuls");
-        comboBox.getItems().add("Umschaltung");
-        if (isImpuls) {
-            comboBox.getSelectionModel().select(0);
-        } else {
-            comboBox.getSelectionModel().select(1);
+    
+    private void setImpuls(boolean isImpuls){
+        this.isImpuls = isImpuls;
+        if(isImpuls){
+            getOutputs().get(0).setOutput(false);
         }
-
-        Button changeMode = new Button("Übernehmen");
-        changeMode.setOnAction(new EventHandler<ActionEvent>() {
+    }
+    
+    private void addContextMenuItems(){
+        Menu parentMenu = new Menu("Modus");
+        RadioMenuItem radioMenuItem1 = new RadioMenuItem("Impuls");
+        RadioMenuItem radioMenuItem2 = new RadioMenuItem("Umschaltung");
+        ToggleGroup group = new ToggleGroup();
+ 
+        radioMenuItem1.setToggleGroup(group);
+        radioMenuItem2.setToggleGroup(group);
+        
+        parentMenu.getItems().addAll(radioMenuItem1, radioMenuItem2);
+        if(isImpuls){
+            radioMenuItem1.setSelected(isImpuls);
+        } else {
+            radioMenuItem2.setSelected(true);
+        }
+        
+        radioMenuItem1.setOnAction(new EventHandler <ActionEvent>() {
             @Override
-            public void handle (ActionEvent event) {
-                try {
-                    switch ((String) comboBox.getSelectionModel().getSelectedItem()) {
-                        case "Impuls":
-                            isImpuls = true;
-                            break;
-                        case "Umschaltung":
-                            isImpuls = false;
-                            break;
-                        default:
-                            Dialogs.alertDialog("Fehler", "Eingabefehler", "Keine Funktion für folgenden Wert gefunden: " + (String) comboBox.getSelectionModel().getSelectedItem());
-                    }
-
-                } catch (Exception e) {
-                    isImpuls = true;
-                }
+            public void handle(ActionEvent event) {
+                setImpuls(radioMenuItem1.isSelected());
             }
         });
         
-        comboBox.setOnMousePressed(new EventHandler<MouseEvent>() {
-
+        radioMenuItem2.setOnAction(new EventHandler <ActionEvent>() {
             @Override
-            public void handle(MouseEvent event) {
-                comboBox.requestFocus();
+            public void handle(ActionEvent event) {
+                setImpuls(!radioMenuItem2.isSelected());
             }
         });
         
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 150, 10, 10));
-        grid.add(pressMode, 0, 0);
-        grid.add(comboBox, 0, 1);
-        grid.add(changeMode, 1, 1);
-        modeChangeGroup.getChildren().add(grid);
-        addDialogFunction(modeChangeGroup);
+        addToContextMenu(parentMenu);
     }
 
 }

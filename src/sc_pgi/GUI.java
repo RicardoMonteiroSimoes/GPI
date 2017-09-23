@@ -206,7 +206,7 @@ public class GUI extends Application {
     }  
     
     private void createHTTPGetBlock (double x, double y) {
-        HttpGet notTemp = new HttpGet();
+        Http notTemp = new Http();
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);

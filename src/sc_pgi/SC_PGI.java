@@ -43,7 +43,7 @@ public class SC_PGI extends Application{
     static MouseInputButton msbttn = new MouseInputButton();
     static NetworkOut nwout = new NetworkOut();
     static CreateServerPacket srvPktCrtr = new CreateServerPacket();
-    static HttpGet httpget = new HttpGet();
+    static Http httpget = new Http();
     
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**
