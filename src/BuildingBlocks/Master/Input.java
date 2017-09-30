@@ -6,6 +6,7 @@
 package BuildingBlocks.Master;
 
 import BuildingBlocks.Master.ContactPoint.Datatype;
+import BuildingBlocks.Master.Network.ServerPacket;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.Observable;
 import java.util.Observer;
@@ -126,6 +127,9 @@ public class Input<T> extends Observable implements Observer {
             case STRING:
                 setInput((T) "empty");
                 break;
+            case SERVERPACKET:
+                setInput((T) ServerPacket.getEmptyPacket());
+                break;
             default:
                 System.out.println("ups");
         }
@@ -147,8 +151,7 @@ public class Input<T> extends Observable implements Observer {
 
     public void addOutputToListenTo(Output out) {
         if (!checkOutput(out)) {
-            throw new IllegalAccessError("You're trying to Connect a "
-                    + datatype + " input to an " + out.getDatatype() + "output");
+            Dialogs.alertDialog("Fehler", "Verbindungsfehler", "Input und Output haben nicht den gleichen Datentyp!");
         } else if (amountOfOutputs == 1) {
             Dialogs.alertDialog("Fehler", "Verknüpfungsfehler", "Dieser Input hat schon einen Output!");
             throw new IllegalArgumentException("Dieser Input ist schon belegt!");
