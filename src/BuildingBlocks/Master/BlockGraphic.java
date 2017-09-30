@@ -17,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.ContextMenuEvent;
@@ -25,6 +26,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 
 /**
  *
@@ -36,7 +38,7 @@ public abstract class BlockGraphic implements Observer{
     private final double OPACITY_VALUE = 0.5;
     private final Color STROKE_COLOR = Color.BLACK;
     private final double CONNECTION_POINT_RADIUS = 4.0;
-    private final double DISTANCE_PER_LETTER = 6.5;
+    private double DISTANCE_PER_LETTER = 4;
     private String blockName;
     private String blockSubName;
     private Rectangle rectBlock = new Rectangle();
@@ -52,6 +54,7 @@ public abstract class BlockGraphic implements Observer{
     private Observer observer;
     private Group grp = new Group();
     private boolean hasAdditionalDialogFunction = false;
+    private ContextMenu contextMenu = new ContextMenu();
 
     private Text notes = new Text();
 
@@ -199,6 +202,7 @@ public abstract class BlockGraphic implements Observer{
     }
 
     private void createBlockGraphic() {
+        setDPISettings();
         setBlockNameLabel();
         setBlockHeight();
         setBlockWidth();
@@ -208,6 +212,11 @@ public abstract class BlockGraphic implements Observer{
         createOutputPoints();
         setUpperBlockGroup();
         setBlockFunctions();
+    }
+    
+    private void setDPISettings(){
+        double screenfactor = Screen.getPrimary().getDpi()/100;
+        DISTANCE_PER_LETTER *= screenfactor;
     }
 
     private void setLowerBlockGroup() {
@@ -288,7 +297,7 @@ public abstract class BlockGraphic implements Observer{
     }
 
     private void setBlockFunctions() {
-        ContextMenu contextMenu = new ContextMenu();
+        
  
         MenuItem item1 = new MenuItem("Einstellungen");
         item1.setOnAction(new EventHandler<ActionEvent>() {
@@ -308,29 +317,6 @@ public abstract class BlockGraphic implements Observer{
                 contextMenu.show(labelBlockGroup, event.getScreenX(), event.getScreenY());
             }
         });
-        
-        //Function to open up overview Window, fires when doubleclick happens
-//        labelBlockGroup.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent t) {
-//                if (!bDeactivateEvents) {
-//                    long diff = 0;
-//                    currentTime = System.currentTimeMillis();
-//                    if (lastTime != 0 && currentTime != 0) {
-//                        diff = currentTime - lastTime;
-//                        if (diff <= 215) {
-//                            bDoubleClick = true;
-//                        } else {
-//                            bDoubleClick = false;
-//                        }
-//                    }
-//                    lastTime = currentTime;
-//                    if (bDoubleClick) {
-//                        Dialogs.informationWindow(getBlockObject());
-//                    }
-//                }
-//            }
-//        });
 
         labelBlockGroup.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -454,6 +440,10 @@ public abstract class BlockGraphic implements Observer{
         this.grp = grp;
         hasAdditionalDialogFunction = true;
 
+    }
+
+    protected void addToContextMenu(Menu menu){
+        contextMenu.getItems().add(0, menu);
     }
 
     public Group getAdditionalDialogFunction() {

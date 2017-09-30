@@ -151,7 +151,12 @@ public class Input<T> extends Observable implements Observer {
 
     public void addOutputToListenTo(Output out) {
         if (!checkOutput(out)) {
+<<<<<<< HEAD
             Dialogs.alertDialog("Fehler", "Verbindungsfehler", "Input und Output haben nicht den gleichen Datentyp!");
+=======
+            Dialogs.alertDialog("Fehler", "Verbindungsfehler", "Man kann keine Verbindung zwischen zwei"
+                    + " verschiedenen Datentypen herstellen!");
+>>>>>>> 1f2d441229ec257927a22f2518796605747064fb
         } else if (amountOfOutputs == 1) {
             Dialogs.alertDialog("Fehler", "Verknüpfungsfehler", "Dieser Input hat schon einen Output!");
             throw new IllegalArgumentException("Dieser Input ist schon belegt!");
