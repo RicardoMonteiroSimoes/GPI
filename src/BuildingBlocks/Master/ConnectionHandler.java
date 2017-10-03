@@ -57,9 +57,10 @@ public class ConnectionHandler implements Observer {
                         double startY = (startBounds.getMinY() + startBounds.getMaxY()) / 2;
                         double endX = (endBounds.getMinX() + endBounds.getMaxX()) / 2;
                         double endY = (endBounds.getMinY() + endBounds.getMaxY()) / 2;
-
-                        SC_PGI.GUI.addCurve(new Connection(new Point2D(startX, startY),
-                                temporaryOutput, new Point2D(endX, endY), temporaryInput));
+                        Connection connection = new Connection(new Point2D(startX, startY),
+                                temporaryOutput, new Point2D(endX, endY), temporaryInput);
+                        temporaryInput.addConnection(connection);
+                        SC_PGI.GUI.addCurve(connection);
                         setPointsNull();
                     } catch (Exception e) {
                         setPointsNull();

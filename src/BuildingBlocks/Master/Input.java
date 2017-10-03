@@ -8,9 +8,12 @@ package BuildingBlocks.Master;
 import BuildingBlocks.Master.ContactPoint.Datatype;
 import BuildingBlocks.Master.Network.ServerPacket;
 import BuildingBlocks.Master.util.Dialogs;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -33,24 +36,38 @@ public class Input<T> extends Observable implements Observer {
     private Circle inputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
+    private ArrayList<Connection> connections = new ArrayList();
 
-    public Input(String sName, Datatype datatype) {
+    public Input (String sName, Datatype datatype) {
         this.sName = sName;
         setDataType(datatype);
         createCircle();
     }
 
-    public Input(Input in) {
+    public Input (Input in) {
         this.sName = in.getName();
         setDataType(in.getDatatype());
         createCircle();
     }
 
-    public Datatype getDatatype() {
+    public void addConnection (Connection connection) {
+        connections.add(connection);
+    }
+
+    public void updateInput () {
+        Bounds bounds = getCircle().getParent().localToParent(getCircle().getBoundsInParent());
+        double endX = (bounds.getMinX() + bounds.getMaxX()) / 2;
+        double endY = (bounds.getMinY() + bounds.getMaxY()) / 2;
+        for (Connection connection : connections) {
+            connection.updateInputPoint(new Point2D(endX, endY));
+        }
+    }
+
+    public Datatype getDatatype () {
         return this.datatype;
     }
 
-    public void setInput(T value) {
+    public void setInput (T value) {
         try {
             if (inputValue != value) {
                 inputValue = value;
@@ -64,28 +81,28 @@ public class Input<T> extends Observable implements Observer {
         }
     }
 
-    public T getInput() {
+    public T getInput () {
         return inputValue;
     }
 
-    public void removeObservers() {
+    public void removeObservers () {
         deleteObservers();
     }
 
-    public String getName() {
+    public String getName () {
         return this.sName;
     }
 
-    public Circle getCircle() {
+    public Circle getCircle () {
         return this.inputCircle;
     }
 
-    private void setCircleTooltip() {
+    private void setCircleTooltip () {
         Tooltip t = new Tooltip("what to put in here?");
         Tooltip.install(inputCircle, t);
     }
 
-    private void createCircle() {
+    private void createCircle () {
         inputCircle.setRadius(CONNECTION_POINT_RADIUS);
         inputCircle.setStrokeWidth(STROKE_WIDTH);
         inputCircle.setFill(Color.BLACK);
@@ -94,22 +111,22 @@ public class Input<T> extends Observable implements Observer {
         //setCircleTooltip();
     }
 
-    private void createCircleFunctionality() {
+    private void createCircleFunctionality () {
         inputCircle.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent t) {
+            public void handle (MouseEvent t) {
                 setChanged();
                 notifyObservers(t);
             }
         });
     }
 
-    public void setPointXY(double x, double y) {
+    public void setPointXY (double x, double y) {
         inputCircle.setCenterX(x);
         inputCircle.setCenterY(y);
     }
 
-    private void setDataType(Datatype datatype) {
+    private void setDataType (Datatype datatype) {
         this.datatype = datatype;
         switch (this.datatype) {
             case BOOLEAN:
@@ -135,7 +152,7 @@ public class Input<T> extends Observable implements Observer {
         }
     }
 
-    private boolean checkOutput(Output out) {
+    private boolean checkOutput (Output out) {
         if (out.getDatatype().equals(datatype)) {
             setInput((T) out.getOutput());
             return true;
@@ -144,22 +161,18 @@ public class Input<T> extends Observable implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update (Observable o, Object arg) {
         Output out = (Output) o;
         checkOutput(out);
     }
 
-    public void addOutputToListenTo(Output out) {
+    public void addOutputToListenTo (Output out) {
         if (!checkOutput(out)) {
-<<<<<<< HEAD
             Dialogs.alertDialog("Fehler", "Verbindungsfehler", "Input und Output haben nicht den gleichen Datentyp!");
-=======
             Dialogs.alertDialog("Fehler", "Verbindungsfehler", "Man kann keine Verbindung zwischen zwei"
                     + " verschiedenen Datentypen herstellen!");
->>>>>>> 1f2d441229ec257927a22f2518796605747064fb
         } else if (amountOfOutputs == 1) {
             Dialogs.alertDialog("Fehler", "Verknüpfungsfehler", "Dieser Input hat schon einen Output!");
-            throw new IllegalArgumentException("Dieser Input ist schon belegt!");
         } else {
             out.addObserver(this);
             amountOfOutputs++;

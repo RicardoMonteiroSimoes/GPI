@@ -55,6 +55,8 @@ public abstract class BlockGraphic implements Observer{
     private Group grp = new Group();
     private boolean hasAdditionalDialogFunction = false;
     private ContextMenu contextMenu = new ContextMenu();
+    private double orgSceneX;
+    private double orgSceneY;
 
     private Text notes = new Text();
 
@@ -212,6 +214,7 @@ public abstract class BlockGraphic implements Observer{
         createOutputPoints();
         setUpperBlockGroup();
         setBlockFunctions();
+        setupDrag();
     }
     
     private void setDPISettings(){
@@ -337,6 +340,31 @@ public abstract class BlockGraphic implements Observer{
             }
 
         });
+    }
+    
+    private void setupDrag () {
+        wholeBlockGroup.setOnMousePressed((t) -> {
+            orgSceneX = t.getSceneX();
+            orgSceneY = t.getSceneY();
+
+        });
+        wholeBlockGroup.setOnMouseDragged((t) -> {
+            double offsetX = t.getSceneX() - orgSceneX;
+            double offsetY = t.getSceneY() - orgSceneY;
+
+            wholeBlockGroup.setLayoutX(wholeBlockGroup.getLayoutX() + offsetX);
+            wholeBlockGroup.setLayoutY(wholeBlockGroup.getLayoutY() + offsetY);
+            updateConnections();
+
+            orgSceneX = t.getSceneX();
+            orgSceneY = t.getSceneY();
+        });
+    }
+    
+    private void updateConnections(){
+        for(Input in : inputs){
+            in.updateInput();
+        }
     }
 
     public void setLayoutXY(double x, double y) {

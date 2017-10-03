@@ -24,7 +24,7 @@ public class Connection implements Observer {
     private Point2D endPoint;
     private String sValue;
     private boolean bValue;
-    private CubicCurve cubicConnection;
+    private CubicCurve cubicConnection = new CubicCurve();
     private final double CONTROL_ADDITION = 10;
     private final double CONTROL_MULTIPLICATION = 15.0;
 
@@ -33,6 +33,16 @@ public class Connection implements Observer {
         this.endPoint = endPoint;
         obsOutput.addObserver(obsInput);
         obsOutput.addObserver(this);
+        generateLine();
+    }
+    
+    public void updateInputPoint(Point2D startPoint){
+        this.endPoint = new Point2D(startPoint.getX(), startPoint.getY());
+        generateLine();
+    }
+    
+    public void updateOutputPoint(Point2D endPoint){
+        this.endPoint = endPoint;
         generateLine();
     }
 
@@ -49,7 +59,6 @@ public class Connection implements Observer {
         double differenceY = startY - endY;
         double curvatureAddition = CONTROL_ADDITION * CONTROL_MULTIPLICATION;
 
-        cubicConnection = new CubicCurve();
         cubicConnection.setStartX(startX);
         cubicConnection.setStartY(startY);
         cubicConnection.setEndX(endX);
