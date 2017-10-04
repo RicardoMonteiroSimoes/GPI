@@ -32,11 +32,13 @@ public class ConnectionHandler implements Observer {
         if (!(arg == null)) {
             try {
                 temporaryOutput = (Output) o;
+                temporaryOutput.setSelected(true);
                 mouseEventOutput = (MouseEvent) arg;
             } catch (Exception e) {
             }
             try {
                 temporaryInput = (Input) o;
+                temporaryInput.setSelected(true);
                 if (temporaryInput.countObservers() > 2) {
                 } else {
                     mouseEventInput = (MouseEvent) arg;
@@ -73,6 +75,8 @@ public class ConnectionHandler implements Observer {
     }
 
     private void setPointsNull() {
+        temporaryInput.setSelected(false);
+        temporaryOutput.setSelected(false);
         temporaryOutput = null;
         temporaryInput = null;
         mouseEventInput = null;

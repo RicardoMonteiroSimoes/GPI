@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Observer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -352,9 +353,15 @@ public abstract class BlockGraphic implements Observer{
             double offsetX = t.getSceneX() - orgSceneX;
             double offsetY = t.getSceneY() - orgSceneY;
 
-            wholeBlockGroup.setLayoutX(wholeBlockGroup.getLayoutX() + offsetX);
-            wholeBlockGroup.setLayoutY(wholeBlockGroup.getLayoutY() + offsetY);
+            double xCoord = wholeBlockGroup.getLayoutX() + offsetX;
+            double yCoord = wholeBlockGroup.getLayoutY() + offsetY;
+            
+            if(xCoord > (rectBlock.getWidth()/2) && yCoord > (DISTANCE_BETWEEN_POINTS/2) && xCoord < (4000 - rectBlock.getWidth()*1.5) && yCoord <(4000 - rectBlock.getHeight()*1.5)){
+                wholeBlockGroup.setLayoutX(wholeBlockGroup.getLayoutX() + offsetX);
+                wholeBlockGroup.setLayoutY(wholeBlockGroup.getLayoutY() + offsetY);
             updateConnections();
+            }
+            
 
             orgSceneX = t.getSceneX();
             orgSceneY = t.getSceneY();

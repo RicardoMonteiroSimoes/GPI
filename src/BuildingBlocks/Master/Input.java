@@ -62,6 +62,19 @@ public class Input<T> extends Observable implements Observer {
             connection.updateInputPoint(new Point2D(endX, endY));
         }
     }
+    
+    public void setSelected(boolean value){
+        if(value){
+            setCircleColor(Color.RED);
+        } else {
+            setCircleColor(Color.BLACK);
+        }
+    }
+    
+    private void setCircleColor(Color color){
+        inputCircle.setStroke(color);
+        inputCircle.setFill(color);
+    }
 
     public Datatype getDatatype () {
         return this.datatype;

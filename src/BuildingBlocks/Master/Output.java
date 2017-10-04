@@ -78,6 +78,19 @@ public class Output <T> extends Observable{
     public String getName () {
         return this.sName;
     }
+    
+    public void setSelected(boolean value){
+        if(value){
+            setCircleColor(Color.RED);
+        } else {
+            setCircleColor(Color.BLACK);
+        }
+    }
+    
+    private void setCircleColor(Color color){
+        outputCircle.setStroke(color);
+        outputCircle.setFill(color);
+    }
 
     public Circle getCircle () {
         return this.outputCircle;
