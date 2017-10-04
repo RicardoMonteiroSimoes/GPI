@@ -9,5 +9,5 @@ In the end, its supposed to look something like Node.RED. Ofcourse it wont be th
 
 
 <p align="center">
-  <img src="pictures/PGI_V0.2.gif"/>
+  <img src="pictures/PGI_V0.3.gif"/>
 </p>
