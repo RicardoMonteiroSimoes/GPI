@@ -365,6 +365,9 @@ public abstract class BlockGraphic implements Observer{
         for(Input in : inputs){
             in.updateInput();
         }
+        for(Output out : outputs){
+            out.updateOutput();
+        }
     }
 
     public void setLayoutXY(double x, double y) {

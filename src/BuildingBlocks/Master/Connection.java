@@ -36,13 +36,13 @@ public class Connection implements Observer {
         generateLine();
     }
     
-    public void updateInputPoint(Point2D startPoint){
-        this.endPoint = new Point2D(startPoint.getX(), startPoint.getY());
+    public void updateInputPoint(Point2D endPoint){
+        this.endPoint = endPoint;
         generateLine();
     }
     
-    public void updateOutputPoint(Point2D endPoint){
-        this.endPoint = endPoint;
+    public void updateOutputPoint(Point2D startPoint){
+        this.startPoint = startPoint;
         generateLine();
     }
 

@@ -15,18 +15,22 @@ import BuildingBlocks.Master.util.CreationUtil;
  *
  * @author Ricardo
  */
-public class STEPRELAY extends LogicBlock{
-   
+public class STEPRELAY extends LogicBlock {
+
     private boolean bOldInputStatus = false;
-    
-    public STEPRELAY(){
+
+    public STEPRELAY () {
         super("Schrittschalter", "step-relay", CreationUtil.createInput(Datatype.BOOLEAN), false, CreationUtil.createOutput(Datatype.BOOLEAN));
     }
 
     @Override
     protected void Logic () {
-        if((boolean) getInputs().get(0).getInput()){
-            setOutput(!(boolean)getOutputs().get(0).getOutput());
+        if ((boolean) getInput()) {
+            try {
+                setOutput(!(boolean) getOutputs().get(0).getOutput());
+            } catch (NullPointerException npe) {
+                setOutput(true);
+            }
         }
     }
 }

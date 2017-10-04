@@ -28,7 +28,8 @@ public class DoubleClick extends LogicBlock {
     @Override
     protected void Logic() {
         long diff = 0;
-        if ((boolean) getInputs().get(0).getInput()) {
+                
+        if ((boolean) getInput()) {
             currentTime = System.currentTimeMillis();
             if (lastTime != 0 && currentTime != 0) {
                 diff = currentTime - lastTime;

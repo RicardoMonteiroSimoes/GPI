@@ -60,6 +60,7 @@ public class ConnectionHandler implements Observer {
                         Connection connection = new Connection(new Point2D(startX, startY),
                                 temporaryOutput, new Point2D(endX, endY), temporaryInput);
                         temporaryInput.addConnection(connection);
+                        temporaryOutput.addConnection(connection);
                         SC_PGI.GUI.addCurve(connection);
                         setPointsNull();
                     } catch (Exception e) {

@@ -6,9 +6,12 @@
 package BuildingBlocks.Master;
 
 import BuildingBlocks.Master.ContactPoint.Datatype;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -28,7 +31,7 @@ public class Output <T> extends Observable{
     private Circle outputCircle = new Circle();
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double STROKE_WIDTH = 0.0;
-    
+    private ArrayList<Connection> connections = new ArrayList();
     private Datatype datatype;
 
     public Output (String sName, Datatype datatype) {
@@ -42,6 +45,19 @@ public class Output <T> extends Observable{
         this.sName = out.getName();
         createCircle();
         setDataType(out.getDatatype());
+    }
+    
+    public void addConnection (Connection connection) {
+        connections.add(connection);
+    }
+
+    public void updateOutput () {
+        Bounds bounds = getCircle().getParent().localToParent(getCircle().getBoundsInParent());
+        double endX = (bounds.getMinX() + bounds.getMaxX()) / 2;
+        double endY = (bounds.getMinY() + bounds.getMaxY()) / 2;
+        for (Connection connection : connections) {
+            connection.updateOutputPoint(new Point2D(endX, endY));
+        }
     }
 
     public void setOutput(T value){
