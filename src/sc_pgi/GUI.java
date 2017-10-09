@@ -27,6 +27,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -59,26 +60,25 @@ public class GUI extends Application {
     private ScrollPane spItems = new ScrollPane();
     private ScrollPane spLayout = new ScrollPane();
     private Rectangle scrollPaneRectangle = new Rectangle();
+    private SplitPane root = new SplitPane();
 
     @Override
     public void start (Stage primaryStage) {
 
-        HBox root = new HBox();
+       ScrollPane infoPane = new ScrollPane();
         VBox vBox = new VBox();
         scrollPaneRectangle.setWidth(4000);
         scrollPaneRectangle.setHeight(4000);
         scrollPaneRectangle.setFill(Color.BEIGE);
         scrollPaneRectangle.setOpacity(0.3);
         spLayout.setMaxSize(2000, 2000);
-        spLayout.setMinSize(1000, 1000);
         spLayout.setPrefSize(800, 800);
-        spItems.setMinWidth(180);
+        spItems.setMinWidth(160);
         spItems.setBackground(Background.EMPTY);
         spItems.setBorder(Border.EMPTY);
 
         vBox.setSpacing(25);
         vBox.setAlignment(Pos.TOP_CENTER);
-        vBox.getChildren().add(new HBox());
         
         for (BlockGraphic bg : SC_PGI.alBlocks) {
             bg.deactivateEvents(true);
@@ -109,9 +109,12 @@ public class GUI extends Application {
         spItems.setContent(vBox);
         scrollPaneGroup.getChildren().add(scrollPaneRectangle);
         spLayout.setContent(scrollPaneGroup);
-        root.getChildren().add(spItems);
-        root.getChildren().add(spLayout);
-
+        spItems.setMaxWidth(300);
+        spItems.setMinWidth(150);
+        root.getItems().add(spItems);
+        root.getItems().add(spLayout);
+        root.getItems().add(infoPane);
+    
         scene = new Scene(root, 300, 250);
 
         primaryStage.setScene(scene);
