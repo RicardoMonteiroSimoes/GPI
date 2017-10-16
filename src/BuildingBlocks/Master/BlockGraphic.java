@@ -341,6 +341,7 @@ public abstract class BlockGraphic implements Observer{
             }
 
         });
+        
     }
     
     private void setupDrag () {
@@ -486,6 +487,18 @@ public abstract class BlockGraphic implements Observer{
 
     public Group getAdditionalDialogFunction() {
         return grp;
+    }
+    
+    public Group getLabelGroup(){
+        return labelBlockGroup;
+    }
+    
+    public void select(){
+        rectBlock.setStroke(Color.RED);
+    }
+    
+    public void unselect(){
+        rectBlock.setStroke(Color.BLACK);
     }
 
 

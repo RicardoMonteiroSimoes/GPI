@@ -29,6 +29,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
@@ -61,6 +62,7 @@ public class GUI extends Application {
     private ScrollPane spLayout = new ScrollPane();
     private Rectangle scrollPaneRectangle = new Rectangle();
     private SplitPane root = new SplitPane();
+    private BlockGraphic selectedBlock;
 
     @Override
     public void start (Stage primaryStage) {
@@ -213,6 +215,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void createServerOutBlock (double x, double y) {
@@ -220,6 +223,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void createCreatePacketBlock (double x, double y) {
@@ -227,6 +231,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newServerInBlock (double x, double y) {
@@ -234,6 +239,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newStringComparatorBlock (double x, double y) {
@@ -241,6 +247,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newSRBlock (double x, double y) {
@@ -248,6 +255,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newRSBlock (double x, double y) {
@@ -255,6 +263,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newSchrittschalterBlock (double x, double y) {
@@ -262,6 +271,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newMouseButtonBlock (double x, double y) {
@@ -269,6 +279,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
 
     private void newNOTBlock (double x, double y) {
@@ -276,6 +287,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
 
     private void newANDBlock (double x, double y) {
@@ -283,6 +295,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     private void newDoubleClickBlock (double x, double y) {
@@ -290,6 +303,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     public void notifyInput(String sMessage){
@@ -301,6 +315,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
 
     private void newXORBlock (double x, double y) {
@@ -308,6 +323,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
 
     private void newOnDelayBlock (double x, double y) {
@@ -315,6 +331,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
 
     private void newOffDelayBlock (double x, double y) {
@@ -322,6 +339,7 @@ public class GUI extends Application {
         notTemp.setLayoutXY(x, y);
         scrollPaneGroup.getChildren().add(notTemp.getBlockGraphic());
         notTemp.addConnectionWatcher(connectionHandler);
+        setBlockSelectFunction(notTemp);
     }
     
     public double getSideBarWidth(){
@@ -330,5 +348,22 @@ public class GUI extends Application {
 
     public void addCurve (Connection connection) {
         scrollPaneGroup.getChildren().add(1, connection.getCurve());
+    }
+    
+    private void setBlockSelectFunction(BlockGraphic block){
+        block.getBlockGraphic().setOnMouseClicked(new EventHandler<MouseEvent> () {
+            @Override
+            public void handle (MouseEvent t) {
+                if (t.getButton().equals(MouseButton.PRIMARY)) {
+                    try{
+                        selectedBlock.unselect();
+                    } catch (NullPointerException e){
+                        
+                    }
+                    selectedBlock = block;
+                    selectedBlock.select();
+                }
+            }
+        });
     }
 }
