@@ -11,6 +11,7 @@ import BuildingBlocks.Master.Input;
 import BuildingBlocks.Master.LogicBlock;
 import BuildingBlocks.Blocks.NetworkIn;
 import BuildingBlocks.Blocks.NetworkOut;
+import BuildingBlocks.Master.Localization.LanguageHandler;
 import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -71,6 +72,8 @@ public class SC_PGI extends Application{
         alBlocks.add(nwout.getBlockObject());
         alBlocks.add(srvPktCrtr.getBlockObject());
         alBlocks.add(httpget.getBlockObject());
+        LanguageHandler lHandler = new LanguageHandler();
+        lHandler.test();
         GUI.start(primaryStage);
     }
     
