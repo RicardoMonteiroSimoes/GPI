@@ -11,13 +11,11 @@ import java.util.ArrayList;
  *
  * @author Ricardo
  */
-public abstract class FilterBlock extends BlockGraphic{
+public abstract class FilterBlock extends LogicBlock{
     
     public FilterBlock(String sName, String blockSubName, Input in, Output out){
         super(sName, blockSubName, in, false, out, Type.FILTER);
     }
-    
-    protected abstract void Logic();
     
 }
 
