@@ -5,12 +5,25 @@
  */
 package sc_pgi;
 
-import BuildingBlocks.Blocks.*;
-import BuildingBlocks.Master.BlockGraphic;
-import BuildingBlocks.Master.Input;
-import BuildingBlocks.Master.LogicBlock;
-import BuildingBlocks.Blocks.NetworkIn;
-import BuildingBlocks.Blocks.NetworkOut;
+import old.BuildingBlocks.Blocks.AND;
+import old.BuildingBlocks.Blocks.OR;
+import old.BuildingBlocks.Blocks.CreateServerPacket;
+import old.BuildingBlocks.Blocks.MouseInputButton;
+import old.BuildingBlocks.Blocks.StringComparator;
+import old.BuildingBlocks.Blocks.Http;
+import old.BuildingBlocks.Blocks.XOR;
+import ch.rs.logiceditor.model.blocks.OffDelay;
+import ch.rs.logiceditor.model.blocks.OnDelay;
+import ch.rs.logiceditor.model.blocks.STEPRELAY;
+import ch.rs.logiceditor.model.blocks.RS;
+import ch.rs.logiceditor.model.blocks.SR;
+import ch.rs.logiceditor.model.blocks.NOT;
+import ch.rs.logiceditor.model.blocks.DoubleClick;
+import old.BuildingBlocks.Master.BlockGraphic;
+import old.BuildingBlocks.Master.Input;
+import old.BuildingBlocks.Master.LogicBlock;
+import old.BuildingBlocks.Blocks.NetworkIn;
+import old.BuildingBlocks.Blocks.NetworkOut;
 import BuildingBlocks.Master.util.CreationUtil;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;

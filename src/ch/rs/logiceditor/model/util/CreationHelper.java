@@ -5,10 +5,17 @@
  */
 package ch.rs.logiceditor.model.util;
 
+import ch.rs.logiceditor.model.master.ConnectionPoint;
+import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
+
 /**
  *
  * @author Ricardo
  */
 public class CreationHelper {
     
+    
+    public static ConnectionPoint createConnectionPoint(ConnectionType type, Class t){
+        return new ConnectionPoint(type, t);
+    }
 }

@@ -13,22 +13,24 @@ import java.util.LinkedList;
  *
  * @author Ricardo
  */
-public class OR extends LogicBlock {
+public class XOR extends LogicBlock {
 
-    public OR(LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs) {
-        super("OR", inputs, outputs);
+    public XOR(LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs) {
+        super("XOR", inputs, outputs);
     }
 
     @Override
     protected void Logic() {
-        boolean isTrue = false;
-        for (ConnectionPoint in : getInputs()) {
-            if ((Boolean) in.getValue()) {
-                isTrue = true;
-                break;
+        int amountOfTrue = 0;
+        for(ConnectionPoint in : getInputs()){
+            if((Boolean) in.getValue()){
+                amountOfTrue++;
+                if(amountOfTrue > 1){
+                    break;
+                }
             }
         }
-        setOutput(isTrue);
+        setOutput(amountOfTrue == 1);
     }
     
 }

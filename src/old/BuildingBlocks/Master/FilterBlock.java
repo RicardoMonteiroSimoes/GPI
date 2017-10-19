@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.rs.logiceditor.model.master;
+package old.BuildingBlocks.Master;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,10 +13,13 @@ import java.util.LinkedList;
  */
 public abstract class FilterBlock extends LogicBlock{
     
-    public FilterBlock(String blockName, LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs) {
-        super(blockName, inputs, outputs, BlockType.FILTER);
+    public FilterBlock(String sName, String blockSubName, Input in, Output out){
+        super(sName, blockSubName, in, false, out, Type.FILTER);
     }
     
-    
-    
 }
+
+    
+        
+    
+
