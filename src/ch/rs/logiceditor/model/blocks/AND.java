@@ -15,8 +15,8 @@ import java.util.LinkedList;
  */
 public class AND extends LogicBlock {
 
-    public AND(LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs) {
-        super("AND", inputs, outputs);
+    public AND(LinkedList<ConnectionPoint> inputs, ConnectionPoint output) {
+        super("AND", inputs, output);
     }
 
     @Override

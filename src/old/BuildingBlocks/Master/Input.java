@@ -6,7 +6,7 @@
 package old.BuildingBlocks.Master;
 
 import old.BuildingBlocks.Master.ContactPoint.Datatype;
-import ch.rs.logiceditor.model.util.ServerPacket;
+import ch.rs.logiceditor.model.util.network.ServerPacket;
 import BuildingBlocks.Master.util.Dialogs;
 import java.util.ArrayList;
 import java.util.Observable;

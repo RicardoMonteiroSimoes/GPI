@@ -8,7 +8,7 @@ package old.BuildingBlocks.Blocks;
 import old.BuildingBlocks.Master.BlockGraphic.Type;
 import old.BuildingBlocks.Master.ContactPoint.Datatype;
 import old.BuildingBlocks.Master.LogicBlock;
-import ch.rs.logiceditor.model.util.ServerPacket;
+import ch.rs.logiceditor.model.util.network.ServerPacket;
 import BuildingBlocks.Master.util.CreationUtil;
 import BuildingBlocks.Master.util.Dialogs;
 import javafx.event.ActionEvent;

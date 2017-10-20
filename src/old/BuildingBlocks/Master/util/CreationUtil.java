@@ -7,7 +7,7 @@ package BuildingBlocks.Master.util;
 
 import old.BuildingBlocks.Master.ContactPoint.Datatype;
 import old.BuildingBlocks.Master.Input;
-import ch.rs.logiceditor.model.util.ServerPacket;
+import ch.rs.logiceditor.model.util.network.ServerPacket;
 import old.BuildingBlocks.Master.Output;
 import java.util.ArrayList;
 

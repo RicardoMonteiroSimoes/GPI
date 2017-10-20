@@ -8,8 +8,8 @@ package ch.rs.logiceditor.model.blocks;
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
-import ch.rs.logiceditor.model.util.ServerPacket;
-import ch.rs.logiceditor.model.util.ServerSend;
+import ch.rs.logiceditor.model.util.network.ServerPacket;
+import ch.rs.logiceditor.model.util.network.ServerSend;
 import com.sun.media.sound.InvalidDataException;
 import java.util.LinkedList;
 
@@ -17,35 +17,25 @@ import java.util.LinkedList;
  *
  * @author Ricardo
  */
-public class TCPOut extends LogicBlock{
-    
-    private ServerPacket serverPacketOn;
-    private ServerPacket serverPacketOff;
-    
-    public TCPOut(){
-        super("TCP Out", CreationHelper.createConnectionPoint(ConnectionType.INPUT, Boolean.class), BlockType.NETWORK);
+public class TCPOut extends LogicBlock {
+
+
+    public TCPOut () {
+        super("TCP Out", CreationHelper.createConnectionPoint(ConnectionType.INPUT, ServerPacket.class), BlockType.NETWORK);
     }
-    
-    protected void sendOut(ServerPacket packet){
+
+    protected void sendOut (ServerPacket packet) {
         new Thread(new ServerSend(packet)).start();
     }
 
-    public void setOnMessage(String message, String IP, int port){
-        serverPacketOn = new ServerPacket(message, IP, port);
-    }
-    
-    public void setOffMessage(String message, String IP, int port){
-        serverPacketOff = new ServerPacket(message, IP, port);
-    }
-    
-
 
     @Override
-    protected void Logic() {
-        if((Boolean) getInput()){
-            sendOut(serverPacketOn);
+    protected void Logic () {
+        if (getInput() == null) {
+
         } else {
-            sendOut(serverPacketOff);
+            sendOut((ServerPacket) getInput());
         }
+
     }
 }

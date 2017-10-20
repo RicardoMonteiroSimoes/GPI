@@ -36,7 +36,7 @@ public abstract class LogicBlock implements Observer{
         this.inputs = inputs;
         this.outputs = outputs;
         this.blockType = blockType;
-        handleInputObservation();
+        constructBlock();
     }
     
     public LogicBlock(String blockName, LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs){
@@ -44,7 +44,7 @@ public abstract class LogicBlock implements Observer{
         this.inputs = inputs;
         this.outputs = outputs;
         this.blockType = BlockType.LOGIC;
-        handleInputObservation();
+        constructBlock();
     }
     
     public LogicBlock(String blockName, ConnectionPoint input, ConnectionPoint output){
@@ -52,7 +52,7 @@ public abstract class LogicBlock implements Observer{
         this.inputs.add(input);
         this.outputs.add(output);
         this.blockType = BlockType.LOGIC;
-        handleInputObservation();
+        constructBlock();
     }
     
     public LogicBlock(String blockName, ConnectionPoint input, ConnectionPoint output, BlockType blockType){
@@ -60,7 +60,7 @@ public abstract class LogicBlock implements Observer{
         this.inputs.add(input);
         this.outputs.add(output);
         this.blockType = blockType;
-        handleInputObservation();
+        constructBlock();
     }
     
     public LogicBlock(String blockName, ConnectionPoint point, BlockType blockType){
@@ -71,9 +71,21 @@ public abstract class LogicBlock implements Observer{
             outputs.add(point);
         }
         this.blockType = blockType;
-        handleInputObservation();
+        constructBlock();
     }
     
+    public LogicBlock(String blockName, LinkedList<ConnectionPoint> inputs, ConnectionPoint output){
+        this.blockName = blockName;
+        this.inputs = inputs;
+        this.outputs.add(output);
+        this.blockType = BlockType.LOGIC;
+        constructBlock();
+    }
+    
+    
+    private void constructBlock(){
+        handleInputObservation();
+    }
     
     private void handleInputObservation(){
         for(ConnectionPoint in : inputs){
@@ -81,11 +93,11 @@ public abstract class LogicBlock implements Observer{
         }
     }
     
-    protected LinkedList<ConnectionPoint> getInputs(){
+    public LinkedList<ConnectionPoint> getInputs(){
         return inputs;
     }
     
-    protected LinkedList<ConnectionPoint> getOutputs(){
+    public LinkedList<ConnectionPoint> getOutputs(){
         return outputs;
     }
     

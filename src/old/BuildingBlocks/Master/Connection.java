@@ -47,7 +47,7 @@ public class Connection implements Observer {
     }
 
     private void generateLine() {
-        double sideBarWidth = SC_PGI.GUI.getSideBarWidth();
+        double sideBarWidth = 0.0;
         //double startX = startPoint.getX()- sideBarWidth;
         double startX = startPoint.getX();
         double startY = startPoint.getY();

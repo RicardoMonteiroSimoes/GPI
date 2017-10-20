@@ -5,86 +5,52 @@
  */
 package sc_pgi;
 
-import old.BuildingBlocks.Blocks.AND;
-import old.BuildingBlocks.Blocks.OR;
-import old.BuildingBlocks.Blocks.CreateServerPacket;
-import old.BuildingBlocks.Blocks.MouseInputButton;
-import old.BuildingBlocks.Blocks.StringComparator;
-import old.BuildingBlocks.Blocks.Http;
-import old.BuildingBlocks.Blocks.XOR;
-import ch.rs.logiceditor.model.blocks.OffDelay;
-import ch.rs.logiceditor.model.blocks.OnDelay;
-import ch.rs.logiceditor.model.blocks.STEPRELAY;
-import ch.rs.logiceditor.model.blocks.RS;
-import ch.rs.logiceditor.model.blocks.SR;
-import ch.rs.logiceditor.model.blocks.NOT;
-import ch.rs.logiceditor.model.blocks.DoubleClick;
-import old.BuildingBlocks.Master.BlockGraphic;
-import old.BuildingBlocks.Master.Input;
-import old.BuildingBlocks.Master.LogicBlock;
-import old.BuildingBlocks.Blocks.NetworkIn;
-import old.BuildingBlocks.Blocks.NetworkOut;
-import BuildingBlocks.Master.util.CreationUtil;
-import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import ch.rs.logiceditor.model.blocks.AND;
+import ch.rs.logiceditor.model.blocks.CreateServerPacket;
+import ch.rs.logiceditor.model.blocks.TCPIn;
+import ch.rs.logiceditor.model.blocks.TCPOut;
+import ch.rs.logiceditor.model.master.ConnectionPoint;
+import ch.rs.logiceditor.model.util.CreationHelper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import javax.management.modelmbean.InvalidTargetObjectTypeException;
+
 
 /**
  *
  * @author Ricardo
  */
-public class SC_PGI extends Application{
+public class SC_PGI {
     
     
-    static ArrayList<BlockGraphic> alBlocks = new ArrayList();
-    static NOT not = new NOT();
-    static OR or = new OR();
-    static XOR xor = new XOR();
-    static OffDelay offD = new OffDelay();
-    static OnDelay onD = new OnDelay();
-    public static GUI GUI = new GUI();
-    static SR sr = new SR();
-    static RS rs = new RS();
-    static AND and = new AND();
-    static DoubleClick doubleClick = new DoubleClick();
-    static STEPRELAY step = new STEPRELAY();
-    static NetworkIn nwin = new NetworkIn(true);
-    static StringComparator scmp = new StringComparator();
-//    static KNXServerIn knxServerIn = new KNXServerIn("KNX Server IN", "Receives KNX Data");
-    static MouseInputButton msbttn = new MouseInputButton();
-    static NetworkOut nwout = new NetworkOut();
-    static CreateServerPacket srvPktCrtr = new CreateServerPacket();
-    static Http httpget = new Http();
+    
     
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+//        Gson gson = new GsonBuilder().create();
+//        System.out.println(gson.toJson(new AND(CreationHelper.createConnectionPointList(ConnectionPoint.ConnectionType.INPUT, Boolean.class, 4),
+//                            CreationHelper.createConnectionPoint(ConnectionPoint.ConnectionType.OUTPUT, Boolean.class))));
+//        System.out.println(gson.toJson(new TCPIn()));
+          TCPIn tcpIn = new TCPIn();
+          TCPOut tcpOut = new TCPOut();
+          tcpIn.setPort(5250);
+          tcpIn.setTurnOffMessage("false");
+          tcpIn.setTurnOnMessage("true");
+          CreateServerPacket csp = new CreateServerPacket();
+          csp.setServerPacket("on", "127.0.0.1", 15000);
+//          tcpIn.getOutputs().get(0).addObserver(csp.getInputs().get(0));
+          try{
+          tcpOut.getInputs().get(0).addObservable(tcpIn.getOutputs().get(0));
+          } catch (InvalidTargetObjectTypeException e){
+              System.out.println(e.getMessage());
+          }
+//          csp.getOutputs().get(0).addObserver(tcpOut.getInputs().get(0));
+    
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        alBlocks.add(not.getBlockObject());
-        alBlocks.add(offD.getBlockObject());
-        alBlocks.add(onD.getBlockObject());
-        alBlocks.add(and.getBlockObject());
-        alBlocks.add(doubleClick.getBlockObject());
-        alBlocks.add(step.getBlockObject());
-        alBlocks.add(rs.getBlockObject());
-        alBlocks.add(sr.getBlockObject());
-        alBlocks.add(or.getBlockObject());
-        alBlocks.add(xor.getBlockObject());
-        alBlocks.add(nwin.getBlockObject());
-        alBlocks.add(scmp.getBlockObject());
-        alBlocks.add(msbttn.getBlockObject());
-        alBlocks.add(nwout.getBlockObject());
-        alBlocks.add(srvPktCrtr.getBlockObject());
-        alBlocks.add(httpget.getBlockObject());
-        GUI.start(primaryStage);
-    }
+    
     
 }

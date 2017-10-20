@@ -5,7 +5,7 @@
  */
 package old.BuildingBlocks.Master;
 
-import ch.rs.logiceditor.model.util.ServerPacket;
+import ch.rs.logiceditor.model.util.network.ServerPacket;
 import java.util.ArrayList;
 import java.util.Observable;
 
