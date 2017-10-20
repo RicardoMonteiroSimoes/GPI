@@ -9,7 +9,7 @@
 - [Why](#Reasoning)
 - [Goals](#Goals)
 - [Installation](#Installation)
-- [Current Status](#Current Status)
+- [Current Status](#Current-Status)
   - [Work done](#Work-done)
 
 ## Why
