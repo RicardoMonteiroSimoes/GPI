@@ -46,12 +46,12 @@ Currently I am rewriting most of my Code to adapt the MVC Concept. This is likel
 ### Work done
 
 * Converting to MVC
- - Programming: 30% done
- - Testing:      0% done
+  - Programming: 30% done
+  - Testing:      0% done
 * Enabling Localization
- - Programming: 40% done
- - Testing:      5% done
+  - Programming: 40% done
+  - Testing:      5% done
  * Creating a Savefile
-  - Programming: 0% done
-  - Testing:     0% done
+   - Programming: 0% done
+   - Testing:     0% done
 
