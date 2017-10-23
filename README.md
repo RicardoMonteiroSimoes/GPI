@@ -10,6 +10,7 @@
 - [Goals](#Goals)
 - [Installation](#Installation)
 - [Current Status](#Current-Status)
+  - [Savefile](#Savefile)
   - [Work done](#Work-done)
 
 ## Why
@@ -43,6 +44,91 @@ This project is far from finished and is not yet intended for usage. You can for
 
 Currently I am rewriting most of my Code to adapt the MVC Concept. This is likely the 2nd time I am rewriting a huge portion of the code, so beware of that when forking.
 
+## Savefile
+
+ There have been first tests for a Savefile. Example:
+```
+{
+  "totalIds": [
+    15023,
+    11649,
+    19319
+  ],
+  "panels": [
+    {
+      "name": "testPanel",
+      "isEditable": true,
+      "blocks": [
+        {
+          "inputs": [
+            {
+              "pointName": "INPUT",
+              "connectionType": "INPUT",
+              "classData": "Boolean"
+            }
+          ],
+          "outputs": [
+            {
+              "pointName": "OUTPUT",
+              "connectionType": "OUTPUT",
+              "classData": "ServerPacket"
+            }
+          ],
+          "blockName": "Packet Creator",
+          "uniqueID": "15023",
+          "blockType": "NETWORK"
+        },
+        {
+          "port": 5250,
+          "turnOnMessage": "true",
+          "turnOffMessage": "false",
+          "isRunning": false,
+          "inputs": [
+            
+          ],
+          "outputs": [
+            {
+              "pointName": "OUTPUT",
+              "connectionType": "OUTPUT",
+              "classData": "Boolean"
+            }
+          ],
+          "blockName": "TCP In",
+          "uniqueID": "11649",
+          "blockType": "NETWORK"
+        },
+        {
+          "inputs": [
+            {
+              "pointName": "INPUT",
+              "connectionType": "INPUT",
+              "classData": "ServerPacket"
+            }
+          ],
+          "outputs": [
+            
+          ],
+          "blockName": "TCP Out",
+          "uniqueID": "19319",
+          "blockType": "NETWORK"
+        }
+      ],
+      "connections": [
+        {
+          "startID": "11649.0",
+          "endID": "15023.0"
+        },
+        {
+          "startID": "15023.0",
+          "endID": "19319.0"
+        }
+      ],
+      "listSpot": 0
+    }
+  ]
+}
+```
+
 ### Work done
 
 * Converting to MVC
@@ -52,6 +138,6 @@ Currently I am rewriting most of my Code to adapt the MVC Concept. This is likel
   - Programming: 40% done
   - Testing:      5% done
  * Creating a Savefile
-   - Programming: 0% done
-   - Testing:     0% done
+   - Programming: 15% done
+   - Testing:     5% done
 
