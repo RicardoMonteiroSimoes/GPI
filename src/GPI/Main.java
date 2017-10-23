@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sc_pgi;
+package GPI;
 
 import ch.rs.logiceditor.model.blocks.AND;
 import ch.rs.logiceditor.model.blocks.CreateServerPacket;
@@ -23,7 +23,7 @@ import javax.management.modelmbean.InvalidTargetObjectTypeException;
  *
  * @author Ricardo
  */
-public class SC_PGI {
+public class Main {
 
 //    static Variable var = new Variable("Zeitkonstante", true);
     /**

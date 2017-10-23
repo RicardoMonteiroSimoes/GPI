@@ -12,7 +12,7 @@ import javafx.scene.effect.Light.Point;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
 import javafx.scene.shape.CubicCurve;
-import sc_pgi.SC_PGI;
+import GPI.Main;
 
 /**
  *

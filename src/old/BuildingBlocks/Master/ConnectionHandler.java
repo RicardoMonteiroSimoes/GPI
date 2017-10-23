@@ -14,7 +14,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.effect.Light.Point;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polyline;
-import sc_pgi.SC_PGI;
+import GPI.Main;
 
 /**
  *

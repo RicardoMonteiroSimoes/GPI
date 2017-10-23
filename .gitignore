@@ -44,3 +44,5 @@ nbproject/build-impl.xml
 nbproject/genfiles.properties
 nbproject/genfiles.properties
 /src/com/google/gson/
+/src/old/BuildingBlocks/Blocks/
+/src/old/BuildingBlocks/Master/
