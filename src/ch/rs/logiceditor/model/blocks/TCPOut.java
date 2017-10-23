@@ -10,8 +10,6 @@ import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.network.ServerPacket;
 import ch.rs.logiceditor.model.util.network.ServerSend;
-import com.sun.media.sound.InvalidDataException;
-import java.util.LinkedList;
 
 /**
  *

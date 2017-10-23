@@ -23,8 +23,7 @@ public class TCPIn extends LogicBlock {
     private String turnOnMessage = null;
     @Expose
     private String turnOffMessage = null;
-    @Expose
-    private boolean isRunning = false;
+    private transient boolean isRunning = false;
 
     public TCPIn () {
         super("TCP In", CreationHelper.createConnectionPoint(ConnectionType.OUTPUT, Boolean.class), BlockType.NETWORK);

@@ -14,18 +14,25 @@ import com.google.gson.annotations.Expose;
 public class ClassData {
 
     @Expose
-    public String jsonString;
-    
-    public Class classType;
+    public String classType;
 
-    public ClassData (String jsonString, Class classType) {
-        this.jsonString = jsonString;
-        this.classType = classType;
+    public ClassData (Class classType) {
+        this.classType = classType.getName();
     }
     
-    public Class getClassType(){
+    public ClassData(){
+        
+    }
+    
+    
+    public String getClassType(){
         return classType;
     }
+    
+    public String getClassString(){
+        return classType;
+    }
+    
 }
 
 

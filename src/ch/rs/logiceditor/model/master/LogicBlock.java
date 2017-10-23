@@ -19,27 +19,28 @@ import java.util.Vector;
  */
 public abstract class LogicBlock implements Observer{
     
-    @Expose
-    private LinkedList<ConnectionPoint> inputs = new LinkedList();
-    @Expose
-    private LinkedList<ConnectionPoint> outputs = new LinkedList();
+    
     @Expose
     private String blockName, blockDescription, blockNotes, uniqueID;
     @Expose
     private BlockType blockType;
+    @Expose
+    private LinkedList<ConnectionPoint> inputs = new LinkedList();
+    @Expose
+    private LinkedList<ConnectionPoint> outputs = new LinkedList();
+
+    /**
+     * This constructor is needed for the GSON Library to be able to call the Observer constructor.
+     * Without this the Observer class wont build and you will get a NPE every time you try to add something to observe.
+     */
+    public LogicBlock(){
+        super();
+    }
 
     
     public enum BlockType {
         LOGIC, FILTER, NETWORK, TIMER
     }
-    
-    public void startBlockFunctions(){
-        startServer();
-    }
-    
-    protected void startServer(){}
-    
-    protected abstract void Logic();
     
     public LogicBlock(String blockName, LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs, BlockType blockType){
         this.blockName = blockName;
@@ -91,6 +92,15 @@ public abstract class LogicBlock implements Observer{
         this.blockType = BlockType.LOGIC;
         constructBlock();
     }
+    
+        
+    public void startBlockFunctions(){
+        startServer();
+    }
+    
+    protected void startServer(){}
+    
+    protected abstract void Logic();
     
     
     private void constructBlock(){

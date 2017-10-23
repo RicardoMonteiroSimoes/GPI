@@ -31,4 +31,9 @@ public class Connections {
         return endID;
     }
     
+    @Override
+    public String toString(){
+        return ("StartID: " + startID + " EndID: " + endID);
+    }
+    
 }

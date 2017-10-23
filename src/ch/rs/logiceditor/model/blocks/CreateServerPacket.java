@@ -16,8 +16,10 @@ import ch.rs.logiceditor.model.util.CreationHelper;
  */
 public class CreateServerPacket extends LogicBlock {
 
+    
     private ServerPacket serverPacket;
 
+    
     public CreateServerPacket () {
         super("Packet Creator", CreationHelper.createConnectionPoint(ConnectionPoint.ConnectionType.INPUT, Boolean.class),
                 CreationHelper.createConnectionPoint(ConnectionPoint.ConnectionType.OUTPUT, ServerPacket.class), BlockType.NETWORK);

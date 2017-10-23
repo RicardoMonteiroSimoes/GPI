@@ -30,19 +30,27 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
     public enum ConnectionType {
         INPUT, OUTPUT
     }
+    
+     /**
+     * This constructor is needed for the GSON Library to be able to call the Observer constructor.
+     * Without this the Observer class wont build and you will get a NPE every time you try to add something to observe.
+     */
+    public ConnectionPoint(){
+        super();
+    }
 
     public ConnectionPoint(ConnectionType connectionType, ClassData classData) {
         this.connectionType = connectionType;
         pointName = connectionType.name();
         this.classData = classData;
-     
+
     }
 
     public ConnectionType getConnectionType() {
         return connectionType;
     }
 
-    public Class<T> getType() {
+    public String getType() {
         return classData.getClassType();
     }
 
@@ -61,11 +69,11 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
         }
     }
 
-    
     /**
-     * This function is only to be called by pulseValue() as else it might result in
-     * a StackOverflow.
-     * @param value 
+     * This function is only to be called by pulseValue() as else it might
+     * result in a StackOverflow.
+     *
+     * @param value
      */
     private void setUncheckedValue(T value) {
         holdingValue = value;
@@ -105,19 +113,24 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
             throw new InvalidTargetObjectTypeException("This Point cannot be connected to a "
                     + "point of the same Type!\\n You're trying to connect " + this.connectionType.name()
                     + " to a " + pointToObserve.getConnectionType().name());
-        } else if (this.connectionType == ConnectionType.OUTPUT && this.countObservers() == 1) {
-            throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output! " + this.countObservers());
+        } else if (this.connectionType == ConnectionType.OUTPUT && hasConnections()) {
+            throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output! " + countObservers());
         } else if (this.getType() != pointToObserve.getType()) {
-            throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getType().getName()
-                    + " and the other one is " + pointToObserve.getType().getName());
+            throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getType()
+                    + " and the other one is " + pointToObserve.getType());
         } else {
             super.addObserver(pointToObserve);
         }
     }
-    
-    @Override
-    public synchronized void addObserver(Observer o) {
-        System.out.println("This method is not supposed to be used. Use addObserver(ConnectionPoint)!");
-    }
 
+    private boolean hasConnections() {
+        try {
+            if (countObservers() > 0) {
+                return true;
+            }
+            return false;
+        } catch (NullPointerException npe) {
+            return false;
+        }
+    }
 }
