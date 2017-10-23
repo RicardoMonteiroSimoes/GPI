@@ -17,6 +17,7 @@ import ch.rs.logiceditor.model.master.LogicPanel;
 import ch.rs.logiceditor.model.util.ClassData;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.ClassDataSerializer;
+import ch.rs.logiceditor.view.master.guiHolder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
@@ -26,13 +27,15 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 /**
  *
  * @author Ricardo
  */
-public class Main {
+public class Main extends Application{
 
     static LogicHolder holder = new LogicHolder();
 //    static Variable var = new Variable("Zeitkonstante", true);
@@ -43,6 +46,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         loadFile();
         createFile();
+        launch(args);
 
     }
 
@@ -87,6 +91,12 @@ public class Main {
         BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Ricardo\\Documents\\GitHub\\SC_PGI\\src\\GPI\\savefile.json"));
         holder = gson.fromJson(reader, LogicHolder.class);
         holder.startLogicHolder();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        guiHolder gui = new guiHolder();
+        gui.start(primaryStage);
     }
 
 }
