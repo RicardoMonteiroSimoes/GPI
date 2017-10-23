@@ -5,8 +5,11 @@
  */
 package ch.rs.logiceditor.model.master;
 
+import ch.rs.logiceditor.model.util.ClassData;
+import com.google.gson.annotations.Expose;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Vector;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 /**
@@ -15,9 +18,12 @@ import javax.management.modelmbean.InvalidTargetObjectTypeException;
  */
 public final class ConnectionPoint<T> extends Observable implements Observer {
 
+    @Expose
     private String pointName;
+    @Expose
     private ConnectionType connectionType;
-    private Class<T> type;
+    @Expose
+    private ClassData classData;
 
     private T holdingValue = null;
 
@@ -25,10 +31,11 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
         INPUT, OUTPUT
     }
 
-    public ConnectionPoint(ConnectionType connectionType, Class<T> type) {
-        this.type = type;
+    public ConnectionPoint(ConnectionType connectionType, ClassData classData) {
         this.connectionType = connectionType;
         pointName = connectionType.name();
+        this.classData = classData;
+     
     }
 
     public ConnectionType getConnectionType() {
@@ -36,7 +43,7 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
     }
 
     public Class<T> getType() {
-        return type;
+        return classData.getClassType();
     }
 
     /**
@@ -93,18 +100,18 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
         setValue((T) arg);
     }
 
-    public void addObservable(ConnectionPoint<T> pointToObserve) throws InvalidTargetObjectTypeException {
+    public void addObserver(ConnectionPoint<T> pointToObserve) throws InvalidTargetObjectTypeException {
         if (pointToObserve.getConnectionType() == this.connectionType) {
             throw new InvalidTargetObjectTypeException("This Point cannot be connected to a "
                     + "point of the same Type!\\n You're trying to connect " + this.connectionType.name()
                     + " to a " + pointToObserve.getConnectionType().name());
         } else if (this.connectionType == ConnectionType.OUTPUT && this.countObservers() == 1) {
             throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output!");
-        } else if (this.type != pointToObserve.getType()) {
+        } else if (this.getType() != pointToObserve.getType()) {
             throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getType().getName()
                     + " and the other one is " + pointToObserve.getType().getName());
         } else {
-            addObserver(pointToObserve);
+            super.addObserver(pointToObserve);
         }
     }
 

@@ -6,11 +6,12 @@
 package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
-import com.sun.media.sound.InvalidDataException;
+import com.google.gson.annotations.Expose;
 import old.BuildingBlocks.Master.Output;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Vector;
 
 /**
  *
@@ -18,12 +19,15 @@ import java.util.Observer;
  */
 public abstract class LogicBlock implements Observer{
     
+    @Expose
     private LinkedList<ConnectionPoint> inputs = new LinkedList();
+    @Expose
     private LinkedList<ConnectionPoint> outputs = new LinkedList();
-    private String blockName;
-    private String blockDescription;
-    private String blockNotes;
+    @Expose
+    private String blockName, blockDescription, blockNotes, uniqueID;
+    @Expose
     private BlockType blockType;
+
     
     public enum BlockType {
         LOGIC, FILTER, NETWORK, TIMER
@@ -120,6 +124,14 @@ public abstract class LogicBlock implements Observer{
     
     public <T> void pulseOutput(T value){
         outputs.get(0).pulseValue(value);
+    }
+    
+    public void setUniqueID(String uniqueID){
+        this.uniqueID = uniqueID;
+    }
+    
+    public String getUniqueID(){
+        return uniqueID;
     }
     
     

@@ -9,6 +9,7 @@ import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.network.ServerSocketReceive;
+import com.google.gson.annotations.Expose;
 
 /**
  *
@@ -16,13 +17,17 @@ import ch.rs.logiceditor.model.util.network.ServerSocketReceive;
  */
 public class TCPIn extends LogicBlock {
 
+    @Expose
     private int port = 0;
+    @Expose
     private String turnOnMessage = null;
+    @Expose
     private String turnOffMessage = null;
+    @Expose
     private boolean isRunning = false;
 
     public TCPIn () {
-        super("TCP Out", CreationHelper.createConnectionPoint(ConnectionType.OUTPUT, Boolean.class), BlockType.NETWORK);
+        super("TCP In", CreationHelper.createConnectionPoint(ConnectionType.OUTPUT, Boolean.class), BlockType.NETWORK);
     }
 
     public void setPort (int port) {

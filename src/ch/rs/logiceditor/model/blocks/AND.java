@@ -7,6 +7,7 @@ package ch.rs.logiceditor.model.blocks;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
+import ch.rs.logiceditor.model.util.CreationHelper;
 import java.util.LinkedList;
 
 /**
@@ -17,6 +18,11 @@ public class AND extends LogicBlock {
 
     public AND(LinkedList<ConnectionPoint> inputs, ConnectionPoint output) {
         super("AND", inputs, output);
+    }
+
+    public AND () {
+        super("AND", CreationHelper.createConnectionPointList(ConnectionPoint.ConnectionType.INPUT, Boolean.class, 4), 
+                CreationHelper.createConnectionPoint(ConnectionPoint.ConnectionType.OUTPUT, Boolean.class));
     }
 
     @Override
