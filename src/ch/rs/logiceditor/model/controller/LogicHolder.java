@@ -37,7 +37,7 @@ public class LogicHolder {
             temporaryId = ThreadLocalRandom.current().nextInt(10000, 20000 + 1);
             isSafe = isUnique(temporaryId);
         }
-        totalIds.add(temporaryId);
+        addID(temporaryId);
         return String.valueOf(temporaryId);
     }
     
@@ -48,6 +48,10 @@ public class LogicHolder {
             }
         }
         return true;
+    }
+    
+    private void addID(int uniqueID){
+        totalIds.add(uniqueID);
     }
     
     public void addPanel(LogicPanel panel){
@@ -63,6 +67,20 @@ public class LogicHolder {
     public void addLogicBlockToPane(LogicBlock block, LogicPanel panel){
         block.setUniqueID(getUniqueID());
         panel.addBlock(block);
+    }
+    
+    /**
+     * This method does not generate a uniqueID but takes it from the savefile.
+     * It still checks to see if the ID is already set and blocks the execution if it is.
+     * @param block
+     * @param uniqueId
+     * @param panel 
+     */
+    public void addLogicBlockToPane(LogicBlock block, int uniqueId, LogicPanel panel){
+        if(isUnique(uniqueId)){
+            block.setUniqueID(String.valueOf(uniqueId));
+            panel.addBlock(block);
+        }
     }
 
 }

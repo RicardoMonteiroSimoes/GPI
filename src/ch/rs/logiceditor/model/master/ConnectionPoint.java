@@ -106,13 +106,18 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
                     + "point of the same Type!\\n You're trying to connect " + this.connectionType.name()
                     + " to a " + pointToObserve.getConnectionType().name());
         } else if (this.connectionType == ConnectionType.OUTPUT && this.countObservers() == 1) {
-            throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output!");
+            throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output! " + this.countObservers());
         } else if (this.getType() != pointToObserve.getType()) {
             throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getType().getName()
                     + " and the other one is " + pointToObserve.getType().getName());
         } else {
             super.addObserver(pointToObserve);
         }
+    }
+    
+    @Override
+    public synchronized void addObserver(Observer o) {
+        System.out.println("This method is not supposed to be used. Use addObserver(ConnectionPoint)!");
     }
 
 }

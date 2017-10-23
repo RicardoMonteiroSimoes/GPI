@@ -45,12 +45,6 @@ public class SC_PGI {
         tcpIn.setTurnOnMessage("true");
         CreateServerPacket csp = new CreateServerPacket();
         csp.setServerPacket("on", "127.0.0.1", 15000);
-        try {
-            tcpIn.getOutputs().get(0).addObserver(csp.getInputs().get(0));
-            csp.getOutputs().get(0).addObserver(tcpOut.getInputs().get(0));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
         holder.addLogicBlockToPane(csp, panel);
        holder.addLogicBlockToPane(tcpIn, panel);
         holder.addLogicBlockToPane(tcpOut, panel);
@@ -58,7 +52,8 @@ public class SC_PGI {
         panel.addConnection(csp, 0, tcpOut, 0);
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(ClassData.class, new ClassDataSerializer());
-        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().create();
+        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        holder.startLogicHolder();
         System.out.println(gson.toJson(holder));
 
     }

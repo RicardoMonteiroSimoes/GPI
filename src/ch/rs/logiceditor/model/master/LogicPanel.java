@@ -7,6 +7,7 @@ package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.util.Tools;
 import com.google.gson.annotations.Expose;
+import java.util.HashMap;
 import java.util.LinkedList;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
@@ -22,10 +23,12 @@ public class LogicPanel implements Runnable{
     private boolean isEditable = true;
     @Expose
     private LinkedList<LogicBlock> blocks = new LinkedList<>();
+    private HashMap blockMap = new HashMap();
     @Expose
     private LinkedList<Connections> connections = new LinkedList<>();
     @Expose
     private int listSpot;
+    private boolean isInitialized = false;
 
     
     public int getListSpot(){
@@ -90,20 +93,48 @@ public class LogicPanel implements Runnable{
     
     public void addBlock(LogicBlock block){
         blocks.add(block);
+        blockMap.put(block.getUniqueID(), block);
     }
 
     @Override
     public void run () {
+        if(!isInitialized){
+            createConnections();
+            startBlockFunctions();
+        }
+    }
+    
+    private void startBlockFunctions(){
+        for(LogicBlock block : blocks){
+            block.startBlockFunctions();
+        }
+    }
+    
+    private void createConnections(){
+        for(Connections connec : connections){
+            addConnection(connec);
+        }
     }
     
     public void addConnection(LogicBlock source, int sourceOutput, 
             LogicBlock destination, int destinationInput){
         try{
             source.getOutputs().get(sourceOutput).addObserver(destination.getInputs().get(destinationInput));
+            System.out.println("connected " + source.getName() + " TO " + destination.getName());
         } catch (Exception e) {
             System.out.println("error @ " + e.getMessage());
+            System.out.println("Youre trying to connect " + source.getName() + " TO " + destination.getName());
+                    
         }
         connections.add(new Connections(source.getUniqueID() + "." + sourceOutput, destination.getUniqueID() + "." + destinationInput));
+    }
+    
+    public void addConnection(Connections connection){
+        try{
+        getBlockOutput(connection.getStartID()).addObserver(getBlockInput(connection.getEndID()));
+        } catch (InvalidTargetObjectTypeException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     
@@ -114,6 +145,18 @@ public class LogicPanel implements Runnable{
     
     private int getConnectionId(String string){
         return Integer.parseInt(string.split(".")[1]);
+    }
+    
+    private LogicBlock getBlock(String uniqueID){
+        return (LogicBlock) blockMap.get(uniqueID);
+    }
+    
+    private ConnectionPoint getBlockOutput(String uniqueID){
+        return getBlock(getUniqueId(uniqueID)).getOutputs().get(getConnectionId(uniqueID));
+    }
+    
+    private ConnectionPoint getBlockInput(String uniqueID){
+        return getBlock(getUniqueId(uniqueID)).getInputs().get(getConnectionId(uniqueID));
     }
 
 }

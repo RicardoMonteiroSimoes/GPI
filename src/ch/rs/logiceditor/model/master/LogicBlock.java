@@ -33,6 +33,12 @@ public abstract class LogicBlock implements Observer{
         LOGIC, FILTER, NETWORK, TIMER
     }
     
+    public void startBlockFunctions(){
+        startServer();
+    }
+    
+    protected void startServer(){}
+    
     protected abstract void Logic();
     
     public LogicBlock(String blockName, LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs, BlockType blockType){
@@ -132,6 +138,10 @@ public abstract class LogicBlock implements Observer{
     
     public String getUniqueID(){
         return uniqueID;
+    }
+    
+    public String getName(){
+        return blockName;
     }
     
     

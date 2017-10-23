@@ -66,8 +66,9 @@ public class TCPIn extends LogicBlock {
     @Override
     protected void Logic () {
     }
-
-    private void startServer () {
+    
+    @Override
+    protected void startServer () {
         if (port == 0 || turnOffMessage == null || turnOnMessage == null) {
 
         } else {
