@@ -5,7 +5,7 @@
  */
 package ch.rs.logiceditor.model.blocks;
 
-import old.BuildingBlocks.Master.TimerBlock;
+import ch.rs.logiceditor.model.master.TimerBlock;
 import java.util.Observable;
 import java.util.TimerTask;
 
@@ -14,24 +14,19 @@ import java.util.TimerTask;
  * @author Ricardo
  */
 public class OnDelay extends TimerBlock{
-    
-    public OnDelay(){
-        super("OnDelay", "Output On Delay");
+
+    public OnDelay (String blockName) {
+        super(blockName);
     }
+    
+
     
     @Override
     protected void Logic () {
-        if((boolean) getInput()){
-            startTimer();
-        } else {
-            
-            setOutput(false);
-        }
     }
 
     @Override
     protected void setOutputAfterTimer() {
-        setOutput((boolean) getInput());
     }
 
 }

@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
@@ -44,8 +45,8 @@ public class Main extends Application{
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        loadFile();
-        createFile();
+    //    loadFile();
+  //      createFile();
         launch(args);
 
     }

@@ -7,7 +7,6 @@ package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import com.google.gson.annotations.Expose;
-import old.BuildingBlocks.Master.Output;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;

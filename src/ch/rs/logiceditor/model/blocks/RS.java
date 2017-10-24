@@ -5,11 +5,8 @@
  */
 package ch.rs.logiceditor.model.blocks;
 
-import old.BuildingBlocks.Master.ContactPoint.Datatype;
-import old.BuildingBlocks.Master.LogicBlock;
-import old.BuildingBlocks.Master.Input;
-import old.BuildingBlocks.Master.Output;
-import BuildingBlocks.Master.util.CreationUtil;
+import ch.rs.logiceditor.model.master.LogicBlock;
+import ch.rs.logiceditor.model.util.CreationHelper;
 import java.util.ArrayList;
 
 /**
@@ -23,16 +20,12 @@ public class RS extends LogicBlock {
      * d.h. RESET ist höher gestellt als SET
      */
     public RS () {
-        super("RS", "reset-set", CreationUtil.createInputList(new String[]{"Set", "Reset"}, Datatype.BOOLEAN), false, CreationUtil.createOutput(Datatype.BOOLEAN));
+    
     }
 
     @Override
     protected void Logic () {
-        if((boolean)getInputs().get(1).getInput()){
-            setOutput(false);
-        } else if ((boolean) getInputs().get(0).getInput()){
-            setOutput(true);
-        }
+
     }
 
 }
