@@ -18,8 +18,8 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface TransferGrid {
+public @interface TransferGridEditable {
 
-      public boolean turnIntoGrid() default true;
+      public boolean editable() default true;
     
 }

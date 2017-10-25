@@ -119,8 +119,7 @@ public class LogicPanel implements Runnable {
     private void startBlockFunctions() {
         for (LogicBlock block : blocks) {
             block.startBlockFunctions();
-            System.out.println("doing " + block.getName());
-            ReflectorGrid.turnObjectIntoGrid(block);
+            
         }
     }
 

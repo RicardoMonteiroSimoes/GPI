@@ -19,6 +19,7 @@ import ch.rs.logiceditor.model.util.ClassData;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.ClassDataSerializer;
 import ch.rs.logiceditor.view.master.guiHolder;
+import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
@@ -30,6 +31,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
@@ -40,6 +42,7 @@ import javax.management.modelmbean.InvalidTargetObjectTypeException;
 public class Main extends Application{
 
     static LogicHolder holder = new LogicHolder();
+    static GridPane grid = new GridPane();
 //    static Variable var = new Variable("Zeitkonstante", true);
 
     /**
@@ -81,6 +84,7 @@ public class Main extends Application{
         //holder.startLogicHolder();
         //System.out.println(gson.toJson(holder));
         holder.startLogicHolder();
+        grid = ReflectorGrid.turnObjectIntoGrid(tcpIn);
     }
 
     public static void loadFile() throws FileNotFoundException {
@@ -101,8 +105,9 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
   //      holder.startLogicHolder();
-//        guiHolder gui = new guiHolder();
-//        gui.start(primaryStage);
+        guiHolder gui = new guiHolder();
+        gui.start(primaryStage);
+        gui.setGridPane(grid);
     }
 
 }

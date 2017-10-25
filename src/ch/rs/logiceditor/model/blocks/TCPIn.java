@@ -9,8 +9,9 @@ import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.network.ServerSocketReceive;
-import ch.rs.reflectorgrid.TransferGrid;
+import ch.rs.reflectorgrid.TransferGridEditable;
 import com.google.gson.annotations.Expose;
+import ch.rs.reflectorgrid.TransferGridUneditable;
 
 /**
  *
@@ -19,14 +20,15 @@ import com.google.gson.annotations.Expose;
 public class TCPIn extends LogicBlock {
 
     @Expose
-    @TransferGrid
+    @TransferGridEditable
     private int port = 0;
     @Expose
-    @TransferGrid
+    @TransferGridEditable
     private String turnOnMessage = null;
     @Expose
-    @TransferGrid
+    @TransferGridEditable
     private String turnOffMessage = null;
+    @TransferGridUneditable
     private boolean isRunning = false;
 
     public TCPIn () {

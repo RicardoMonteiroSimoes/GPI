@@ -7,9 +7,11 @@ package ch.rs.logiceditor.view.master;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -44,6 +46,17 @@ public class guiHolder extends Application {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void setGridPane (GridPane grid) {
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+                Stage stage = new Stage();
+                Scene scene = new Scene(grid);
+                stage.setScene(scene);
+                stage.showAndWait();
+            }
+        });
     }
 
 }
