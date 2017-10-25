@@ -31,7 +31,6 @@ public class CreationHelper {
     }
     
     private static ClassData getClassData(Class t){
-        System.out.println(t.getName());
         switch(t.getName()){
             case "java.lang.Boolean":
                 return new ClassData(Boolean.class);

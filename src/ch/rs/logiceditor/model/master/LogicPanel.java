@@ -6,9 +6,12 @@
 package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.util.Tools;
+import ch.rs.logiceditor.view.master.blockVariablesAdapter;
+import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 import java.util.LinkedList;
+import javafx.scene.layout.GridPane;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 /**
@@ -116,6 +119,8 @@ public class LogicPanel implements Runnable {
     private void startBlockFunctions() {
         for (LogicBlock block : blocks) {
             block.startBlockFunctions();
+            System.out.println("doing " + block.getName());
+            ReflectorGrid.turnObjectIntoGrid(block);
         }
     }
 
@@ -129,7 +134,6 @@ public class LogicPanel implements Runnable {
             LogicBlock destination, int destinationInput) {
         try {
             source.getOutputs().get(sourceOutput).addObserver(destination.getInputs().get(destinationInput));
-            System.out.println("connected " + source.getName() + " TO " + destination.getName());
         } catch (Exception e) {
             System.out.println("error @ " + e.getMessage());
             System.out.println("Youre trying to connect " + source.getName() + " TO " + destination.getName());
@@ -140,7 +144,6 @@ public class LogicPanel implements Runnable {
 
     public void addConnection(Connections connection) {
         try {
-            System.out.println(connection);
             getBlockOutput(connection.getStartID()).addObserver(getBlockInput(connection.getEndID()));
         } catch (InvalidTargetObjectTypeException e) {
             System.out.println(e.getMessage());

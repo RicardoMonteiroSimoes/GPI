@@ -9,6 +9,8 @@ import ch.rs.logiceditor.model.util.network.ServerPacket;
 import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
+import ch.rs.reflectorgrid.TransferGrid;
+import com.google.gson.annotations.Expose;
 
 /**
  *
@@ -17,7 +19,16 @@ import ch.rs.logiceditor.model.util.CreationHelper;
 public class CreateServerPacket extends LogicBlock {
 
     
-    private ServerPacket serverPacket;
+    @Expose
+    @TransferGrid
+    private String message;
+    @Expose
+    @TransferGrid
+    private String IP;
+    @Expose
+    @TransferGrid
+    private int port;
+    
 
     
     public CreateServerPacket () {
@@ -26,17 +37,19 @@ public class CreateServerPacket extends LogicBlock {
     }
     
     public void setServerPacket(String message, String IP, int port){
-        serverPacket = new ServerPacket(message, IP, port);
+        this.message = message;
+        this.IP = IP;
+        this.port = port;
     }
     
     public ServerPacket getServerPacket(){
-        return serverPacket;
+        return new ServerPacket(message, IP, port);
     }
 
     @Override
     protected void Logic () {
         if (getInput()) {
-            pulseOutput(serverPacket);
+            pulseOutput(new ServerPacket(message, IP, port));
         }
     }
 

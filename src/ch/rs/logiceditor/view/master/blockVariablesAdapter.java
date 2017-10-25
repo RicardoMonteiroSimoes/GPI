@@ -19,7 +19,6 @@ public class blockVariablesAdapter {
         Field[] fields = block.getClass().getDeclaredFields();
         for(Field field : fields){
             System.out.println(field.getName());
-                    
         }               
         return grid;
     }

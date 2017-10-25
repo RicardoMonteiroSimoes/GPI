@@ -33,8 +33,6 @@ public class ClassDataSerializer implements JsonSerializer<ClassData>, JsonDeser
     public ClassData deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        System.out.println(jsonObject.get("type"));
-        System.out.println(jsonObject.get("type").getClass());
         String type = jsonObject.get("type").getAsString();
         JsonElement element = jsonObject.get("properties");
 

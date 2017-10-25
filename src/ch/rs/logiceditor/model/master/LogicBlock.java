@@ -6,6 +6,7 @@
 package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
+import ch.rs.reflectorgrid.TransferGrid;
 import com.google.gson.annotations.Expose;
 import java.util.LinkedList;
 import java.util.Observable;
@@ -18,8 +19,8 @@ import java.util.Vector;
  */
 public abstract class LogicBlock implements Observer{
     
-    
     @Expose
+    @TransferGrid
     private String blockName, blockDescription, blockNotes, uniqueID;
     @Expose
     private BlockType blockType;
