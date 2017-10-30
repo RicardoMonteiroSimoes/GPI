@@ -9,9 +9,8 @@ import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.network.ServerSocketReceive;
-import ch.rs.reflectorgrid.TransferGridEditable;
 import com.google.gson.annotations.Expose;
-import ch.rs.reflectorgrid.TransferGridUneditable;
+import ch.rs.reflectorgrid.Transfergrid;
 
 /**
  *
@@ -20,17 +19,27 @@ import ch.rs.reflectorgrid.TransferGridUneditable;
 public class TCPIn extends LogicBlock {
 
     @Expose
-    @TransferGridEditable
+    @Transfergrid
     private int port = 0;
     @Expose
-    @TransferGridEditable
+    @Transfergrid
     private String turnOnMessage = null;
     @Expose
-    @TransferGridEditable
+    @Transfergrid
     private String turnOffMessage = null;
-    @TransferGridUneditable
+    @Transfergrid(editable = false)
     private boolean isRunning = false;
-
+    @Transfergrid
+    private float floatport = 0.0f;
+    @Transfergrid
+    private double floatdouble = 0.0;
+    @Transfergrid
+    private boolean boooool = true;
+    
+    @Transfergrid(options = {"full", "half", "none"})
+    private String runtimeMode = "full";
+    
+    
     public TCPIn () {
         super("TCP In", CreationHelper.createConnectionPoint(ConnectionType.OUTPUT, Boolean.class), BlockType.NETWORK);
     }

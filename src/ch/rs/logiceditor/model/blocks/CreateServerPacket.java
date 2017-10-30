@@ -9,8 +9,8 @@ import ch.rs.logiceditor.model.util.network.ServerPacket;
 import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
+import ch.rs.reflectorgrid.Transfergrid;
 import com.google.gson.annotations.Expose;
-import ch.rs.reflectorgrid.TransferGridUneditable;
 
 /**
  *
@@ -20,10 +20,13 @@ public class CreateServerPacket extends LogicBlock {
 
     
     @Expose
+    @Transfergrid
     private String message;
     @Expose
+    @Transfergrid
     private String IP;
     @Expose
+    @Transfergrid
     private int port;
     
 

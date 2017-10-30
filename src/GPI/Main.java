@@ -43,6 +43,7 @@ public class Main extends Application{
 
     static LogicHolder holder = new LogicHolder();
     static GridPane grid = new GridPane();
+    static ReflectorGrid rgrid = new ReflectorGrid();
 //    static Variable var = new Variable("Zeitkonstante", true);
 
     /**
@@ -84,7 +85,7 @@ public class Main extends Application{
         //holder.startLogicHolder();
         //System.out.println(gson.toJson(holder));
         holder.startLogicHolder();
-        grid = ReflectorGrid.turnObjectIntoGrid(tcpIn);
+        grid = rgrid.turnObjectIntoGrid(tcpIn);
     }
 
     public static void loadFile() throws FileNotFoundException {
