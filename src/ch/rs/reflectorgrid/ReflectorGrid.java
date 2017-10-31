@@ -5,13 +5,20 @@
  */
 package ch.rs.reflectorgrid;
 
+import ch.rs.reflectorgrid.Transfergrid.Fieldtype;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -29,7 +36,7 @@ public class ReflectorGrid {
     private GridPane grid = new GridPane();
     private Object gridObject = new Object();
 
-    public GridPane turnObjectIntoGrid(Object object) {
+    public GridPane turnObjectIntoGrid (Object object) {
         gridObject = object;
         ArrayList<Label> labels = new ArrayList();
         ArrayList<Node> nodes = new ArrayList();
@@ -59,17 +66,27 @@ public class ReflectorGrid {
                             setValueChangerFunction(field, fieldNode);
                             nodes.add(fieldNode);
                         } else {
-                            TextArea fieldNode = new TextArea(getText(field));
-                            setTextFieldSize(anot, fieldNode);
-                            fieldNode.setEditable(((Transfergrid) anot).editable());
-                            fieldNode.setMouseTransparent(!fieldNode.isEditable());
-                            fieldNode.setFocusTraversable(fieldNode.isEditable());
-                            if (fieldNode.isEditable()) {
-                                setValueChangerFunction(field, fieldNode);
+                            if (isTextField(anot)) {
+                                TextField fieldNode = new TextField(getText(field));
+                                fieldNode.setEditable(((Transfergrid) anot).editable());
+                                fieldNode.setMouseTransparent(!fieldNode.isEditable());
+                                fieldNode.setFocusTraversable(fieldNode.isEditable());
+                                if (fieldNode.isEditable()) {
+                                    setValueChangerFunction(field, fieldNode);
+                                }
+                                nodes.add(fieldNode);
+                            } else {
+                                TextArea fieldNode = new TextArea(getText(field));
+                                fieldNode.setEditable(((Transfergrid) anot).editable());
+                                fieldNode.setMouseTransparent(!fieldNode.isEditable());
+                                fieldNode.setFocusTraversable(fieldNode.isEditable());
+                                if (fieldNode.isEditable()) {
+                                    setValueChangerFunction(field, fieldNode);
+                                }
+                                nodes.add(fieldNode);
                             }
-                            nodes.add(fieldNode);
+
                         }
-                        
 
                         field.setAccessible(false);
                     } catch (Exception enp) {
@@ -82,31 +99,37 @@ public class ReflectorGrid {
         }
         return generateGrid(labels, nodes);
     }
-    
-    private void selectCurrentValue(Field field, ComboBox combo) throws IllegalArgumentException, IllegalAccessException{
+
+    private boolean isTextField (Annotation anot) {
+        return (((Transfergrid) anot).fieldtype() == Fieldtype.TEXTFIELD);
+    }
+
+    private void selectCurrentValue (Field field, ComboBox combo) throws IllegalArgumentException, IllegalAccessException {
         combo.getSelectionModel().select(field.get(gridObject));
     }
 
-    private boolean hasOptions(Annotation anot) {
+    private boolean hasOptions (Annotation anot) {
         return !(((Transfergrid) anot).options().length == 0);
     }
 
-    private String getText(Field field) throws IllegalArgumentException, IllegalAccessException {
+    private String getText (Field field) throws IllegalArgumentException, IllegalAccessException {
         if (field.get(gridObject) == null) {
             return "";
         }
         return String.valueOf(field.get(gridObject));
     }
 
-    private boolean hasSuperClass(Class object) {
+    private boolean hasSuperClass (Class object) {
         System.out.println(object.getName());
         return (object.getSuperclass() != null);
     }
 
-    private GridPane generateGrid(ArrayList<Label> labels, ArrayList<Node> nodes) {
+    private GridPane generateGrid (ArrayList<Label> labels, ArrayList<Node> nodes) {
         grid.getChildren().clear();
         int y = 0;
         for (Label lbl : labels) {
+            grid.setHalignment(lbl, HPos.LEFT);
+            grid.setValignment(lbl, VPos.TOP);
             grid.add(lbl, 0, y);
             grid.add(nodes.get(y), 1, y);
             y++;
@@ -114,23 +137,16 @@ public class ReflectorGrid {
         return grid;
     }
 
-    private void setValueChangerFunction(Field field, Node tempfield) {
+    private void setValueChangerFunction (Field field, TextField tempfield) {
         tempfield.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
             @Override
-            public void handle(KeyEvent event) {
+            public void handle (KeyEvent event) {
                 if (event.getCode().toString().equals("ENTER")) {
-                    try{
-                    try {
-                        field.setAccessible(true);
-                        setObjectToField(field, (TextField) tempfield);
-                    } catch (Exception e) {
-                        field.setAccessible(true);
-                        setObjectToField(field, (ComboBox) tempfield);
-                    }
-                    }catch (Exception e){
-                        
-                    }
+
+                    field.setAccessible(true);
+                    setObjectToField(field, tempfield);
+
                     field.setAccessible(false);
                 }
             }
@@ -138,67 +154,97 @@ public class ReflectorGrid {
         });
 
     }
-    
-    private void setObjectToField(Field field, TextField tempfield) {
-                String text = tempfield.getText();
+
+    private void setValueChangerFunction (Field field, ComboBox tempfield) {
+        tempfield.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed (ObservableValue ov, String t, String t1) {
+                field.setAccessible(true);
                 try {
-                    switch (field.getType().getName()) {
-                        case "int":
-                            field.set(gridObject, Integer.parseInt(text));
-                            break;
-                        case "String":
-                            field.set(gridObject, text);
-                            break;
-                        case "float":
-                            field.set(gridObject, Float.parseFloat(text));
-                            break;
-                        case "boolean":
-                            field.set(gridObject, Boolean.parseBoolean(text));
-                            break;
-                        case "double":
-                            field.set(gridObject, Double.parseDouble(text));
-                            break;
-                        default:
-                            System.out.println("no case for " + field.getType().getName());
-                    }
-                    field.setAccessible(false);
-                } catch (Exception iae) {
-                    try {
-                        System.out.println(iae.getMessage());
-                        tempfield.setText(String.valueOf(field.get(gridObject)));
-                        field.setAccessible(false);
-                    } catch (Exception e) {
-
-                    }
-
+                    setObjectToField(field, tempfield);
+                } catch (IllegalArgumentException ex) {
+                    Logger.getLogger(ReflectorGrid.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(ReflectorGrid.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                field.setAccessible(false);
             }
-    
-    private void setObjectToOption(Field field, String option) throws IllegalArgumentException, IllegalAccessException {
+        });
+
+    }
+
+    private void setValueChangerFunction (Field field, TextArea tempfield) {
+        tempfield.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed (ObservableValue<? extends String> observableValue, String s, String s2) {
+                field.setAccessible(true);
+                try {
+                    setObjectToField(field, tempfield);
+
+                } catch (IllegalArgumentException ex) {
+                    Logger.getLogger(ReflectorGrid.class
+                            .getName()).log(Level.SEVERE, null, ex);
+
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(ReflectorGrid.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+
+                field.setAccessible(false);
+            }
+        });
+    }
+
+    private void setObjectToField (Field field, TextField tempfield) {
+        String text = tempfield.getText();
+        try {
+            switch (field.getType().getName()) {
+                case "int":
+                    field.set(gridObject, Integer.parseInt(text));
+                    break;
+                case "java.lang.String":
+                    field.set(gridObject, text);
+                    break;
+                case "float":
+                    field.set(gridObject, Float.parseFloat(text));
+                    break;
+                case "boolean":
+                    field.set(gridObject, Boolean.parseBoolean(text));
+                    break;
+                case "double":
+                    field.set(gridObject, Double.parseDouble(text));
+                    break;
+                default:
+                    System.out.println("no case for " + field.getType().getName());
+            }
+            System.out.println("field has " + field.get(gridObject));
+            field.setAccessible(false);
+        } catch (Exception iae) {
+            try {
+                System.out.println(iae.getMessage());
+                tempfield.setText(String.valueOf(field.get(gridObject)));
+                field.setAccessible(false);
+            } catch (Exception e) {
+
+            }
+
+        }
+    }
+
+    private void setObjectToOption (Field field, String option) throws IllegalArgumentException, IllegalAccessException {
         field.set(gridObject, option);
         System.out.println("field has " + field.get(gridObject));
     }
-    
-    private void setObjectToField(Field field, ComboBox combo) throws IllegalArgumentException, IllegalAccessException {
-                String text = combo.getSelectionModel().getSelectedItem().toString();
-                setObjectToOption(field, text);
-            }
 
-    private void setTextFieldSize(Annotation anot, TextArea fieldNode) {
-        switch(((Transfergrid) anot).size()){
-            case "small":
-                fieldNode.setPrefHeight(1);
-                return;
-            case "medium":
-                fieldNode.setPrefHeight(50);
-                fieldNode.setWrapText(true);
-                return;
-            case "large":
-                fieldNode.setPrefHeight(100);
-                fieldNode.setWrapText(true);
-                return;
-            default:
-                return;
-        }
+    private void setObjectToField (Field field, ComboBox combo) throws IllegalArgumentException, IllegalAccessException {
+        String text = combo.getSelectionModel().getSelectedItem().toString();
+        setObjectToOption(field, text);
+        System.out.println("field has " + field.get(gridObject));
     }
+
+    private void setObjectToField (Field field, TextArea area) throws IllegalArgumentException, IllegalAccessException {
+        field.set(gridObject, area.getText());
+        System.out.println("field has " + field.get(gridObject));
+    }
+
 }

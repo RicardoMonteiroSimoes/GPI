@@ -10,7 +10,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.util.List;
 
 /**
  *
@@ -21,10 +20,14 @@ import java.util.List;
 @Target(ElementType.FIELD)
 public @interface Transfergrid {
 
-      public boolean editable() default true;
-      
-      public String[] options() default {};
-      
-      public String size() default "small";
-        
+    public enum Fieldtype{
+        TEXTFIELD, TEXTAREA
+    }
+
+    public boolean editable () default true;
+
+    public String[] options () default {};
+    
+    public Fieldtype fieldtype () default Fieldtype.TEXTFIELD;
+
 }

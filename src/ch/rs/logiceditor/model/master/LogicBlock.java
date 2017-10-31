@@ -12,6 +12,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Vector;
 import ch.rs.reflectorgrid.Transfergrid;
+import ch.rs.reflectorgrid.Transfergrid.Fieldtype;
 
 /**
  *
@@ -28,7 +29,7 @@ public abstract class LogicBlock implements Observer{
     private String blockDescription;
     
     @Expose
-    @Transfergrid(size = "large")
+    @Transfergrid(fieldtype = Fieldtype.TEXTAREA)
     private String blockNotes;
     
     @Expose
