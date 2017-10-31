@@ -16,7 +16,6 @@ import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.master.LogicPanel;
 import ch.rs.logiceditor.model.util.ClassData;
-import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.ClassDataSerializer;
 import ch.rs.logiceditor.view.master.guiHolder;
 import ch.rs.reflectorgrid.ReflectorGrid;
@@ -33,7 +32,7 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javax.management.modelmbean.InvalidTargetObjectTypeException;
+
 
 /**
  *

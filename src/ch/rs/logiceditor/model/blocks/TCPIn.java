@@ -21,18 +21,23 @@ public class TCPIn extends LogicBlock {
     @Expose
     @Transfergrid
     private int port = 0;
+    
     @Expose
     @Transfergrid
     private String turnOnMessage = null;
     @Expose
     @Transfergrid
     private String turnOffMessage = null;
+    
     @Transfergrid(editable = false)
     private boolean isRunning = false;
+    
     @Transfergrid
     private float floatport = 0.0f;
+    
     @Transfergrid
     private double floatdouble = 0.0;
+    
     @Transfergrid
     private boolean boooool = true;
     
