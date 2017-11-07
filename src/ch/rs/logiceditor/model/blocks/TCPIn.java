@@ -10,7 +10,7 @@ import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.util.CreationHelper;
 import ch.rs.logiceditor.model.util.network.ServerSocketReceive;
 import com.google.gson.annotations.Expose;
-import ch.rs.reflectorgrid.Transfergrid;
+import ch.rs.reflectorgrid.TransferGrid;
 
 /**
  *
@@ -19,29 +19,29 @@ import ch.rs.reflectorgrid.Transfergrid;
 public class TCPIn extends LogicBlock {
 
     @Expose
-    @Transfergrid
+    @TransferGrid
     private int port = 0;
     
     @Expose
-    @Transfergrid
+    @TransferGrid
     private String turnOnMessage = null;
     @Expose
-    @Transfergrid
+    @TransferGrid
     private String turnOffMessage = null;
     
-    @Transfergrid(editable = false)
+    @TransferGrid(editable = false)
     private boolean isRunning = false;
     
-    @Transfergrid
+    @TransferGrid
     private float floatport = 0.0f;
     
-    @Transfergrid
+    @TransferGrid
     private double floatdouble = 0.0;
     
-    @Transfergrid
+    @TransferGrid
     private boolean boooool = true;
     
-    @Transfergrid(options = {"full", "half", "none"})
+    @TransferGrid(options = {"full", "half", "none"})
     private String runtimeMode = "full";
     
     

@@ -84,7 +84,8 @@ public class Main extends Application{
         //holder.startLogicHolder();
         //System.out.println(gson.toJson(holder));
         holder.startLogicHolder();
-        grid = rgrid.turnObjectIntoGrid(tcpIn);
+        rgrid.setNodeWidthLimit(100);
+        grid = rgrid.transfromIntoGrid(tcpIn);
     }
 
     public static void loadFile() throws FileNotFoundException {

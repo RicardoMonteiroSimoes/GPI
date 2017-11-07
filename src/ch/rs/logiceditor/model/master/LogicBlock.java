@@ -11,8 +11,8 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Vector;
-import ch.rs.reflectorgrid.Transfergrid;
-import ch.rs.reflectorgrid.Transfergrid.Fieldtype;
+import ch.rs.reflectorgrid.TransferGrid;
+import ch.rs.reflectorgrid.TransferGrid.Fieldtype;
 
 /**
  *
@@ -21,22 +21,22 @@ import ch.rs.reflectorgrid.Transfergrid.Fieldtype;
 public abstract class LogicBlock implements Observer{
 
     @Expose
-    @Transfergrid
+    @TransferGrid
     private String blockName;
 
     @Expose
-    @Transfergrid
+    @TransferGrid
     private String blockDescription;
     
     @Expose
-    @Transfergrid(fieldtype = Fieldtype.TEXTAREA)
+    @TransferGrid(fieldtype = Fieldtype.TEXT_AREA)
     private String blockNotes;
     
     @Expose
-    @Transfergrid(editable = false)
+    @TransferGrid(editable = false)
     private String uniqueID;
     @Expose
-    @Transfergrid(editable = false)
+    @TransferGrid(editable = false)
     private BlockType blockType;
     @Expose
     private LinkedList<ConnectionPoint> inputs = new LinkedList();

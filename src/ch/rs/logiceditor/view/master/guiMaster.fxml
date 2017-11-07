@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.rs.logiceditor.view.master.guiController">
    <children>
       <SplitPane dividerPositions="0.18864774624373956, 0.8096828046744574" layoutX="357.0" layoutY="207.0" prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
         <items>
@@ -28,7 +31,18 @@
                     <tabs>
                       <Tab text="Untitled Tab 1">
                            <content>
-                              <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <Group>
+                                       <children>
+                                          <Group>
+                                             <children>
+                                                <Rectangle fill="#ff89211b" height="4000.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4000.0" />
+                                             </children>
+                                          </Group>
+                                       </children>
+                                    </Group>
+                                 </content></ScrollPane>
                            </content>
                         </Tab>
                     </tabs>
@@ -37,65 +51,12 @@
             </AnchorPane>
             <AnchorPane prefHeight="774.0" prefWidth="412.0">
                <children>
-                  <ScrollPane prefHeight="774.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <content>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="Block Name" wrapText="true" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="Description" wrapText="true" GridPane.rowIndex="1" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="Notes" wrapText="true" GridPane.rowIndex="2" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="# Inputs" wrapText="true" GridPane.rowIndex="3" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse1" wrapText="true" GridPane.rowIndex="4" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse2" wrapText="true" GridPane.rowIndex="5" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse3" wrapText="true" GridPane.rowIndex="6" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse4" wrapText="true" GridPane.rowIndex="7" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse5" wrapText="true" GridPane.rowIndex="8" />
-                              <Label alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="108.0" text="FreeToUse6" wrapText="true" GridPane.rowIndex="9" />
-                              <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                           </children>
-                        </GridPane>
-                     </content>
-                  </ScrollPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="226.0" text="Details of selected block">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fx:id="detailPane" prefHeight="774.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
                </children>
             </AnchorPane>
         </items>

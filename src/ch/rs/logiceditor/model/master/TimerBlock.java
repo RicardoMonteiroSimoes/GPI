@@ -7,7 +7,7 @@ package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
 import ch.rs.logiceditor.model.util.CreationHelper;
-import ch.rs.reflectorgrid.Transfergrid;
+import ch.rs.reflectorgrid.TransferGrid;
 import com.google.gson.annotations.Expose;
 import java.util.LinkedList;
 import java.util.concurrent.Executors;
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public abstract class TimerBlock extends LogicBlock {
 
     @Expose
-    @Transfergrid
+    @TransferGrid
     private double delayTime = 1.0;
     private ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
 
