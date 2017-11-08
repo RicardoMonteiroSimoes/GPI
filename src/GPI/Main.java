@@ -7,12 +7,12 @@ package GPI;
 
 import ch.rs.logiceditor.model.blocks.AND;
 import ch.rs.logiceditor.model.blocks.CreateServerPacket;
+import ch.rs.logiceditor.model.blocks.OR;
 import ch.rs.logiceditor.model.blocks.OffDelay;
 import ch.rs.logiceditor.model.blocks.TCPIn;
 import ch.rs.logiceditor.model.blocks.TCPOut;
 import ch.rs.logiceditor.model.controller.LogicBlockAdapter;
 import ch.rs.logiceditor.model.controller.LogicHolder;
-import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.master.LogicPanel;
 import ch.rs.logiceditor.model.util.ClassData;
@@ -22,34 +22,33 @@ import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.Reader;
-import java.lang.reflect.Field;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import javafx.application.Application;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 
 /**
  *
  * @author Ricardo
  */
-public class Main extends Application{
+public class Main extends Application {
 
     static LogicHolder holder = new LogicHolder();
     static GridPane grid = new GridPane();
     static ReflectorGrid rgrid = new ReflectorGrid();
 //    static Variable var = new Variable("Zeitkonstante", true);
+    static ArrayList<Class> classes = new ArrayList<>();
+
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
-    //    loadFile();
+    public static void main(String[] args) throws FileNotFoundException, MalformedURLException {
+        //    loadFile();
         createFile();
         launch(args);
 
@@ -82,7 +81,7 @@ public class Main extends Application{
         gsonBuilder.registerTypeAdapter(LogicBlock.class, new LogicBlockAdapter());
         Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         //holder.startLogicHolder();
-        //System.out.println(gson.toJson(holder));
+        System.out.println(gson.toJson(holder));
         holder.startLogicHolder();
         rgrid.setNodeWidthLimit(100);
         grid = rgrid.transfromIntoGrid(tcpIn);
@@ -100,15 +99,22 @@ public class Main extends Application{
 
         BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Ricardo\\Documents\\GitHub\\SC_PGI\\src\\GPI\\savefile.json"));
         holder = gson.fromJson(reader, LogicHolder.class);
-        
+
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-  //      holder.startLogicHolder();
+        //      holder.startLogicHolder();
+        AND and = new AND();
+        OR or = new OR();
+        LinkedList<LogicBlock> blocks = new LinkedList<>();
+        blocks.add(and);
+        blocks.add(or);
         guiHolder gui = new guiHolder();
         gui.start(primaryStage);
         gui.setGridPane(grid);
+        gui.initializeBlockList(blocks);
     }
 
 }

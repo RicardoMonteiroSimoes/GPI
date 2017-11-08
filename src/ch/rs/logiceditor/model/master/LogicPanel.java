@@ -11,7 +11,9 @@ import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 import java.util.LinkedList;
+import javafx.geometry.Point2D;
 import javafx.scene.layout.GridPane;
+import javafx.util.Pair;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 /**
@@ -31,6 +33,8 @@ public class LogicPanel implements Runnable {
     private transient HashMap blockMap = new HashMap();
     @Expose
     private LinkedList<Connections> connections = new LinkedList<>();
+    @Expose
+    private LinkedList<Pair<String, Point2D>> positions = new LinkedList<>();
 
     private boolean isInitialized = false;
 

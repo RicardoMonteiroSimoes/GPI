@@ -5,7 +5,9 @@
  */
 package ch.rs.logiceditor.view.master;
 
+import ch.rs.logiceditor.model.master.LogicBlock;
 import java.io.IOException;
+import java.util.LinkedList;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -27,6 +29,7 @@ public class guiHolder extends Application {
     private Scene scene;
     private FXMLLoader loader = new FXMLLoader();
     private guiController controller = new guiController();
+    private LinkedList<GraphicBlock> blocks = new LinkedList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -39,6 +42,13 @@ public class guiHolder extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+    }
+    
+    public void initializeBlockList(LinkedList<LogicBlock> blocks){
+        for(LogicBlock block : blocks){
+            this.blocks.add(new GraphicBlock(block));
+            controller.addBlock(this.blocks.getLast());
+        }
     }
 
     public void initGuiMaster() {

@@ -5,11 +5,18 @@
  */
 package ch.rs.logiceditor.view.master;
 
+import ch.rs.logiceditor.model.master.LogicBlock;
+import ch.rs.logiceditor.view.util.SpecialGuiElements;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -23,11 +30,39 @@ public class guiController {
     private GridPane detailGrid;
     @FXML 
     private Group gridGroup;
+    @FXML
+    private TabPane tabPane;
+    @FXML
+    private Tab extenderTab;
+    @FXML 
+    private ListView listView;
+    @FXML
+    private VBox blockContainer;
+    
 
 
     public void setDetailPaneGrid(GridPane grid){
         detailPane.setContent(grid);
     }
+    
+    public void addAdditionalTab(){
+        Tab newTab = SpecialGuiElements.newLogicTab();
+        tabPane.getTabs().add(tabPane.getTabs().size()-1, newTab);
+        tabPane.getSelectionModel().select(newTab);
+        setRenameFunction(newTab);
+       
+    }
+    
+    private void setRenameFunction(Tab tab){
+        tab.getContextMenu().getItems().get(0).setOnAction(event 
+                -> tab.setText(SpecialGuiElements.stringInputDialog("Rename Tab")));
+    }
+    
+    public void addBlock(GraphicBlock block){
+        blockContainer.getChildren().add(block.getBlockGraphic());
+    }
+    
+
     
 
 }

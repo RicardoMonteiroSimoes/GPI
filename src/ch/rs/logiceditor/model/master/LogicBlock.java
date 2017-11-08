@@ -6,13 +6,13 @@
 package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint.ConnectionType;
+import ch.rs.reflectorgrid.TransferGrid;
+import ch.rs.reflectorgrid.TransferGrid.Fieldtype;
 import com.google.gson.annotations.Expose;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Vector;
-import ch.rs.reflectorgrid.TransferGrid;
-import ch.rs.reflectorgrid.TransferGrid.Fieldtype;
+
 
 /**
  *

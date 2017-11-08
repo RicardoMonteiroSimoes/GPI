@@ -7,6 +7,7 @@ package ch.rs.logiceditor.model.blocks;
 
 import ch.rs.logiceditor.model.master.ConnectionPoint;
 import ch.rs.logiceditor.model.master.LogicBlock;
+import ch.rs.logiceditor.model.util.CreationHelper;
 import java.util.LinkedList;
 
 /**
@@ -17,6 +18,11 @@ public class OR extends LogicBlock {
 
     public OR(LinkedList<ConnectionPoint> inputs, LinkedList<ConnectionPoint> outputs) {
         super("OR", inputs, outputs);
+    }
+
+    public OR() {
+        super("OR", CreationHelper.createConnectionPointList(ConnectionPoint.ConnectionType.INPUT, Boolean.class, 2), 
+                CreationHelper.createConnectionPoint(ConnectionPoint.ConnectionType.OUTPUT, Boolean.class));
     }
 
     @Override

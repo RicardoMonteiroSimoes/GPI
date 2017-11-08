@@ -14,36 +14,21 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ScrollPane layoutX="-10.0" layoutY="130.0" prefHeight="798.0" prefWidth="223.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ListView layoutX="-14.0" layoutY="47.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                    </content>
+                  <ScrollPane layoutX="-10.0" layoutY="130.0" prefHeight="774.0" prefWidth="222.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <VBox fx:id="blockContainer" alignment="TOP_CENTER" prefHeight="757.0" prefWidth="221.0" spacing="25.0" />
+                     </content>
                   </ScrollPane>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TabPane prefHeight="798.0" prefWidth="738.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TabPane fx:id="tabPane" prefHeight="798.0" prefWidth="738.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
-                      <Tab text="Untitled Tab 1">
-                           <content>
-                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                 <content>
-                                    <Group>
-                                       <children>
-                                          <Group>
-                                             <children>
-                                                <Rectangle fill="#ff89211b" height="4000.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="4000.0" />
-                                             </children>
-                                          </Group>
-                                       </children>
-                                    </Group>
-                                 </content></ScrollPane>
-                           </content>
+                        <Tab fx:id="extenderTab" onSelectionChanged="#addAdditionalTab" text="+">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
                         </Tab>
                     </tabs>
                   </TabPane>
