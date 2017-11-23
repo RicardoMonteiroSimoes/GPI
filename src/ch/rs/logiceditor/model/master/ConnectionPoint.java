@@ -5,11 +5,9 @@
  */
 package ch.rs.logiceditor.model.master;
 
-import ch.rs.logiceditor.model.util.ClassData;
 import com.google.gson.annotations.Expose;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Vector;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 /**
@@ -23,7 +21,7 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
     @Expose
     private ConnectionType connectionType;
     @Expose
-    private ClassData classData;
+    private String classData;
 
     private T holdingValue = null;
 
@@ -39,10 +37,10 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
         super();
     }
 
-    public ConnectionPoint(ConnectionType connectionType, ClassData classData) {
+    public ConnectionPoint(ConnectionType connectionType, Class classData) {
         this.connectionType = connectionType;
         pointName = connectionType.name();
-        this.classData = classData;
+        this.classData = classData.getName();
 
     }
 
@@ -50,8 +48,8 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
         return connectionType;
     }
 
-    public String getType() {
-        return classData.getClassType();
+    public String getPointClass() {
+        return classData;
     }
 
     /**
@@ -115,9 +113,9 @@ public final class ConnectionPoint<T> extends Observable implements Observer {
                     + " to a " + pointToObserve.getConnectionType().name());
         } else if (this.connectionType == ConnectionType.OUTPUT && hasConnections()) {
             //throw new InvalidTargetObjectTypeException("You cannot create more than one connection to an Output! " + countObservers());
-        } else if (this.getType() != pointToObserve.getType()) {
-            throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getType()
-                    + " and the other one is " + pointToObserve.getType());
+        } else if (!(this.getPointClass().equals(pointToObserve.getPointClass()))) {
+            throw new InvalidTargetObjectTypeException("These Points are not compatible. One is " + getPointClass()
+                    + " and the other one is " + pointToObserve.getPointClass());
         } else {
             super.addObserver(pointToObserve);
         }

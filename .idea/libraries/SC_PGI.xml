@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SC_PGI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/SC_PGI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

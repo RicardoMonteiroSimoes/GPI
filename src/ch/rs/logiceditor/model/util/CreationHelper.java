@@ -18,7 +18,7 @@ public class CreationHelper {
     
     
     public static ConnectionPoint createConnectionPoint(ConnectionType type, Class t){
-        ConnectionPoint point = new ConnectionPoint(type, getClassData(t));
+        ConnectionPoint point = new ConnectionPoint(type, t);
         return point;
     }
     

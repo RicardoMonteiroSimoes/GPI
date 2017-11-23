@@ -34,7 +34,8 @@ public class SpecialGuiElements {
     private static ContextMenu getTabContextMenu() {
         ContextMenu cMenu = new ContextMenu();
         MenuItem rename = new MenuItem("Rename");
-        cMenu.getItems().add(rename);
+        MenuItem delete = new MenuItem("Delete");
+        cMenu.getItems().addAll(rename, delete);
         return cMenu;
     }
 

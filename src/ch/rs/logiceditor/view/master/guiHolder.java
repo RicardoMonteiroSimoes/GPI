@@ -8,6 +8,7 @@ package ch.rs.logiceditor.view.master;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -44,10 +45,14 @@ public class guiHolder extends Application {
 
     }
     
-    public void initializeBlockList(LinkedList<LogicBlock> blocks){
-        for(LogicBlock block : blocks){
-            this.blocks.add(new GraphicBlock(block));
+    public void initializeBlockList(List<Class<? extends LogicBlock>> blocks){
+        for(Class<? extends LogicBlock> block : blocks){
+            try{
+            this.blocks.add(new GraphicBlock(block.newInstance()));
             controller.addBlock(this.blocks.getLast());
+            } catch (Exception e){
+                System.err.println("GUI " + e.getMessage());
+            }
         }
     }
 

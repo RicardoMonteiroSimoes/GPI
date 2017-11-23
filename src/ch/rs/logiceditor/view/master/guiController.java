@@ -28,41 +28,38 @@ public class guiController {
     private ScrollPane detailPane;
     @FXML
     private GridPane detailGrid;
-    @FXML 
+    @FXML
     private Group gridGroup;
     @FXML
     private TabPane tabPane;
     @FXML
     private Tab extenderTab;
-    @FXML 
+    @FXML
     private ListView listView;
     @FXML
     private VBox blockContainer;
-    
 
-
-    public void setDetailPaneGrid(GridPane grid){
+    public void setDetailPaneGrid(GridPane grid) {
         detailPane.setContent(grid);
     }
-    
-    public void addAdditionalTab(){
+
+    public void addAdditionalTab() {
         Tab newTab = SpecialGuiElements.newLogicTab();
-        tabPane.getTabs().add(tabPane.getTabs().size()-1, newTab);
+        tabPane.getTabs().add(tabPane.getTabs().size() - 1, newTab);
         tabPane.getSelectionModel().select(newTab);
-        setRenameFunction(newTab);
-       
+        setTabFunctions(newTab);
+
     }
-    
-    private void setRenameFunction(Tab tab){
-        tab.getContextMenu().getItems().get(0).setOnAction(event 
+
+    private void setTabFunctions(Tab tab) {
+        tab.getContextMenu().getItems().get(0).setOnAction(event
                 -> tab.setText(SpecialGuiElements.stringInputDialog("Rename Tab")));
+        tab.getContextMenu().getItems().get(1).setOnAction(event
+                -> tabPane.getTabs().remove(tab));
     }
-    
-    public void addBlock(GraphicBlock block){
+
+    public void addBlock(GraphicBlock block) {
         blockContainer.getChildren().add(block.getBlockGraphic());
     }
-    
-
-    
 
 }
