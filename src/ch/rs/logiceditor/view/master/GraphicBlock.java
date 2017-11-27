@@ -27,7 +27,7 @@ public class GraphicBlock {
     private final double CONNECTION_POINT_RADIUS = 4.0;
     private final double DISTANCE_PER_LETTER = 4;
     private Rectangle baseRect = new Rectangle();
-    private guiController controller;
+    private guiVariableDeclarations controller;
     private Group blockGraphic;
 
     public GraphicBlock(LogicBlock block) {

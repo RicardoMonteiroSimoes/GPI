@@ -5,19 +5,18 @@
  */
 package ch.rs.logiceditor.view.master;
 
+import ch.rs.logiceditor.model.controller.LogicHolder;
 import ch.rs.logiceditor.model.master.LogicBlock;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 /**
  *
@@ -29,8 +28,14 @@ public class guiHolder extends Application {
     private AnchorPane masterPane = new AnchorPane();
     private Scene scene;
     private FXMLLoader loader = new FXMLLoader();
-    private guiController controller = new guiController();
+    private guiController controller;
     private LinkedList<GraphicBlock> blocks = new LinkedList<>();
+    private LogicHolder logicHolder;
+
+    public guiHolder(LogicHolder logicHolder){
+        this.logicHolder = logicHolder;
+        controller = new guiController(logicHolder);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -62,9 +67,12 @@ public class guiHolder extends Application {
             loader.setLocation(guiHolder.class.getResource("guiMaster.fxml"));
             masterPane = (AnchorPane) loader.load();
             controller = loader.getController();
+
             scene = new Scene(masterPane);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error at initGuiMaster: " + e.getMessage());
+            System.out.println(e.getLocalizedMessage());
+
         }
     }
 

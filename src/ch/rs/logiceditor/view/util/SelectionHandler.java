@@ -5,9 +5,7 @@
  */
 package ch.rs.logiceditor.view.util;
 
-import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.view.master.GraphicBlock;
-import ch.rs.logiceditor.view.master.guiController;
 import ch.rs.reflectorgrid.ReflectorGrid;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;

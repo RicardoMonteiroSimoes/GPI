@@ -58,7 +58,7 @@
                   <MenuItem mnemonicParsing="false" text="New..." />
                   <MenuItem mnemonicParsing="false" text="Open Project..." />
                   <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Save as..." />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAs" text="Save as..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>

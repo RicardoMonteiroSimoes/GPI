@@ -40,19 +40,23 @@ public class Main extends Application {
     static ReflectorGrid rgrid = new ReflectorGrid();
 //    static Variable var = new Variable("Zeitkonstante", true);
     static List<Class<? extends LogicBlock>> classes = new LinkedList<>();
+    static guiHolder gui;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args){
         //    loadFile();
+
+
         BlockLoader loader = new BlockLoader();
         try{
             classes = loader.getBlocks();
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
-        
+
+
         createFile();
         launch(args);
         
@@ -115,7 +119,8 @@ public class Main extends Application {
         //      holder.startLogicHolder();
 //        OR or = new OR();
         LinkedList<LogicBlock> blocks = new LinkedList<>();
-        guiHolder gui = new guiHolder();
+        LogicHolder logicHolder = new LogicHolder();
+        gui = new guiHolder(logicHolder);
         gui.start(primaryStage);
         gui.setGridPane(grid);
         gui.initializeBlockList(classes);
