@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b76b66-8dd0-4791-bbb8-b10421ff66d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/blockVariablesAdapter.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GPI/Main.java" afterPath="$PROJECT_DIR$/src/GPI/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SelectionHandler.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SelectionHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,15 +28,39 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
+            <state relative-caret-position="544">
+              <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guiVariableDeclarations.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java">
+      <file leaf-file-name="LogicHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="36" column="73" lean-forward="true" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+              <folding>
+                <element signature="e#780#789#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationProperties.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiVariableDeclarations.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="646">
               <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
@@ -42,18 +69,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guiHolder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java">
+      <file leaf-file-name="GuiHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guiMaster.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml">
+      <file leaf-file-name="GuiMaster.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
@@ -61,14 +88,14 @@
             <state relative-caret-position="0">
               <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
               <folding>
-                <marker date="1511810239589" expanded="true" signature="3648:3818" ph="..." />
+                <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blockVariablesAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/blockVariablesAdapter.java">
+      <file leaf-file-name="BlockVariablesAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -77,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java">
+      <file leaf-file-name="GuiController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="272">
               <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -111,11 +138,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GPI/Main.java" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java" />
+        <option value="$PROJECT_DIR$/src/GPI/Main.java" />
+        <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" />
+        <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" />
       </list>
     </option>
   </component>
@@ -140,6 +169,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,7 +244,24 @@
               <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="rs" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rs" type="462c0819:PsiDirectoryNode" />
               <item name="reflectorgrid" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rs" type="462c0819:PsiDirectoryNode" />
+              <item name="reflectorgrid" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
@@ -225,10 +273,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,6 +420,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -395,9 +442,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -410,42 +457,52 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
+        <state relative-caret-position="544">
+          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="50" />
+        <state relative-caret-position="1615">
+          <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding>
-            <marker date="1511810239589" expanded="true" signature="3648:3818" ph="..." />
+            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/blockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -453,7 +510,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding>
+            <element signature="e#780#789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding>
+            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding>
+            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
@@ -473,15 +654,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/blockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -489,7 +662,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
@@ -497,12 +670,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding>
-            <marker date="1511810239589" expanded="true" signature="3648:3818" ph="..." />
+            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
@@ -510,9 +683,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java">
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -522,11 +695,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="73" lean-forward="true" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+          <folding>
+            <element signature="e#780#789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

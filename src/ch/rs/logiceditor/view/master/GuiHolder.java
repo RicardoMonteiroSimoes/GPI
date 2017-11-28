@@ -22,19 +22,19 @@ import javafx.stage.Stage;
  *
  * @author Ricardo
  */
-public class guiHolder extends Application {
+public class GuiHolder extends Application {
 
     private Stage primaryStage;
     private AnchorPane masterPane = new AnchorPane();
     private Scene scene;
     private FXMLLoader loader = new FXMLLoader();
-    private guiController controller;
+    private GuiController controller;
     private LinkedList<GraphicBlock> blocks = new LinkedList<>();
     private LogicHolder logicHolder;
 
-    public guiHolder(LogicHolder logicHolder){
+    public GuiHolder(LogicHolder logicHolder){
         this.logicHolder = logicHolder;
-        controller = new guiController(logicHolder);
+        controller = new GuiController(logicHolder);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class guiHolder extends Application {
     public void initGuiMaster() {
         try {
             // Load root layout from fxml file.
-            loader.setLocation(guiHolder.class.getResource("guiMaster.fxml"));
+            loader.setLocation(GuiHolder.class.getResource("GuiMaster.fxml"));
             masterPane = (AnchorPane) loader.load();
             controller = loader.getController();
 

@@ -13,7 +13,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author Ricardo
  */
-public class blockVariablesAdapter {
+public class BlockVariablesAdapter {
     
     public static GridPane getVariablesGrid(LogicBlock block, GridPane grid){
         Field[] fields = block.getClass().getDeclaredFields();

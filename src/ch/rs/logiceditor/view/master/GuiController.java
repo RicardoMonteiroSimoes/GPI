@@ -7,15 +7,15 @@ import javafx.scene.layout.GridPane;
 
 
 
-public class guiController extends guiVariableDeclarations {
+public class GuiController extends GuiVariableDeclarations {
 
     private LogicHolder logicHolder;
 
-    public guiController(){
+    public GuiController(){
 
     }
 
-    public guiController(LogicHolder logicHolder){
+    public GuiController(LogicHolder logicHolder){
         this.logicHolder = logicHolder;
     }
 

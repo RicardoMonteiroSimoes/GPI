@@ -6,13 +6,10 @@
 package ch.rs.logiceditor.model.master;
 
 import ch.rs.logiceditor.model.util.Tools;
-import ch.rs.logiceditor.view.master.blockVariablesAdapter;
-import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 import java.util.LinkedList;
 import javafx.geometry.Point2D;
-import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 

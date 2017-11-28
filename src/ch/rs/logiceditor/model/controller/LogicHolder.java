@@ -7,6 +7,7 @@ package ch.rs.logiceditor.model.controller;
 
 import ch.rs.logiceditor.model.master.LogicBlock;
 import ch.rs.logiceditor.model.master.LogicPanel;
+import ch.rs.logiceditor.view.util.ApplicationProperties;
 import com.google.gson.annotations.Expose;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,6 +23,23 @@ public class LogicHolder {
     private LinkedList<Integer> totalIds = new LinkedList<Integer>();
     @Expose
     private LinkedList<LogicPanel> panels = new LinkedList<>();
+
+    private ApplicationProperties appProps = new ApplicationProperties();
+
+    public LogicHolder(){
+        switch(appProps.getProperties()){
+            case(0):
+                return;
+            case(1):
+                System.out.println("Failed to load properties");
+                break;
+            case(2):
+                System.out.println("New start, please fill in app data");
+                break;
+            default:
+                System.out.println("Got something unexpected @ LogicHolder Constructor");
+        }
+    }
 
     
     /**
@@ -81,6 +99,10 @@ public class LogicHolder {
             block.setUniqueID(String.valueOf(uniqueId));
             panel.addBlock(block);
         }
+    }
+
+    public void loadSaveFile(){
+
     }
 
 }

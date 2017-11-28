@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Ricardo
  */
-public class guiVariableDeclarations {
+public class GuiVariableDeclarations {
 
     @FXML
     protected ScrollPane detailPane;
