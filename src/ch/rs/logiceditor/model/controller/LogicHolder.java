@@ -11,6 +11,7 @@ import ch.rs.logiceditor.view.util.ApplicationProperties;
 import com.google.gson.annotations.Expose;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
+import ch.rs.logiceditor.view.util.ApplicationErrorEnum;
 
 /**
  * This class represents the main Structure of the whole Logic Stuff.
@@ -28,7 +29,7 @@ public class LogicHolder {
 
     public LogicHolder(){
         switch(appProps.getProperties()){
-            case(0):
+            case():
                 return;
             case(1):
                 System.out.println("Failed to load properties");

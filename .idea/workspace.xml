@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b76b66-8dd0-4791-bbb8-b10421ff66d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/blockVariablesAdapter.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiController.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/guiVariableDeclarations.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GPI/Main.java" afterPath="$PROJECT_DIR$/src/GPI/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationErrorEnum.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,23 +32,31 @@
       <file leaf-file-name="LogicHolder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="36" column="73" lean-forward="true" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+            <state relative-caret-position="442">
+              <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
               <folding>
-                <element signature="e#780#789#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationProperties.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+      <file leaf-file-name="savefile.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GPI/savefile.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="697">
+              <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,7 +172,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,66 +205,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="rs" type="462c0819:PsiDirectoryNode" />
               <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="reflectorgrid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="reflectorgrid" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
@@ -273,8 +217,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -420,7 +363,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -443,6 +385,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -455,6 +398,81 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding>
+            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -526,9 +544,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
-          <folding>
-            <element signature="e#780#789#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -713,21 +729,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="73" lean-forward="true" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
-          <folding>
-            <element signature="e#780#789#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="816">
+          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GPI/savefile.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

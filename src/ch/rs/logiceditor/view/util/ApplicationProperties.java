@@ -19,20 +19,20 @@ public class ApplicationProperties {
     private Path pathToBlocks;
     private String username;
 
-    public int getProperties() {
+    public ApplicationErrorEnum getProperties() {
         pathToProperties = Paths.get(System.getProperty("user.home") + APP_FOLDER_NAME + PROP_FILE_NAME + PROP_FILE_ENDING);
         propertiesFile = new File(pathToProperties.toUri());
         if (propertiesFile.exists() && !propertiesFile.isDirectory()) {
             if (loadProperties()) {
-                return 0;
+                return ApplicationErrorEnum.OK;
             } else {
-                return 1;
+                return ApplicationErrorEnum.WRONG_DATA;
             }
         } else {
             if (createAppDirectory() && createPropertiesFile()) {
-                return 0;
+                return ApplicationErrorEnum.NEW_FILE;
             } else {
-                return 2;
+                return ApplicationErrorEnum.ERROR;
             }
         }
     }
