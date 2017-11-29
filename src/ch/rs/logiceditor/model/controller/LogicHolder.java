@@ -29,13 +29,19 @@ public class LogicHolder {
 
     public LogicHolder(){
         switch(appProps.getProperties()){
-            case():
-                return;
-            case(1):
-                System.out.println("Failed to load properties");
+            case OK:
                 break;
-            case(2):
-                System.out.println("New start, please fill in app data");
+            case NO_FILE:
+                System.out.println("TCouldn't find the file, you need to recreate it");
+                break;
+            case NEW_FILE:
+                System.out.println("A new file has been created, please fill it up");
+                break;
+            case WRONG_DATA:
+                System.out.println("The File contains wrong data or unreadable data. recreate a new file");
+                break;
+            case ERROR:
+                System.out.println("Disastrour Error, delete the file and restart the application.");
                 break;
             default:
                 System.out.println("Got something unexpected @ LogicHolder Constructor");

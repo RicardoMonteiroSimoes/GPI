@@ -10,6 +10,8 @@ import ch.rs.logiceditor.model.master.LogicBlock;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import ch.rs.logiceditor.view.master.loader.LoadingScreenController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -35,10 +37,12 @@ public class GuiHolder extends Application {
     public GuiHolder(LogicHolder logicHolder){
         this.logicHolder = logicHolder;
         controller = new GuiController(logicHolder);
+
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        LoadingScreenController lsc = new LoadingScreenController(primaryStage);
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Logic Editor");
         initGuiMaster();
