@@ -2,12 +2,135 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b76b66-8dd0-4791-bbb8-b10421ff66d6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" afterPath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_FancyJavaStuff_TransferGrid_v1_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/SC_PGI.iml" afterPath="$PROJECT_DIR$/SC_PGI.iml" />
+      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/GPI/savefile.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pictures/loadingScreen.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GPI/Main.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GPI/savefile.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/BlockLoader.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicBlockAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/ConnectionPoint.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/Connections.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/FilterBlock.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicBlock.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/TimerBlock.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/ClassData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/ClassDataSerializer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/CreationHelper.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/SaveFileHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/Tools.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/PacketReceivedCallable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerPacket.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerSend.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerSocketReceive.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationErrorEnum.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SelectionHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SpecialGuiElements.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/ReflectionHelper.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/ReflectorGrid.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/TransferGrid.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/typeconversion/TypeConverterCollection.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/DefaultFieldNamingStrategy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/FieldNamingStrategy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/LabelDisplayOrder.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/NumberSpinnerValueFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/TypeHelper.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/DefaultDateTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/ExclusionStrategy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldAttributes.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldNamingPolicy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldNamingStrategy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/Gson.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/GsonBuilder.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/InstanceCreator.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonArray.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonDeserializationContext.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonDeserializer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonElement.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonIOException.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonNull.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonObject.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonParseException.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonParser.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonPrimitive.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSerializationContext.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSerializer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonStreamParser.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSyntaxException.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/LongSerializationPolicy.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/TypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/TypeAdapterFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Expose.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/JsonAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/SerializedName.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Since.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Until.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/package-info.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/$Gson$Preconditions.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/$Gson$Types.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/ConstructorConstructor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Excluder.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/JsonReaderInternalAccess.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LazilyParsedNumber.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LinkedHashTreeMap.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LinkedTreeMap.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/ObjectConstructor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Primitives.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Streams.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/UnsafeAllocator.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ArrayTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/CollectionTypeAdapterFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/DateTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonTreeReader.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonTreeWriter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/MapTypeAdapterFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ObjectTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/SqlDateTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TimeTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TreeTypeAdapter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TypeAdapters.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/util/ISO8601Utils.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/package-info.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/package-info.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/reflect/TypeToken.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/reflect/package-info.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonReader.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonScope.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonToken.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonWriter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/MalformedJsonException.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,61 +140,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GuiHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="44" column="80" lean-forward="false" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GuiMaster.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+            <state relative-caret-position="-386">
+              <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
               <folding>
-                <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
+                <element signature="e#0#2923#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1474#1475#0" expanded="true" />
+                <element signature="e#1502#1503#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockVariablesAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+      <file leaf-file-name="ApplicationInitialization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GuiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+            <state relative-caret-position="525">
+              <caret line="35" column="89" lean-forward="false" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="89" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#989#990#0" expanded="true" />
+                <element signature="e#1040#1041#0" expanded="true" />
+                <element signature="e#1496#1497#0" expanded="true" />
+                <element signature="e#1557#1558#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadingScreenController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java">
+      <file leaf-file-name="BlocksLoader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+            <state relative-caret-position="454">
+              <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="64" column="67" lean-forward="true" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1519#1520#0" expanded="true" />
+                <element signature="e#1573#1574#0" expanded="true" />
+                <element signature="e#1637#1638#0" expanded="true" />
+                <element signature="e#1696#1697#0" expanded="true" />
+                <element signature="e#1750#1751#0" expanded="true" />
+                <element signature="e#1786#1787#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogCollection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3194#3195#0" expanded="true" />
+                <element signature="e#3248#3249#0" expanded="true" />
+                <element signature="e#3303#3304#0" expanded="true" />
+                <element signature="e#3358#3359#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="savefile.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GPI/savefile.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingScreenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#661#662#0" expanded="true" />
+                <element signature="e#714#715#0" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#874#875#0" expanded="true" />
+                <element signature="e#907#908#0" expanded="true" />
+                <element signature="e#947#948#0" expanded="true" />
+                <element signature="e#987#988#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +267,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&quot;</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,14 +293,62 @@
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" />
         <option value="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/loader/GuiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/master/LogicPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/MainLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ViewInitialization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/ViewInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/GPI/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="SC_PGI" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="SC_PGI" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="SC_PGI" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="55" />
     <option name="y" value="-16" />
     <option name="width" value="2187" />
     <option name="height" value="1447" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -129,84 +365,193 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC_PGI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC_PGI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
               <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="logiceditor" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GPI" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ricardo\Documents\GitHub\GPI\src\main\resources\fxml" />
+      <recent name="C:\Users\Ricardo\Documents\GitHub\GPI\src\main\java\ch\rs\logiceditor\view\master\controller" />
+      <recent name="C:\Users\Ricardo\Documents\GitHub\GPI\src\main\java\ch\rs\logiceditor\view\master\controller\fxml" />
+      <recent name="C:\Users\Ricardo\Documents\GitHub\GPI\src\main\resources" />
+      <recent name="C:\Users\Ricardo\Documents\GitHub\GPI\src\main\java\ch\rs\logiceditor\view\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -221,6 +566,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -239,12 +590,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="SC_PGI" />
       <envs />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -280,11 +625,10 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+    <configuration name="SC_PGI-1.0-SNAPSHOT.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/SC_PGI-1.0-SNAPSHOT.jar" />
+      <envs />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -320,9 +664,20 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JAR Application.SC_PGI-1.0-SNAPSHOT.jar" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="JAR Application.SC_PGI-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -343,23 +698,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="3391" height="1456" extended-state="6" />
+    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32873377" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32688013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3262987" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16059259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18055555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -372,65 +728,57 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/LogicHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding>
-            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -438,76 +786,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/util/ApplicationProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
           <folding>
+            <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="646">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding>
-            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -515,58 +858,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/LogicHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
           <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding>
-            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -574,64 +916,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
           <caret line="123" column="8" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#0#2923#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-          <folding>
-            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
@@ -639,116 +984,255 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#2923#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/savefile.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/LogicHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/util/ApplicationProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/rs/reflectorgrid/Transfergrid.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/master/LogicPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPI/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="56" column="60" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="44" column="80" lean-forward="false" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/GuiMaster.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/LoadingScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1511894695831" expanded="true" signature="3648:3818" ph="..." />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/application/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+        <state relative-caret-position="265">
+          <caret line="304" column="25" lean-forward="false" selection-start-line="304" selection-start-column="25" selection-end-line="304" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/savefile.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ViewInitialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="63" column="108" lean-forward="false" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="108" />
+          <folding>
+            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/BlockLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+        <state relative-caret-position="614">
+          <caret line="92" column="20" lean-forward="true" selection-start-line="37" selection-start-column="11" selection-end-line="92" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386">
+          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#2923#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="64" column="67" lean-forward="true" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+            <element signature="e#1696#1697#0" expanded="true" />
+            <element signature="e#1750#1751#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="89" lean-forward="false" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1496#1497#0" expanded="true" />
+            <element signature="e#1557#1558#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3194#3195#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3303#3304#0" expanded="true" />
+            <element signature="e#3358#3359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -768,5 +1252,9 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="package" />
   </component>
 </project>
