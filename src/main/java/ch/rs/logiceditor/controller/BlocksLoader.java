@@ -17,9 +17,8 @@ import java.util.zip.ZipInputStream;
 public class BlocksLoader {
 
 
-    public List<Class<? extends LogicBlock>> loadBlocks(String path, LoadingScreenInterface loadingScreen) throws Exception {
+    public List<Class<? extends LogicBlock>> loadBlocks(String path) throws IOException {
         List<Class<? extends LogicBlock>> list = new LinkedList<>();
-        loadingScreen.setLoadingText("Looking for Blocks...");
         Path directory = Paths.get(path);
 
         Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
@@ -30,7 +29,6 @@ public class BlocksLoader {
                 }
                 String className = directory.relativize(file).toString();
                 String name = className.substring(0, className.length() - ".jar".length());
-                loadingScreen.setLoadingText("Found " + className + "...");
 
                 ZipInputStream zip = new ZipInputStream(new FileInputStream(path + "\\" + className));
                 for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
@@ -70,4 +68,6 @@ public class BlocksLoader {
         });
         return list;
     }
+
+
 }

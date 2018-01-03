@@ -37,7 +37,7 @@ public interface LoadingScreenInterface {
      * @param propertieName The name of the property itself.
      * @return returns the userinput as a String, which gets inserted into the property automaticly.
      */
-    public String insertPropertieDialog(String title, String message, String propertieName);
+    public String createDialog(String title, String message, String propertieName);
 
     /**Loading Screen section end**/
 

@@ -18,7 +18,6 @@ public class PropertiesLoader {
 
     public void startLoading(LoadingScreenInterface loadingScreen) throws IOException{
         System.out.println("initializing loading screen");
-        loadingScreen.initLoadingScreen();
 
         propertiesPath = getPropertiesPath() + "\\" + appName + "\\" + propertiesFolder;
 
@@ -38,7 +37,7 @@ public class PropertiesLoader {
                 loadingScreen.setLoadingText("checking " + s + "...");
                 if(props.getProperty(s).equals("")){
                     props.setProperty(s,
-                            loadingScreen.insertPropertieDialog("Missing Propertie",
+                            loadingScreen.createDialog("Missing Propertie",
                                     "Please insert the missing propertie for " + s, s));
                 }
 

@@ -36,8 +36,6 @@ public class LoadingScreen implements LoadingScreenInterface {
     }
 
     public void initLoadingScreen(){
-
-
         loadingStage.setScene(loadingScene);
         loadingStage.initStyle(StageStyle.UNDECORATED);
         loadingStage.show();
@@ -45,6 +43,7 @@ public class LoadingScreen implements LoadingScreenInterface {
 
     @Override
     public void setLoadingText(String text) {
+        System.out.println(text);
         loadingController.setLoadingText(text);
     }
 
@@ -59,12 +58,15 @@ public class LoadingScreen implements LoadingScreenInterface {
     }
 
     @Override
-    public String insertPropertieDialog(String title, String message, String propertieName) {
+    public String createDialog(String title, String message, String propertieName) {
         switch(propertieName){
             case "pathToBlocks":
                 return DialogCollection.getPathDialog(title, message);
             case "username":
                 return DialogCollection.stringInputDialog(title, message);
+            case "ERROR":
+                DialogCollection.errorDialog(title, message);
+                return null;
             default:
                 System.out.println("Error, no case for " + propertieName);
         }

@@ -2,132 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4b76b66-8dd0-4791-bbb8-b10421ff66d6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_FancyJavaStuff_TransferGrid_v1_6_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/SC_PGI.iml" afterPath="$PROJECT_DIR$/SC_PGI.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/GPI/savefile.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/guiMaster.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC_PGI/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pictures/loadingScreen.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/GPI/Main.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/GPI/savefile.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/BlockLoader.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicBlockAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/controller/LogicHolder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/ConnectionPoint.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/Connections.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/FilterBlock.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicBlock.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/LogicPanel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/master/TimerBlock.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/ClassData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/ClassDataSerializer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/CreationHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/SaveFileHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/Tools.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/PacketReceivedCallable.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerPacket.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerSend.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/model/util/network/ServerSocketReceive.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/BlockVariablesAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GraphicBlock.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiHolder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiMaster.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/GuiVariableDeclarations.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreen.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationErrorEnum.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/ApplicationProperties.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SelectionHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/logiceditor/view/util/SpecialGuiElements.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/ReflectionHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/ReflectorGrid.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/TransferGrid.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/typeconversion/TypeConverterCollection.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/DefaultFieldNamingStrategy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/FieldNamingStrategy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/LabelDisplayOrder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/NumberSpinnerValueFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ch/rs/reflectorgrid/util/TypeHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/DefaultDateTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/ExclusionStrategy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldAttributes.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldNamingPolicy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/FieldNamingStrategy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/Gson.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/GsonBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/InstanceCreator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonArray.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonDeserializationContext.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonDeserializer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonIOException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonNull.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonObject.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonParseException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonParser.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonPrimitive.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSerializationContext.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSerializer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonStreamParser.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/JsonSyntaxException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/LongSerializationPolicy.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/TypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/TypeAdapterFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Expose.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/JsonAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/SerializedName.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Since.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/Until.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/annotations/package-info.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/$Gson$Preconditions.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/$Gson$Types.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/ConstructorConstructor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Excluder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/JsonReaderInternalAccess.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LazilyParsedNumber.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LinkedHashTreeMap.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/LinkedTreeMap.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/ObjectConstructor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Primitives.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/Streams.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/UnsafeAllocator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ArrayTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/CollectionTypeAdapterFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/DateTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonTreeReader.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/JsonTreeWriter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/MapTypeAdapterFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ObjectTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/SqlDateTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TimeTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TreeTypeAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/TypeAdapters.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/bind/util/ISO8601Utils.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/internal/package-info.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/package-info.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/reflect/TypeToken.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/reflect/package-info.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonReader.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonScope.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonToken.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/JsonWriter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/com/google/gson/stream/MalformedJsonException.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" afterPath="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -143,7 +24,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-386">
+            <state relative-caret-position="25">
               <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
               <folding>
                 <element signature="e#0#2923#0" expanded="true" />
@@ -158,24 +39,22 @@
       <file leaf-file-name="ApplicationInitialization.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="89" lean-forward="false" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="89" />
+            <state relative-caret-position="464">
+              <caret line="43" column="94" lean-forward="false" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
-                <element signature="e#1040#1041#0" expanded="true" />
-                <element signature="e#1496#1497#0" expanded="true" />
-                <element signature="e#1557#1558#0" expanded="true" />
+                <element signature="e#2428#2429#0" expanded="true" />
+                <element signature="e#2489#2490#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlocksLoader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlocksLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+            <state relative-caret-position="200">
+              <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,19 +62,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoadingScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="64" column="67" lean-forward="true" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+              <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1573#1574#0" expanded="true" />
-                <element signature="e#1637#1638#0" expanded="true" />
-                <element signature="e#1696#1697#0" expanded="true" />
-                <element signature="e#1750#1751#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
+                <element signature="e#1669#1670#0" expanded="true" />
+                <element signature="e#1728#1729#0" expanded="true" />
+                <element signature="e#1782#1783#0" expanded="true" />
+                <element signature="e#1818#1819#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,8 +81,8 @@
       <file leaf-file-name="DialogCollection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+            <state relative-caret-position="941">
+              <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,14 +93,14 @@
       <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+            <state relative-caret-position="75">
+              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3194#3195#0" expanded="true" />
-                <element signature="e#3248#3249#0" expanded="true" />
-                <element signature="e#3303#3304#0" expanded="true" />
-                <element signature="e#3358#3359#0" expanded="true" />
+                <element signature="e#3142#3143#0" expanded="true" />
+                <element signature="e#3196#3197#0" expanded="true" />
+                <element signature="e#3251#3252#0" expanded="true" />
+                <element signature="e#3306#3307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -232,8 +109,8 @@
       <file leaf-file-name="savefile.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GPI/savefile.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="1175">
+              <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="48" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -242,8 +119,8 @@
       <file leaf-file-name="LoadingScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#661#662#0" expanded="true" />
@@ -298,18 +175,18 @@
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/loader/LoadingScreenController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/master/LogicPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/GuiVariableDeclarations.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/MainLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ViewInitialization.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/ViewInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/src/main/java/GPI/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java" />
       </list>
     </option>
   </component>
@@ -365,6 +242,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -532,9 +411,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -715,7 +592,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18055555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -728,6 +604,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -744,9 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,9 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,10 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,6 +677,8 @@
           <folding>
             <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,9 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,10 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -873,9 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,6 +743,8 @@
           <folding>
             <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,10 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,9 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -944,6 +795,8 @@
           <folding>
             <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,9 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="36" column="50" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="50" />
-          <folding>
-            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -980,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -988,10 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1002,6 +847,8 @@
           <folding>
             <element signature="e#0#2923#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1010,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1036,9 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding>
-            <element signature="e#1177#1178#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,7 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,10 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1087,15 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="304" column="25" lean-forward="false" selection-start-line="304" selection-start-column="25" selection-end-line="304" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/savefile.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,32 +930,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ViewInitialization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ViewInitialization.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/GuiHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="63" column="108" lean-forward="false" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/BlockLoader.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GPI/savefile.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1175">
+          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="48" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="46" />
           <folding>
-            <element signature="method#initializeBlockList#0;class#GuiHolder#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/controller/LoadingScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="28" column="46" lean-forward="false" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#661#662#0" expanded="true" />
@@ -1143,17 +985,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/model/controller/BlockLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="92" column="20" lean-forward="true" selection-start-line="37" selection-start-column="11" selection-end-line="92" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GPI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-386">
+        <state relative-caret-position="25">
           <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
           <folding>
             <element signature="e#0#2923#0" expanded="true" />
@@ -1164,74 +998,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="64" column="67" lean-forward="true" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
+        <state relative-caret-position="75">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-            <element signature="e#1696#1697#0" expanded="true" />
-            <element signature="e#1750#1751#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#3142#3143#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3251#3252#0" expanded="true" />
+            <element signature="e#3306#3307#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/interfaces/LoadingScreenInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/master/ApplicationInitialization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="89" lean-forward="false" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="89" />
+        <state relative-caret-position="464">
+          <caret line="43" column="94" lean-forward="false" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1496#1497#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3194#3195#0" expanded="true" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3303#3304#0" expanded="true" />
-            <element signature="e#3358#3359#0" expanded="true" />
+            <element signature="e#2428#2429#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/utilities/DialogCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+        <state relative-caret-position="941">
+          <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/controller/BlocksLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/rs/logiceditor/view/master/LoadingScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+        <state relative-caret-position="400">
+          <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1669#1670#0" expanded="true" />
+            <element signature="e#1728#1729#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -48,4 +48,12 @@ public class DialogCollection {
             return null;
         }
     }
+
+    public static void errorDialog(String title, String message){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
