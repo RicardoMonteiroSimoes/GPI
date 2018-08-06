@@ -14,6 +14,7 @@ import ch.rs.logiceditor.model.master.LogicPanel;
 import ch.rs.logiceditor.model.util.ClassData;
 import ch.rs.logiceditor.model.util.ClassDataSerializer;
 import ch.rs.logiceditor.view.master.GuiHolder;
+import ch.rs.logiceditor.view.master.loader.LoadingApplication;
 import ch.rs.logiceditor.view.util.ApplicationProperties;
 import ch.rs.reflectorgrid.ReflectorGrid;
 import com.google.gson.Gson;
@@ -40,6 +41,7 @@ public class Main extends Application {
 //    static Variable var = new Variable("Zeitkonstante", true);
     static List<Class<? extends LogicBlock>> classes = new LinkedList<>();
     static GuiHolder gui;
+    static LoadingApplication loading;
 
     /**
      * @param args the command line arguments
@@ -47,19 +49,6 @@ public class Main extends Application {
     public static void main(String[] args){
         //    loadFile();
 
-
-        BlockLoader loader = new BlockLoader();
-        try{
-            classes = loader.getBlocks();
-        } catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-        System.out.println(System.getProperty("user.home"));
-        ApplicationProperties prop = new ApplicationProperties();
-        prop.getProperties();
-
-
-        createFile();
         launch(args);
         
 
@@ -101,14 +90,43 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        try {
+            loading = new LoadingApplication(10);
+            loading.start(new Stage());
+        } catch ( Exception e){
+            System.out.println("Error right here at the start man " + e.getMessage());
+            System.exit(-1);
+        }
+
+
+        BlockLoader loader = new BlockLoader();
+        try{
+            loading.setLoadingText("Loading block jars");
+            classes = loader.getBlocks();
+            loading.incrementProgress();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+        loading.setLoadingText("Checking for properties....");
+        System.out.println(System.getProperty("user.home"));
+        ApplicationProperties prop = new ApplicationProperties();
+        prop.getProperties();
+
+        loading.incrementProgress();
+
+        loading.setLoadingText("Creating SaveFile...");
+        createFile();
+        loading.incrementProgress();
+        loading.setLoadingText("Launching...");
         //      holder.startLogicHolder();
 //        OR or = new OR();
         LinkedList<LogicBlock> blocks = new LinkedList<>();
         LogicHolder logicHolder = new LogicHolder();
-        gui = new GuiHolder(logicHolder);
-        gui.start(primaryStage);
-        gui.setGridPane(grid);
-        gui.initializeBlockList(classes);
+        loading.setLoadingText("Finished! Cleanup...");
+        //gui = new GuiHolder(logicHolder);
+        //gui.start(primaryStage);
+        //gui.setGridPane(grid);
+        //gui.initializeBlockList(classes);
     }
 
 }

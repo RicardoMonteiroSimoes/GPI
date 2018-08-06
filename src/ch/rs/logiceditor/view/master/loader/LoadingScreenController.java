@@ -13,40 +13,34 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoadingScreenController {
-
-    @FXML
-    private Text loadingText = new Text("Loading...");
-    @FXML
-    private ProgressBar progressBar = new ProgressBar();
-
-    private boolean succesfull = true;
-    private FXMLLoader loader = new FXMLLoader();
+public class LoadingScreenController extends LoadingScreenVariables{
 
 
-    public LoadingScreenController(Stage primaryStage){
 
 
-        loader.setLocation(GuiHolder.class.getResource("LoadingScreen.fxml"));
-        try {
-            Parent masterPane = (AnchorPane) loader.load();
-            primaryStage.setScene(new Scene(masterPane));
-            primaryStage.show();
-        } catch (IOException e){}
-        //set succesfull to false if something doesnt work the right way
-
-
-    }
+    private boolean finished = false;
 
     public void setLoadingText(String loadingText){
+        if(this.loadingText == null){
+            System.out.println("text is null");
+            return;
+        }
         this.loadingText.setText(loadingText);
     }
 
     public void advanceProgressBar(double value){
+        if(progressBar == null){
+            System.out.println("bar is null");
+            return;
+        }
         progressBar.setProgress(progressBar.getProgress()+value);
+        if (progressBar.getProgress() == 1.0) {
+            finished = true;
+        }
     }
 
-    public boolean wasSuccesfull(){
-        return succesfull;
+    public boolean isFinished(){
+        return finished;
     }
+
 }

@@ -10,6 +10,7 @@ import ch.rs.logiceditor.model.master.LogicBlock;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import ch.rs.logiceditor.view.master.loader.LoadingScreenController;
 import javafx.application.Application;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -28,6 +30,7 @@ public class GuiHolder extends Application {
 
     private Stage primaryStage;
     private AnchorPane masterPane = new AnchorPane();
+    private AnchorPane loadingPane = new AnchorPane();
     private Scene scene;
     private FXMLLoader loader = new FXMLLoader();
     private GuiController controller;
@@ -42,15 +45,10 @@ public class GuiHolder extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LoadingScreenController lsc = new LoadingScreenController(primaryStage);
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Logic Editor");
-        initGuiMaster();
-        
-        primaryStage.setOnCloseRequest(event -> System.exit(0));
 
-        primaryStage.setScene(scene);
+
         primaryStage.show();
+
 
     }
     
