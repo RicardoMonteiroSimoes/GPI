@@ -1,0 +1,12 @@
+GPI
+ch.rs.logiceditor.controller
+ch.rs.logiceditor.controller.interfaces
+ch.rs.logiceditor.controller.master
+ch.rs.logiceditor.model.controller
+ch.rs.logiceditor.model.master
+ch.rs.logiceditor.model.util
+ch.rs.logiceditor.model.util.network
+ch.rs.logiceditor.view.master
+ch.rs.logiceditor.view.master.controller
+ch.rs.logiceditor.view.master.utilities
+ch.rs.logiceditor.view.util
